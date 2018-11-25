@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<overrides>
+	<doNotShareMenu />
+	<!-- All elements here -->
+
+	<!-- Default Widgets -->
+    <!-- Movies -->
+    <widgetdefaultnode labelID="20342" label="20386" path="videodb://recentlyaddedmovies/" target="videos">Movies</widgetdefaultnode>
+    <propertydefault labelID="20342" property="widgetLayout">Landscape</propertydefault>
+
+    <!-- TvShows -->
+    <widgetdefaultnode labelID="tvshows" label="20387" path="videodb://tvshows/titles" target="videos">TV Shows</widgetdefaultnode>
+    <propertydefault labelID="tvshows" property="widgetLayout">Poster</propertydefault>
+    	
+    <!-- Music -->
+    <widgetdefaultnode labelID="music" label="132" path="library://music/albums.xml/" target="music">Albums</widgetdefaultnode>
+    <propertydefault labelID="music" property="widgetLayout">Square</propertydefault>
+	
+	<!-- Background -->
+	<backgroundBrowse default="special://skin/extras/wallpaper/">True</backgroundBrowse>
+
+	<!-- Widget Layout -->
+	<propertySettings property="widgetLayout" buttonID="411" title="Widget Layout" showNone="False"/>
+	<propertyfallback property="widgetLayout" label="Landscape">Landscape</propertyfallback>
+	<property property="widgetLayout" label="Landscape" condition="!String.IsEqual(Container(211).ListItem.Property(widgetType),addons)">Landscape</property>
+	<property property="widgetLayout" label="Poster" condition="String.IsEqual(Container(211).ListItem.Property(widgetType),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType),episodes)">Poster</property>
+	<property property="widgetLayout" label="Square">Square</property>
+
+	<!-- Widget Art
+	<propertySettings property="widgetArt" buttonID="412" title="Widget Art" showNone="False"/>
+	<propertyfallback property="widgetArt" label="Thumb">thumb</propertyfallback>	
+	<property property="widgetArt" label="Fanart">fanart</property>
+	<property property="widgetArt" label="Thumb">thumb</property> -->
+
+</overrides>
