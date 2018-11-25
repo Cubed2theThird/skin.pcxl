@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- visualisation -->
+	<defaultcontrol>-</defaultcontrol>
+    <onload condition="Window.Previous(9980)">close</onload>
+    <onload condition="!Window.Previous(9980)">activateWindow(9980)</onload>
+	<onload condition="String.IsEmpty(Skin.String(MusicToggle))">Skin.SetString(MusicToggle, 1)</onload>
+	<onload condition="String.IsEmpty(Skin.String(MusicBackgroundToggle))">Skin.SetString(MusicBackgroundToggle, FM)</onload>
+	<controls>
+
+	</controls>
+</window>

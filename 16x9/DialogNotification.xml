@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- notification -->
+	<controls>
+		<control type="group">
+			<centerleft>50%</centerleft>
+			<bottom>0</bottom>
+			<width>100%</width>
+			<height>150</height>
+			<include>DialogToastAnimation</include>
+			<animation effect="fade" start="100" end="0" time="0" condition="Window.IsActive(fullscreenvideo)">Conditional</animation>
+			<!-- Background image -->
+			<control type="image">
+				<width>100%</width>
+				<height>150</height>
+				<texture colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texture>
+			</control>
+			<!-- Heading -->
+			<control type="label" id="401">
+				<left>20</left>
+				<top>35</top>
+				<width>90%</width>
+				<height>40</height>
+				<scroll>true</scroll>
+				<font>Light33Upper</font>
+				<textcolor>$VAR[TextColor]</textcolor>
+			</control>
+			<!-- Details -->
+			<control type="label" id="402">
+				<left>20</left>
+				<top>77</top>
+				<width>90%</width>
+				<height>37</height>
+				<scroll>true</scroll>
+				<font>Light27</font>
+				<textcolor>$VAR[TextColor]</textcolor>
+			</control>
+			<!-- Default image -->
+			<control type="image" id="400">
+				<right>20</right>
+				<top>0</top>
+				<width>150</width>
+				<height>150</height>
+			</control>
+		</control>
+	</controls>
+</window>

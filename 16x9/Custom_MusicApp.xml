@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="1108">
+	<backgroundcolor>$VAR[BackgroundColor]</backgroundcolor>
+	<defaultcontrol always="false">111</defaultcontrol>
+	<onload>Skin.SetString(snapwindow, 1108)</onload>
+	<onload>Skin.SetString(snapico, home/snap/music.jpg,0)</onload>
+	<onload>Skin.SetString(snapname,My Music)</onload>
+	<onload>UpdateLibrary(music)</onload>
+	<controls>
+		<include>WindowBackgroundImage</include>
+
+		<control type="group">
+			<animation type="Conditional" condition="Control.HasFocus(222)">
+				<effect type="slide" center="auto" start="0" end="0,-500" time="200"/>
+			</animation>
+			<animation type="Conditional" condition="Control.HasFocus(333)">
+				<effect type="slide" center="auto" start="0" end="0,-1000" time="200"/>
+			</animation>
+			<control type="image">
+				<include>BottomZoomAnimation</include>
+				<left>-500</left>
+				<top>700</top>
+				<width>200%</width>
+				<height>500%</height>
+				<texture colordiffuse="$VAR[Black]">views/white_100.png</texture>
+			</control>
+
+			<!--> Header <!-->
+			<control type="group">
+				<include>TopZoomAnimation</include>
+				<control type="image">
+					<left>-500</left>
+					<top>-500</top>
+					<width>200%</width>
+					<height>650</height>
+					<texture colordiffuse="$VAR[Black]">color_white.png</texture>
+					<aspectratio>scale</aspectratio>
+				</control>
+				<control type="label">
+					<top>40</top>
+					<left>50</left>
+					<width>1000</width>	
+					<height>40</height>
+					<label>My Music</label>
+					<aligny>left</aligny>
+					<font>Header</font>
+					<textcolor>$VAR[White]</textcolor>						
+				</control>
+			</control>
+
+			<!--> Albums <!-->
+			<control type="group">
+				<top>200</top>
+				<left>60</left>
+				<include>ContentShowcaseAnimation</include>
+				<control type="label">
+					<width>1000</width>	
+					<height>40</height>
+					<label>My Albums</label>
+					<aligny>left</aligny>
+					<font>SubHeader</font>
+					<textcolor>$VAR[FocusedColor2]</textcolor>
+				</control>
+
+				<control type="fixedlist" id="111">
+					<top>50</top>
+					<left>-10</left>
+					<width>97%</width>
+					<height>650</height>
+					<onup>noop</onup>
+					<ondown>222</ondown>
+					<focusposition>-1</focusposition>
+					<movement>2</movement>
+					<orientation>horizontal</orientation>
+					<viewtype label="31521">list</viewtype>
+					<scrolltime tween="cubic" easing="out">360</scrolltime>				
+					<itemlayout height="400" width="360">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+							<control type="image">
+								<width>340</width>
+								<height>340</height>
+								<aspectratio>scale</aspectratio>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>340</width>
+								<height>340</height>
+								<aspectratio>scale</aspectratio>
+								<texture background="false">$INFO[ListItem.Icon]</texture>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="420" width="360">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+							<control type="image">
+								<width>340</width>
+								<height>340</height>
+								<aspectratio>scale</aspectratio>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>340</width>
+								<height>410</height>
+								<aspectratio>scale</aspectratio>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+								<visible>Control.HasFocus(111)</visible>
+							</control>
+							<control type="image">
+								<width>340</width>
+								<height>340</height>
+								<aspectratio>scale</aspectratio>
+								<texture background="true">$INFO[ListItem.Icon]</texture>
+							</control>			
+							<control type="image">
+								<include>SelectionAnimation2</include>
+								<top>-35</top>
+								<left>-30</left>
+								<width>400</width>
+								<height>480</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
+								<visible>Control.HasFocus(111)</visible>
+							</control>
+							<control type="group">
+								<visible>Control.HasFocus(111)</visible>
+								<include>SelectionAnimation</include>
+								<control type="label">
+									<left>10</left>
+									<bottom>20</bottom>
+									<width>320</width>	
+									<height>40</height>
+									<label>$INFO[ListItem.Label]</label>
+									<align>left</align>
+									<font>Tile</font>
+									<textcolor>$VAR[FocusedColor2]</textcolor>
+								</control>
+								<control type="label">
+									<left>10</left>
+									<bottom>-5</bottom>
+									<width>340</width>	
+									<height>40</height>
+									<label>$INFO[ListItem.artist]</label>
+									<align>left</align>
+									<font>Tile</font>
+									<textcolor>$VAR[UnFocusedColor2]</textcolor>
+								</control>
+							</control>
+						</control>
+					</focusedlayout>
+					<content>
+						<item>
+							<label>Party Mode</label>
+							<onclick>PlayerControl(Partymode(music))</onclick>
+							<icon>DefaultAddonVisualization.png</icon>
+						</item>
+					</content>
+					<content target="music" sortby="album" sortorder="ascending">musicdb://albums</content>
+				</control>
+			</control>
+
+			<!--> Artist <!-->
+			<control type="group">
+				<top>800</top>
+				<left>60</left>
+				<include>ContentShowcaseAnimation</include>
+				<control type="label">
+					<width>1000</width>	
+					<height>40</height>
+					<label>Artist</label>
+					<aligny>left</aligny>
+					<font>SubHeader</font>
+					<textcolor>$VAR[White]</textcolor>
+				</control>
+
+				<control type="list" id="222">
+					<top>50</top>
+					<left>-10</left>
+					<width>100%</width>
+					<height>650</height>
+					<onup>111</onup>
+					<ondown>333</ondown>
+					<focusposition>-1</focusposition>
+					<movement>2</movement>
+					<orientation>horizontal</orientation>
+					<viewtype label="31521">list</viewtype>
+					<scrolltime tween="cubic" easing="out">360</scrolltime>				
+					<itemlayout height="400" width="360">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+							<control type="image">
+								<width>340</width>
+								<height>340</height>
+								<aspectratio>scale</aspectratio>
+								<texture colordiffuse="$VAR[White]" background="false">DefaultArtist.png</texture>
+							</control>
+							<control type="image">
+								<width>340</width>
+								<height>340</height>
+								<aspectratio>scale</aspectratio>
+								<texture fallback="views/white_0.png" background="false">$INFO[ListItem.Art(thumb)]</texture>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="400" width="360">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+							<control type="image">
+								<width>340</width>
+								<height>390</height>
+								<aspectratio>scale</aspectratio>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+								<visible>Control.HasFocus(222)</visible>
+								<include>SelectionAnimation2</include>
+							</control>
+							<control type="image">
+								<width>340</width>
+								<height>340</height>
+								<aspectratio>scale</aspectratio>
+								<texture colordiffuse="$VAR[White]" background="false">DefaultArtist.png</texture>
+							</control>	
+							<control type="image">
+								<width>340</width>
+								<height>340</height>
+								<aspectratio>scale</aspectratio>
+								<texture fallback="views/white_0.png" background="false">$INFO[ListItem.Art(thumb)]</texture>
+							</control>	
+							<control type="image">
+								<top>-35</top>
+								<left>-35</left>
+								<width>410</width>
+								<height>460</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo2.png</texture>
+								<visible>Control.HasFocus(222)</visible>
+							</control>
+							<control type="group">
+								<include>SelectionAnimation</include>
+								<control type="label">
+									<left>10</left>
+									<bottom>0</bottom>
+									<width>320</width>	
+									<height>40</height>
+									<label>$INFO[ListItem.Label]</label>
+									<align>left</align>
+									<font>Tile</font>
+									<textcolor>$VAR[FocusedColor2]</textcolor>
+								</control>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="music" sortby="artist" sortorder="ascending">musicdb://artists</content>
+				</control>
+			</control>
+			
+			<!--> Addons <!-->
+			<control type="group">
+				<top>1400</top>
+				<left>60</left>
+				<include>ContentShowcaseAnimation</include>
+				<control type="label">
+					<width>1000</width>	
+					<height>40</height>
+					<label>My Library</label>
+					<aligny>left</aligny>
+					<font>SubHeader</font>
+					<textcolor>$VAR[White]</textcolor>
+				</control>
+
+				<control type="list" id="333">
+					<top>50</top>
+					<left>-10</left>
+					<width>100%</width>
+					<height>650</height>
+					<onup>222</onup>
+					<ondown>noop</ondown>
+					<focusposition>-1</focusposition>
+					<movement>2</movement>
+					<orientation>horizontal</orientation>
+					<viewtype label="31521">list</viewtype>
+					<scrolltime tween="cubic" easing="out">360</scrolltime>				
+					<itemlayout height="400" width="360">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+							<control type="image">
+								<width>340</width>
+								<height>340</height>
+								<aspectratio>scale</aspectratio>
+								<texture colordiffuse="$VAR[White]" background="false">$INFO[ListItem.Icon]</texture>
+							</control>
+							<control type="image">
+								<width>340</width>
+								<height>340</height>
+								<aspectratio>scale</aspectratio>
+								<texture colordiffuse="$VAR[White]" background="false">$INFO[ListItem.Icon]</texture>
+								<visible>![Control.HasFocus(333) + Skin.HasSetting(darkmode)]</visible>
+							</control>
+							<control type="image">
+								<width>340</width>
+								<height>340</height>
+								<aspectratio>scale</aspectratio>
+								<texture background="false">$INFO[ListItem.Icon]</texture>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="400" width="360">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+							<control type="image">
+								<width>340</width>
+								<height>390</height>
+								<aspectratio>scale</aspectratio>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+								<visible>Control.HasFocus(333)</visible>
+								<include>SelectionAnimation2</include>
+							</control>
+							<control type="image">
+								<width>340</width>
+								<height>340</height>
+								<aspectratio>scale</aspectratio>
+								<texture colordiffuse="$VAR[White]" background="false">$INFO[ListItem.Icon]</texture>
+								<visible>![Control.HasFocus(333) + Skin.HasSetting(darkmode)]</visible>
+							</control>
+							<control type="image">
+								<width>340</width>
+								<height>340</height>
+								<aspectratio>scale</aspectratio>
+								<texture colordiffuse="$VAR[Black]" background="false">$INFO[ListItem.Icon]</texture>
+								<visible>[Control.HasFocus(333) + Skin.HasSetting(darkmode)] + Container(333).HasFocus(99)</visible>
+							</control>
+							<control type="image">
+								<width>340</width>
+								<height>340</height>
+								<aspectratio>scale</aspectratio>
+								<texture background="false">$INFO[ListItem.Icon]</texture>
+								<visible>!Container(333).HasFocus(99)</visible>
+							</control>
+							<control type="image">
+								<top>-35</top>
+								<left>-35</left>
+								<width>410</width>
+								<height>460</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo2.png</texture>
+								<visible>Control.HasFocus(333)</visible>
+							</control>
+							<control type="group">
+								<include>SelectionAnimation</include>
+								<control type="label">
+									<left>10</left>
+									<bottom>0</bottom>
+									<width>340</width>	
+									<height>40</height>
+									<label>$INFO[ListItem.Label]</label>
+									<align>left</align>
+									<font>Tile</font>
+									<textcolor>$VAR[FocusedColor2]</textcolor>
+								</control>
+							</control>
+						</control>
+					</focusedlayout>
+					<content>
+						<item id="99">						
+							<label fallback="31450">Music</label>
+							<onclick>ActivateWindow(Music,root)</onclick>
+							<thumb>apps/music.png</thumb>
+						</item>
+						<include>MusicApps</include>
+					</content>
+					<!--><content target="music" sortby="title" sortorder="ascending">addons://sources/audio</content><!-->
+				</control>
+			</control>
+
+		</control>
+
+		<include>Logo</include>
+	</controls>
+</window>

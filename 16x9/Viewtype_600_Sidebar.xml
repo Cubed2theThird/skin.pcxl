@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="Viewtype_600_Sidebar">
+		<control type="group">
+			<visible>Control.IsVisible(600)</visible>
+
+			<control type="image">
+				<centerright>25%</centerright>
+				<centertop>50%</centertop>
+				<width>500</width>
+				<height>500</height>
+				<aspectratio>keep</aspectratio>
+				<texture>$INFO[MusicPlayer.Cover]</texture>
+			</control>
+
+			<!-- List -->
+			<control type="fixedlist" id="600">
+				<width>1100</width>
+				<height>60%</height>
+				<centertop>50%</centertop>
+				<left>50</left>
+				<onup>600</onup>
+				<ondown>600</ondown>
+				<onleft>right</onleft>
+				<onright>60</onright>
+				<pagecontrol>60</pagecontrol>
+				<focusposition>1</focusposition>
+				<orientation>vertical</orientation>
+				<viewtype label="535">list</viewtype>
+				<animation type="WindowOpen">
+					<effect type="slide" start="-1000,0" end="0" center="auto" tween="Cubic" easing="out" time="600"/>
+				</animation>
+				<animation type="WindowClose">
+					<effect type="slide" start="0" end="-1000,0" center="auto" tween="Cubic" easing="out" time="600"/>
+				</animation>
+				<itemlayout height="80" width="1100">
+					<control type="label">
+						<left>100</left>
+						<width>1000</width>
+						<height>80</height>
+						<font>Light30</font>
+						<align>left</align>
+						<textcolor>$VAR[White]</textcolor>
+						<label>$VAR[ListLabelNF]</label>
+					</control>
+					<control type="label">
+						<left>20</left>
+						<width>1000</width>
+						<height>80</height>
+						<font>Light30</font>
+						<align>left</align>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+						<label>$INFO[ListItem.TrackNumber]</label>
+					</control>
+					<control type="label">
+						<right>20</right>
+						<width>500</width>
+						<height>80</height>
+						<font>Light30</font>
+						<align>right</align>
+						<textcolor>$VAR[White]</textcolor>
+						<label>$INFO[ListItem.Duration]</label>
+					</control>
+					<control type="image">
+						<right>50</right>
+						<top>45</top>
+						<width>36</width>
+						<height>30</height>
+						<texture colordiffuse="$VAR[White]">views/watched_tick_nf.png</texture>
+						<visible>String.Contains(ListItem.Overlay,OverlayWatched.png)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="80" width="1100">
+					<control type="image">
+						<left>0</left>
+						<width>1100</width>
+						<height>80</height>
+						<texture colordiffuse="10ffffff">color_white.png</texture>
+					</control>
+					<control type="label">
+						<left>20</left>
+						<width>50</width>
+						<height>80</height>
+						<font>Light30</font>
+						<align>left</align>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+						<label>$INFO[ListItem.TrackNumber]</label>
+					</control>
+					<control type="label">
+						<left>100</left>
+						<width>1000</width>
+						<height>80</height>
+						<font>Light30</font>
+						<align>left</align>
+						<scroll>true</scroll>
+						<textcolor>$VAR[White]</textcolor>
+						<label>$VAR[ListLabelNF]</label>
+					</control>
+					<control type="label">
+						<right>20</right>
+						<width>180</width>
+						<height>80</height>
+						<font>Light30</font>
+						<align>right</align>
+						<textcolor>$VAR[White]</textcolor>
+						<label>$INFO[ListItem.Duration]</label>
+					</control>
+					<control type="image">
+						<right>50</right>
+						<top>45</top>
+						<width>36</width>
+						<height>30</height>
+						<texture colordiffuse="$VAR[White]">views/watched_tick_fo.png</texture>
+						<visible>String.Contains(ListItem.Overlay,OverlayWatched.png)</visible>
+					</control>
+					<control type="label">
+						<left>955</left>
+						<width>870</width>
+						<height>70</height>
+						<font>Thin48</font>
+						<textcolor>$VAR[White]</textcolor>
+						<label>  $VAR[InfoList]</label>
+						<visible>!Window.IsVisible(contextmenu) + !SubString(ListItem.Icon,Default) + !Container.Content(episodes) + !Control.HasFocus(3000) + !Container.OnNext + !Container.OnPrevious</visible>
+						<animation effect="fade" start="0" end="100" time="200" delay="800">Visible</animation>
+					</control>
+				</focusedlayout>
+			</control>
+		</control>
+	</include>
+</includes>

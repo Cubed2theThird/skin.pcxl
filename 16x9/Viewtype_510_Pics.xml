@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="Viewtype_510_Pics">
+		<control type="group">
+			<visible>Control.IsVisible(510)</visible>
+
+			<!-- List -->			
+			<control type="group">
+				<animation type="Conditional" condition="Player.HasVideo">
+					<effect type="slide" start="0" end="480,530" time="500" tween="cubic" easing="inout" />
+					<effect type="zoom" start="100" end="50" time="500" tween="cubic" easing="inout" />
+				</animation>
+				<animation type="Conditional" condition="Player.HasAudio">
+					<effect type="slide" start="0" end="193,100" time="500" tween="cubic" easing="inout" />
+					<effect type="zoom" start="100" end="80" time="500" tween="cubic" easing="inout" />
+				</animation>
+				<animation type="Conditional" condition="Control.HasFocus(9050)">
+					<effect type="slide" start="0" end="0,250" time="500" tween="cubic" easing="inout" />
+				</animation>
+
+				<control type="fixedlist" id="510">
+					<left>-840</left>
+					<centertop>50%</centertop>
+					<width>200%</width>
+					<height>1000</height>
+					<bottom>0</bottom>
+					<onup condition="Player.HasVideo">9050</onup>
+					<ondown condition="Player.HasAudio">9051</ondown>
+					<onleft>510</onleft>
+					<onright>510</onright>
+					<pagecontrol>60</pagecontrol>
+					<focusposition>2</focusposition>
+					<movement>-1</movement>
+					<orientation>horizontal</orientation>
+					<viewtype label="535">list</viewtype>
+					<scrolltime tween="Cubic" easing="inout">200</scrolltime>
+					<include>MediaInfoHideAnimation</include>
+					<animation type="WindowClose">
+						<effect type="slide" start="0" end="0,1000" center="auto" tween="Cubic" easing="in" time="500"/>
+					</animation>
+					<itemlayout height="1300" width="1300">
+						<control type="image">
+							<width>1000</width>
+							<height>1000</height>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<aspectratio>keep</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout height="1300" width="1300">
+						<control type="image">
+					<animation type="Focus">
+						<effect type="zoom" start="100" end="110" center="auto" tween="Cubic" easing="in" time="500"/>
+					</animation>
+							<width>1000</width>
+							<height>1000</height>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<aspectratio>keep</aspectratio>
+						</control>
+					</focusedlayout>
+				</control>
+
+				<control type="label">
+					<centerleft>50%</centerleft>
+					<centerbottom>5%</centerbottom>
+					<width>100%</width>
+					<height>70</height>
+					<font>Tile2</font>
+					<align>center</align>
+					<textcolor>$VAR[White]</textcolor>
+					<label>$INFO[Container(510).ListItem(0).label]</label>
+					<animation type="Unfocus">
+						<effect type="fade" start="100" end="0" center="auto" tween="sine"  easing="inout" time="100"/>
+					</animation>
+					<visible>Control.HasFocus(510)</visible>
+				</control>
+
+			</control>
+		</control>
+	</include>
+</includes>

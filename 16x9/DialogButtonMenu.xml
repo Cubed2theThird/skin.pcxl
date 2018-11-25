@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- shutdownmenu -->
+	<defaultcontrol always="true">6000</defaultcontrol>
+	<include>DialogZoomAnimation</include>
+    <onload>Dialog.Close(contextmenu)</onload>
+    <onload>Dialog.Close(all,true)</onload>
+	<onload>ActivateWindow(PlayerControls)</onload>
+    <!--  
+	<onload>ActivateWindow(PlayerControls)</onload><onload>Skin.SetFile(test)</onload>
+  <onload>Skin.SetImage(backgroundimage,special://skin/extras/wallpapers/)</onload>-->
+
+	<controls>
+
+		<!-- Background
+		<include>DialogBackgroundImage
+    </include> 
+    <onload>ActivateWindow(numericinput)virtualkeyboard</onload>PlayerControls-->
+
+		<control type="image">
+			<include>FullscreenDimensions</include>
+			<texture colordiffuse="50000000">color_white.png</texture>
+		</control>
+
+		<!-- List -->
+		<control type="panel" id="6000">
+			<left>35%</left>
+			<top>120</top>
+			<width>500</width>
+			<height>100%</height>
+			<onup>6000</onup>
+			<ondown>6000</ondown>
+			<onleft>Close</onleft>
+			<onright>Close</onright>
+			<itemgap>40</itemgap>
+			<scrolltime>200</scrolltime>
+			<orientation>vertical</orientation>
+			<pagecontrol>2</pagecontrol>
+			<focusposition>-1</focusposition>
+			<viewtype>list</viewtype>
+			<defaultcontrol>1</defaultcontrol>
+			<itemlayout height="100" width="500">
+				<control type="image">
+					<width>500</width>
+					<height>100</height>
+					<texture colordiffuse="ff424242">color_white.png</texture>
+				</control>
+				<control type="label">
+					<description>Title label</description>
+					<left>50</left>
+					<bottom>0</bottom>
+					<height>100</height>
+					<width>1200</width>		
+					<label>$INFO[ListItem.Label]</label>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>Reg30</font>
+					<textcolor>$VAR[TextColor]</textcolor>
+					<scroll>true</scroll>
+				</control>
+			</itemlayout>			
+			<focusedlayout height="100" width="500">
+				<control type="group">
+					<animation type="Focus">
+						<effect type="zoom" center="250,50" start="100" end="110" time="500" tween="cubic" easing="inout" />
+					</animation>
+					<control type="image">
+						<width>500</width>
+						<height>100</height>
+						<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+					</control>
+					<control type="label">
+						<description>Title label</description>
+						<left>50</left>
+						<bottom>0</bottom>
+						<height>100</height>
+						<width>1200</width>		
+						<label>$INFO[ListItem.Label]</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>Reg30</font>
+						<textcolor>$VAR[TextColor]</textcolor>
+						<scroll>true</scroll>
+					</control>	
+					<control type="image">
+						<width>500</width>
+						<height>100</height>
+						<texture colordiffuse="$VAR[TextColor]" border="11,43,43,11">$VAR[BorderImage]</texture>
+					</control>
+				</control>
+			</focusedlayout>
+			<content>
+				<item id="1">
+					<label>13012</label>
+					<onclick>XBMC.Quit()</onclick>	
+					<visible>System.ShowExitButton</visible>
+				</item>
+				<item id="2">
+					<label>13016</label>
+					<onclick>XBMC.Powerdown()</onclick>
+					<visible>System.CanPowerDown</visible>
+				</item>
+				<item id="3">
+					<label>13011</label>
+					<onclick>XBMC.Suspend()</onclick>
+					<visible>System.CanSuspend</visible>	
+				</item>
+				<item id="4">
+					<label>13010</label>
+					<onclick>XBMC.Hibernate()</onclick>
+					<visible>System.CanHibernate</visible>
+				</item>
+				<item id="5">
+					<label>13013</label>
+					<onclick>XBMC.Reset()</onclick>
+					<visible>System.CanReboot</visible>	
+				</item>
+				<item id="6">
+					<label>$LOCALIZE[20126] $INFO[system.profilename]</label>
+					<onclick>dialog.close(all,true)</onclick>
+					<onclick>System.LogOff</onclick>
+					<visible>System.HasLoginScreen | IntegerGreaterThan(System.ProfileCount,1)</visible>
+					<visible>System.Loggedon</visible>	
+				</item>
+				<item id="7">
+					<label>20046</label>
+					<altlabel>20045</altlabel>
+					<usealttexture>!System.IsMaster</usealttexture>
+					<onclick>xbmc.mastermode</onclick>
+					<visible>System.HasLocks</visible>
+				</item>
+				<item id="11">
+					<label>5</label>
+					<onclick>ActivateWindow(Settings)</onclick>
+				</item>
+				<item id="12">
+					<label>Reload Skin</label>
+					<onclick>XBMC.ReloadSkin()</onclick>
+					<visible>System.ShowExitButton</visible>
+				</item>
+				<item id="13">
+					<label>Toggle Debug</label>
+					<onclick>Skin.ToggleDebug()</onclick>
+					<visible>System.ShowExitButton</visible>
+				</item>
+			</content>
+			<!-- Dummy to set focus to top
+			<control type="button" id="6001">
+				<width>0</width>
+				<height>-8</height>
+				<label>-</label>
+				<onfocus>Down</onfocus>
+			</control>
+			<control type="button" id="6002">
+				<include>ShutdownButtons</include>
+				<label>13012</label>
+				<onclick>XBMC.Quit()</onclick>
+				<visible>System.ShowExitButton</visible>
+			</control>
+			<control type="button" id="6003">
+				<include>ShutdownButtons</include>
+				<label>13016</label>
+				<onclick>XBMC.Powerdown()</onclick>
+				<visible>System.CanPowerDown</visible>
+			</control>
+			<control type="button" id="6004">
+				<include>ShutdownButtons</include>
+				<label>13011</label>
+				<onclick>XBMC.Suspend()</onclick>
+				<visible>System.CanSuspend</visible>
+			</control>
+			<control type="button" id="6005">
+				<include>ShutdownButtons</include>
+				<label>13010</label>
+				<onclick>XBMC.Hibernate()</onclick>
+				<visible>System.CanHibernate</visible>
+			</control>
+			<control type="button" id="6006">
+				<include>ShutdownButtons</include>
+				<label>13013</label>
+				<onclick>XBMC.Reset()</onclick>
+				<visible>System.CanReboot</visible>
+			</control>
+			<control type="button" id="6007">
+				<include>ShutdownButtons</include>
+				<label>$LOCALIZE[20126] $INFO[system.profilename]</label>
+				<onclick>dialog.close(all,true)</onclick>
+				<onclick>System.LogOff</onclick>
+				<visible>System.HasLoginScreen | IntegerGreaterThan(System.ProfileCount,1)</visible>
+				<visible>System.Loggedon</visible>
+			</control>
+			<control type="togglebutton" id="6008">
+				<include>ShutdownButtons</include>
+				<label>20046</label>
+				<altlabel>20045</altlabel>
+				<usealttexture>!System.IsMaster</usealttexture>
+				<onclick>xbmc.mastermode</onclick>
+				<visible>System.HasLocks</visible>
+			</control>
+			<control type="button" id="6009">
+				<include>ShutdownButtons</include>
+				<label>13017</label>
+				<onclick>XBMC.InhibitIdleShutdown(true)</onclick>
+				<visible>System.HasShutdown +!System.IsInhibit</visible>
+			</control>
+			<control type="button" id="6010">
+				<include>ShutdownButtons</include>
+				<label>13018</label>
+				<onclick>XBMC.InhibitIdleShutdown(false)</onclick>
+				<visible>System.HasShutdown + System.IsInhibit</visible>
+			</control>
+			<control type="button" id="6011">
+				<include>ShutdownButtons</include>
+				<label>20150</label>
+				<onclick>XBMC.AlarmClock(shutdowntimer,XBMC.Shutdown())</onclick>
+				<visible>!System.HasAlarm(shutdowntimer)</visible>
+				<visible>System.CanPowerDown | System.CanSuspend | System.CanHibernate</visible>
+			</control>
+			<control type="button" id="6012">
+				<include>ShutdownButtons</include>
+				<label>20151</label>
+				<onclick>XBMC.CancelAlarm(shutdowntimer)</onclick>
+				<visible>System.HasAlarm(shutdowntimer)</visible>
+			</control>
+			<control type="label" id="6013">
+				<include>ShutdownButtons</include>
+				<label>$INFO[System.Alarmpos,T-]</label>
+				<visible>System.HasAlarm(shutdowntimer)</visible>
+			</control>
+			<control type="button" id="6014">
+				<include>ShutdownButtons</include>
+				<label>5</label>
+				<onclick>ActivateWindow(Settings)</onclick>
+			</control>
+			<control type="button" id="6015">
+				<include>ShutdownButtons</include>
+				<label>Reload Skin</label>
+				<onclick>XBMC.ReloadSkin()</onclick>
+				<visible>System.ShowExitButton</visible>
+			</control>
+			<control type="button" id="6016">
+				<include>ShutdownButtons</include>
+				<label>Toggle Debug</label>
+				<onclick>Skin.ToggleDebug()</onclick>
+				<visible>System.ShowExitButton</visible>
+			</control> -->
+		</control>
+
+	</controls>
+
+</window>

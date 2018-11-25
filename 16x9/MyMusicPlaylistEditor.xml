@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- musicplaylisteditor -->
+	<backgroundcolor>$VAR[BackgroundColor]</backgroundcolor>
+	<onload>SetFocus(9000)</onload>
+	<views>50</views>
+	<controls>
+
+		<!-- Clock -->
+		<include>Clock</include>
+
+		<control type="button" id="6">
+			<include>HiddenControl</include>
+		</control>
+
+		<control type="button" id="7">
+			<include>HiddenControl</include>
+		</control>
+
+		<control type="button" id="8">
+			<include>HiddenControl</include>
+		</control>
+
+		<control type="group">
+			<left>0</left>
+			<control type="image">
+				<width>450</width>
+				<height>100%</height>
+				<texture colordiffuse="$VAR[MaterialColorDark]">color_white.png</texture>
+			</control>
+
+			<!-- Options list -->
+			<control type="list" id="9000">
+				<top>200</top>
+				<width>360</width>
+				<height>462</height>
+				<onleft>noop</onleft>
+				<onright>50</onright>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
+				<itemlayout width="510" height="60">
+					<control type="group">
+						<left>20</left>
+						<top>20</top>
+						<control type="label">
+							<left>20</left>
+							<width>500</width>
+							<height>60</height>
+							<label>$INFO[Listitem.label]</label>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>Tile</font>
+							<textcolor>$VAR[FocusedColor]</textcolor>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout width="510" height="60">
+					<control type="group">
+						<left>20</left>
+						<top>20</top>
+						<control type="image">
+							<left>-5</left>
+							<top>0</top>
+							<width>5</width>
+							<height>60</height>
+							<texture colordiffuse="$VAR[SecondaryColor]">common/white.png</texture>
+							<aspectratio>stretch</aspectratio>
+							<visible>Control.HasFocus(9000)</visible>
+						</control>
+						<control type="label">
+							<left>20</left>
+							<width>500</width>
+							<height>60</height>
+							<label>$INFO[Listitem.label]</label>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>Tile</font>
+							<textcolor>$VAR[FocusedColor]</textcolor>
+							<visible>!Control.HasFocus(9000)</visible>
+						</control>
+						<control type="label">
+							<left>20</left>
+							<width>500</width>
+							<height>60</height>
+							<label>$INFO[Listitem.label]</label>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>Tile</font>
+							<textcolor>$VAR[SecondaryColor]</textcolor>
+							<visible>Control.HasFocus(9000)</visible>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<!-- Open Button -->
+					<item id="6">
+						<label>31009</label>
+						<onclick>SendClick(6)</onclick>
+					</item>
+					<!-- Save Button -->
+					<item id="7">
+						<label>31010</label>
+						<onclick>SendClick(7)</onclick>
+					</item>
+					<!-- Clear Button -->
+					<item id="8">
+						<label>31011</label>
+						<onclick>SendClick(8)</onclick>
+					</item>
+				</content>
+			</control>
+
+			<!-- Heading -->
+			<control type="label">
+				<left>50</left>
+				<top>40</top>
+				<height>70</height>
+				<font>Large</font>
+				<textcolor>$VAR[FocusedColor]</textcolor>
+				<label>10503</label>
+			</control>
+		</control>
+
+		<!-- Playlist editor controls -->
+		<control type="group">
+			<include>DialogZoomAnimation</include>
+
+			<!-- Left group -->
+			<control type="group">
+				<left>0</left>
+				<top>50</top>
+				<animation type="Conditional" reversible="true" condition="Control.HasFocus(100)">
+					<effect type="fade" start="100" end="50" time="200"/>
+					<effect type="zoom" center="auto" start="100" end="80" time="200"/>
+					<effect type="slide"  start="0" end="-100" time="200" tween="cubic" easing="out"/>
+				</animation>
+
+				<!-- Heading -->
+				<control type="label">
+					<centerleft>50%</centerleft>
+					<width>610</width>
+					<height>66</height>
+					<textcolor>$VAR[FocusedColor]</textcolor>
+					<label>31007</label>
+				</control>
+
+				<!-- Left list -->
+				<control type="list" id="50">
+					<centerleft>50%</centerleft>
+					<top>70</top>
+					<width>800</width>
+					<height>100%</height>
+					<onleft>9000</onleft>
+					<onright>100</onright>
+					<onup>50</onup>
+					<ondown>50</ondown>
+					<scrolltime>200</scrolltime>
+					<itemlayout height="120" width="800">
+						<control type="image">
+							<width>100</width>
+							<height>100</height>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="label">
+							<left>120</left>
+							<top>0</top>
+							<width>660</width>
+							<font>tile</font>
+							<align>left</align>
+							<textcolor>$VAR[UnFocusedColor]</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<left>120</left>
+							<top>30</top>
+							<width>740</width>
+							<font>tile</font>
+							<align>left</align>
+							<textcolor>$VAR[UnFocusedColor]</textcolor>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="120" width="800">
+						<control type="image">
+							<width>800</width>
+							<height>100</height>
+							<texture colordiffuse="$VAR[MaterialColorDark]">color_white.png</texture>
+							<visible>Control.HasFocus(50)</visible>
+						</control>
+						<control type="image">
+							<width>100</width>
+							<height>100</height>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="label">
+							<left>120</left>
+							<top>0</top>
+							<width>660</width>
+							<font>tile</font>
+							<align>left</align>
+							<textcolor>$VAR[FocusedColor]</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+						</control>
+						<control type="label">
+							<left>120</left>
+							<top>30</top>
+							<width>760</width>
+							<font>tile</font>
+							<align>left</align>
+							<textcolor>$VAR[UnFocusedColor]</textcolor>
+							<label>$INFO[ListItem.Label2]</label>
+							<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+						</control>
+					</focusedlayout>
+				</control>
+			</control>
+
+			<!-- Right group -->
+			<control type="group">
+				<right>-600</right>
+				<top>50</top>
+				<width>800</width>
+				<height>90%</height>
+				<animation effect="slide" start="0" end="-800" time="200" tween="cubic" easing="inout" reversible="true" condition="Control.HasFocus(100)">Conditional</animation>
+
+				<!-- Heading -->
+				<control type="label">
+					<width>800</width>
+					<height>66</height>
+					<textcolor>$VAR[FocusedColor]</textcolor>
+					<label>31012</label>
+					<visible>Control.HasFocus(100)</visible>
+				</control>
+
+				<!-- Right list -->
+				<control type="list" id="100">
+					<top>70</top>
+					<right>0</right>
+					<width>800</width>
+					<height>100%</height>
+					<onleft>50</onleft>
+					<onright>noop</onright>
+					<onup>100</onup>
+					<ondown>100</ondown>
+					<scrolltime>200</scrolltime>
+					<itemlayout height="120" width="120" condition="!Control.HasFocus(100)">
+						<control type="image">
+							<width>100</width>
+							<height>100</height>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout height="120" width="120" condition="!Control.HasFocus(100)">
+						<control type="image">
+							<width>100</width>
+							<height>100</height>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+					</focusedlayout>
+					<itemlayout height="120" width="800" condition="Control.HasFocus(100)">
+						<control type="image">
+							<width>100</width>
+							<height>100</height>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="label">
+							<left>120</left>
+							<top>0</top>
+							<width>680</width>
+							<font>tile</font>
+							<align>left</align>
+							<textcolor>$VAR[UnFocusedColor]</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<left>120</left>
+							<top>30</top>
+							<width>660</width>
+							<font>tile</font>
+							<align>left</align>
+							<textcolor>$VAR[UnFocusedColor]</textcolor>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="120" width="800" condition="Control.HasFocus(100)">
+						<control type="image">
+							<width>800</width>
+							<height>100</height>
+							<texture colordiffuse="$VAR[MaterialColorDark]">color_white.png</texture>
+							<visible>Control.HasFocus(100)</visible>
+						</control>
+						<control type="image">
+							<width>100</width>
+							<height>100</height>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="label">
+							<left>120</left>
+							<top>0</top>
+							<width>660</width>
+							<font>tile</font>
+							<align>left</align>
+							<textcolor>$VAR[FocusedColor]</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(100)">Conditional</animation>
+						</control>
+						<control type="label">
+							<left>120</left>
+							<top>30</top>
+							<width>680</width>
+							<font>tile</font>
+							<align>left</align>
+							<textcolor>$VAR[UnFocusedColor]</textcolor>
+							<label>$INFO[ListItem.Label2]</label>
+							<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(100)">Conditional</animation>
+						</control>
+					</focusedlayout>
+				</control>
+
+				<!-- Number label -->
+				<control type="grouplist">
+					<bottom>-50</bottom>
+					<width>610</width>
+					<height>44</height>
+					<align>right</align>
+					<itemgap>6</itemgap>
+					<orientation>horizontal</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					<control type="label">
+						<top>3</top>
+						<width>auto</width>
+						<height>44</height>
+						<align>right</align>
+						<font>Font25</font>
+						<label>$INFO[Container(100).NumItems]</label>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+					</control>
+					<control type="label">
+						<width>auto</width>
+						<height>44</height>
+						<align>right</align>
+						<label>31000</label>
+						<font>Font33</font>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+						<visible>!IntegerGreaterThan(Container(100).NumItems,1)</visible>
+					</control>
+					<control type="label">
+						<width>auto</width>
+						<height>44</height>
+						<align>right</align>
+						<label>31001</label>
+						<font>Font33</font>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+						<visible>IntegerGreaterThan(Container(100).NumItems,1)</visible>
+					</control>
+				</control>
+
+			</control>
+		</control>
+
+	</controls>
+
+</window>

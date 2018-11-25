@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- videobookmarks -->
+	<defaultcontrol always="true">2</defaultcontrol>
+
+	<controls>
+
+		<control type="panel" id="11">
+			<left>50</left>
+			<top>10</top>
+			<width>1200</width>
+			<height>900</height>
+			<onleft>noop</onleft>
+			<onright>noop</onright>
+			<ondown>9001</ondown>
+			<onup>noop</onup>
+			<orientation>vertical</orientation>
+			<viewtype label="535">list</viewtype>
+			<scrolltime tween="sine" easing="out">240</scrolltime>
+			<animation type="WindowOpen">
+				<effect type="slide" start="-1500" end="0" center="auto" tween="Cubic" easing="inout" time="500"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="-1500" center="auto" tween="Cubic" easing="inout" time="500"/>
+			</animation>
+			<itemlayout height="242" width="324">
+				<control type="image">
+					<width>324</width>
+					<height>242</height>
+					<texture border="1">osd/OSDBack.png</texture>
+				</control>
+				<control type="image">
+					<left>6</left>
+					<top>6</top>
+					<width>312</width>
+					<height>176</height>
+					<aspectratio aligny="top">keep</aspectratio>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
+				</control>
+				<control type="label">
+					<left>10</left>
+					<top>190</top>
+					<width>304</width>
+					<height>44</height>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+					<label>$INFO[ListItem.Label] / $INFO[ListItem.Label2]</label>
+				</control>
+			</itemlayout>
+			<focusedlayout height="242" width="324">
+				<control type="image">
+					<width>324</width>
+					<height>242</height>
+					<texture border="1">osd/OSDBack.png</texture>
+				</control>
+				<control type="image">
+					<width>324</width>
+					<height>242</height>
+					<texture border="1">osd/OSDBack.png</texture>
+				</control>
+				<control type="image">
+					<left>6</left>
+					<top>6</top>
+					<width>312</width>
+					<height>176</height>
+					<aspectratio aligny="top">keep</aspectratio>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
+				</control>
+				<control type="label">
+					<left>10</left>
+					<top>190</top>
+					<width>304</width>
+					<height>44</height>
+					<textcolor>$VAR[FocusedColor]</textcolor>
+					<label>$INFO[ListItem.Label] / $INFO[ListItem.Label2]</label>
+				</control>
+			</focusedlayout>
+		</control>
+
+		<control type="group">
+			<left>30</left>
+			<bottom>10</bottom>
+			<width>1620</width>
+			<height>60</height>
+			<animation type="WindowOpen">
+				<effect type="slide" start="0,500" end="0" center="auto" tween="Cubic" easing="inout" time="200"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="0,500" center="auto" tween="Cubic" easing="inout" time="200"/>
+			</animation>
+
+			<!-- Button grouplist -->
+			<control type="grouplist" id="9001">
+				<left>20</left>
+				<top>-6</top>
+				<width>1600</width>
+				<height>60</height>
+				<itemgap>20</itemgap>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<onup>11</onup>
+				<ondown>close</ondown>
+				<orientation>horizontal</orientation>
+
+				<!-- Create Bookmark button -->
+				<control type="button" id="2">
+					<width>520</width>
+					<label>294</label>
+				</control>
+
+				<!-- Clear Bookmark button -->
+				<control type="button" id="3">
+					<width>520</width>
+					<label>296</label>
+				</control>
+
+				<!-- Use current for episode thumb -->
+				<control type="button" id="4">
+					<width>520</width>
+					<label>20406</label>
+				</control>
+
+			</control>
+		</control>
+
+	</controls>
+
+</window>

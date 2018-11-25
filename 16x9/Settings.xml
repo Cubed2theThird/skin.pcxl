@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- settings -->
+	<backgroundcolor>$VAR[BackgroundColor]</backgroundcolor>
+	<defaultcontrol always="false">9000</defaultcontrol>
+	<onload>Skin.SetString(snapwindow, settings)</onload>
+	<onload>Skin.SetString(snapico, home/snap/settings.jpg,0)</onload>
+	<onload>Skin.SetString(snapname, Settings)</onload>
+	<controls>
+
+		<!--> Clock -->
+		<include>Clock</include>
+
+		<control type="group">
+			<left>50</left>
+			<animation type="WindowOpen">
+				<effect type="zoom" center="auto" start="120" end="100" time="200" tween="cubic" easing="out" />
+			</animation>
+			<animation type="WindowClose">
+				<effect type="zoom" center="auto" start="100" end="120" time="200" tween="cubic" easing="in"/>
+				<effect type="fade" start="100" end="0" time="100" />
+			</animation>
+
+			<control type="label">
+				<top>690</top>
+				<left>50</left>
+				<width>300</width>
+				<height>20</height>
+				<label>System</label>
+				<align>left</align>
+				<font>Setting</font>
+				<textcolor>$VAR[White]</textcolor>
+			</control>
+
+			<control type="list" id="9002">
+				<top>700</top>
+				<width>100%</width>				
+				<height>100%</height>
+				<onup>9001</onup>
+				<orientation>horizontal</orientation>
+				<scrolltime>0</scrolltime>
+				<viewtype>list</viewtype>
+				<defaultcontrol>2</defaultcontrol>
+				<itemlayout height="260" width="260">
+					<control type="group">
+						<top>20</top>
+						<left>20</left>
+						<control type="image">
+							<width>250</width>
+							<height>250</height>
+							<texture colordiffuse="$VAR[Black]">color_white.png</texture>
+						</control>
+						<control type="image">
+							<width>250</width>
+							<height>250</height>
+							<aspectratio>scale</aspectratio>
+							<texture colordiffuse="$VAR[White]">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="label">
+							<bottom>20</bottom>
+							<width>250</width>
+							<height>20</height>
+							<label>$INFO[ListItem.Label]</label>
+							<align>center</align>
+							<font>Tile</font>
+							<textcolor>$VAR[White]</textcolor>
+							<scroll>true</scroll>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout height="260" width="260">
+					<control type="group">
+						<top>20</top>
+						<left>20</left>
+						<animation effect="zoom" center="auto" start="100" end="105" time="200">Focus</animation>
+						<animation effect="zoom" center="auto" start="105" end="100" time="200">Unfocus</animation>
+						<control type="image">
+							<width>250</width>
+							<height>250</height>
+							<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+						</control>
+						<control type="image">
+							<width>250</width>
+							<height>250</height>
+							<texture colordiffuse="$VAR[Black]">color_white.png</texture>
+							<visible>!Control.HasFocus(9002)</visible>
+						</control>
+						<control type="image">
+							<width>250</width>
+							<height>250</height>
+							<aspectratio>scale</aspectratio>
+							<texture colordiffuse="$VAR[Black]">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<width>250</width>
+							<height>250</height>
+							<aspectratio>scale</aspectratio>
+							<texture colordiffuse="$VAR[White]">$INFO[ListItem.Icon]</texture>
+							<visible>![Control.HasFocus(9002) + Skin.HasSetting(darkmode)]</visible>
+						</control>
+						<control type="label">
+							<bottom>20</bottom>
+							<width>250</width>
+							<height>20</height>
+							<label>$INFO[ListItem.Label]</label>
+							<align>center</align>
+							<font>Tile</font>
+							<textcolor>$VAR[Black]</textcolor>
+							<scroll>true</scroll>
+						</control>
+						<control type="label">
+							<bottom>20</bottom>
+							<width>250</width>
+							<height>20</height>
+							<label>$INFO[ListItem.Label]</label>
+							<align>center</align>
+							<font>Tile</font>
+							<textcolor>$VAR[White]</textcolor>
+							<scroll>true</scroll>
+							<visible>![Control.HasFocus(9002) + Skin.HasSetting(darkmode)]</visible>
+						</control>
+						<control type="image">
+							<include>SelectionAnimation2</include>
+							<top>-30</top>
+							<left>-30</left>
+							<width>310</width>
+							<height>315</height>
+							<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
+							<visible>Control.HasFocus(9002)</visible>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<item>
+						<label>Add-ons</label>
+						<onclick>ActivateWindow(addonbrowser)</onclick>
+						<thumb>settings/apps.png</thumb>
+					</item>
+					<item>
+						<label>File Manager</label>
+						<onclick>ActivateWindow(filemanager)</onclick>
+						<icon>settings/filemanager.png</icon>
+					</item>
+					<item>
+						<label>System</label>
+						<onclick>ActivateWindow(SystemSettings)</onclick>
+						<icon>settings/settings.png</icon>
+					</item>
+					<item>
+						<label>System Info</label>
+						<onclick>ActivateWindow(systeminfo)</onclick>
+						<icon>settings/sysinfo.png</icon>
+					</item>
+					<item id="99">
+						<label>31152</label>
+						<onclick>Skin.Reset(BackgroundColor)</onclick>
+						<onclick>Skin.Reset(backgroundimage)</onclick>
+						<onclick>Skin.SetString(DashboardToggle, Blank)</onclick>
+						<onclick>Skin.Reset(SecondaryColor)</onclick>
+						<onclick>Skin.Reset(DiffuseColor)</onclick>
+						<onclick>Skin.Reset(TextColor)</onclick>
+						<onclick>Skin.Reset(SelectedColor)</onclick>
+						<onclick>Skin.ToggleSetting(installed)</onclick>
+						<onclick>ReplaceWindow(startup)</onclick>
+						<!--><onclick>RunScript(script.skinshortcuts,type=resetall)</onclick><!-->
+						<icon>settings/console.png</icon>
+					</item>
+				</content>
+			</control>
+
+			<control type="label">
+				<top>370</top>
+				<left>50</left>
+				<width>300</width>
+				<height>20</height>
+				<label>Preferences</label>
+				<align>left</align>
+				<font>Setting</font>
+				<textcolor>$VAR[White]</textcolor>
+			</control>
+
+			<control type="list" id="9001">
+				<top>380</top>
+				<width>100%</width>				
+				<height>100%</height>
+				<onup>9000</onup>
+				<ondown>9002</ondown>
+				<orientation>horizontal</orientation>
+				<scrolltime>0</scrolltime>
+				<viewtype>list</viewtype>
+				<defaultcontrol>2</defaultcontrol>				
+				<itemlayout height="260" width="260">
+					<control type="group">
+						<top>20</top>
+						<left>20</left>
+						<control type="image">
+							<width>250</width>
+							<height>250</height>
+							<texture colordiffuse="$VAR[Black]">color_white.png</texture>
+						</control>
+						<control type="image">
+							<width>250</width>
+							<height>250</height>
+							<aspectratio>scale</aspectratio>
+							<texture colordiffuse="$VAR[White]">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="label">
+							<bottom>20</bottom>
+							<width>250</width>
+							<height>20</height>
+							<label>$INFO[ListItem.Label]</label>
+							<align>center</align>
+							<font>Tile</font>
+							<textcolor>$VAR[White]</textcolor>
+							<scroll>true</scroll>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout height="260" width="260">
+					<control type="group">
+						<top>20</top>
+						<left>20</left>
+						<animation effect="zoom" center="auto" start="100" end="105" time="200">Focus</animation>
+						<animation effect="zoom" center="auto" start="105" end="100" time="200">Unfocus</animation>
+						<control type="image">
+							<width>250</width>
+							<height>250</height>
+							<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+						</control>
+						<control type="image">
+							<width>250</width>
+							<height>250</height>
+							<texture colordiffuse="$VAR[Black]">color_white.png</texture>
+							<visible>!Control.HasFocus(9001)</visible>
+						</control>
+						<control type="image">
+							<width>250</width>
+							<height>250</height>
+							<aspectratio>scale</aspectratio>
+							<texture colordiffuse="$VAR[Black]">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<width>250</width>
+							<height>250</height>
+							<aspectratio>scale</aspectratio>
+							<texture colordiffuse="$VAR[White]">$INFO[ListItem.Icon]</texture>
+							<visible>![Control.HasFocus(9001) + Skin.HasSetting(darkmode)]</visible>
+						</control>
+						<control type="label">
+							<bottom>20</bottom>
+							<width>250</width>
+							<height>20</height>
+							<label>$INFO[ListItem.Label]</label>
+							<align>center</align>
+							<font>Tile</font>
+							<textcolor>$VAR[Black]</textcolor>
+							<scroll>true</scroll>
+						</control>
+						<control type="label">
+							<bottom>20</bottom>
+							<width>250</width>
+							<height>20</height>
+							<label>$INFO[ListItem.Label]</label>
+							<align>center</align>
+							<font>Tile</font>
+							<textcolor>$VAR[White]</textcolor>
+							<scroll>true</scroll>
+							<visible>![Control.HasFocus(9001) + Skin.HasSetting(darkmode)]</visible>
+						</control>
+						<control type="image">
+							<include>SelectionAnimation2</include>
+							<top>-30</top>
+							<left>-30</left>
+							<width>310</width>
+							<height>315</height>
+							<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
+							<visible>Control.HasFocus(9001)</visible>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<item>
+						<label>Accounts</label>
+						<onclick>ActivateWindow(profiles)</onclick>
+						<thumb>settings/popcont.png</thumb>
+					</item>
+					<item>
+						<label>Themes</label>
+						<onclick>ActivateWindow(1103)</onclick>
+						<thumb>settings/themes.png</thumb>
+					</item>
+					<item>
+						<label>Interface</label>
+						<onclick>ActivateWindow(InterfaceSettings)</onclick>
+						<thumb>settings/home.png</thumb>
+					</item>
+					<item>
+						<label>Widgets</label>
+						<onclick condition="System.HasAddon(script.skinshortcuts)">RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
+						<onclick condition="!System.HasAddon(script.skinshortcuts)">InstallAddon(script.skinshortcuts)</onclick>
+						<thumb>settings/menu.png</thumb>
+					</item>
+				</content>
+			</control>
+
+			<control type="label">
+				<top>50</top>
+				<left>50</left>
+				<width>450</width>
+				<height>20</height>
+				<label>Device</label>
+				<align>left</align>
+				<font>Setting</font>
+				<textcolor>$VAR[White]</textcolor>
+			</control>
+
+			<control type="list" id="9000">
+				<top>60</top>
+				<width>100%</width>				
+				<height>100%</height>
+				<ondown>9001</ondown>
+				<orientation>horizontal</orientation>
+				<scrolltime>0</scrolltime>
+				<viewtype>list</viewtype>
+				<defaultcontrol>2</defaultcontrol>
+				<itemlayout height="260" width="260">
+					<control type="group">
+						<top>20</top>
+						<left>20</left>
+						<control type="image">
+							<width>250</width>
+							<height>250</height>
+							<texture colordiffuse="$VAR[Black]">color_white.png</texture>
+						</control>
+						<control type="image">
+							<width>250</width>
+							<height>250</height>
+							<aspectratio>scale</aspectratio>
+							<texture colordiffuse="$VAR[White]">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="label">
+							<bottom>20</bottom>
+							<width>250</width>
+							<height>20</height>
+							<label>$INFO[ListItem.Label]</label>
+							<align>center</align>
+							<font>Tile</font>
+							<textcolor>$VAR[White]</textcolor>
+							<scroll>true</scroll>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout height="260" width="260">
+					<control type="group">
+						<top>20</top>
+						<left>20</left>
+						<animation effect="zoom" center="auto" start="100" end="105" time="200">Focus</animation>
+						<animation effect="zoom" center="auto" start="105" end="100" time="200">Unfocus</animation>
+						<control type="image">
+							<width>250</width>
+							<height>250</height>
+							<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+						</control>
+						<control type="image">
+							<width>250</width>
+							<height>250</height>
+							<texture colordiffuse="$VAR[Black]">color_white.png</texture>
+							<visible>!Control.HasFocus(9000)</visible>
+						</control>
+						<control type="image">
+							<width>250</width>
+							<height>250</height>
+							<aspectratio>scale</aspectratio>
+							<texture colordiffuse="$VAR[Black]">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<width>250</width>
+							<height>250</height>
+							<aspectratio>scale</aspectratio>
+							<texture colordiffuse="$VAR[White]">$INFO[ListItem.Icon]</texture>
+							<visible>![Control.HasFocus(9000) + Skin.HasSetting(darkmode)]</visible>
+						</control>
+						<control type="label">
+							<bottom>20</bottom>
+							<width>250</width>
+							<height>20</height>
+							<label>$INFO[ListItem.Label]</label>
+							<align>center</align>
+							<font>Tile</font>
+							<textcolor>$VAR[Black]</textcolor>
+							<scroll>true</scroll>
+						</control>
+						<control type="label">
+							<bottom>20</bottom>
+							<width>250</width>
+							<height>20</height>
+							<label>$INFO[ListItem.Label]</label>
+							<align>center</align>
+							<font>Tile</font>
+							<textcolor>$VAR[White]</textcolor>
+							<scroll>true</scroll>
+							<visible>![Control.HasFocus(9000) + Skin.HasSetting(darkmode)]</visible>
+						</control>
+						<control type="image">
+							<include>SelectionAnimation2</include>
+							<top>-30</top>
+							<left>-30</left>
+							<width>310</width>
+							<height>315</height>
+							<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
+							<visible>Control.HasFocus(9000)</visible>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<item>
+						<label>Network settings</label>
+						<onclick>ActivateWindow(servicesettings)</onclick>
+						<thumb>settings/net.png</thumb>
+					</item>
+					<item>
+						<label>Video & audio</label>
+						<onclick>ActivateWindow(playersettings)</onclick>
+						<thumb>settings/tv.png</thumb>
+					</item>
+					<item>
+						<label>Library</label>
+						<onclick>ActivateWindow(MediaSettings)</onclick>
+						<thumb>settings/video.png</thumb>
+					</item>
+					<item>
+						<label>Live TV</label>
+						<onclick>ActivateWindow(PVRSettings)</onclick>
+						<icon>settings/PVR.png</icon>
+					</item>
+				</content>
+			</control>
+		</control>
+		<!--> Logo <!-->
+		<include>Logo</include>
+	</controls>
+</window>

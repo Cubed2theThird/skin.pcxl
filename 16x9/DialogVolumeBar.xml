@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- volumebar -->
+	<controls>
+		<control type="group">
+			<width>100%</width>
+			<height>100%</height>
+			<animation type="WindowOpen">
+				<effect type="fade" start="0" end="100" time="500" tween="cubic" easing="inout"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="fade" start="100" end="0" time="500" tween="cubic" easing="inout"/>
+			</animation>
+
+			<!-- <include>DialogToastAnimation</include>
+
+			<!-- Background image -->
+			<control type="image">
+				<centerleft>50%</centerleft>
+				<bottom>70</bottom>
+				<width>1060</width>
+				<height>120</height>
+				<texture colordiffuse="$VAR[Black]" border="50">fo.png</texture>
+			</control>
+			<control type="image">
+				<centerleft>50%</centerleft>
+				<bottom>100</bottom>
+				<width>1000</width>
+				<height>60</height>
+				<texture colordiffuse="$VAR[Black]">views/white_100.png</texture>
+			</control>
+			<!-- Progress -->
+			<control type="progress" id="404">
+				<centerleft>48%</centerleft>
+				<bottom>120</bottom>
+				<width>850</width>
+				<height>20</height>
+				<info>player.volume</info>
+				<texturebg border="2">osd/OSDProgressBack.png</texturebg>
+				<lefttexture>-</lefttexture>
+				<midtexture border="2">osd/OSDProgressBar.png</midtexture>
+				<righttexture>-</righttexture>
+				<overlaytexture>-</overlaytexture>
+				<colordiffuse>$VAR[SecondaryColor]</colordiffuse>
+			</control>
+			<!-- Volume -->
+			<control type="label">
+				<centerleft>50%</centerleft>
+				<bottom>120</bottom>
+				<width>940</width>
+				<height>20</height>
+				<align>right</align>
+				<font>Light33Upper</font>
+				<label>$INFO[Control.GetLabel(404)]</label>
+				<textcolor>$VAR[White]</textcolor>
+			</control>
+		</control>
+	</controls>
+</window>

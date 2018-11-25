@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- script-skinshortcuts -->
+	<backgroundcolor>$VAR[BackgroundColor]</backgroundcolor>
+	<defaultcontrol always="true">211</defaultcontrol>
+	<include>DialogZoomAnimation</include>
+
+	<controls>
+
+		<!-- Move down -->
+		<control type="button" id="304">
+			<left>-10</left>
+			<top>-10</top>
+			<width>1</width>
+			<height>1</height>
+			<font>-</font>
+			<onleft>noop</onleft>
+			<onright>303</onright>
+			<onup>Control.Move(211,-1)</onup>
+			<ondown>Control.Move(211,1)</ondown>
+		</control>
+
+		<!-- Move up -->
+		<control type="button" id="303">
+			<left>-10</left>
+			<top>-10</top>
+			<width>1</width>
+			<height>1</height>
+			<font>-</font>
+			<onleft>304</onleft>
+			<onright>9000</onright>
+			<onup>Control.Move(211,-1)</onup>
+			<ondown>Control.Move(211,1)</ondown>
+		</control>
+
+		<!-- Image -->
+		<control type="image">
+			<centerleft>50%</centerleft>
+			<centertop>50%</centertop>
+			<width>88.5%</width>
+			<height>86%</height>
+			<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo2.png</texture>		
+		</control>
+
+		<!-- Seperator -->
+		<control type="image">
+			<centerleft>50%</centerleft>
+			<centertop>50%</centertop>
+			<width>85%</width>
+			<height>80%</height>
+			<texture colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texture>		
+		</control>
+
+		<control type="image">
+			<left>180</left>
+			<top>220</top>
+			<width>360</width>
+			<height>660</height>
+			<texture colordiffuse="$VAR[Dark]">views/white_100.png</texture>		
+		</control>
+
+		<!-- Heading -->
+		<control type="label" id="500">
+			<left>200</left>
+			<top>120</top>
+			<width>1620</width>
+			<height>72</height>
+			<font>Large</font>
+		</control>
+
+		<!-- Left list -->
+		<control type="list" id="211">
+			<left>180</left>
+			<top>220</top>
+			<width>360</width>
+			<height>660</height>
+			<onleft>noop</onleft>
+			<onright>304</onright>
+			<onup>noop</onup>
+			<ondown>9001</ondown>
+			<scrolltime tween="sine" easing="out">240</scrolltime>
+			<itemlayout width="360" height="66">
+				<control type="image">
+					<width>360</width>
+					<height>66</height>
+					<texture colordiffuse="$VAR[Dark]">views/white_100.png</texture>
+				</control>
+				<control type="label">
+					<left>25</left>
+					<width>260</width>
+					<height>66</height>
+					<font>Tile</font>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+					<label>$INFO[ListItem.Property(widgetName)]</label>
+				</control>
+			</itemlayout>
+			<focusedlayout width="360" height="66">
+				<control type="image">
+					<width>360</width>
+					<height>66</height>
+					<texture colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texture>
+				</control>
+				<control type="label">
+					<left>25</left>
+					<width>260</width>
+					<height>66</height>
+					<scroll>true</scroll>
+					<font>Tile</font>
+					<label>$INFO[ListItem.Property(widgetName)]</label>
+					<animation effect="fade" start="100" end="75" time="0" condition="!Control.HasFocus(211)">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>290</left>
+					<width>35</width>
+					<height>66</height>
+					<texture>common/ArrowDownNF.png</texture>
+					<visible>!Control.HasFocus(304)</visible>
+				</control>
+				<control type="image">
+					<left>325</left>
+					<width>35</width>
+					<height>66</height>
+					<texture>common/ArrowUpNF.png</texture>
+					<visible>!Control.HasFocus(303)</visible>
+				</control>
+				<control type="image">
+					<left>290</left>
+					<width>35</width>
+					<height>66</height>
+					<texture>common/ArrowDownFO.png</texture>
+					<visible>Control.HasFocus(304)</visible>
+				</control>
+				<control type="image">
+					<left>325</left>
+					<width>35</width>
+					<height>66</height>
+					<texture>common/ArrowUpFO.png</texture>
+					<visible>Control.HasFocus(303)</visible>
+				</control>
+			</focusedlayout>
+		</control>
+
+		<!-- Right grouplist -->
+		<control type="grouplist" id="9000">
+			<left>600</left>
+			<top>228</top>
+			<width>1150</width>
+			<height>660</height>
+			<itemgap>0</itemgap>
+			<onleft>303</onleft>
+			<onright>noop</onright>
+			<onup>noop</onup>
+			<ondown>9001</ondown>
+			<orientation>vertical</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<scrolltime tween="sine" easing="out">240</scrolltime>
+
+			<!-- Change shortcut -->
+			<control type="button" id="401">
+				<width>1150</width>
+				<height>80</height>
+				<include>DialogButton</include>
+				<label>$ADDON[script.skinshortcuts 32048]</label>
+				<label2>$INFO[Container(211).ListItem.Property(displaypath)]</label2>
+			</control>
+
+			<!-- Change label
+			<control type="button" id="305">
+				<width>1150</width>
+				<height>80</height>
+				<include>DialogButton</include>
+				<label>$ADDON[script.skinshortcuts 32025]</label>
+				<label2>$INFO[Container(211).ListItem.Label]</label2>
+			</control> -->
+
+			<!-- Change action
+			<control type="button" id="307">
+				<width>1150</width>
+				<height>80</height>
+				<include>DialogButton</include>
+				<label>$ADDON[script.skinshortcuts 32027]</label>
+				<label2>$INFO[Container(211).ListItem.Property(displaypath)]</label2>
+			</control> -->
+
+			<!-- Edit sub menu
+			<control type="button" id="405">
+				<width>1150</width>
+				<height>80</height>
+				<include>DialogButton</include>
+				<label>$ADDON[script.skinshortcuts 32072]</label>
+				<visible>String.Contains(Window.Property(groupname),mainmenu)</visible>
+			</control>  -->
+
+			<!-- Edit Widgets -->
+			<control type="button" id="312">
+				<width>1150</width>
+				<height>80</height>
+				<include>DialogButton</include>
+				<label>$ADDON[script.skinshortcuts 32044]</label>
+				<label2>$INFO[Container(211).ListItem.Property(widgetName)]</label2>
+				<visible>String.Contains(Window.Property(groupname),mainmenu)</visible>
+			</control>
+
+			<!-- Edit Views -->
+			<control type="button" id="411">
+				<width>1150</width>
+				<height>80</height>
+				<label>Widget View</label>
+				<label2>$VAR[WidgetView]</label2>
+				<include>DialogButton</include>
+			</control>
+
+			<!-- Edit Art
+			<control type="button" id="412">
+				<width>1150</width>
+				<height>80</height>
+				<label>Widget Art</label>
+				<label2>$VAR[WidgetArt]</label2>
+				<include>DialogButton</include>
+			</control> -->
+
+			<!-- Remove -->
+			<control type="button" id="302">
+				<width>1150</width>
+				<height>80</height>
+				<label>Remove</label>
+				<include>DialogButton</include>
+			</control>
+
+			<!-- Add item -->
+			<control type="button" id="301">
+				<width>1150</width>
+				<height>80</height>
+				<include>DialogButton</include>
+				<label>$ADDON[script.skinshortcuts 32000]</label>
+			</control>
+		</control>
+
+		<!-- Button grouplist -->
+		<control type="grouplist" id="9001">
+			<left>600</left>
+			<top>800</top>
+			<width>1620</width>
+			<itemgap>0</itemgap>
+			<onleft>303</onleft>
+			<onright>noop</onright>
+			<onup>9000</onup>
+			<ondown>noop</ondown>
+			<orientation>horizontal</orientation>
+
+			<!-- OK Button -->
+			<control type="button" id="10">
+				<width>200</width>
+				<height>80</height>
+				<label>186</label>
+				<include>DialogButton</include>
+				<onback condition="String.Contains(Window.Property(groupname),mainmenu)">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu)</onback>
+				<onclick condition="String.Contains(Window.Property(groupname),mainmenu)">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu)</onclick>
+				<onclick>Close</onclick>
+			</control>
+
+			<!-- Reset -->
+			<control type="button" id="308">
+				<width>400</width>
+				<height>80</height>
+				<include>DialogButton</include>
+				<label>$ADDON[script.skinshortcuts 32028]</label>
+			</control>
+
+			<!-- Reset all -->
+			<control type="button" id="999">
+				<width>400</width>
+				<height>80</height>
+				<include>DialogButton</include>
+				<onclick>RunScript(script.skinshortcuts,type=resetall)</onclick>
+				<label>$ADDON[script.skinshortcuts 32037]</label>
+			</control>
+		</control>
+
+	</controls>
+
+</window>

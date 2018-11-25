@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- seekbar -->
+	<visible>[VideoPlayer.IsFullscreen] + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding] + ![Window.IsVisible(videoosd) | Window.IsVisible(subtitlesearch) | Player.HasGame]</visible>
+	<animation type="WindowOpen">
+		<effect type="slide" start="0,1000" end="0" center="auto" tween="Cubic" easing="out" time="500"/>
+	</animation>
+	<animation type="WindowClose">
+		<effect type="slide" start="0" end="0,1000" center="auto" tween="Cubic" easing="in" time="500"/>
+	</animation>
+	<controls>
+		<control type="group">
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<aspectratio>stretch</aspectratio>
+				<texture colordiffuse="$VAR[Black]">views\vignette_light.png</texture>
+			</control>			
+			<!-- Background -->
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<aspectratio>stretch</aspectratio>
+				<texture colordiffuse="$VAR[Black]">views\vignetteInfo_light.png</texture>
+				<animation type="WindowOpen">
+					<effect type="fade" start="0" end="100" center="auto" tween="Cubic" easing="out" delay="5000" time="500"/>
+				</animation>
+				<animation type="Conditional" condition="Player.Playing">
+					<effect type="fade" start="100" end="0" center="auto" tween="Cubic" easing="in" time="500"/>
+				</animation>
+				<animation type="WindowClose">
+					<effect type="fade" start="100" end="0" center="auto" tween="Cubic" easing="in" time="500"/>
+				</animation>
+			</control>
+
+			<!-- Info -->
+			<control type="group">
+				<width>100%</width>
+				<height>234</height>
+				<animation type="WindowOpen">
+					<effect type="slide" start="2000" end="0" center="auto" tween="Cubic" easing="out" delay="5000" time="500"/>
+				</animation>
+				<animation type="Conditional" condition="Player.Playing">
+					<effect type="slide" start="0" end="2000" center="auto" tween="Cubic" easing="in" time="500"/>
+				</animation>
+				<animation type="WindowClose">
+					<effect type="slide" start="0" end="2000" center="auto" tween="Cubic" easing="in" time="500"/>
+				</animation>
+
+				<!-- Title -->
+				<control type="textbox">
+					<right>20</right>
+					<top>45</top>
+					<width>50%</width>
+					<height>150</height>
+					<align>right</align>
+					<font>Reg60</font>
+					<textcolor>$VAR[FocusedColor]</textcolor>
+					<label>$VAR[VideoPlayerTitle]</label>
+					<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
+				</control>
+
+				<!-- Plot -->
+				<control type="textbox">
+					<right>20</right>
+					<top>270</top>
+					<width>60%</width>
+					<height>600</height>
+					<align>right</align>
+					<label>$INFO[VideoPlayer.Plot]</label>
+					<font>Reg30</font>
+					<wrapmultiline>true</wrapmultiline> 
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+					<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
+				</control>
+			</control>
+
+			<!-- Player forwarding/rewinding -->
+			<control type="group">
+				<left>150</left>
+				<bottom>100</bottom>
+				<width>80</width>
+				<height>60</height>
+				<visible>player.forwarding | player.rewinding | player.paused</visible>
+
+				<!-- Status -->
+				<control type="label">
+					<width>80</width>
+					<height>60</height>
+					<font>Font36</font>
+					<align>center</align>
+					<label>$VAR[PlayerStatus]</label>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+				</control>
+
+				<!-- Pause -->
+				<control type="image">
+					<left>-110</left>
+					<bottom>15</bottom>
+					<width>60</width>
+					<height>60</height>
+					<texture colordiffuse="$VAR[White]">osd/OSDPauseNF.png</texture>
+					<visible>player.paused</visible>
+				</control>
+			</control>
+
+			<!-- Player skipping -->
+			<control type="group">
+				<right>150</right>
+				<top>870</top>
+				<width>140</width>
+				<height>60</height>
+				<visible>[Player.DisplayAfterSeek + IntegerGreaterThan(Player.ChapterCount,0)] | IntegerGreaterThan(MusicPlayer.PlaylistLength,0)</visible>
+
+				<!-- Status -->
+				<control type="label">
+					<width>140</width>
+					<height>60</height>
+					<font>Font27</font>
+					<align>center</align>
+					<label>[B]$INFO[Player.Chapter,(,/]$INFO[Player.ChapterCount,,)][/B][B]$INFO[MusicPlayer.PlaylistPosition,(,/]$INFO[MusicPlayer.PlaylistLength,,)][/B]</label>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+					<visible>!Window.IsVisible(visualisation)</visible>
+				</control>
+
+				<!-- Status -->
+				<control type="label">
+					<width>140</width>
+					<height>60</height>
+					<font>Font27</font>
+					<align>center</align>
+					<label>[B]$INFO[MusicPlayer.PlaylistPosition,(,/]$INFO[MusicPlayer.PlaylistLength,,)][/B]</label>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+					<visible>Window.IsVisible(visualisation)</visible>
+				</control>
+			</control>
+
+			<!-- Progress -->
+			<control type="group">
+				<left>0</left>
+				<bottom>50</bottom>
+				<width>1620</width>
+				<height>60</height>
+				<animation type="WindowOpen">
+					<effect type="slide" start="0,500" end="0" center="auto" tween="Cubic" easing="inout" time="500"/>
+				</animation>
+				<animation type="WindowClose">
+					<effect type="slide" start="0" end="0,500" center="auto" tween="Cubic" easing="inout" time="500"/>
+				</animation>
+
+				<!--  Current position/Time remaining -->
+				<control type="label">
+					<left>50</left>
+					<bottom>30</bottom>
+					<width>360</width>
+					<height>60</height>
+					<align>left</align>
+					<font>Reg30</font>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+					<label>$INFO[Player.Time] / $INFO[Player.Duration]</label>
+				</control>
+
+				<!-- Current Time/End Time -->
+				<control type="label">
+					<right>-250</right>
+					<bottom>30</bottom>
+					<width>600</width>
+					<height>60</height>
+					<align>right</align>
+					<font>Reg30</font>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+					<label>$INFO[System.Time,$LOCALIZE[142] , / ]$INFO[Player.FinishTime,$LOCALIZE[19081] ]</label>
+				</control>
+
+				<control type="label">
+					<right>-250</right>
+					<bottom>60</bottom>
+					<width>600</width>
+					<height>60</height>
+					<align>right</align>
+					<font>Reg30</font>
+					<textcolor>$VAR[FocusedColor]</textcolor>
+					<label>$INFO[Player.SeekStepSize]</label>
+				</control>
+
+				<!--  Progress bar -->
+				<control type="group">
+					<width>100%</width>
+					<control type="progress">
+						<left>50</left>
+						<bottom>20</bottom>
+						<width>1820</width>
+						<height>10</height>
+						<info>Player.Progress</info>
+
+						<texturebg border="2" colordiffuse="$VAR[White]">osd/OSDProgressBack.png</texturebg>
+						<lefttexture>-</lefttexture>
+						<midtexture border="2" colordiffuse="$VAR[White]">osd/OSDProgressBar.png</midtexture>
+						<righttexture>-</righttexture>
+						<overlaytexture>-</overlaytexture>
+					</control>
+
+					<!--  Cache bar -->
+					<control type="progress" id="1">
+						<left>50</left>
+						<bottom>20</bottom>
+						<width>1820</width>
+						<height>10</height>
+						<info>Player.ProgressCache</info>
+						<texturebg colordiffuse="$VAR[UnFocusedColor]" border="2">osd/OSDProgressBack.png</texturebg>
+						<lefttexture>-</lefttexture>
+						<midtexture colordiffuse="$VAR[UnFocusedColor]" border="2">osd/OSDProgressBar.png</midtexture>
+						<righttexture>-</righttexture>
+						<overlaytexture>-</overlaytexture>
+					</control>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

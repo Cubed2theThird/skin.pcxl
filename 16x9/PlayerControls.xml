@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog">
+	<!-- playercontrols -->
+	<defaultcontrol always="true">1</defaultcontrol>
+	<onload condition="Window.IsActive(9085)">Dialog.Close(all,true)</onload>
+	<controls>
+
+		<control type="group">
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture colordiffuse="$VAR[BackgroundColor]">views/white_50.png</texture>
+			</control>
+
+			<control type="image">
+				<centerleft>600</centerleft>
+				<centertop>50%</centertop>
+				<width>80</width>
+				<height>50%</height>
+				<texture colordiffuse="$VAR[BackgroundColor]">color_white.png</texture>
+			</control>
+		</control>
+		
+		<control type="list" id="1">
+			<centerleft>50%</centerleft>
+			<centertop>50%</centertop>
+			<width>800</width>
+			<height>50%</height>
+			<scrolltime>0</scrolltime>
+			<pagecontrol>2</pagecontrol>
+			<viewtype>list</viewtype>
+			<onright condition="Container(1).HasFocus(1)">2</onright>
+			<onright condition="Container(1).HasFocus(2)">210</onright>
+			<onright condition="Container(1).HasFocus(5)">510</onright>
+			<defaultcontrol>1</defaultcontrol>
+			<orientation>vertical</orientation>		
+			<itemlayout width="80" height="80">
+				<control type="image">
+					<width>80</width>
+					<height>80</height>
+					<texture>$INFO[ListItem.Icon]</texture>
+				</control>
+			</itemlayout>
+			<focusedlayout width="80" height="80">
+				<control type="image">
+					<width>80</width>
+					<height>80</height>
+					<animation type="Focus">
+						<effect type="slide" center="auto" start="-200" end="0" time="200" tween="cubic" easing="inout"/>
+						<effect type="fade" center="auto" start="0" end="200" time="200" tween="cubic" easing="inout"/>
+					</animation>
+					<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+				</control>
+				<control type="image">
+					<width>80</width>
+					<height>80</height>
+					<texture>$INFO[ListItem.Icon]</texture>
+				</control>
+			</focusedlayout>
+			<content>
+				<item id="1">
+					<label fallback="31450">Home</label>
+					<thumb>dialogs/charms/charm_home.png</thumb>
+				</item>
+				<item id="2">
+					<label fallback="31450">Fullscreen</label>
+					<thumb>dialogs/charms/charm_video.png</thumb>
+					<visible>Player.HasMedia</visible>
+					<onclick>Dialog.Close(all,true)</onclick>
+					<onclick>Fullscreen</onclick>
+				</item>
+				<item id="5">
+					<label fallback="31450">Power</label>
+					<thumb>dialogs/charms/charm_shutdown.png</thumb>
+				</item>
+			</content>
+		</control>
+
+		<control type="grouplist" id="2">
+			<visible>Container(1).HasFocus(1)</visible>
+			<description>Control Area</description>
+			<centerleft>48%</centerleft>
+			<centertop>50%</centertop>
+			<width>500</width>
+			<height>50%</height>
+			<itemgap>0</itemgap>
+			<onleft>1</onleft>
+			<onright>1</onright>
+			<scrolltime tween="cubic" easing="out">500</scrolltime>
+			<orientation>vertical</orientation>
+			<control type="button" id="110">
+				<height>80</height>
+				<label>Home</label>
+				<font>Font-Condensed-S30-B</font>
+				<textoffsetx>45</textoffsetx>
+				<textwidth>900</textwidth>
+				<textcolor>$VAR[UnFocusedColor]</textcolor>
+				<texturefocus colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texturenofocus>
+				<invalidcolor>$VAR[DisabledColor]</invalidcolor>
+				<disabledcolor>$VAR[DisabledColor]</disabledcolor>
+				<onclick>Dialog.Close(all,true)</onclick>
+				<onclick>ActivateWindow(Home)</onclick>
+			</control>
+			<control type="button" id="111">
+				<height>80</height>
+				<label>$INFO[Skin.String(snapname)]</label>
+				<font>Font-Condensed-S30-B</font>
+				<textoffsetx>45</textoffsetx>
+				<textwidth>900</textwidth>
+				<textcolor>$VAR[UnFocusedColor]</textcolor>
+				<texturefocus colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texturenofocus>
+				<invalidcolor>$VAR[DisabledColor]</invalidcolor>
+				<disabledcolor>$VAR[DisabledColor]</disabledcolor>
+				<onclick>Dialog.Close(all,true)</onclick>
+				<onclick>ActivateWindow($INFO[Skin.String(snapwindow)])</onclick>
+				<onclick>$INFO[Skin.String(snapwindow)]</onclick>
+			</control>
+		</control>
+
+		<control type="group">
+			<visible>Container(1).HasFocus(2)</visible>
+			<left>672</left>
+			<centertop>50%</centertop>
+			<width>800</width>
+			<height>50%</height>
+			<control type="image">
+				<texture colordiffuse="$VAR[BackgroundColor]">color_white.png</texture>
+			</control>
+			<control type="label">
+				<left>420</left>
+				<top>0</top>
+				<width>45%</width>
+				<height>70</height>
+				<font>Tile</font>
+				<align>left</align>
+				<scroll>true</scroll>
+				<textcolor>$VAR[TextColor]</textcolor>
+				<label>$INFO[Player.Title]</label> 
+			</control>
+			<control type="label">
+				<left>420</left>
+				<top>30</top>
+				<width>45%</width>
+				<height>70</height>
+				<font>Tile</font>
+				<align>left</align>
+				<scroll>true</scroll>
+				<textcolor>$VAR[UnFocusedColor]</textcolor>
+				<label>$INFO[MusicPlayer.Artist]</label> 
+				<visible>Player.HasAudio</visible>
+			</control>
+			<control type="textbox">
+				<left>420</left>
+				<top>50</top>
+				<width>45%</width>
+				<height>475</height>
+				<font>Light27</font>
+				<label>$INFO[VideoPlayer.Plot]</label>
+				<textcolor>$VAR[UnFocusedColor]</textcolor>
+				<align>left</align>
+				<scroll>true</scroll>
+				<visible>Player.HasVideo</visible>		
+			</control>
+		</control>
+
+		<control type="grouplist" id="3">
+			<visible>Container(1).HasFocus(2)</visible>
+			<description>Control Area</description>
+			<centerleft>48%</centerleft>
+			<centertop>50%</centertop>
+			<width>500</width>
+			<height>50%</height>
+			<itemgap>10</itemgap>
+			<onleft>1</onleft>
+			<onright>1</onright>
+			<onup>1</onup>
+			<ondown>1</ondown>
+			<scrolltime tween="cubic" easing="out">500</scrolltime>
+			<orientation>vertical</orientation>
+			<control type="videowindow">
+				<width>400</width>
+				<height>225</height>
+				<aspectratio>stretch</aspectratio>
+				<visible>Player.HasVideo</visible>
+			</control>
+			<control type="image">
+				<width>400</width>
+				<height>400</height>
+				<aspectratio>scale</aspectratio>
+				<texture>$INFO[MusicPlayer.Cover]</texture>
+				<visible>Player.HasAudio</visible>
+			</control>
+			<control type="grouplist" id="3">
+				<visible>Container(1).HasFocus(2)</visible>
+				<description>Control Area</description>
+				<centerleft>48%</centerleft>
+				<centertop>50%</centertop>
+				<width>500</width>
+				<height>50%</height>
+				<itemgap>0</itemgap>
+				<onleft>1</onleft>
+				<onright>1</onright>
+				<onup>1</onup>
+				<ondown>1</ondown>
+				<scrolltime tween="cubic" easing="out">500</scrolltime>
+				<orientation>horizontal</orientation>
+				<control type="button" id="210">
+					<height>60</height>
+					<width>60</width>
+					<label> </label>
+					<texturefocus>osd/OSDPrevTrackFO.png</texturefocus>
+					<texturenofocus>osd/OSDPrevTrackNF.png</texturenofocus>
+					<onclick>PlayerControl(Previous)</onclick>
+				</control>
+				<control type="button" id="211">
+					<width>60</width>
+					<height>60</height>
+					<label> </label>
+					<texturefocus>osd/OSDRewindFO.png</texturefocus>
+					<texturenofocus>osd/OSDRewindNF.png</texturenofocus>
+					<onclick>PlayerControl(Rewind)</onclick>
+				</control>
+				<control type="button" id="212">
+					<height>60</height>
+					<width>60</width>
+					<label> </label>
+					<texturefocus>osd/OSDPauseFO.png</texturefocus>
+					<texturenofocus>osd/OSDPauseNF.png</texturenofocus>
+					<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+					<alttexturefocus>osd/OSDPlayFO.png</alttexturefocus>
+					<alttexturenofocus>osd/OSDPlayNF.png</alttexturenofocus>
+					<onclick>PlayerControl(Play)</onclick>
+				</control>
+				<control type="button" id="213">
+					<width>60</width>
+					<height>60</height>
+					<label> </label>
+					<texturefocus>osd/OSDForwardFO.png</texturefocus>
+					<texturenofocus>osd/OSDForwardNF.png</texturenofocus>
+					<onclick>PlayerControl(Forward)</onclick>
+				</control>
+				<control type="button" id="214">
+					<width>60</width>
+					<height>60</height>
+					<label> </label>
+					<texturefocus>osd/OSDNextTrackFO.png</texturefocus>
+					<texturenofocus>osd/OSDNextTrackNF.png</texturenofocus>
+					<onclick>PlayerControl(Next)</onclick>
+				</control>
+				<control type="button" id="215">
+					<height>60</height>
+					<width>60</width>
+					<label> </label>
+					<texturefocus>osd/OSDStopFO.png</texturefocus>
+					<texturenofocus>osd/OSDStopNF.png</texturenofocus>
+					<onclick>PlayerControl(Stop)</onclick>
+				</control>
+				<control type="button" id="216">
+					<height>60</height>
+					<width>60</width>
+					<label> </label>
+					<texturefocus>osd/OSDPlaylistFO.png</texturefocus>
+					<texturenofocus>osd/OSDPlaylistNF.png</texturenofocus>
+					<onclick>Dialog.Close(all,true)</onclick>
+					<onclick condition="Player.HasVideo">ActivateWindow(videoplaylist)</onclick>
+					<onclick condition="Player.HasAudio">ActivateWindow(musicplaylist)</onclick>
+				</control>
+			</control>
+		</control>
+
+		<control type="grouplist" id="6">
+			<visible>Container(1).HasFocus(5)</visible>
+			<description>Control Area</description>
+			<centerleft>48%</centerleft>
+			<centertop>50%</centertop>
+			<width>500</width>
+			<height>50%</height>
+			<itemgap>0</itemgap>
+			<onleft>1</onleft>
+			<onright>1</onright>
+			<scrolltime tween="cubic" easing="out">500</scrolltime>
+			<orientation>vertical</orientation>
+			<control type="button" id="510">
+				<height>80</height>
+				<label>13012</label>
+				<font>Font-Condensed-S30-B</font>
+				<textoffsetx>45</textoffsetx>
+				<textwidth>900</textwidth>
+				<textcolor>$VAR[UnFocusedColor]</textcolor>
+				<texturefocus colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texturenofocus>
+				<invalidcolor>$VAR[DisabledColor]</invalidcolor>
+				<disabledcolor>$VAR[DisabledColor]</disabledcolor>
+				<onclick>Dialog.Close(all,true)</onclick>
+				<onclick>XBMC.Quit()</onclick>
+			</control>
+			<control type="button" id="511">
+				<height>80</height>
+				<label>13016</label>
+				<font>Font-Condensed-S30-B</font>
+				<textoffsetx>45</textoffsetx>
+				<textwidth>900</textwidth>
+				<textcolor>$VAR[UnFocusedColor]</textcolor>
+				<texturefocus colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texturenofocus>
+				<invalidcolor>$VAR[DisabledColor]</invalidcolor>
+				<disabledcolor>$VAR[DisabledColor]</disabledcolor>
+				<onclick>Dialog.Close(all,true)</onclick>
+				<onclick>XBMC.Powerdown()</onclick>
+			</control>
+			<control type="button" id="512">
+				<height>80</height>
+				<label>Sleep</label>
+				<font>Font-Condensed-S30-B</font>
+				<textoffsetx>45</textoffsetx>
+				<textwidth>900</textwidth>
+				<textcolor>$VAR[UnFocusedColor]</textcolor>
+				<texturefocus colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texturenofocus>
+				<invalidcolor>$VAR[DisabledColor]</invalidcolor>
+				<disabledcolor>$VAR[DisabledColor]</disabledcolor>
+				<onclick>Dialog.Close(all,true)</onclick>
+				<onclick>XBMC.Suspend()</onclick>
+				<visible>System.CanSuspend</visible>
+			</control>
+			<control type="button" id="513">
+				<height>80</height>
+				<label>Hibernate</label>
+				<font>Font-Condensed-S30-B</font>
+				<textoffsetx>45</textoffsetx>
+				<textwidth>900</textwidth>
+				<textcolor>$VAR[UnFocusedColor]</textcolor>
+				<texturefocus colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texturenofocus>
+				<invalidcolor>$VAR[DisabledColor]</invalidcolor>
+				<disabledcolor>$VAR[DisabledColor]</disabledcolor>
+				<onclick>Dialog.Close(all,true)</onclick>
+				<onclick>RunScript(special://skin/scripts/win32/hibernate.py)</onclick>
+				<visible>System.CanHibernate</visible>
+			</control>
+			<control type="button" id="515">
+				<height>80</height>
+				<label>Settings</label>
+				<font>Font-Condensed-S30-B</font>
+				<textoffsetx>45</textoffsetx>
+				<textwidth>900</textwidth>
+				<textcolor>$VAR[UnFocusedColor]</textcolor>
+				<texturefocus colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texturenofocus>
+				<invalidcolor>$VAR[DisabledColor]</invalidcolor>
+				<disabledcolor>$VAR[DisabledColor]</disabledcolor>
+				<onclick>Dialog.Close(all,true)</onclick>
+				<onclick>ActivateWindow(Settings)</onclick>
+			</control>
+			<control type="button" id="516">
+				<height>80</height>
+				<label>Reload</label>
+				<font>Font-Condensed-S30-B</font>
+				<textoffsetx>45</textoffsetx>
+				<textwidth>900</textwidth>
+				<textcolor>$VAR[UnFocusedColor]</textcolor>
+				<texturefocus colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texturenofocus>
+				<invalidcolor>$VAR[DisabledColor]</invalidcolor>
+				<disabledcolor>$VAR[DisabledColor]</disabledcolor>
+				<onclick>Dialog.Close(all,true)</onclick>
+				<onclick>XBMC.ReloadSkin()</onclick>
+			</control>
+		</control>
+
+		<!--><control type="group">
+			<control type="image">
+				<width>100</width>
+				<height>100%</height>
+				<texture colordiffuse="$VAR[BackgroundColor]">color_white.png</texture>
+			</control>
+			<control type="image">
+				<left>80</left>
+				<width>500</width>
+				<height>100%</height>
+				<texture colordiffuse="ff000000">color_white.png</texture>
+			</control>
+		</control>
+
+		<control type="group">
+			<visible>Container(1).HasFocus(2)</visible>
+			<left>150</left>
+			<top>25</top>
+
+			<control type="group">
+				<control type="button" id="210">
+					<onup>noop</onup>
+					<onleft>1</onleft>
+					<label></label>
+					<font>Button</font>
+					<textcolor>ff000000</textcolor>
+					<width>0</width>
+					<height>0</height>
+					<texturenofocus>-</texturenofocus>
+					<texturefocus>-</texturefocus>
+					<onclick>Dialog.Close(all,true)</onclick>
+					<onclick>Fullscreen</onclick>
+				</control>
+				<control type="videowindow">
+					<width>400</width>
+					<height>225</height>
+					<aspectratio>stretch</aspectratio>
+					<visible>Player.HasVideo</visible>
+				</control>
+				<control type="image">
+					<width>400</width>
+					<height>225</height>
+					<aspectratio>scale</aspectratio>
+					<texture>$INFO[MusicPlayer.Cover]</texture>
+					<visible>Player.HasAudio</visible>						
+				</control>
+				<control type="image">
+					<width>400</width>
+					<height>225</height>
+					<texture colordiffuse="$VAR[TextColor]" border="11,43,43,11">views/border.png</texture>
+					<visible>Control.HasFocus(210)</visible>
+				</control>
+			</control>
+		</control>
+
+		<control type="panel" id="9000">
+			<top>250</top>
+			<left>300</left>
+			<width>1300</width>
+			<height>620</height>
+			<onup>noop</onup>
+			<ondown>1</ondown>
+			<pagecontrol>60</pagecontrol>
+			<preloaditems>2</preloaditems>
+			<orientation>horizontal</orientation>
+			<viewtype label="31531">list</viewtype>
+			<scrolltime tween="sine" easing="inout">360</scrolltime>
+			<include>SettingAnimation</include>
+			<itemlayout height="310" width="310">
+				<control type="image">
+					<width>300</width>
+					<height>300</height>
+					<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+				</control>
+				<control type="image">
+					<width>300</width>
+					<height>300</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
+				</control>
+			</itemlayout>
+			<focusedlayout height="310" width="310">
+				<control type="image">
+					<width>300</width>
+					<height>300</height>
+					<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+				</control>
+				<control type="image">
+					<width>300</width>
+					<height>300</height>
+					<aspectratio>scale</aspectratio>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
+				</control>
+				<control type="group">
+					<visible>Control.HasFocus(9000)</visible>
+					<include>SelectionAnimation</include>
+					<control type="image">
+						<bottom>0</bottom>
+						<width>300</width>
+						<height>60</height>
+						<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+					</control>
+					<control type="label">
+						<left>10</left>
+						<bottom>20</bottom>
+						<height>30</height>
+						<width>290</width>		
+						<label>$INFO[ListItem.Label]</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>Reg30</font>
+						<textcolor>$VAR[TextColor]</textcolor>
+						<scroll>true</scroll>
+					</control>
+				</control>
+			</focusedlayout>
+			<content>
+				<item id="1">
+					<label fallback="31450">$INFO[Skin.String(snapname)]</label>
+					<onclick>Dialog.Close(all,true)</onclick>
+					<onclick>ActivateWindow($INFO[Skin.String(snapwindow)])</onclick>
+					<onclick>$INFO[Skin.String(snapwindow)]</onclick>
+					<thumb>$INFO[Skin.String(snapico)]</thumb>
+				</item>
+				<item id="1">
+					<label fallback="31450">Home</label>
+					<onclick>Dialog.Close(all,true)</onclick>
+					<onclick>ActivateWindow(Home)</onclick>
+					<thumb>settings/home.png</thumb>
+				</item>
+				<item id="1">
+					<label fallback="31450">Fullscreen</label>
+					<onclick>Dialog.Close(all,true)</onclick>
+					<onclick>Fullscreen</onclick>
+					<thumb>settings/tv.png</thumb>
+					<visible>Player.HasMedia</visible>
+				</item>
+			</content>
+		</control><!-->
+
+		<!--><control type="group">
+			<left>150</left>
+			<top>985</top>
+			<width>1620</width>
+			<height>60</height>
+			<animation type="WindowOpen">
+				<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
+				<effect type="fade" start="0" end="100" time="200"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
+				<effect type="fade" start="100" end="0" time="200"/>
+			</animation>
+
+			<!-- Background
+			<control type="image">
+				<width>1620</width>
+				<height>60</height>
+				<texture border="1">osd/OSDBack.png</texture>
+			</control> -->
+
+			<!-- Controls
+			<control type="grouplist">
+				<width>360</width>
+				<height>60</height>
+				<itemgap>0</itemgap>
+				<onleft>8</onleft>
+				<onright>7</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<orientation>horizontal</orientation>
+				<visible>Player.HasMedia + Window.IsActive(PlayerControls) + !VideoPlayer.IsFullscreen + !Window.IsActive(Visualisation)</visible> -->
+
+				<!-- Play/Pause
+				<control type="togglebutton" id="1">
+					<width>60</width>
+					<height>60</height>
+					<texturefocus>osd/OSDPauseFO.png</texturefocus>
+					<texturenofocus>osd/OSDPauseNF.png</texturenofocus>
+					<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+					<alttexturefocus>osd/OSDPlayFO.png</alttexturefocus>
+					<alttexturenofocus>osd/OSDPlayNF.png</alttexturenofocus>
+					<onclick>PlayerControl(Play)</onclick>
+				</control> -->
+				<!-- Stop
+				<control type="button" id="2">
+					<width>60</width>
+					<height>60</height>
+					<texturefocus>osd/OSDStopFO.png</texturefocus>
+					<texturenofocus>osd/OSDStopNF.png</texturenofocus>
+					<onclick>PlayerControl(Stop)</onclick>
+				</control> -->
+				<!-- Skip Back
+				<control type="button" id="3">
+					<width>60</width>
+					<height>60</height>
+					<texturefocus>osd/OSDPrevTrackFO.png</texturefocus>
+					<texturenofocus>osd/OSDPrevTrackNF.png</texturenofocus>
+					<onclick>PlayerControl(Previous)</onclick>
+				</control> -->
+				<!-- Rewind
+				<control type="button" id="4">
+					<width>60</width>
+					<height>60</height>
+					<texturefocus>osd/OSDRewindFO.png</texturefocus>
+					<texturenofocus>osd/OSDRewindNF.png</texturenofocus>
+					<onclick>PlayerControl(Rewind)</onclick>
+				</control> -->
+				<!-- Fast Forward
+				<control type="button" id="5">
+					<width>60</width>
+					<height>60</height>
+					<texturefocus>osd/OSDForwardFO.png</texturefocus>
+					<texturenofocus>osd/OSDForwardNF.png</texturenofocus>
+					<onclick>PlayerControl(Forward)</onclick>
+				</control> -->
+				<!-- Next
+				<control type="button" id="6">
+					<width>60</width>
+					<height>60</height>
+					<texturefocus>osd/OSDNextTrackFO.png</texturefocus>
+					<texturenofocus>osd/OSDNextTrackNF.png</texturenofocus>
+					<onclick>PlayerControl(Next)</onclick>
+				</control>
+
+			</control> -->
+
+			<!-- Options
+			<control type="grouplist">
+				<right>0</right>
+				<width>420</width>
+				<height>60</height>
+				<align>right</align>
+				<itemgap>0</itemgap>
+				<onleft>6</onleft>
+				<onright>1</onright>
+				<onup>Close</onup>
+				<ondown>Close</ondown>
+				<orientation>horizontal</orientation> -->
+
+				<!-- Repeat
+				<control type="button" id="7">
+					<width>60</width>
+					<height>60</height>
+					<texturefocus>-</texturefocus>
+					<texturenofocus>-</texturenofocus>
+					<onclick>PlayerControl(Repeat)</onclick>
+				</control> -->
+				<!-- Random
+				<control type="togglebutton" id="8">
+					<width>60</width>
+					<height>60</height>
+					<texturefocus>osd/OSDRandomOffFO.png</texturefocus>
+					<texturenofocus>osd/OSDRandomOffNF.png</texturenofocus>
+					<alttexturefocus>osd/OSDRandomOnFO.png</alttexturefocus>
+					<alttexturenofocus>osd/OSDRandomOnNF.png</alttexturenofocus>
+					<onclick>PlayerControl(Random)</onclick>
+				</control>
+
+			</control> -->
+
+			<!-- Repeat images
+			<control type="group">
+				<right>60</right>
+				<width>60</width>
+				<height>60</height>
+
+				<control type="image">
+					<width>60</width>
+					<height>60</height>
+					<texture>osd/OSDRepeatNF.png</texture>
+					<visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
+					<visible>!Control.HasFocus(7)</visible>
+				</control>
+				<control type="image">
+					<width>60</width>
+					<height>60</height>
+					<texture>osd/OSDRepeatFO.png</texture>
+					<visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
+					<visible>Control.HasFocus(7)</visible>
+				</control>
+				<control type="image">
+					<width>60</width>
+					<height>60</height>
+					<texture>osd/OSDRepeatOneNF.png</texture>
+					<visible>Playlist.IsRepeatOne</visible>
+					<visible>!Control.HasFocus(7)</visible>
+				</control>
+				<control type="image">
+					<width>60</width>
+					<height>60</height>
+					<texture>osd/OSDRepeatOneFO.png</texture>
+					<visible>Playlist.IsRepeatOne</visible>
+					<visible>Control.HasFocus(7)</visible>
+				</control>
+				<control type="image">
+					<width>60</width>
+					<height>60</height>
+					<texture>osd/OSDRepeatAllNF.png</texture>
+					<visible>Playlist.IsRepeat</visible>
+					<visible>!Control.HasFocus(7)</visible>
+				</control>
+				<control type="image">
+					<width>60</width>
+					<height>60</height>
+					<texture>osd/OSDRepeatAllFO.png</texture>
+					<visible>Playlist.IsRepeat</visible>
+					<visible>Control.HasFocus(7)</visible>
+				</control>
+
+			</control>
+		</control><!-->
+
+	</controls>
+
+</window>

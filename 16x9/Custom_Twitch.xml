@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="1111">
+	<backgroundcolor>$VAR[MaterialColorDark]</backgroundcolor>
+	<defaultcontrol always="true">11</defaultcontrol>
+	<onload>Skin.SetString(snapwindow, 1111)</onload>
+	<onload>Skin.SetString(snapico, home/snap/twitch.jpg,0)</onload>
+	<onload>Skin.SetString(snapname, Twitch)</onload>
+	<controls>
+		<control type="group">
+			<animation type="WindowOpen">
+				<effect type="slide" start="0,1000" end="0" center="auto" tween="Cubic" easing="inout" time="200"/>
+				<effect type="zoom" start="80" end="100" center="auto" tween="Cubic" easing="inout" time="500"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="0,1000" center="auto" delay="500"  tween="Cubic" easing="inout" time="500"/>
+				<effect type="zoom" start="100" end="80" center="auto" delay="500"  tween="Cubic" easing="inout" time="200"/>
+			</animation>
+			
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture colordiffuse="$VAR[MaterialColorDark]">views/white_100.png</texture>
+			</control>
+
+			<control type="group">
+				<animation type="Conditional" condition="Control.HasFocus(22)">
+					<effect type="slide" start="0,0" end="0,-250" time="200"/>
+				</animation>
+				<animation type="Conditional" condition="Control.HasFocus(33)">
+					<effect type="slide" start="0,0" end="0,-550" time="200"/>
+				</animation>
+				<animation type="Conditional" condition="Control.HasFocus(44)">
+					<effect type="slide" start="0,0" end="0,-1000" time="200"/>
+				</animation>
+
+				<control type="label">
+					<top>200</top>
+					<left>20</left>
+					<width>820</width>
+					<height>25</height>
+					<font>spotifytitle</font>
+					<shadowcolor>11000000</shadowcolor>
+					<textcolor>$VAR[White]</textcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textoffsetx>5</textoffsetx>
+					<label>Games</label>    
+				</control>
+
+				<control type="fixedlist" id="11">
+					<top>220</top>
+					<left>10</left>
+					<width>100%</width>
+					<height>552</height>
+					<onup>noop</onup>
+					<ondown>22</ondown>
+					<focusposition>-1</focusposition>
+					<movement>2</movement>
+					<orientation>horizontal</orientation>
+					<viewtype label="535">list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout width="300" height="552">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+							<control type="image">
+								<width>285</width>
+								<height>430</height>
+								<texture background="true" fallback="color_black.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout width="300" height="552">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+							<control type="image">
+								<width>285</width>
+								<height>430</height>
+								<texture background="true" fallback="color_black.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<left>-30</left>
+								<top>-35</top>
+								<width>350</width>
+								<height>500</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="40">fo.png</texture>
+								<visible>Control.HasFocus(11)</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="videos">plugin://plugin.video.twitch/?mode=games</content>
+				</control>
+
+				<control type="label">
+					<top>700</top>
+					<left>20</left>
+					<width>820</width>
+					<height>25</height>
+					<font>spotifytitle</font>
+					<shadowcolor>11000000</shadowcolor>
+					<textcolor>$VAR[White]</textcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textoffsetx>5</textoffsetx>
+					<label>Featured Streams</label>    
+				</control>
+
+				<control type="fixedlist" id="22">
+					<top>720</top>
+					<left>10</left>
+					<width>100%</width>
+					<height>552</height>
+					<onup>11</onup>
+					<ondown>33</ondown>
+					<focusposition>-1</focusposition>
+					<movement>2</movement>
+					<orientation>horizontal</orientation>
+					<viewtype label="535">list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout width="560" height="400">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+							<control type="image">
+								<width>550</width>
+								<height>310</height>
+								<texture background="true" fallback="color_black.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<bottom>10</bottom>
+								<width>550</width>
+								<height>66</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Tile</font>
+								<textcolor>$VAR[UnFocusedColor]</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<scroll>false</scroll>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout width="560" height="400">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+							<control type="image">
+								<width>550</width>
+								<height>380</height>
+								<texture colordiffuse="$VAR[Black]">views/white_100.png</texture>
+								<aspectratio>scale</aspectratio>
+								<visible>Control.HasFocus(22)</visible>
+							</control>
+							<control type="image">
+								<width>550</width>
+								<height>380</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texture>
+								<aspectratio>scale</aspectratio>
+								<visible>Control.HasFocus(22)</visible>
+							</control>
+							<control type="image">
+								<width>550</width>
+								<height>310</height>
+								<texture background="true" fallback="color_black.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<bottom>10</bottom>
+								<width>550</width>
+								<height>66</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Tile</font>
+								<textcolor>$VAR[UnFocusedColor]</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<scroll>true</scroll>
+							</control>
+							<control type="image">
+								<left>-30</left>
+								<top>-35</top>
+								<width>610</width>
+								<height>450</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="40">fo.png</texture>
+								<visible>Control.HasFocus(22)</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="videos">plugin://plugin.video.twitch/?mode=featured_streams</content>
+				</control>
+
+				<control type="label">
+					<top>1150</top>
+					<left>20</left>
+					<width>820</width>
+					<height>25</height>
+					<font>spotifytitle</font>
+					<shadowcolor>11000000</shadowcolor>
+					<textcolor>$VAR[White]</textcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textoffsetx>5</textoffsetx>
+					<label>Live Game Stream</label>    
+				</control>
+
+				<control type="fixedlist" id="33">
+					<top>1170</top>
+					<left>10</left>
+					<width>100%</width>
+					<height>552</height>
+					<onup>22</onup>
+					<ondown>44</ondown>
+					<focusposition>-1</focusposition>
+					<movement>2</movement>
+					<orientation>horizontal</orientation>
+					<viewtype label="535">list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout width="560" height="400">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+							<control type="image">
+								<width>550</width>
+								<height>310</height>
+								<texture background="true" fallback="color_black.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<bottom>10</bottom>
+								<width>550</width>
+								<height>66</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Tile</font>
+								<textcolor>$VAR[UnFocusedColor]</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<scroll>false</scroll>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout width="560" height="400">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+							<control type="image">
+								<width>550</width>
+								<height>380</height>
+								<texture colordiffuse="$VAR[Black]">views/white_100.png</texture>
+								<aspectratio>scale</aspectratio>
+								<visible>Control.HasFocus(33)</visible>
+							</control>
+							<control type="image">
+								<width>550</width>
+								<height>380</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texture>
+								<aspectratio>scale</aspectratio>
+								<visible>Control.HasFocus(33)</visible>
+							</control>
+							<control type="image">
+								<width>550</width>
+								<height>310</height>
+								<texture background="true" fallback="color_black.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<bottom>10</bottom>
+								<width>550</width>
+								<height>66</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Tile</font>
+								<textcolor>$VAR[UnFocusedColor]</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<scroll>true</scroll>
+							</control>
+							<control type="image">
+								<left>-30</left>
+								<top>-35</top>
+								<width>610</width>
+								<height>450</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="40">fo.png</texture>
+								<visible>Control.HasFocus(33)</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="videos">plugin://plugin.video.twitch/?mode=stream_list</content>
+				</control>
+
+				<control type="label">
+					<top>1600</top>
+					<left>20</left>
+					<width>820</width>
+					<height>25</height>
+					<font>spotifytitle</font>
+					<shadowcolor>11000000</shadowcolor>
+					<textcolor>$VAR[White]</textcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textoffsetx>5</textoffsetx>
+					<label>Clips</label>    
+				</control>
+
+				<control type="fixedlist" id="44">
+					<top>1620</top>
+					<left>10</left>
+					<width>100%</width>
+					<height>552</height>
+					<onup>33</onup>
+					<ondown>noop</ondown>
+					<focusposition>-1</focusposition>
+					<movement>2</movement>
+					<orientation>horizontal</orientation>
+					<viewtype label="535">list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout width="560" height="400">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+							<control type="image">
+								<width>550</width>
+								<height>310</height>
+								<texture background="true" fallback="color_black.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<bottom>10</bottom>
+								<width>550</width>
+								<height>66</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Tile</font>
+								<textcolor>$VAR[UnFocusedColor]</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<scroll>false</scroll>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout width="560" height="400">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+							<control type="image">
+								<width>550</width>
+								<height>380</height>
+								<texture colordiffuse="$VAR[Black]">views/white_100.png</texture>
+								<aspectratio>scale</aspectratio>
+								<visible>Control.HasFocus(44)</visible>
+							</control>
+							<control type="image">
+								<width>550</width>
+								<height>380</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texture>
+								<aspectratio>scale</aspectratio>
+								<visible>Control.HasFocus(44)</visible>
+							</control>
+							<control type="image">
+								<width>550</width>
+								<height>310</height>
+								<texture background="true" fallback="color_black.png">$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<bottom>10</bottom>
+								<width>550</width>
+								<height>66</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Tile</font>
+								<textcolor>$VAR[UnFocusedColor]</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<scroll>true</scroll>
+							</control>
+							<control type="image">
+								<left>-30</left>
+								<top>-35</top>
+								<width>610</width>
+								<height>450</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="40">fo.png</texture>
+								<visible>Control.HasFocus(44)</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="videos">plugin://plugin.video.twitch/?mode=clips_list</content>
+				</control>
+			</control>
+
+			<control type="image">
+				<left>-500</left>
+				<top>-283%</top>
+				<width>200%</width>
+				<height>300%</height>
+				<texture colordiffuse="$VAR[TwitchBackground]">color_white.png</texture>
+			</control>
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture>custom/twitch.png</texture>
+			</control>
+		</control>
+	</controls>
+</window>

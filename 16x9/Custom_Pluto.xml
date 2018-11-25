@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="1120">
+	<backgroundcolor>$VAR[BackgroundColor]</backgroundcolor>
+	<defaultcontrol always="true">11</defaultcontrol>
+	<onload>Skin.SetString(snapwindow, 1120)</onload>
+	<onload>Skin.SetString(snapico, home/snap/pluto.png,0)</onload>
+	<onload>Skin.SetString(snapname,Pluto TV)</onload>
+	<controls>
+		<control type="group">
+			<animation type="WindowOpen">
+				<effect type="slide" start="0,1000" end="0" center="auto" tween="Cubic" easing="inout" time="200"/>
+				<effect type="zoom" start="80" end="100" center="auto" tween="Cubic" easing="inout" time="500"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="0,1000" center="auto" delay="500"  tween="Cubic" easing="inout" time="500"/>
+				<effect type="zoom" start="100" end="80" center="auto" delay="500"  tween="Cubic" easing="inout" time="200"/>
+			</animation>
+			<include>WindowBackgroundImage</include>
+			<include>WindowBackgroundVideo</include>
+			<!--> List -->
+			<control type="group">
+			<animation type="WindowOpen">
+				<effect type="slide" start="-1000" end="0" center="auto" delay="500" tween="Cubic" easing="inout" time="200"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="-1000" center="auto" tween="Cubic" easing="inout" time="500"/>
+				<effect type="fade" start="100" end="0" time="100"/>
+			</animation>
+				<control type="wraplist" id="11">
+					<left>0</left>
+					<top>0</top>
+					<width>100%</width>
+					<height>100%</height>				
+					<onup>noop</onup>
+					<ondown>noop</ondown>
+					<onleft>noop</onleft>
+					<onright>noop</onright>
+					<pagecontrol>60</pagecontrol>
+					<preloaditems>2</preloaditems>
+					<focusposition>2</focusposition>
+					<orientation>veritical</orientation>
+					<viewtype label="31521">list</viewtype>
+					<scrolltime tween="cubic" easing="out">360</scrolltime>
+					<itemlayout height="300" width="300">
+						<control type="image">
+							<width>300</width>
+							<height>300</height>
+							<aspectratio>scale</aspectratio>
+							<colordiffuse>50ffffff</colordiffuse>
+							<texture background="false">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<width>300</width>
+							<height>300</height>
+							<texture colordiffuse="$VAR[DiffuseColor]">views/white_100.png</texture>
+						</control>
+					</itemlayout>
+					<focusedlayout height="300">
+						<control type="image">
+							<width>100%</width>
+							<height>300</height>
+							<texture colordiffuse="$VAR[Fade]">views/white_100.png</texture>
+						</control>
+						<control type="image">
+							<width>300</width>
+							<height>300</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<width>300</width>
+							<height>300</height>
+							<texture colordiffuse="$VAR[TextColor]" border="11,43,43,11">$VAR[BorderImage]</texture>
+						</control>
+						<control type="label">
+							<left>350</left>
+							<top>10</top>
+							<width>80%</width>
+							<height>70</height>
+							<font>Med60</font>
+							<align>left</align>
+							<scroll>true</scroll>
+							<textcolor>$VAR[TextColor]</textcolor>
+							<label>$VAR[ListLabelNF]</label>
+						</control>
+						<control type="textbox">
+							<left>350</left>
+							<top>85</top>
+							<right>30</right>
+							<height>170</height>
+							<align>justify</align>
+							<label>$INFO[ListItem.Plot]</label>
+							<autoscroll delay="10000" time="3000" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
+						</control>
+					</focusedlayout>
+					<content target="videos">plugin://plugin.video.plutotv/?mode=0&name=Browse%20Channels&url=https%3a%2f%2fapi.pluto.tv%2fv1%2fchannels.json&</content>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

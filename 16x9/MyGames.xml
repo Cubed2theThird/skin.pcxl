@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- Games -->
+	<backgroundcolor>$VAR[BackgroundColor]</backgroundcolor>
+	<defaultcontrol always="true">524</defaultcontrol>
+	<menucontrol>3000</menucontrol>
+	<onload>Skin.SetString(snapwindow, games)</onload>
+	<onload>Skin.SetString(snapico, home/snap/games.jpg,0)</onload>
+	<onload>Skin.SetString(snapname,Games)</onload>
+    <views>524,525</views>
+    <controls>
+		<include>Viewtype_524_Switch</include>
+		<include>Viewtype_525_RetroArch</include>
+
+		<control type="list" id="3000">
+    		<left>50</left>
+    		<top>20</top>
+    		<width>100%</width>
+    		<height>100</height>
+    		<ondown>524</ondown>
+    		<onback>524</onback>
+			<movement>0</movement>
+			<viewtype label="31521">list</viewtype>
+    		<orientation>horizontal</orientation>
+    		<itemlayout height="59" width="200">
+    			<control type="label">
+    				<width>200</width>
+    				<height>59</height>
+    				<font>Thin26</font>
+    				<align>center</align>
+    				<alignx>center</alignx>
+    				<textcolor>$VAR[UnFocusedColor]</textcolor>
+    				<label>$INFO[ListItem.Label]</label>
+    			</control>
+    		</itemlayout>
+    		<focusedlayout height="70" width="200">
+    			<control type="label">
+    				<width>200</width>
+    				<height>59</height>
+    				<font>Thin26</font>
+    				<align>center</align>
+    				<alignx>center</alignx>
+    				<textcolor>$VAR[UnFocusedColor]</textcolor>
+    				<label>$INFO[ListItem.Label]</label>
+    			</control>
+    			<control type="label">
+    				<width>200</width>
+    				<height>59</height>
+    				<font>Thin26</font>
+    				<align>center</align>
+    				<alignx>center</alignx>
+    				<textcolor>$VAR[White]</textcolor>
+    				<label>$INFO[ListItem.Label]</label>
+    				<visible>Control.HasFocus(3000)</visible>
+    			</control>
+    		</focusedlayout>
+    		<content>
+				<item>
+					<label>Switch Theme</label>
+                    <onclick>Container.NextViewMode</onclick>
+    				<onclick>SetFocus(524)</onclick>
+    				<visible>Control.IsVisible(524)</visible>
+				</item>
+                <item>
+                    <label>Retroarch Theme</label>
+                    <onclick>Container.NextViewMode</onclick>
+                    <onclick>SetFocus(525)</onclick>
+                    <visible>Control.IsVisible(525)</visible>
+                </item>
+				<item>
+					<label>Settings</label>
+    				<onclick>ActivateWindow(addonbrowser,addons://all/category.gameaddons,return)</onclick>
+				</item>
+    		</content>
+		</control>
+
+    </controls>
+</window>

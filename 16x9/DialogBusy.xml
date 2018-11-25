@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- busydialog -->
+	<controls>
+		<!-- Background -->
+		<control type="image">
+			<include>FullscreenDimensions</include>
+			<texture colordiffuse="$VAR[BackgroundColor]">views/white_70.png</texture>		
+		</control>
+
+		<control type="image" id="99">
+			<centerleft>50%</centerleft>
+			<centertop>50%</centertop>
+			<width>150</width>
+			<height>150</height>
+            <texture>dialogs/loading.png</texture>
+            <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" condition="true">Conditional</animation>
+		</control>
+	</controls>
+</window>

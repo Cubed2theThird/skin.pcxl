@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- skinsettings -->
+	<backgroundcolor>$VAR[BackgroundColor]</backgroundcolor>
+	<defaultcontrol always="true">9</defaultcontrol>
+	<controls>
+
+		<control type="image">
+			<width>500</width>
+			<height>100%</height>
+			<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+		</control>
+
+		<!-- Clock -->
+		<include>Clock</include>
+
+		<!-- Skin settings -->
+		<control type="group">
+			<left>00</left>
+			<top>155</top>
+			<width>100%</width>
+			<height>775</height>
+			<animation type="WindowOpen" reversible="false">
+				<effect type="fade" start="0" end="100" time="200"/>
+				<effect type="slide" start="0,500" end="0,0" time="400" tween="cubic" easing="out"/>
+			</animation>
+
+			<!-- Heading -->
+			<control type="label">
+				<left>50</left>
+				<top>-115</top>
+				<height>70</height>
+				<font>Large</font>
+				<label>20077</label>
+			</control>
+
+			<!-- Left grouplist -->
+			<control type="grouplist" id="9">
+				<width>1000</width>
+				<height>1000</height>
+				<onright>2</onright>
+				<onleft>noop</onleft>
+				<ondown>1</ondown>
+				<onup>1</onup>
+				<itemgap>0</itemgap>
+				<control type="list" id="1">
+					<width>1000</width>
+					<height>500</height>
+					<itemlayout width="510" height="60">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="label">
+								<left>20</left>
+								<width>500</width>
+								<height>60</height>
+								<label>$INFO[Listitem.label]</label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Tile</font>
+								<textcolor>$VAR[UnFocusedColor2]</textcolor>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout width="510" height="60">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<left>-5</left>
+								<top>0</top>
+								<width>5</width>
+								<height>60</height>
+								<texture colordiffuse="$VAR[MaterialColorDark]">common/white.png</texture>
+								<aspectratio>stretch</aspectratio>
+							</control>
+							<control type="label">
+								<left>20</left>
+								<width>500</width>
+								<height>60</height>
+								<label>$INFO[Listitem.label]</label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Tile</font>
+								<textcolor>$VAR[MaterialColorDark]</textcolor>
+							</control>
+						</control>
+					</focusedlayout>
+					<content>
+						<item id="10">
+							<label>128</label>
+							<onclick>Control.SetFocus(1213)</onclick>
+						</item>
+						<item id="11">
+							<label>24997</label>
+							<onclick>Control.SetFocus(1002)</onclick>
+						</item>
+						<item id="12">
+							<label>Optional addons</label>
+							<onclick>Control.SetFocus(1200)</onclick>
+						</item>
+						<item id="13">
+							<label>10038</label>
+							<onclick>Control.SetFocus(1302)</onclick>
+						</item>
+					</content>
+				</control>
+			</control>
+
+			<!-- Right grouplist -->
+			<control type="grouplist" id="2">
+				<left>600</left>
+				<centertop>50%</centertop>
+				<width>1240</width>
+				<height>450</height>
+				<itemgap>0</itemgap>
+				<onleft>9</onleft>
+				<onright>noop</onright>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
+				<orientation>vertical</orientation>
+				<usecontrolcoords>true</usecontrolcoords>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+
+				<!-- General options -->
+				<!-- Home submenu-->
+				<control type="button" id="1213">
+					<width>1200</width>
+					<height>60</height>
+					<textwidth>1120</textwidth>
+					<label>31049</label>
+					<include>SettingsButton</include>
+					<onclick condition="System.HasAddon(script.skinshortcuts)">RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
+					<onclick condition="!System.HasAddon(script.skinshortcuts)">InstallAddon(script.skinshortcuts)</onclick>
+					<visible>Container(1).HasFocus(10)</visible>
+				</control>
+				<!-- Colour picker -->
+				<control type="button" id="1214">
+					<width>1200</width>
+					<height>60</height>
+					<textwidth>1120</textwidth>
+					<label>31064</label>
+					<include>SettingsButton</include>
+					<onclick>ActivateWindow(1103)</onclick>
+					<visible>Container(1).HasFocus(10)</visible>
+				</control>
+
+				<!-- Look and Feel options -->
+				<!-- Scroll plots 
+				<control type="radiobutton" id="1002">
+					<width>1200</width>
+					<height>60</height>
+					<textwidth>1120</textwidth>
+					<label>20189</label>
+					<include>SettingsButton</include>
+					<visible>Container(1).HasFocus(11)</visible>
+				</control>-->
+				<!-- Logo settings
+				<control type="radiobutton" id="1003">
+					<width>1200</width>
+					<height>60</height>
+					<textwidth>1120</textwidth>
+					<label>31132</label>
+					<include>SettingsButton</include>
+					<label2>$VAR[LogosCondition]</label2>
+					<visible>Container(1).HasFocus(11)</visible>
+				</control> -->
+				<!-- Flag settings
+				<control type="radiobutton" id="1004">
+					<width>1200</width>
+					<height>60</height>
+					<textwidth>1120</textwidth>
+					<label>31133</label>
+					<include>SettingsButton</include>
+					<visible>Container(1).HasFocus(11)</visible>
+				</control> -->
+				<!-- Fanart/Episode image settings
+				<control type="radiobutton" id="1005">
+					<width>1200</width>
+					<height>60</height>
+					<textwidth>1120</textwidth>
+					<label>31134</label>
+					<include>SettingsButton</include>
+					<visible>Container(1).HasFocus(11)</visible>
+				</control> -->
+				<!-- Thumb (16:9) settings
+				<control type="radiobutton" id="1006">
+					<width>1200</width>
+					<height>60</height>
+					<textwidth>1120</textwidth>
+					<label>31135</label>
+					<include>SettingsButton</include>
+					<visible>Container(1).HasFocus(11)</visible>
+				</control> -->
+				<!-- Discart settings -->
+				<control type="radiobutton" id="1007">
+					<width>1200</width>
+					<height>60</height>
+					<textwidth>1120</textwidth>
+					<label>Display Artist Art</label>
+					<include>SettingsButton</include>
+					<onclick>Skin.ToggleSetting(artistslideshow)</onclick>
+					<visible>Container(1).HasFocus(11)</visible>
+				</control>
+				<!-- Hide 'Mouse' warning -->
+				<control type="radiobutton" id="1008">
+					<width>1200</width>
+					<height>60</height>
+					<textwidth>1120</textwidth>
+					<label>31065</label>
+					<include>SettingsButton</include>
+					<onclick>Skin.ToggleSetting(HideMouse)</onclick>
+					<selected>Skin.HasSetting(HideMouse)</selected>
+					<visible>Container(1).HasFocus(11)</visible>
+				</control>
+
+				<!-- Optional addons -->
+				<!-- Skin Shortcuts script -->
+				<control type="button" id="1200">
+					<width>1200</width>
+					<height>60</height>
+					<textwidth>1120</textwidth>
+					<label>Skin Shortcuts script</label>
+					<label2>$VAR[SkinShortcutsScript]</label2>
+					<include>SettingsButton</include>
+					<onclick condition="!System.HasAddon(script.skinshortcuts)">InstallAddon(script.skinshortcuts)</onclick>
+					<selected>System.HasAddon(script.skinshortcuts)</selected>
+					<visible>Container(1).HasFocus(12)</visible>
+				</control>
+				<!-- Toolbox script
+				<control type="button" id="1201">
+					<width>1200</width>
+					<height>60</height>
+					<textwidth>1120</textwidth>
+					<label>Toolbox script</label>
+					<label2>$VAR[ToolboxScript]</label2>
+					<include>SettingsButton</include>
+					<onclick condition="!System.HasAddon(script.toolbox)">InstallAddon(script.toolbox)</onclick>
+					<selected>System.HasAddon(script.toolbox)</selected>
+					<visible>Container(1).HasFocus(12)</visible>
+				</control> -->
+				<!-- Artwork Downloader script -->
+				<control type="button" id="1202">
+					<width>1200</width>
+					<height>60</height>
+					<textwidth>1120</textwidth>
+					<label>Artwork Downloader script</label>
+					<label2>$VAR[ArtworkDownloaderScript]</label2>
+					<include>SettingsButton</include>
+					<onclick condition="!System.HasAddon(script.artwork.downloader)">InstallAddon(script.artwork.downloader)</onclick>
+					<selected>System.HasAddon(script.artwork.downloader)</selected>
+					<visible>Container(1).HasFocus(12)</visible>
+				</control>
+				<!-- Artist SlideshowScript script -->
+				<control type="button" id="1203">
+					<width>1200</width>
+					<height>60</height>
+					<textwidth>1120</textwidth>
+					<label>Artist Slideshow script</label>
+					<label2>$VAR[ArtistSlideshowScript]</label2>
+					<include>SettingsButton</include>
+					<onclick condition="!System.HasAddon(script.artistslideshow)">InstallAddon(script.artistslideshow)</onclick>
+					<selected>System.HasAddon(script.artistslideshow)</selected>
+					<visible>Container(1).HasFocus(12)</visible>
+				</control>
+				<!-- Global Search script -->
+				<control type="button" id="1204">
+					<width>1200</width>
+					<height>60</height>
+					<textwidth>1120</textwidth>
+					<label>Global Search script</label>
+					<label2>$VAR[GlobalSearchScript]</label2>
+					<include>SettingsButton</include>
+					<onclick condition="!System.HasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</onclick>
+					<selected>System.HasAddon(script.globalsearch)</selected>
+					<visible>Container(1).HasFocus(12)</visible>
+				</control>
+				<!-- Global Search script -->
+				<control type="button" id="1205">
+					<width>1200</width>
+					<height>60</height>
+					<textwidth>1120</textwidth>
+					<label>Random Movie</label>
+					<label2>$VAR[GlobalSearchScript]</label2>
+					<include>SettingsButton</include>
+					<onclick condition="!System.HasAddon(script.rndmov)">InstallAddon(script.rndmov)</onclick>
+					<selected>System.HasAddon(script.rndmov)</selected>
+					<visible>Container(1).HasFocus(12)</visible>
+				</control>
+
+				<!-- Advanced options -->
+				<!-- Enable Debug Grid -->
+				<control type="radiobutton" id="1302">
+					<width>1200</width>
+					<height>60</height>
+					<textwidth>1120</textwidth>
+					<label>31041</label>
+					<include>SettingsButton</include>
+					<onclick>Skin.ToggleSetting(DebugGrid)</onclick>
+					<selected>Skin.HasSetting(DebugGrid)</selected>
+					<visible>Container(1).HasFocus(13)</visible>
+				</control>
+				<!-- Disable Debug Info -->
+				<control type="radiobutton" id="1303">
+					<width>1200</width>
+					<height>60</height>
+					<textwidth>1120</textwidth>
+					<label>31042</label>
+					<include>SettingsButton</include>
+					<onclick>Skin.ToggleSetting(DebugInfo)</onclick>
+					<selected>Skin.HasSetting(DebugInfo)</selected>
+					<visible>Container(1).HasFocus(13)</visible>
+				</control>
+				<!-- Kiosk mode -->
+				<control type="radiobutton" id="1304">
+					<width>1200</width>
+					<height>60</height>
+					<textwidth>1120</textwidth>
+					<label>31057</label>
+					<include>SettingsButton</include>
+					<onclick>Skin.ToggleSetting(KioskMode)</onclick>
+					<selected>Skin.HasSetting(KioskMode)</selected>
+					<visible>Container(1).HasFocus(13)</visible>
+				</control>
+				<!-- Auto Start Kodi -->
+				<control type="button" id="1305">
+					<width>1200</width>
+					<height>60</height>
+					<textwidth>1120</textwidth>
+					<label>Autorun Kodi on Crash</label>
+					<include>SettingsButton</include>
+					<onclick>RunScript(special://skin/scripts/kodi.py)</onclick>
+					<visible>Container(1).HasFocus(13)</visible>
+				</control>
+				<!-- Hidden options -->
+				<control type="radiobutton" id="1306">
+					<width>1200</width>
+					<height>60</height>
+					<textwidth>1120</textwidth>
+					<label>Hidden Options</label>
+					<include>SettingsButton</include>
+					<onclick>Skin.ToggleSetting(hiddenoptions)</onclick>
+					<selected>Skin.HasSetting(hiddenoptions)</selected>
+					<visible>Container(1).HasFocus(13)</visible>
+				</control>
+
+			</control>
+		</control>
+
+		<!-- Hide settings warning -->
+		<control type="textbox">
+			<left>600</left>
+			<top>894</top>
+			<width>1240</width>
+			<height>132</height>
+			<label>31051</label>
+			<textcolor>$VAR[DisabledColor]</textcolor>
+			<visible>Container(1).HasFocus(11) + Skin.HasSetting(HideSettings)</visible>
+		</control>
+
+		<!--> Logo <!-->
+		<include>Logo</include>
+
+	</controls>
+
+</window>

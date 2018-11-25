@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="Viewtype_50_List">
+		<control type="group">
+			<visible>Control.IsVisible(50)</visible>
+
+			<!-- List -->			
+			<control type="group">
+				<animation type="Conditional" condition="Player.HasVideo">
+					<effect type="slide" start="0" end="0,700" time="500" tween="cubic" easing="inout" />
+				</animation>
+				<animation type="Conditional" condition="Control.HasFocus(9050)">
+					<effect type="slide" start="0" end="0,250" time="500" tween="cubic" easing="inout" />
+				</animation>
+
+				<control type="fixedlist" id="50">
+					<left>19%</left>
+					<width>80%</width>
+					<height>100%</height>
+					<bottom>0</bottom>
+					<onup condition="Player.HasVideo">9050</onup>
+					<ondown>50</ondown>
+					<onleft condition="Player.HasVideo">9050</onleft>
+					<onleft condition="Player.HasAudio">9051</onleft>
+					<onright>60</onright>
+					<pagecontrol>60</pagecontrol>
+					<focusposition>0</focusposition>
+					<orientation>vertical</orientation>
+					<viewtype label="535">list</viewtype>
+					<visible>![String.Contains(Container.Content,songs) | String.Contains(Container.Content,albums) | String.Contains(Container.Content,movies) | String.Contains(Container.Content,tvshows) | String.Contains(Container.Content,seasons) | String.Contains(Container.FolderPath,plugin://plugin.video.youtube) | String.Contains(Container.FolderPath,plugin://plugin.video.netflix) | String.Contains(Container.Content,images)]</visible>
+					<scrolltime tween="Cubic" easing="inout">200</scrolltime>
+					<include>MediaInfoHideAnimation</include>
+					<animation type="WindowClose">
+						<effect type="slide" start="0" end="0,1000" center="auto" tween="Cubic" easing="in" time="500"/>
+					</animation>
+					<itemlayout height="240" width="1200">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+						<control type="image">
+							<top>50</top>
+							<left>50</left>
+							<width>240</width>
+							<height>135</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<left>0</left>
+							<width>100%</width>
+							<height>240</height>
+							<texture colordiffuse="00242424">color_white.png</texture>
+						</control>
+						<control type="label">
+							<left>320</left>
+							<width>700</width>
+							<height>120</height>
+							<font>Reg30</font>
+							<align>left</align>
+							<textcolor>$VAR[UnFocusedColor2]</textcolor>
+							<label>$VAR[ListLabelNF]</label>
+						</control>
+						<control type="label">
+							<left>320</left>
+							<top>50</top>
+							<width>700</width>
+							<height>120</height>
+							<font>Reg30</font>
+							<align>left</align>
+							<textcolor>$VAR[UnFocusedColor2]</textcolor>
+							<label>$INFO[ListItem.Artist]</label>
+						</control>
+						<control type="label">
+							<left>320</left>
+							<top>100</top>
+							<width>700</width>
+							<height>120</height>
+							<font>Reg30</font>
+							<align>left</align>
+							<textcolor>$VAR[UnFocusedColor2]</textcolor>
+							<label>$INFO[ListItem.Premiered]</label>
+						</control>
+						<control type="label">
+							<top>70</top>
+							<right>150</right>
+							<width>500</width>
+							<height>120</height>
+							<font>Reg30</font>
+							<align>right</align>
+							<textcolor>$VAR[TextColor]</textcolor>
+							<label>$INFO[ListItem.Duration]</label>
+						</control>
+						<control type="image">
+							<right>50</right>
+							<top>110</top>
+							<width>36</width>
+							<height>30</height>
+							<texture colordiffuse="$VAR[TextColor]">views/watched_tick_nf.png</texture>
+							<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)</visible>
+						</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="240" width="1200">
+						<control type="group">
+							<top>20</top>
+							<left>20</left>
+						<control type="image">
+							<left>0</left>
+							<width>100%</width>
+							<height>240</height>
+							<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+						</control>
+						<control type="image">
+							<top>50</top>
+							<left>50</left>
+							<width>240</width>
+							<height>135</height>
+							<aspectratio>keep</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="label">
+							<left>320</left>
+							<width>700</width>
+							<height>120</height>
+							<font>Reg30</font>
+							<align>left</align>
+							<textcolor>$VAR[FocusedColor2]</textcolor>
+							<label>$VAR[ListLabelNF]</label>
+        					<scroll>true</scroll>
+						</control>
+						<control type="label">
+							<left>320</left>
+							<top>50</top>
+							<width>700</width>
+							<height>120</height>
+							<font>Reg30</font>
+							<align>left</align>
+							<textcolor>$VAR[UnFocusedColor2]</textcolor>
+							<label>$INFO[ListItem.Artist]</label>
+						</control>
+						<control type="label">
+							<left>320</left>
+							<top>100</top>
+							<width>700</width>
+							<height>120</height>
+							<font>Reg30</font>
+							<align>left</align>
+							<textcolor>$VAR[UnFocusedColor2]</textcolor>
+							<label>$INFO[ListItem.Premiered]</label>
+						</control>
+						<control type="label">
+							<top>70</top>
+							<right>150</right>
+							<width>500</width>
+							<height>120</height>
+							<font>Reg30</font>
+							<align>right</align>
+							<textcolor>$VAR[TextColor]</textcolor>
+							<label>$INFO[ListItem.Duration]</label>
+						</control>
+						<control type="image">
+							<right>50</right>
+							<top>110</top>
+							<width>36</width>
+							<height>30</height>
+							<texture colordiffuse="$VAR[TextColor]">views/watched_tick_fo.png</texture>
+							<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)</visible>
+						</control>
+						<control type="image">
+							<width>100%</width>
+							<height>240</height>
+							<texture colordiffuse="$VAR[TextColor]" border="11,43,43,11">$VAR[BorderImage]</texture>
+						</control>
+						<control type="image">
+							<include>SelectionAnimation2</include>
+							<top>-33</top>
+							<left>-30</left>
+							<width>1240</width>
+							<height>305</height>
+							<texture colordiffuse="$VAR[SecondaryColor]" border="50">fo.png</texture>
+							<visible>Control.HasFocus(50)</visible>
+						</control>
+					</control>
+					</focusedlayout>				
+				</control>
+
+			</control>
+		</control>
+		<include>Logo</include>
+	</include>
+</includes>

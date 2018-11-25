@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- profiles -->
+	<backgroundcolor>$VAR[BackgroundColor]</backgroundcolor>
+	<defaultcontrol always="true">2</defaultcontrol>
+
+	<controls>
+
+		<!-- Clock -->
+		<include>Clock</include>
+
+		<!-- Default list -->
+		<control type="grouplist" id="500">
+			<centerleft>50%</centerleft>
+			<centertop>80%</centertop>
+			<width>970</width>
+			<height>200</height>
+			<itemgap>0</itemgap>
+			<onleft>ReplaceWindow(loginscreen)</onleft>
+			<onright>noop</onright>
+			<onup>2</onup>
+			<ondown>noop</ondown>
+			<orientation>vertical</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<defaultcontrol always="true">4</defaultcontrol>
+			<animation effect="fade" start="100" end="0" time="0" condition="!ControlGroup(500).HasFocus + !Control.HasFocus(2)">Conditional</animation>
+
+			<!-- Enable login screen -->
+			<control type="radiobutton" id="4">
+				<width>800</width>
+				<include>DialogButton</include>
+				<label>20096</label>
+			</control>
+
+			<!-- Auto login -->
+			<control type="button" id="5">
+				<width>800</width>
+				<include>DialogButton</include>
+				<label>33084</label>
+				<enable>!System.HasLoginScreen</enable>
+			</control>
+
+		</control>
+
+		<control type="list" id="2">
+			<centerleft>50%</centerleft>
+			<centertop>50%</centertop>
+			<width>1100</width>
+			<height>300</height>
+			<onleft>ReplaceWindow(settings)</onleft>
+			<onright>noop</onright>
+			<onup>noop</onup>
+			<ondown>500</ondown>
+			<orientation>horizontal</orientation>
+			<animation effect="fade" start="100" end="0" time="0" condition="!ControlGroup(500).HasFocus + !Control.HasFocus(2)">Conditional</animation>
+			<itemlayout height="260" width="220">
+				<control type="label">
+					<bottom>0</bottom>
+					<width>200</width>
+					<height>72</height>
+					<align>center</align>
+					<font>tile</font>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<width>200</width>
+					<height>200</height>
+					<colordiffuse>$VAR[FocusedColor]</colordiffuse>
+					<texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
+				</control>
+			</itemlayout>
+			<focusedlayout height="260" width="220">
+				<control type="label">
+					<bottom>0</bottom>
+					<width>200</width>
+					<height>72</height>
+					<font>tile</font>
+					<align>center</align>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>$VAR[FocusedColor]</textcolor>
+					<animation effect="fade" start="100" end="50" time="0" condition="!Control.HasFocus(2)">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<width>200</width>
+					<height>200</height>
+					<texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
+				</control>
+			</focusedlayout>
+		</control>
+
+	</controls>
+
+</window>

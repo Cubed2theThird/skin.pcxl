@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<onload condition="Skin.HasSetting(installed)">AlarmClock(CloseStartup,ReplaceWindow(home),00:05,silent)</onload>
+	<onload condition="!Skin.HasSetting(installed)">AlarmClock(CloseStartup,ReplaceWindow(9085),00:01,silent)</onload>
+	<onload condition="!String.IsEmpty(Skin.SetString(snapwindow))">Skin.SetString(snapwindow, 1109)</onload>
+	<onload condition="!String.IsEmpty(Skin.SetString(snapico))">Skin.SetString(snapico, home/snap/tv.jpg,0)</onload>
+	<onload condition="!String.IsEmpty(Skin.SetString(snapname))">Skin.SetString(snapname, Film & TV)</onload>
+	<onload condition="String.IsEmpty(Skin.String(DashboardToggle))">Skin.SetString(DashboardToggle, TV)</onload>
+	<onunload condition="String.IsEmpty(Skin.String(DashboardToggle))">Skin.SetString(DashboardToggle, TV)</onunload>
+	<controls>
+
+		<include>WindowBackgroundImage</include>
+
+		<control type="image">
+			<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout">WindowOpen</animation>
+			<animation type="WindowClose">
+				<effect type="zoom" center="auto" start="100" end="2000" time="500" tween="sine"/>
+				<effect type="fade" center="auto" start="100" end="0" time="500" tween="sine"/>
+			</animation>
+			<description>Loading</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>100%</width>
+			<height>100%</height>
+			<texture colordiffuse="$VAR[Black]">Splash.png</texture>
+		</control>
+
+	</controls>
+</window>

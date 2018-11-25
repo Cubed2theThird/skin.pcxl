@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- contextmenu -->
+	<defaultcontrol always="true">996</defaultcontrol>
+	<coordinates>
+		<origin x="0" y="0"/>
+	</coordinates>
+	<controls>
+		<!-- Background -->
+		<include>MenuFadeBackgroundImage</include>
+		<!-- Default grouplist -->
+		<control type="grouplist" id="996">
+			<centerleft>50%</centerleft>
+			<centertop>50%</centertop>
+			<width>404</width>
+			<height>100%</height>
+			<onleft>Close</onleft>
+			<onright>Close</onright>
+			<onup>996</onup>
+			<ondown>996</ondown>
+			<itemgap>0</itemgap>
+			<align>center</align>
+			<include>MenuAnimation</include>
+			<defaultcontrol always="true">1001</defaultcontrol>
+			<animation effect="slide" end="0,29" condition="String.Contains(Container(996).NumItems,2) | String.Contains(Container(996).NumItems,4) | String.Contains(Container(996).NumItems,6) | String.Contains(Container(996).NumItems,8) | String.Contains(Container(996).NumItems,10) | String.Contains(Container(996).NumItems,12) | String.Contains(Container(996).NumItems,14)">Conditional</animation>
+		</control>
+		<!-- Default button -->
+		<control type="button" id="1000">
+            <width>404</width>
+            <height>100</height>
+			<font>Font-Condensed-S34</font>
+            <align>left</align>
+            <aligny>center</aligny>
+            <textcolor>white</textcolor>
+            <focusedcolor>white</focusedcolor>
+            <disabledcolor>FF484848</disabledcolor>
+			<texturefocus border="40" colordiffuse="$VAR[SecondaryColor]">kb/key-fob.png</texturefocus>
+			<texturenofocus border="40" >tilefallback2.png</texturenofocus>
+            <textoffsetx>25</textoffsetx>
+    		<textoffsety>55</textoffsety>
+		</control>
+	</controls>
+</window>

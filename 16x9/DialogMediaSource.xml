@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- mediasource -->
+	<defaultcontrol always="true">10</defaultcontrol>
+	<controls>
+
+		<!-- Background -->
+		<include>DialogZoomAnimation</include>
+
+		<!-- Image -->
+		<control type="image">
+			<centerleft>50%</centerleft>
+			<centertop>50%</centertop>
+			<width>75.1%</width>
+			<height>86%</height>
+			<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
+		</control>
+
+		<control type="image">
+			<centerleft>50%</centerleft>
+			<centertop>50%</centertop>
+			<width>72%</width>
+			<height>80%</height>
+			<texture colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texture>
+		</control>
+
+		<control type="image">
+			<left>350</left>
+			<centertop>50%</centertop>
+			<width>1000</width>
+			<height>600</height>
+			<texture colordiffuse="$VAR[MaterialColorDark]">views/white_100.png</texture>
+		</control>
+
+		<!-- Main group -->
+		<control type="group" id="1000">
+				<left>50</left>
+			<control type="label" id="2">
+				<left>240</left>
+				<top>130</top>
+				<width>1620</width>
+				<height>72</height>
+				<font>Large</font>
+				<textcolor>$VAR[White]</textcolor>
+			</control>
+			<!-- Grouplist -->
+			<control type="grouplist">
+				<width>1000</width>
+				<height>700</height>
+				<itemgap>0</itemgap>
+				<left>300</left>
+				<include>DialogGrouplist</include>
+				<!-- Right grouplist -->
+				<control type="list" id="10">
+					<width>1000</width>
+					<height>500</height>
+					<onleft>noop</onleft>
+					<onright>noop</onright>
+					<onup>noop</onup>
+					<ondown>9000</ondown>
+					<onright>11</onright>
+					<scrolltime>0</scrolltime>
+					<itemlayout width="1200" height="100">
+						<control type="image">
+							<width>1200</width>
+							<height>75</height>
+							<texture colordiffuse="$VAR[DisabledColor]">views/white_10.png</texture>
+						</control>
+						<control type="label">
+							<left>10</left>
+							<width>1040</width>
+							<height>75</height>
+							<font>Tile2</font>
+							<textcolor>$VAR[Black]</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout width="1200" height="100">
+						<control type="group">
+							<height>75</height>
+							<control type="image">
+								<width>1200</width>
+								<height>75</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texture>
+								<visible>Control.HasFocus(10)</visible>
+							</control>
+							<!--> File <!-->
+							<control type="label">
+								<left>10</left>
+								<width>1040</width>
+								<height>75</height>
+								<font>Tile2</font>
+								<textcolor>$VAR[UnFocusedColor]</textcolor>
+								<label>$INFO[ListItem.Label]</label>
+								<visible>!Control.HasFocus(10)</visible>
+							</control>
+							<control type="label">
+								<left>10</left>
+								<width>1040</width>
+								<height>75</height>
+								<font>Tile2</font>
+								<textcolor>$VAR[Black]</textcolor>
+								<label>$INFO[ListItem.Label]</label>
+								<visible>Control.HasFocus(10)</visible>
+							</control>
+						</control>
+					</focusedlayout>
+				</control>
+				<!-- Name -->
+				<control type="edit" id="12">
+					<width>1000</width>
+					<hinttext>1022</hinttext>
+					<include>DialogButton</include>
+				</control>
+			</control>
+		</control>
+
+		<control type="grouplist">
+			<width>15%</width>
+			<right>200</right>
+			<top>200</top>
+			<itemgap>0</itemgap>
+
+			<!-- Browse Button -->
+			<control type="button" id="11">
+				<width>150</width>
+				<height>66</height>
+				<label>Browse</label>
+				<include>DialogButton</include>
+				<onleft>10</onleft>
+				<onright>13</onright>
+			</control>
+			<!-- Add Rule Button -->
+			<control type="button" id="13">
+				<width>150</width>
+				<height>66</height>
+				<label>Add</label>
+				<include>DialogButton</include>
+				<onleft>11</onleft>
+				<onright>14</onright>
+			</control>
+			<!-- Remove Rule Button -->
+			<control type="button" id="14">
+				<width>150</width>
+				<height>66</height>
+				<label>Remove</label>
+				<include>DialogButton</include>
+				<onleft>13</onleft>
+				<ondown>14</ondown>
+				<onright>noop</onright>
+			</control>
+
+			<control type="button" id="19">
+				<width>150</width>
+				<height>66</height>
+				<label>Close</label>
+				<include>DialogButton</include>
+			</control>
+
+			<control type="button" id="18">
+				<width>150</width>
+				<height>66</height>
+				<label>$LOCALIZE[186]</label>
+				<include>DialogButton</include>
+			</control>
+		</control>
+
+	</controls>
+</window>

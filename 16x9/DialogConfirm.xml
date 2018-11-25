@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- confirmdialog -->
+	<controls>
+		<!-- Hidden label -->
+		<control type="label" id="1">
+			<include>HiddenControl</include>
+		</control>
+		<include>MenuFadeBackgroundImage</include>
+		<!-- Main group -->
+		<control type="group">
+			<bottom>0</bottom>
+			<width>1920</width>
+			<height>400</height>
+			<!-- Background -->
+			<control type="image">
+				<width>1920</width>
+				<height>400</height>
+				<include>DialogAnimation</include>
+				<texture colordiffuse="ff242424">views/white_100.png</texture>
+			</control>
+			<control type="group">
+				<include content="DialogHeading">
+					<param name="DialogHeaderId" value="1" />
+					<param name="DialogHeaderLabel" value="$INFO[Control.GetLabel(1)] $INFO[System.Progressbar,- ,%]" />
+				</include>
+				<!-- Details -->
+				<control type="textbox" id="9">
+					<top>-40</top>
+					<width>1280</width>
+					<height>224</height>
+					<font>Thin48</font>
+					<textcolor>$VAR[TextColor]</textcolor>
+				</control>
+			</control>
+			<include content="DialogButtons">
+				<param name="Button4Visible" value="false" />
+				<!-- Custom Button -->
+				<param name="Button3ID" value="12" />
+				<param name="Button3Label" value="-" />
+				<param name="Button3Visible" value="true" />
+				<!-- Cancel Button -->
+				<param name="Button2ID" value="10" />
+				<param name="Button2Label" value="X" />
+				<param name="Button2Visible" value="true" />
+				<!-- OK Button -->
+				<param name="Button1ID" value="11" />
+				<param name="Button1Label" value="$LOCALIZE[186]" />
+				<param name="Button1Visible" value="true" />
+			</include>
+		</control>
+	</controls>
+</window>

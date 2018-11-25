@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- extendedprogressdialog -->
+	<controls>
+		<control type="group">
+			<centerleft>50%</centerleft>
+			<bottom>50</bottom>
+			<width>750</width>
+			<height>10</height>
+			<include>DialogToastAnimation</include>
+			<animation effect="fade" start="100" end="0" time="0" condition="Window.IsActive(fullscreenvideo)">Conditional</animation>
+			<animation effect="fade" start="100" end="50" time="0" condition="Window.IsActive(home)">Conditional</animation>
+			<!-- Background image -->
+			<control type="image">
+				<width>750</width>
+				<height>10</height>
+				<texture colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texture>
+			</control>
+			<!-- Progress -->
+			<control type="progress" id="32">
+				<width>750</width>
+				<height>10</height>
+				<texturebg colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texturebg>
+				<lefttexture>-</lefttexture>
+				<midtexture colordiffuse="$VAR[SecondaryColor]">views/white_100.png</midtexture>
+				<righttexture>-</righttexture>
+				<overlaytexture>-</overlaytexture>
+			</control>
+			<!-- Heading -->
+			<control type="label" id="30">
+				<left>0</left>
+				<top>-77</top>
+				<width>750</width>
+				<height>40</height>
+				<scroll>true</scroll>
+				<font>Light33Upper</font>
+				<textcolor>$VAR[White]</textcolor>
+			</control>
+			<!-- Details -->
+			<control type="label" id="31">
+				<left>0</left>
+				<top>-35</top>
+				<width>750</width>
+				<height>37</height>
+				<scroll>true</scroll>
+				<font>Thin27</font>
+				<textcolor>$VAR[White]</textcolor>
+			</control>
+		</control>
+	</controls>
+</window>

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<!-- Copacetic -->
+	<include name="InfoDialogFadeAnimation">
+		<animation effect="fade" start="0" end="100" time="200" condition="!Window.IsVisible(1104) | String.Contains(Container.Viewmode,$LOCALIZE[31501])">WindowOpen</animation>
+		<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+	</include>
+	<include name="HomeClockAnimation">
+		<animation type="WindowOpen" condition="Window.Previous(startup)">
+			<effect type="slide" start="0,-600" end="0,0" time="1600" tween="cubic" easing="out"/>
+			<effect type="fade" start="0" end="100" delay="800" time="600" />
+		</animation>
+	</include>
+	<include name="DialogToastAnimation">
+		<animation effect="slide" start="0,150" end="0,0" time="400" tween="cubic" easing="out">WindowOpen</animation>
+		<animation effect="slide" start="0" end="0,150" time="200">WindowClose</animation>
+	</include>
+	<include name="ScrollBarAnimation">
+		<animation effect="fade" start="100" end="0" time="200" condition="![Container.Scrolling | Control.HasFocus(60)]">Conditional</animation>
+	</include>
+	<include name="MediaInfoAnimation">
+		<animation type="Visible" reversible="true">
+			<effect type="fade" start="0" end="100" time="400" tween="cubic" easing="out"/>
+		</animation>
+	</include>
+	<include name="MediaInfoDiffuseAnimation">
+		<control type="image">
+			<texture colordiffuse="$VAR[SecondaryColor]">views/white_90.png</texture>
+			<visible>System.IdleTime(3) + !SubString(ListItem.Icon,Default) + !Container.Content(files) + !Container.Content(genres) + !Container.Content(years) + !Container.Content(actors) + !Container.Content(playlists) + !Container.Content(plugins) + !Container.Content(studios) + !Container.Content(directors) + !Container.Content(sets) + !Container.Content(tags) + !Control.HasFocus(60) + !Control.HasFocus(3000) + !Window.IsVisible(yesnodialog) + !Window.IsVisible(progressdialog) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(contextmenu) + !Window.IsVisible(numericinput) + !Window.IsVisible(shutdownmenu) + !Window.IsVisible(playercontrols) + !Window.IsVisible(songinformation) + !Window.IsVisible(busydialog) + !Window.IsVisible(addoninformation) + !Window.IsVisible(textviewer) + !Window.IsVisible(selectdialog) + !Window.IsVisible(musicinformation) + !Window.IsVisible(okdialog)</visible>
+			<animation type="Visible" reversible="true">
+				<effect type="fade" start="0" end="100" time="400" tween="cubic" easing="out"/>
+				<effect type="zoom" start="0,0" end="1920,1080" center="auto" time="0"/>
+			</animation>
+		</control>
+	</include>
+	<include name="MediaInfoHideAnimation">
+		<animation type="Conditional" condition="Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation) | Window.IsVisible(addoninformation)" reversible="true">
+			<effect type="fade" start="100" end="0" time="200" tween="cubic" easing="out"/>
+		</animation>
+	</include>
+	<include name="OptionsAnimation">
+		<animation type="Visible" reversible="false">
+			<effect type="fade" start="0" end="100" time="200" />
+			<effect type="slide" start="500,0" end="0,0" time="400" tween="cubic" easing="out"/>
+		</animation>
+		<animation type="Hidden">
+			<effect type="fade" start="100" end="0" time="0" />
+		</animation>
+	</include>
+	<include name="MenuAnimation">
+		<animation type="WindowOpen" reversible="false">
+			<effect type="fade" start="0" end="100" delay="100" time="200" />
+			<effect type="zoom" center="auto" start="120" end="100" delay="100" time="200" tween="cubic" easing="out" />
+		</animation>
+		<animation type="WindowClose">
+			<effect type="fade" start="100" end="0" delay="100" time="100" />
+			<effect type="zoom" center="auto" start="100" end="120" delay="100" time="200" tween="cubic" easing="in" />
+		</animation>
+	</include>
+	<include name="DialogAnimation">
+		<animation type="WindowOpen" reversible="false">
+			<effect type="fade" start="0" end="100" time="200" />
+			<effect type="slide" start="0,500" end="0,0" time="400" tween="cubic" easing="out"/>
+		</animation>
+		<animation type="WindowClose">
+			<effect type="fade" start="100" end="0" time="200" />
+			<effect type="slide" start="0,0" end="0,500" time="400" tween="cubic" easing="out"/>
+		</animation>
+	</include>
+	<include name="HomeListAnimation">
+		<animation type="WindowOpen" condition="Window.Previous(startup)">
+			<effect type="slide" start="0,600" end="0,0" time="1600" tween="cubic" easing="out"/>
+			<effect type="fade" start="0" end="100" time="1000" />
+		</animation>
+		<animation condition="Window.IsVisible(1101)" reversible="false" type="Conditional">
+			<effect easing="out" end="0,18" start="0,0" time="60" tween="sine" type="slide" />
+			<effect delay="80" easing="out" end="0,-18" start="0,0" time="120" tween="sine" type="slide" />
+		</animation>
+		<animation condition="Window.IsVisible(1102)" reversible="false" type="Conditional">
+			<effect easing="out" end="0,-18" start="0,0" time="60" tween="sine" type="slide" />
+			<effect delay="80" easing="out" end="0,18" start="0,0" time="120" tween="sine" type="slide" />
+		</animation>
+		<animation type="Conditional" condition="Window.IsActive(contextmenu)">
+			<effect type="zoom" center="auto" start="100" end="120" time="200" tween="cubic" easing="in" />
+		</animation>
+	</include>
+	<include name="VisibleFadeAnimation">
+		<animation effect="fade" start="0" end="100" time="200">Visible</animation>
+		<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+	</include>
+	<!--> Conq -->
+	<include name="WindowFadeAnimation">
+		<animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>
+		<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+	</include>
+	<include name="DialogZoomAnimation">
+		<animation type="WindowOpen">
+			<effect type="zoom" center="auto" start="120" end="100" time="200" tween="cubic" easing="out" />
+		</animation>
+		<animation type="WindowClose">
+			<effect type="zoom" center="auto" start="100" end="120" time="200" tween="cubic" easing="in"/>
+			<effect type="fade" start="100" end="0" time="100" />
+		</animation>
+	</include>
+
+	<!-->Apps<!-->
+	<include name="TopZoomAnimation">
+		<animation type="WindowOpen">
+			<effect type="slide" start="0,-1000" end="0,0" time="800" tween="cubic" easing="out"/>
+			<effect type="fade" start="0" end="100" time="100" />
+		</animation>
+		<animation type="WindowClose">
+			<effect type="slide" start="0,0" end="0,-1000" time="500" tween="cubic" easing="out"/>
+			<effect type="fade" start="100" end="0" tween="sine" easing="in" time="350"/>
+		</animation>
+		<animation type="Conditional" condition="Window.IsActive(contextmenu)">
+			<effect type="slide" start="0,0" end="0,50" time="200" tween="cubic" easing="out"/>
+		</animation>
+	</include>
+
+	<include name="ContentShowcaseAnimation">
+		<animation type="WindowOpen">			
+			<effect type="zoom" start="95" end="100" time="500" tween="sine" easing="inout" center="auto" />
+			<effect type="fade" start="0" end="100" time="100" />
+		</animation>
+		<animation type="WindowClose">
+			<effect type="zoom" start="100" end="95" time="500" tween="sine" easing="inout" center="auto" />
+			<effect type="fade" start="100" end="0" tween="sine" easing="in" time="100"/>
+		</animation>
+	</include>
+
+	<include name="BottomZoomAnimation">
+		<animation type="WindowOpen">
+			<effect type="slide" start="0,1000" end="0,0" time="800" tween="cubic" easing="out"/>
+			<effect type="fade" start="0" end="100" time="100" />
+		</animation>
+		<animation type="WindowClose">
+			<effect type="slide" start="0,0" end="0,1000" time="500" tween="cubic" easing="out"/>
+			<effect type="fade" start="100" end="0" tween="sine" easing="in" time="350"/>
+		</animation>
+		<animation type="Conditional" condition="Window.IsActive(contextmenu)">
+			<effect type="slide" start="0,0" end="0,-50" time="200" tween="cubic" easing="out"/>
+		</animation>
+	</include>
+
+
+	<!-->Home Dashboard<!-->
+	<include name="HomeZoomAnimation">
+		<animation type="WindowOpen" condition="Window.Previous(startup)">
+			<effect type="slide" start="0,600" end="0,0" time="900" tween="cubic" easing="out"/>
+			<effect type="fade" start="0" end="100" time="900" />
+		</animation>
+		<animation type="WindowOpen" condition="Window.Previous(9085)">
+			<effect type="slide" start="0,600" end="0,0" time="900" tween="cubic" easing="out"/>
+			<effect type="fade" start="0" end="100" time="1000" />
+		</animation>
+		<animation type="WindowOpen" condition="!Window.Previous(fullscreenvideo)">
+			<effect type="zoom" center="auto" start="80" end="100" time="300" tween="cubic" easing="out" />
+			<effect type="fade" start="0" end="100" time="300" />
+		</animation>
+		<animation type="WindowClose">
+			<effect type="zoom" center="auto" start="100" end="80" time="300" tween="cubic" easing="out" />
+			<effect type="fade" start="100" end="0" time="300" />
+		</animation>
+		<animation type="Conditional" condition="Window.IsActive(contextmenu) | Window.IsActive(movieinformation)">
+			<effect type="zoom" center="auto" start="100" end="80" time="200" tween="cubic" easing="out"/>
+		</animation>
+	</include>
+	<include name="HomeZoomAnimation2">
+		<animation type="WindowOpen">
+			<effect type="fade" start="0" end="100" tween="sine" easing="in" time="350" delay="350" />
+		</animation>
+		<animation type="WindowClose">
+			<effect type="fade" start="100" end="0" tween="sine" easing="in" time="350"/>
+		</animation>
+	</include>
+	<include name="HomeZoomAnimation3">
+		<animation type="WindowOpen">
+			<effect type="fade" start="0" end="100" tween="sine" easing="in" time="350" delay="350" />
+		</animation>
+		<animation type="WindowClose">
+			<effect type="fade" start="100" end="0" tween="sine" easing="in" time="350"/>
+		</animation>
+	</include>
+
+	<include name="SelectionAnimation">
+		<animation type="Visible">
+			<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+			<effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+		</animation>
+		<animation type="Hidden">
+			<effect type="zoom" start="100" end="95" time="200" tween="sine" easing="inout" center="auto" />
+			<effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+		</animation>
+		<animation type="Focus">
+			<effect type="slide" start="0,20" end="0" time="200" tween="sine" easing="inout" center="auto" />
+			<effect type="fade" start="0" end="100" time="100" tween="sine" easing="in" />
+		</animation>
+		<animation type="UnFocus">
+			<effect type="slide" start="0" end="0,20" time="200" tween="sine" easing="inout" center="auto" />
+			<effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+		</animation>
+	</include>
+
+	<include name="SelectionAnimation2">
+		<animation type="Visible">
+			<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+			<effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+		</animation>
+		<animation type="Hidden">
+			<effect type="zoom" start="100" end="95" time="200" tween="sine" easing="inout" center="auto" />
+			<effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+		</animation>
+		<animation type="Focus">
+			<effect type="zoom" start="90" end="100" time="100" tween="sine" easing="inout" center="auto" />
+			<effect type="fade" start="0" end="100" time="100" tween="sine" easing="in" />
+		</animation>
+		<animation type="UnFocus">
+			<effect type="slide" start="0" end="0,20" time="200" tween="sine" easing="inout" center="auto" />
+			<effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+		</animation>
+	</include>
+
+	<include name="SettingAnimation">
+		<animation type="WindowOpen">
+			<effect type="slide" start="500" end="0" tween="cubic" easing="out" time="650" />
+			<effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" />
+			<effect type="zoom" start="88" end="100" center="576,560" tween="cubic" easing="out" time="400" />
+		</animation>
+		<animation type="WindowClose">
+			<effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+			<effect type="zoom" start="100" end="85" time="300" center="960,600" tween="sine" easing="out" />
+		</animation>
+	</include>
+</includes>

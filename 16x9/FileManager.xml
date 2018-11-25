@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- filemanager -->
+	<backgroundcolor>$VAR[BackgroundColor]</backgroundcolor>
+	<defaultcontrol always="true">20</defaultcontrol>
+	<onload>Skin.SetString(snapwindow, filemanager)</onload>
+	<onload>Skin.SetString(snapico, home/snap/filemanager.jpg,0)</onload>
+	<onload>Skin.SetString(snapname,File manager)</onload>
+	<controls>
+
+		<!-- Clock -->
+		<include>Clock</include>
+
+		<!-- Main group -->
+		<control type="group">
+			<include>DialogZoomAnimation</include>
+
+			<!-- Heading -->
+			<control type="label">
+				<left>150</left>
+				<top>96</top>
+				<width>1620</width>
+				<height>72</height>
+				<font>Font72</font>
+				<label>7</label>
+			</control>
+
+			<!-- Left group -->
+			<control type="group">
+				<left>150</left>
+				<top>228</top>
+				<animation type="WindowOpen">
+					<effect type="slide" start="-500" end="0" tween="cubic" easing="out" time="650" />
+					<effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" />
+					<effect type="zoom" start="78" end="100" center="576,560" tween="cubic" easing="out" time="400" />
+				</animation>
+
+
+				<!-- Root label -->
+				<control type="label" id="101">
+					<width>770</width>
+					<height>66</height>
+					<haspath>true</haspath>
+					<font>Home</font>
+					<textcolor>$VAR[FocusedColor]</textcolor>
+				</control>
+
+				<!-- Seperator -->
+				<control type="image">
+					<top>70</top>
+					<width>770</width>
+					<height>620</height>
+					<texture colordiffuse="$VAR[DisabledColor]">color_white.png</texture>
+				</control>
+
+				<!-- Left list -->
+				<control type="list" id="20">
+					<top>70</top>
+					<width>770</width>
+					<height>620</height>
+					<onleft>noop</onleft>
+					<onright>21</onright>
+					<onup>noop</onup>
+					<ondown>noop</ondown>
+					<itemlayout width="770" height="96">
+						<control type="label">
+							<left>50</left>
+							<width>770</width>
+							<height>96</height>
+							<font>Tile</font>
+							<textcolor>$VAR[UnFocusedColor]</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<width>750</width>
+							<height>96</height>
+							<align>right</align>
+							<font>Tile</font>
+							<textcolor>$VAR[UnFocusedColor]</textcolor>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout width="770" height="96">
+						<control type="image">
+							<width>770</width>
+							<height>96</height>
+							<texture colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texture>
+							<visible>Control.HasFocus(20)</visible>
+						</control>
+						<control type="label">
+							<left>50</left>
+							<width>750</width>
+							<height>96</height>
+							<font>Tile</font>
+							<textcolor>$VAR[FocusedColor]</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<width>750</width>
+							<height>96</height>
+							<align>right</align>
+							<font>Tile</font>
+							<textcolor>$VAR[UnFocusedColor]</textcolor>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+					</focusedlayout>
+				</control>
+
+				<!-- Number label -->
+				<control type="grouplist">
+					<top>698</top>
+					<width>770</width>
+					<height>44</height>
+					<align>right</align>
+					<itemgap>6</itemgap>
+					<orientation>horizontal</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					<control type="label">
+						<width>auto</width>
+						<height>44</height>
+						<align>right</align>
+						<font>Setting</font>
+						<label>$INFO[Container(20).NumItems]</label>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+					</control>
+					<control type="label">
+						<width>auto</width>
+						<height>44</height>
+						<align>right</align>
+						<label>31000</label>
+						<font>Setting</font>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+						<visible>!IntegerGreaterThan(Container(20).NumItems,1)</visible>
+					</control>
+					<control type="label">
+						<width>auto</width>
+						<height>44</height>
+						<align>right</align>
+						<label>31001</label>
+						<font>Setting</font>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+						<visible>IntegerGreaterThan(Container(20).NumItems,1)</visible>
+					</control>
+				</control>
+
+			</control>
+
+			<!-- Right group -->
+			<control type="group">
+				<left>1000</left>
+				<top>228</top>
+				<animation type="WindowOpen">
+					<effect type="slide" start="500" end="0" tween="cubic" easing="out" time="650" />
+					<effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" />
+					<effect type="zoom" start="78" end="100" center="576,560" tween="cubic" easing="out" time="400" />
+				</animation>
+
+				<!-- Root label -->
+				<control type="label" id="102">
+					<width>770</width>
+					<height>66</height>
+					<haspath>true</haspath>
+					<font>Home</font>
+					<textcolor>$VAR[FocusedColor]</textcolor>
+				</control>
+
+				<!-- Seperator -->
+				<control type="image">
+					<top>70</top>
+					<width>770</width>
+					<height>620</height>
+					<texture colordiffuse="$VAR[DisabledColor]">color_white.png</texture>
+				</control>
+
+				<!-- Right list -->
+				<control type="list" id="21">
+					<top>70</top>
+					<width>770</width>
+					<height>620</height>
+					<onleft>20</onleft>
+					<onright>noop</onright>
+					<onup>noop</onup>
+					<ondown>noop</ondown>
+					<itemlayout width="770" height="96">
+						<control type="label">
+							<left>50</left>
+							<width>770</width>
+							<height>96</height>
+							<font>Tile</font>
+							<textcolor>$VAR[UnFocusedColor]</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<width>750</width>
+							<height>96</height>
+							<align>right</align>
+							<font>Tile</font>
+							<textcolor>$VAR[UnFocusedColor]</textcolor>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout width="770" height="96">
+						<control type="image">
+							<width>770</width>
+							<height>96</height>
+							<texture colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texture>
+							<visible>Control.HasFocus(21)</visible>
+						</control>
+						<control type="label">
+							<left>50</left>
+							<width>750</width>
+							<height>96</height>
+							<font>Tile</font>
+							<textcolor>$VAR[FocusedColor]</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<width>750</width>
+							<height>96</height>
+							<align>right</align>
+							<font>Tile</font>
+							<textcolor>$VAR[UnFocusedColor]</textcolor>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+					</focusedlayout>
+				</control>
+
+				<!-- Number label -->
+				<control type="grouplist">
+					<top>698</top>
+					<width>770</width>
+					<height>44</height>
+					<align>right</align>
+					<itemgap>6</itemgap>
+					<orientation>horizontal</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					<control type="label">
+						<width>auto</width>
+						<height>44</height>
+						<align>right</align>
+						<font>Setting</font>
+						<label>$INFO[Container(21).NumItems]</label>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+					</control>
+					<control type="label">
+						<width>auto</width>
+						<height>44</height>
+						<align>right</align>
+						<label>31000</label>
+						<font>Setting</font>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+						<visible>!IntegerGreaterThan(Container(21).NumItems,1)</visible>
+					</control>
+					<control type="label">
+						<width>auto</width>
+						<height>44</height>
+						<align>right</align>
+						<label>31001</label>
+						<font>Setting</font>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+						<visible>IntegerGreaterThan(Container(21).NumItems,1)</visible>
+					</control>
+				</control>
+
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

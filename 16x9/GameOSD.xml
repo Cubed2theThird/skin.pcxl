@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<controls>
+		<control type="group">
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture colordiffuse="$VAR[Black]">views/white_70.png</texture>
+			</control>
+		</control>
+		<control type="group">
+			<visible>true</visible>
+			<control type="label" id="1101">
+				<left>50</left>
+				<width>800</width>
+				<height>90</height>
+				<font>Reg20</font>
+				<align>left</align>
+				<aligny>center</aligny>
+				<textcolor>$VAR[UnFocusedColor2]</textcolor>
+			</control>
+
+			<control type="fixedlist" id="2">
+				<centertop>74%</centertop>
+				<left>200</left>
+				<width>100%</width>
+				<height>80%</height>
+				<onleft>Control.Move(9000,-1)</onleft>
+				<onright>Control.Move(9000,1)</onright>					
+				<onup>9000</onup>
+				<ondown>noop</ondown>
+				<focusposition>0</focusposition>
+				<movement>0</movement>
+				<orientation>vertical</orientation>
+				<viewtype label="31521">list</viewtype>
+				<scrolltime tween="sine" easing="inout">400</scrolltime>
+				<animation type="WindowOpen">
+					<effect type="slide" start="0,1000" end="0,0" delay="200" center="auto" tween="Cubic" easing="inout" time="500"/>
+				</animation>
+				<animation type="WindowClose">
+					<effect type="slide" start="0" end="0,1000" center="auto" tween="Cubic" easing="in" time="500"/>
+				</animation>
+				<itemlayout height="150">
+					<control type="group">
+						<control type="image">
+							<width>100</width>
+							<height>100</height>
+							<aspectratio>keep</aspectratio>
+							<texture colordiffuse="$VAR[UnFocusedColor]">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="label">
+							<left>120</left>
+							<height>100</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>Reg20</font>
+							<align>left</align>
+							<aligny>center</aligny>
+							<textcolor>$VAR[UnFocusedColor]</textcolor>
+						</control>
+						<control type="image">
+							<width>100</width>
+							<height>100</height>
+							<aspectratio>scale</aspectratio>
+							<texture>$VAR[ConsoleLogo]</texture>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout height="210">
+					<control type="group">
+						<left>-100</left>
+						<control type="image">
+							<left>100</left>
+							<width>150</width>
+							<height>200</height>
+							<aspectratio>keep</aspectratio>
+							<texture colordiffuse="$VAR[White]">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<left>130</left>
+							<width>100</width>
+							<height>200</height>
+							<aspectratio>keep</aspectratio>
+							<texture>$VAR[ConsoleLogo]</texture>
+						</control>
+						<control type="label">
+							<left>260</left>
+							<height>200</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>Reg30</font>
+							<align>left</align>
+							<aligny>center</aligny>
+							<textcolor>$VAR[FocusedColor]</textcolor>
+						</control>
+						<control type="label">
+							<left>260</left>
+							<height>260</height>
+							<label>$INFO[ListItem.Property(ButtonHint)]</label>
+							<font>Reg25</font>
+							<align>left</align>
+							<aligny>center</aligny>
+							<textcolor>$VAR[UnFocusedColor]</textcolor>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>$INFO[Container(9000).ListItem.FolderPath]</content>
+				<content target="$INFO[Container(9000).ListItem.label]">$INFO[Container(9000).ListItem.label2]</content>
+				<content>
+					<!-- Pause / resume -->
+					<item>
+						<label>$LOCALIZE[35224]</label>
+						<icon>DefaultAddonService.png</icon>
+						<property name="ButtonHint">Select + X</property>
+						<onclick>Play</onclick>
+						<visible>Container(9000).HasFocus(1)</visible>	
+					</item>
+					<item>
+						<label>Minimize</label>
+						<icon>DefaultAddonService.png</icon>
+						<property name="ButtonHint"> </property>
+						<onclick>Dialog.Close(all,true)</onclick>
+						<onclick>ActivateWindow(Home)</onclick>
+						<visible>Container(9000).HasFocus(1)</visible>
+					</item>
+					<!-- Pause / resume
+					<item>
+						<label>Save</label>
+						<icon>DefaultAddonService.png</icon>
+						<property name="ButtonHint"> </property>
+						<onclick>Save</onclick>
+						<visible>Container(9000).HasFocus(1)</visible>	
+					</item> -->
+					<!-- Screenshot -->
+					<item>
+						<label>Take Screenshot</label>
+						<icon>DefaultAddonService.png</icon>
+						<property name="ButtonHint"> </property>
+						<onclick>Play</onclick>
+						<onclick>Screenshot</onclick>
+						<visible>Container(9000).HasFocus(1)</visible>	
+					</item>
+					<!-- Reset -->
+					<item>
+						<label>Restart</label>
+						<icon>DefaultAddonService.png</icon>
+						<property name="ButtonHint"> </property>
+						<onclick>PlayerControl(Reset)</onclick>
+						<visible>Container(9000).HasFocus(1)</visible>	
+					</item>
+					<!-- Settings
+					<item>
+						<label>$LOCALIZE[5]</label>
+						<icon>DefaultAddonService.png</icon>
+						<property name="ButtonHint">Select + B</property>
+						<onclick>Skin.SetString(OSD,Game)</onclick>
+						<onclick>Control.SetFocus(800,1)</onclick>
+					</item> -->
+					<!-- Stop -->
+					<item>
+						<label>$LOCALIZE[35222]</label>
+						<icon>DefaultAddonService.png</icon>
+						<property name="ButtonHint">Select + Start</property>
+						<onclick>Stop</onclick>
+						<visible>Container(9000).HasFocus(1)</visible>	
+					</item>
+					<!-- Video Filter -->
+					<item>
+						<label>$LOCALIZE[35225]</label>
+						<icon>DefaultAddonService.png</icon>
+						<onclick>ActivateWindow(GameVideoFilter)</onclick>
+						<visible>Container(9000).HasFocus(2)</visible>	
+					</item>
+					<!-- View mode -->
+					<item>
+						<label>$LOCALIZE[629]</label>
+						<icon>DefaultAddonService.png</icon>
+						<onclick>ActivateWindow(gamestretchmode)</onclick>
+						<visible>Container(9000).HasFocus(2)</visible>
+					</item>
+					<!-- Video Rotation -->
+					<item>
+						<label>$LOCALIZE[35227]</label>
+						<icon>DefaultAddonService.png</icon>
+						<onclick>ActivateWindow(GameVideoRotation)</onclick>
+						<visible>Container(9000).HasFocus(2)</visible>
+					</item>
+					<!-- GameVolume -->
+					<item>
+						<label>$LOCALIZE[13376]</label>
+						<icon>DefaultAddonService.png</icon>
+						<property name="ButtonHint">Select + Right Stick</property>
+						<onclick>ActivateWindow(GameVolume)</onclick>
+						<visible>Container(9000).HasFocus(2)</visible>
+					</item>
+					<!-- Advanced settings -->
+					<item>
+						<label>$LOCALIZE[35226]</label>
+						<icon>DefaultAddonService.png</icon>
+						<onclick>ActivateWindow(GameAdvancedSettings)</onclick>
+						<visible>Container(9000).HasFocus(2)</visible>
+					</item>
+					<!-- Controls settings -->
+					<item>
+						<label>Controls</label>
+						<icon>DefaultAddonService.png</icon>
+						<onclick>ActivateWindow(GameControllers)</onclick>
+						<visible>Container(9000).HasFocus(2)</visible>
+					</item>
+				</content>
+			</control>
+
+			<control type="fixedlist" id="9000">
+				<defaultcontrol always="true">1</defaultcontrol>
+				<centertop>55%</centertop>
+				<left>10</left>
+				<width>150%</width>
+				<height>80%</height>
+				<onleft>noop</onleft>
+				<onright>noop</onright>					
+				<onup>noop</onup>
+				<ondown>2</ondown>
+				<focusposition>1</focusposition>
+				<movement>0</movement>
+				<orientation>horizontal</orientation>
+				<viewtype>icons</viewtype>
+				<scrolltime tween="sine" easing="inout">400</scrolltime>
+				<animation type="WindowOpen">
+					<effect type="slide" start="-1000" end="0,0" center="auto" tween="Cubic" easing="inout" time="500"/>
+				</animation>
+				<animation type="WindowClose">
+					<effect type="slide" start="0" end="-1000" center="auto" tween="Cubic" easing="in" time="500"/>
+				</animation>
+				<itemlayout width="160" height="450">
+					<control type="group">
+						<control type="image">
+							<width>150</width>
+							<height>150</height>
+							<aspectratio>scale</aspectratio>
+							<texture colordiffuse="$VAR[UnFocusedColor]">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<width>150</width>
+							<height>150</height>
+							<aspectratio>scale</aspectratio>
+							<texture>$VAR[ConsoleLogo]</texture>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout width="210" height="450">
+					<control type="group">
+						<top>0</top>
+						<control type="image">
+							<width>200</width>
+							<height>200</height>
+							<aspectratio>scale</aspectratio>
+							<texture colordiffuse="$VAR[SecondaryColor]">$INFO[ListItem.Icon]</texture>
+							<visible>Control.HasFocus(9000)</visible>
+						</control>
+						<control type="image">
+							<width>200</width>
+							<height>200</height>
+							<aspectratio>scale</aspectratio>
+							<texture colordiffuse="$VAR[White]">$INFO[ListItem.Icon]</texture>
+							<visible>!Control.HasFocus(9000)</visible>
+						</control>
+						<control type="image">
+							<width>200</width>
+							<height>200</height>
+							<aspectratio>scale</aspectratio>
+							<texture>$VAR[ConsoleLogo]</texture>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<label>Menu</label>
+						<icon>defaultembuary.png</icon>
+					</item>
+					<item id="2">
+						<label>Settings</label>
+						<icon>DefaultAddonService.png</icon>
+					</item>
+					<item id="3">
+						<label>System</label>
+						<icon>DefaultAddonService.png</icon>
+						<visible>Skin.HasSetting(hiddenoptions) + false</visible>
+					</item>
+				</content>
+				<!--> Does not work <!-->
+				<!--><content target="games">sources://games</content><!-->
+			</control>
+
+		</control>
+	</controls>
+</window>

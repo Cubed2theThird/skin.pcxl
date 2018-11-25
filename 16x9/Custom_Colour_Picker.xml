@@ -1,0 +1,1370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="window" id="1103">
+	<!-- smartplaylisteditor -->
+	<backgroundcolor>$VAR[BackgroundColor]</backgroundcolor>
+	<defaultcontrol always="true">100</defaultcontrol>
+	<controls>
+
+		<control type="image">
+			<width>600</width>
+			<height>100%</height>
+			<texture colordiffuse="$VAR[MaterialColorDark]">color_white.png</texture>
+		</control>
+		<!-- Main group -->
+		<control type="group" id="1000">
+			<left>00</left>
+			<top>155</top>
+			<width>100%</width>
+			<height>775</height>
+			<animation type="WindowOpen" reversible="false">
+				<effect type="fade" start="0" end="100" time="200"/>
+				<effect type="slide" start="0,500" end="0,0" time="400" tween="cubic" easing="out"/>
+			</animation>
+			<control type="label" id="-">
+				<left>50</left>
+				<top>-115</top>
+				<height>70</height>
+				<font>Large</font>
+				<textcolor>$VAR[FocusedColor]</textcolor>
+				<label>$LOCALIZE[31064]</label>
+			</control>
+
+			<control type="group">
+				<width>100%</width>
+				<height>100%</height>
+
+				<!-- Left grouplist -->
+				<control type="grouplist" id="100">
+					<width>1000</width>
+					<height>1000</height>
+					<onright condition="Container(1).HasFocus(1)">3100</onright>
+					<onright condition="Container(1).HasFocus(2)">3110</onright>
+					<onright condition="Container(1).HasFocus(3)">3111</onright>
+					<onright condition="Container(1).HasFocus(4)">3112</onright>
+					<onright condition="Container(1).HasFocus(5)">3113</onright>
+					<onright condition="Container(1).HasFocus(6)">3114</onright>
+					<onright condition="Container(1).HasFocus(7)">3115</onright>
+					<onright condition="Container(1).HasFocus(8)">3116</onright>
+					<onright condition="Container(1).HasFocus(9)">3117</onright>
+					<onleft>noop</onleft>
+					<ondown>1</ondown>
+					<onup>1</onup>
+					<itemgap>0</itemgap>
+					<control type="list" id="1">
+						<width>1000</width>
+						<height>900</height>
+						<itemlayout width="510" height="60">
+							<control type="group">
+								<left>20</left>
+								<top>20</top>
+								<control type="label">
+									<left>20</left>
+									<width>500</width>
+									<height>60</height>
+									<label>$INFO[Listitem.label]</label>
+									<align>left</align>
+									<aligny>center</aligny>
+									<font>Tile</font>
+									<textcolor>$VAR[FocusedColor]</textcolor>
+								</control>
+							</control>
+						</itemlayout>
+						<focusedlayout width="510" height="60">
+							<control type="group">
+								<left>20</left>
+								<top>20</top>
+								<control type="image">
+									<left>-5</left>
+									<top>0</top>
+									<width>5</width>
+									<height>60</height>
+									<texture colordiffuse="$VAR[SecondaryColor]">common/white.png</texture>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="label">
+									<left>20</left>
+									<width>500</width>
+									<height>60</height>
+									<label>$INFO[Listitem.label]</label>
+									<align>left</align>
+									<aligny>center</aligny>
+									<font>Tile</font>
+									<textcolor>$VAR[SecondaryColor]</textcolor>
+								</control>
+							</control>
+						</focusedlayout>
+						<content>
+							<item id="1">
+								<label>Home Screen - $VAR[DashboardToggle]</label>
+								<onclick>Control.SetFocus(3100)</onclick>
+							</item>
+							<item id="2">
+								<label>Background Colour</label>
+								<onclick>Control.SetFocus(3110)</onclick>
+								<visible>false</visible>
+							</item>
+							<item id="3">
+								<label>My Colours</label>
+								<onclick>Control.SetFocus(3111)</onclick>
+							</item>
+							<item id="4">
+								<label>Diffuse Colour</label>
+								<onclick>Control.SetFocus(3112)</onclick>
+								<visible>Skin.HasSetting(hiddenoptions)</visible>
+							</item>
+							<item id="5">
+								<label>Text Colour</label>
+								<onclick>Control.SetFocus(3113)</onclick>
+								<visible>Skin.HasSetting(hiddenoptions)</visible>
+							</item>
+							<item id="6">
+								<label>Selected Colour</label>
+								<onclick>Control.SetFocus(3114)</onclick>
+								<visible>false</visible>
+							</item>
+							<item id="7">				
+								<label>Game Dashboard - $VAR[GameToggle]</label>
+								<onclick>Control.SetFocus(3115)</onclick>
+								<visible>Skin.HasSetting(hiddenoptions) + false</visible>
+							</item>
+							<item id="8">				
+								<label>Toggle Music</label>
+								<onclick>Control.SetFocus(3116)</onclick>
+							</item>
+							<item id="9">				
+								<label>Toggle Music Background</label>
+								<onclick>Control.SetFocus(3117)</onclick>
+							</item>
+							<item id="10">				
+								<label>Toggle Dark Mode (WIP)</label>
+								<onclick>Skin.ToggleSetting(darkmode)</onclick>
+								<visible>Skin.HasSetting(hiddenoptions)</visible>
+							</item>
+							<item id="99">
+								<label>31152</label>
+								<onclick>Skin.Reset(BackgroundColor)</onclick>
+								<onclick>Skin.Reset(backgroundimage)</onclick>
+								<onclick>Skin.SetString(DashboardToggle, TV)</onclick>
+								<onclick>Skin.SetString(MusicToggle, 1)</onclick>
+								<onclick>Skin.Reset(SecondaryColor)</onclick>
+								<onclick>Skin.Reset(DiffuseColor)</onclick>
+								<onclick>Skin.Reset(darkmode)</onclick>
+								<onclick>Skin.Reset(hiddenoptions)</onclick>
+								<onclick>Skin.Reset(TextColor)</onclick>
+								<onclick>Skin.Reset(SelectedColor)</onclick>
+							</item>
+						</content>
+					</control>				
+				</control>
+
+				<!-- Background -->
+				<control type="group">
+					<left>650</left>
+					<height>150%</height>
+					<control type="label" id="-">
+						<top>-100</top>
+						<height>70</height>
+						<font>LargeLogo</font>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+						<label>Background & Layout</label>
+					</control>
+					<visible>Container(1).HasFocus(1)</visible>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="200"/>
+						<effect type="slide" start="500" end="0,0" time="500" tween="cubic" easing="out"/>
+					</animation>
+					<animation type="Hidden">
+						<effect type="fade" start="100" end="0" time="100"/>
+						<effect type="slide" start="0,0" end="0,150" time="200" tween="cubic" easing="out"/>
+					</animation>
+					<control type="button" id="3100">
+						<left>1000</left>
+						<onleft>1</onleft>
+						<onright>3100</onright>
+						<onup>3100</onup>
+						<ondown>3115</ondown>
+						<include>HiddenControl</include>
+						<onclick>Skin.SetImage(backgroundimage,special://skin/extras/wallpapers/)</onclick>
+					</control>
+					<control type="image">
+						<width>1070</width>
+						<height>600</height>
+						<texture colordiffuse="$VAR[BackgroundColor]">color_white.png</texture>
+					</control>
+					<control type="image">
+						<width>1070</width>
+						<height>600</height>
+						<texture>$INFO[Skin.String(backgroundimage)]</texture>
+					</control>
+					<control type="image">
+						<width>1070</width>
+						<height>600</height>
+						<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/TV.png</texture>
+						<visible>Skin.String(DashboardToggle, TV)</visible>
+					</control>						
+					<control type="image">
+						<width>1070</width>
+						<height>600</height>
+						<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Game.png</texture>
+						<visible>Skin.String(DashboardToggle, Game)</visible>
+					</control>
+					<control type="image">
+						<width>1070</width>
+						<height>600</height>
+						<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Android.png</texture>
+						<visible>Skin.String(DashboardToggle, Android)</visible>
+					</control>
+					<control type="image">
+						<width>1070</width>
+						<height>600</height>
+						<texture colordiffuse="$VAR[MaterialColorDark]" background="true">views/darkvignette.png</texture>
+						<visible>Skin.String(DashboardToggle, Netflix)</visible>
+					</control>
+					<control type="image">
+						<width>1070</width>
+						<height>600</height>
+						<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Netflix.png</texture>
+						<visible>Skin.String(DashboardToggle, Netflix)</visible>
+					</control>
+
+					<control type="image">
+						<width>1070</width>
+						<height>600</height>
+						<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Oreo.png</texture>
+						<visible>Skin.String(DashboardToggle, Oreo)</visible>
+					</control>
+					<control type="image">
+						<width>1070</width>
+						<height>600</height>
+						<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Vertical.png</texture>
+						<visible>Skin.String(DashboardToggle, Vertical)</visible>
+					</control>
+					<control type="image">
+						<width>1070</width>
+						<height>600</height>
+						<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Retroarch.png</texture>
+						<visible>Skin.String(DashboardToggle, Retroarch)</visible>
+					</control>
+
+					<control type="image">
+						<width>1070</width>
+						<height>600</height>
+						<texture colordiffuse="$VAR[white]" border="11,43,43,11">views/border2.png</texture>
+						<visible>Control.HasFocus(3100)</visible>
+					</control>
+
+					<control type="panel" id="3115">
+						<visible>!Skin.HasSetting(KioskMode)</visible>
+						<top>600</top>
+						<width>100%</width>
+						<height>30%</height>
+						<orientation>vertical</orientation>
+						<onleft>1</onleft>
+						<onright>3115</onright>
+						<onup>3100</onup>
+						<ondown>3115</ondown>
+						<preloaditems>4</preloaditems>
+						<pagecontrol>60</pagecontrol>
+						<focusposition>-1</focusposition>
+						<movement>6</movement>
+						<itemlayout width="510" height="150">
+							<control type="group">
+								<left>20</left>
+								<top>20</top>
+								<control type="image">
+									<width>500</width>
+									<height>140</height>
+									<texture colordiffuse="$VAR[MaterialColorDark]">common/white.png</texture>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="label">
+									<left>20</left>
+									<width>500</width>
+									<height>140</height>
+									<label>$INFO[Listitem.label]</label>
+									<align>left</align>
+									<aligny>center</aligny>
+									<font>Tile</font>
+									<textcolor>$VAR[FocusedColor]</textcolor>
+								</control>
+							</control>
+						</itemlayout>
+						<focusedlayout width="510" height="150">
+							<control type="group">
+								<left>20</left>
+								<top>20</top>
+								<control type="image">
+									<left>-5</left>
+									<top>0</top>
+									<width>510</width>
+									<height>140</height>
+									<texture colordiffuse="$VAR[SecondaryColor]">common/white.png</texture>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="image">
+									<left>-30</left>
+									<top>-30</top>
+									<width>560</width>
+									<height>200</height>
+									<texture colordiffuse="$VAR[SecondaryColor]" border="40">fo.png</texture>
+								</control>
+								<control type="label">
+									<left>20</left>
+									<width>500</width>
+									<height>140</height>
+									<label>$INFO[Listitem.label]</label>
+									<align>left</align>
+									<aligny>center</aligny>
+									<font>Tile</font>
+									<textcolor>$VAR[TextColor]</textcolor>
+								</control>
+							</control>
+						</focusedlayout>
+						<content>
+							<item id="1">
+								<label>TV Layout</label>
+								<onclick>Skin.Setstring(DashboardToggle, TV)</onclick>
+							</item>
+							<item id="2">
+								<label>Game Layout</label>
+								<onclick>Skin.Setstring(DashboardToggle, Game)</onclick>
+							</item>
+							<item id="3">
+								<label>Android Layout</label>
+								<onclick>Skin.Setstring(DashboardToggle, Android)</onclick>
+							</item>
+							<item id="4">
+								<label>Netflix Layout</label>
+								<onclick>Skin.Setstring(DashboardToggle, Netflix)</onclick>
+							</item>
+							<item id="5">
+								<label>Android Oreo Layout</label>
+								<onclick>Skin.Setstring(DashboardToggle, Oreo)</onclick>
+								<visible>Skin.HasSetting(hiddenoptions)</visible>
+							</item>
+							<item id="6">
+								<label>Vertical Layout</label>
+								<onclick>Skin.Setstring(DashboardToggle, Vertical)</onclick>
+								<visible>Skin.HasSetting(hiddenoptions)</visible>
+							</item>
+							<item id="7">
+								<label>Retroarch Layout</label>
+								<onclick>Skin.Setstring(DashboardToggle, Retroarch)</onclick>
+								<visible>Skin.HasSetting(hiddenoptions)</visible>
+							</item>
+							<!--><item id="10">
+								<label>Demo Layout</label>
+								<onclick>Skin.Setstring(DashboardToggle, Demo)</onclick>
+								<onclick>Control.SetFocus(100)</onclick>
+							</item><!-->
+						</content>
+					</control>
+				</control>
+
+				<!-- Background Color
+				<control type="group">
+					<left>650</left>
+					<height>150%</height>
+					<visible>Container(1).HasFocus(2)</visible>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="200"/>
+						<effect type="slide" start="500" end="0,0" time="500" tween="cubic" easing="out"/>
+					</animation>
+					<animation type="Hidden">
+						<effect type="fade" start="100" end="0" time="100"/>
+						<effect type="slide" start="0,0" end="0,150" time="200" tween="cubic" easing="out"/>
+					</animation>
+					<control type="label" id="-">
+						<top>-100</top>
+						<height>70</height>
+						<font>LargeLogo</font>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+						<label>Background Color</label>
+					</control>
+
+					<control type="panel" id="3110">
+						<viewtype label="31438">icons</viewtype>
+						<width>100%</width>
+						<height>85%</height>
+						<orientation>vertical</orientation>
+						<onleft>1</onleft>
+						<onright>3110</onright>
+						<onup>3110</onup>
+						<ondown>3110</ondown>
+						<preloaditems>4</preloaditems>
+						<pagecontrol>60</pagecontrol>
+						<focusposition>-1</focusposition>
+						<movement>6</movement>
+						<itemlayout height="360" width="360">
+							<control type="image">
+								<width>350</width>
+								<height>350</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+							</control>
+						</itemlayout>
+						<focusedlayout height="360" width="360">
+							<control type="group">
+								<control type="image">
+									<width>350</width>
+									<height>350</height>
+									<texture>$INFO[ListItem.Icon]</texture>
+								</control>
+								<control type="image">
+									<animation type="Focus">
+										<effect type="zoom" center="auto" start="120" end="122" time="200"/>
+									</animation>
+									<width>350</width>
+									<height>350</height>
+									<texture colordiffuse="$VAR[BackgroundColor]" border="90">fo.png</texture>
+								</control>
+							</control>
+						</focusedlayout>
+						<content>
+							<item id="1">
+								<onclick>Skin.Setstring(BackgroundColor,FFFCB11B)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\amber.png</icon>
+							</item>
+							<item id="2">
+								<onclick>Skin.Setstring(BackgroundColor,FF00FFFF)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\aqua.png</icon>
+							</item>
+							<item id="3">
+								<onclick>Skin.Setstring(BackgroundColor,FFEB9E17)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\yellow.png</icon>
+							</item>
+							<item id="4">
+								<onclick>Skin.Setstring(BackgroundColor,FFA400F6)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\violet.png</icon>
+							</item>
+							<item id="5">
+								<onclick>Skin.Setstring(BackgroundColor,FF40E0D0)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\turquoise.png</icon>
+							</item>
+							<item id="6">
+								<onclick>Skin.Setstring(BackgroundColor,FF1E90FF)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\teal.png</icon>
+							</item>
+							<item id="7">
+								<onclick>Skin.Setstring(BackgroundColor,FF998959)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\taupe.png</icon>
+							</item>
+							<item id="8">
+								<onclick>Skin.Setstring(BackgroundColor,FF4682B4)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\steelblue.png</icon>
+							</item>
+							<item id="8">
+								<onclick>Skin.Setstring(BackgroundColor,FF728699)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\steel.png</icon>
+							</item>
+							<item id="9">
+								<onclick>Skin.Setstring(BackgroundColor,FF2F4F4F)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\slategrey.png</icon>
+							</item>
+							<item id="10">
+								<onclick>Skin.Setstring(BackgroundColor,FF6A5ACD)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\slateblue.png</icon>
+							</item>
+							<item id="11">
+								<onclick>Skin.Setstring(BackgroundColor,FF00BFFF)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\skyblue.png</icon>
+							</item>
+							<item id="12">
+								<onclick>Skin.Setstring(BackgroundColor,FFC0C0C0)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\silver.png</icon>
+							</item>
+							<item id="13">
+								<onclick>Skin.Setstring(BackgroundColor,FF954E53)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\sienna.png</icon>
+							</item>
+							<item id="14">
+								<onclick>Skin.Setstring(BackgroundColor,FF20B2AA)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\seagreen.png</icon>
+							</item>
+							<item id="15">
+								<onclick>Skin.Setstring(BackgroundColor,FFFF0000)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\red.png</icon>
+							</item>
+							<item id="16">
+								<onclick>Skin.Setstring(BackgroundColor,FF800080)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\purple.png</icon>
+							</item>
+							<item id="17">
+								<onclick>Skin.Setstring(BackgroundColor,FFFF69B4)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\pink.png</icon>
+							</item>
+							<item id="18">
+								<onclick>Skin.Setstring(BackgroundColor,FFFF4500)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\orangered.png</icon>
+							</item>
+							<item id="19">
+								<onclick>Skin.Setstring(BackgroundColor,FFFFA500)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\orange.png</icon>
+							</item>
+							<item id="20">
+								<onclick>Skin.Setstring(BackgroundColor,FF6B8E23)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\olivedrab.png</icon>
+							</item>
+							<item id="21">
+								<onclick>Skin.Setstring(BackgroundColor,FF83A078)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\olive.png</icon>
+							</item>
+							<item id="22">
+								<onclick>Skin.Setstring(BackgroundColor,FF0000CD)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\mediumblue.png</icon>
+							</item>
+							<item id="23">
+								<onclick>Skin.Setstring(BackgroundColor,FF896EA2)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\mauve.png</icon>
+							</item>
+							<item id="24">
+								<onclick>Skin.Setstring(BackgroundColor,FFF80084)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\magenta.png</icon>
+							</item>
+							<item id="25">
+								<onclick>Skin.Setstring(BackgroundColor,FF32CD32)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\limegreen.png</icon>
+							</item>
+							<item id="25">
+								<onclick>Skin.Setstring(BackgroundColor,FF32CD32)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\lime.png</icon>
+							</item>
+							<item id="26">
+								<onclick>Skin.Setstring(BackgroundColor,FF6A00FF)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\indigo.png</icon>
+							</item>
+							<item id="27">
+								<onclick>Skin.Setstring(BackgroundColor,FFCD5C5C2)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\indianred.png</icon>
+							</item>
+							<item id="28">
+								<onclick>Skin.Setstring(BackgroundColor,FF228B22)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\green.png</icon>
+							</item>
+							<item id="29">
+								<onclick>Skin.Setstring(BackgroundColor,FF7B7B7B)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\gray.png</icon>
+							</item>
+							<item id="30">
+								<onclick>Skin.Setstring(BackgroundColor,FFFF00FF)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\fuchisa.png</icon>
+							</item>
+							<item id="31">
+								<onclick>Skin.Setstring(BackgroundColor,FF228B22)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\forestgreen.png</icon>
+							</item>
+							<item id="32">
+								<onclick>Skin.Setstring(BackgroundColor,FFB22222)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\firebrick.png</icon>
+							</item>
+							<item id="33">
+								<onclick>Skin.Setstring(BackgroundColor,FF00A400)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\emerald.png</icon>
+							</item>
+							<item id="34">
+								<onclick>Skin.Setstring(BackgroundColor,FF1E90FF)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\dodgerblue.png</icon>
+							</item>
+							<item id="34">
+								<onclick>Skin.Setstring(BackgroundColor,FFFF1493)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\deeppink.png</icon>
+							</item>
+							<item id="35">
+								<onclick>Skin.Setstring(BackgroundColor,FF00CED1)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\darkturquoise.png</icon>
+							</item>
+							<item id="36">
+								<onclick>Skin.Setstring(BackgroundColor,FFFF8C00)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\darkorange.png</icon>
+							</item>
+							<item id="37">
+								<onclick>Skin.Setstring(BackgroundColor,FF8B008B)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\darkmagenta.png</icon>
+							</item>
+							<item id="38">
+								<onclick>Skin.Setstring(BackgroundColor,FF00008B)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\darkblue.png</icon>
+							</item>
+							<item id="39">
+								<onclick>Skin.Setstring(BackgroundColor,FFD50031)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\crimson.png</icon>
+							</item>
+							<item id="40">
+								<onclick>Skin.Setstring(BackgroundColor,FF0054FF)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\cobalt.png</icon>
+							</item>
+							<item id="41">
+								<onclick>Skin.Setstring(BackgroundColor,FFD2691E)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\chocolate.png</icon>
+							</item>
+							<item id="42">
+								<onclick>Skin.Setstring(BackgroundColor,FF9A6B36)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\brown.png</icon>
+							</item>
+							<item id="43">
+								<onclick>Skin.Setstring(BackgroundColor,FF8A2BE2)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\blueviolet.png</icon>
+							</item>
+							<item id="44">
+								<onclick>Skin.Setstring(BackgroundColor,FF0000FF)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\blue.png</icon>
+							</item>
+							<item id="45">
+								<onclick>Skin.Setstring(BackgroundColor,FF00A400)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\default.png</icon>
+							</item>
+							<item id="46">
+								<onclick>Skin.Setstring(BackgroundColor,FFF10000)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\newred.png</icon>
+							</item>
+							<item id="47">
+								<onclick>Skin.Setstring(BackgroundColor,FFFF7E00)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\neworange.png</icon>
+							</item>
+							<item id="48">
+								<onclick>Skin.Setstring(BackgroundColor,FFFF7EFF)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\newpink.png</icon>
+							</item>
+							<item id="49">
+								<onclick>Skin.Setstring(BackgroundColor,FFFF00FF)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\newdarkpink.png</icon>
+							</item>
+							<item id="50">
+								<onclick>Skin.Setstring(BackgroundColor,FFFF009B)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\newdarkpink2.png</icon>
+							</item>
+							<item id="51">
+								<onclick>Skin.Setstring(BackgroundColor,FF92009B)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\newpurple.png</icon>
+							</item>
+							<item id="52">
+								<onclick>Skin.Setstring(BackgroundColor,FFEB0000)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\newred2.png</icon>
+							</item>
+							<item id="53">
+								<onclick>Skin.Setstring(BackgroundColor,FF00BDFF)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\newteal.png</icon>
+							</item>
+							<item id="54">
+								<onclick>Skin.Setstring(BackgroundColor,FFFFE800)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\newyellow.png</icon>
+							</item>
+							<item id="55">
+								<onclick>Skin.Setstring(BackgroundColor,FF9BDF2E)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\newlime.png</icon>
+							</item>
+							<item id="56">
+								<onclick>Skin.Setstring(BackgroundColor,AC0022C9)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\blue2.png</icon>
+							</item>
+							<item id="57">
+								<onclick>Skin.Setstring(BackgroundColor,AC0000FF)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\blue3.png</icon>
+							</item>
+							<item id="58">
+								<onclick>Skin.Setstring(BackgroundColor,FF0053FF)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\blue4.png</icon>
+							</item>
+							<item id="59">
+								<onclick>Skin.Setstring(BackgroundColor,FFFF7300)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\orange2.png</icon>
+							</item>
+							<item id="60">
+								<onclick>Skin.Setstring(BackgroundColor,CEFF1109)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\redd.png</icon>
+							</item>
+							<item id="61">
+								<onclick>Skin.Setstring(BackgroundColor,D7FF0000)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\reddd.png</icon>
+							</item>
+							<item id="62">
+								<onclick>Skin.Setstring(BackgroundColor,78000000)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\newgray1.png</icon>
+							</item>
+							<item id="63">
+								<onclick>Skin.Setstring(BackgroundColor,FFFF0000)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\newred5.png</icon>
+							</item>
+							<item id="64">
+								<onclick>Skin.Setstring(BackgroundColor,C6FF0000)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\newred4.png</icon>
+							</item>
+							<item id="65">
+								<onclick>Skin.Setstring(BackgroundColor,FFFF7B00)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\neworange3.png</icon>
+							</item>
+							<item id="66">
+								<onclick>Skin.Setstring(BackgroundColor,FFFFA900)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\neworange2.png</icon>
+							</item>
+							<item id="67">
+								<onclick>Skin.Setstring(BackgroundColor,FFFFFF00)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\newyellow3.png</icon>
+							</item>
+							<item id="68">
+								<onclick>Skin.Setstring(BackgroundColor,FFFFD700)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\newyellow2.png</icon>
+							</item>
+							<item id="69">
+								<onclick>Skin.Setstring(BackgroundColor,FFFF00FF)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\newpink.png</icon>
+							</item>
+							<item id="70">
+								<onclick>Skin.Setstring(BackgroundColor,FFFF64FF)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\newpink3.png</icon>
+							</item>
+							<item id="71">
+								<onclick>Skin.Setstring(BackgroundColor,FFFF0092)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\newhotpink2.png</icon>
+							</item>
+							<item id="72">
+								<onclick>Skin.Setstring(BackgroundColor,FFFF0039)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\newred3.png</icon>
+							</item>
+							<item id="73">
+								<onclick>Skin.Setstring(BackgroundColor,FFDA00FF)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\newpurple3.png</icon>
+							</item>
+							<item id="74">
+								<onclick>Skin.Setstring(BackgroundColor,FFA900FF)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\newpurple2.png</icon>
+							</item>
+							<item id="75">
+								<onclick>Skin.Setstring(BackgroundColor,FF00D1FF)</onclick>
+								<!--><onclick>Control.SetFocus(3012)</onclick><!-->
+								<icon>demo\colors\newaqua.png</icon>
+							</item>
+						</content>
+					</control>
+				</control> -->
+
+				<!-- Secondary Color -->
+				<control type="group">
+					<left>650</left>
+					<height>150%</height>
+					<visible>Container(1).HasFocus(3)</visible>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="200"/>
+						<effect type="slide" start="500" end="0,0" time="500" tween="cubic" easing="out"/>
+					</animation>
+					<animation type="Hidden">
+						<effect type="fade" start="100" end="0" time="100"/>
+						<effect type="slide" start="0,0" end="0,150" time="200" tween="cubic" easing="out"/>
+					</animation>
+					<control type="label" id="-">
+						<top>-100</top>
+						<height>70</height>
+						<font>LargeLogo</font>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+						<label>My Color</label>
+					</control>
+
+					<control type="panel" id="3111">
+						<viewtype label="31438">icons</viewtype>
+						<width>100%</width>
+						<height>80%</height>
+						<orientation>vertical</orientation>
+						<onleft>1</onleft>
+						<onright>3111</onright>
+						<onup>3111</onup>
+						<ondown>3111</ondown>
+						<preloaditems>4</preloaditems>
+						<pagecontrol>60</pagecontrol>
+						<focusposition>-1</focusposition>
+						<movement>6</movement>
+						<itemlayout height="230" width="230">
+							<control type="image">
+								<width>220</width>
+								<height>220</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+							</control>
+						</itemlayout>
+						<focusedlayout height="230" width="230">
+							<control type="group">
+								<animation type="Focus">
+									<effect type="zoom" center="auto" start="100" end="110" time="200"/>
+								</animation>
+								<animation type="UnFocus">
+									<effect type="zoom" center="auto" start="110" end="100" time="0"/>
+								</animation>
+								<control type="image">
+									<width>220</width>
+									<height>220</height>
+									<texture>$INFO[ListItem.Icon]</texture>
+								</control>
+								<include content="BorderSelected">
+									<param name="type">SecondaryColor</param>
+								</include>
+								<control type="image">
+									<width>220</width>
+									<height>220</height>
+									<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border.png</texture>
+								</control>
+							</control>
+						</focusedlayout>
+						<content>
+							<include content="Colors">
+								<param name="type">SecondaryColor</param>
+							</include>
+						</content>
+					</control>
+				</control>
+
+				<!-- Diffuse Color -->
+				<control type="group">
+					<left>650</left>
+					<height>150%</height>
+					<visible>Container(1).HasFocus(4)</visible>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="200"/>
+						<effect type="slide" start="500" end="0,0" time="500" tween="cubic" easing="out"/>
+					</animation>
+					<animation type="Hidden">
+						<effect type="fade" start="100" end="0" time="100"/>
+						<effect type="slide" start="0,0" end="0,150" time="200" tween="cubic" easing="out"/>
+					</animation>
+					<control type="label" id="-">
+						<top>-100</top>
+						<height>70</height>
+						<font>LargeLogo</font>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+						<label>Diffuse Color</label>
+					</control>
+
+					<control type="panel" id="3112">
+						<viewtype label="31438">icons</viewtype>
+						<width>100%</width>
+						<height>85%</height>
+						<orientation>vertical</orientation>
+						<onleft>1</onleft>
+						<onright>3112</onright>
+						<onup>1</onup>
+						<ondown>1</ondown>
+						<preloaditems>4</preloaditems>
+						<pagecontrol>60</pagecontrol>
+						<focusposition>-1</focusposition>
+						<movement>6</movement>
+						<itemlayout height="230" width="230">
+							<control type="image">
+								<width>220</width>
+								<height>220</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+							</control>
+						</itemlayout>
+						<focusedlayout height="230" width="230">
+							<control type="group">
+								<animation type="Focus">
+									<effect type="zoom" center="auto" start="100" end="110" time="200"/>
+								</animation>
+								<animation type="UnFocus">
+									<effect type="zoom" center="auto" start="110" end="100" time="0"/>
+								</animation>
+								<control type="image">
+									<width>220</width>
+									<height>220</height>
+									<texture>$INFO[ListItem.Icon]</texture>
+								</control>
+								<include content="BorderSelected">
+									<param name="type">DiffuseColor</param>
+								</include>
+								<control type="image">
+									<width>220</width>
+									<height>220</height>
+									<texture colordiffuse="$VAR[DiffuseColorPreview]" border="11,43,43,11">views/border.png</texture>
+								</control>
+							</control>
+						</focusedlayout>
+						<content>
+							<item>
+								<label>$NUMBER[000000]</label>
+								<onclick>Skin.Setstring(DiffuseColor,000000)</onclick>
+								<icon>color_black.png</icon>
+							</item>
+							<include content="Colors">
+								<param name="type">DiffuseColor</param>
+							</include>
+						</content>
+					</control>
+				</control>
+
+				<!-- Text Color -->
+				<control type="group">
+					<left>650</left>
+					<height>150%</height>
+					<visible>Container(1).HasFocus(5)</visible>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="200"/>
+						<effect type="slide" start="500" end="0,0" time="500" tween="cubic" easing="out"/>
+					</animation>
+					<animation type="Hidden">
+						<effect type="fade" start="100" end="0" time="100"/>
+						<effect type="slide" start="0,0" end="0,150" time="200" tween="cubic" easing="out"/>
+					</animation>
+					<control type="label" id="-">
+						<top>-100</top>
+						<height>70</height>
+						<font>LargeLogo</font>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+						<label>Text Color</label>
+					</control>
+
+					<control type="panel" id="3113">
+						<viewtype label="31438">icons</viewtype>
+						<width>100%</width>
+						<height>85%</height>
+						<orientation>vertical</orientation>
+						<onleft>1</onleft>
+						<onright>3113</onright>
+						<onup>1</onup>
+						<ondown>1</ondown>
+						<preloaditems>4</preloaditems>
+						<pagecontrol>60</pagecontrol>
+						<focusposition>-1</focusposition>
+						<movement>6</movement>
+						<itemlayout height="230" width="230">
+							<control type="image">
+								<width>220</width>
+								<height>220</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+							</control>
+						</itemlayout>
+						<focusedlayout height="230" width="230">
+							<control type="group">
+								<animation type="Focus">
+									<effect type="zoom" center="auto" start="100" end="110" time="200"/>
+								</animation>
+								<animation type="UnFocus">
+									<effect type="zoom" center="auto" start="110" end="100" time="0"/>
+								</animation>
+								<control type="image">
+									<width>220</width>
+									<height>220</height>
+									<texture>$INFO[ListItem.Icon]</texture>
+								</control>
+								<include content="BorderSelected">
+									<param name="type">TextColor</param>
+								</include>
+								<control type="image">
+									<width>220</width>
+									<height>220</height>
+									<texture colordiffuse="$VAR[TextColor]" border="11,43,43,11">views/border.png</texture>
+								</control>
+							</control>
+						</focusedlayout>
+						<content>
+							<item>
+								<label>FFFFFF</label>
+								<onclick>Skin.Setstring(TextColor,FFFFFF)</onclick>
+								<icon>color_white.png</icon>
+							</item>
+							<include content="Colors">
+								<param name="type">TextColor</param>
+							</include>
+						</content>
+					</control>
+				</control>
+
+				<!-- Game Layouts
+				<control type="group">
+					<left>650</left>
+					<height>150%</height>
+					<visible>Container(1).HasFocus(7)</visible>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="200"/>
+						<effect type="slide" start="500" end="0,0" time="500" tween="cubic" easing="out"/>
+					</animation>
+					<animation type="Hidden">
+						<effect type="fade" start="100" end="0" time="100"/>
+						<effect type="slide" start="0,0" end="0,150" time="200" tween="cubic" easing="out"/>
+					</animation>
+					<control type="label" id="-">
+						<top>-100</top>
+						<height>70</height>
+						<font>LargeLogo</font>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+						<label>Dashboard Layout</label>
+					</control>
+
+					<control type="panel" id="3115">
+						<viewtype label="31438">icons</viewtype>
+						<width>150%</width>
+						<height>45%</height>
+						<orientation>horizontal</orientation>
+						<onleft>1</onleft>
+						<onright>3115</onright>
+						<onup>1</onup>
+						<ondown>1</ondown>
+						<preloaditems>4</preloaditems>
+						<pagecontrol>60</pagecontrol>
+						<focusposition>-1</focusposition>
+						<movement>6</movement>
+						<itemlayout width="510" height="150">
+							<control type="group">
+								<left>20</left>
+								<top>20</top>
+								<control type="image">
+									<width>500</width>
+									<height>140</height>
+									<texture colordiffuse="$VAR[MaterialColorDark]">common/white.png</texture>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="label">
+									<left>20</left>
+									<width>500</width>
+									<height>140</height>
+									<label>$INFO[Listitem.label]</label>
+									<align>left</align>
+									<aligny>center</aligny>
+									<font>Tile</font>
+									<textcolor>$VAR[FocusedColor]</textcolor>
+								</control>
+							</control>
+						</itemlayout>
+						<focusedlayout width="510" height="150">
+							<control type="group">
+								<left>20</left>
+								<top>20</top>
+								<control type="image">
+									<left>-5</left>
+									<top>0</top>
+									<width>510</width>
+									<height>140</height>
+									<texture colordiffuse="$VAR[SecondaryColor]">common/white.png</texture>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="image">
+									<left>-30</left>
+									<top>-30</top>
+									<width>560</width>
+									<height>200</height>
+									<texture colordiffuse="$VAR[SecondaryColor]" border="40">fo.png</texture>
+								</control>
+								<control type="label">
+									<left>20</left>
+									<width>500</width>
+									<height>140</height>
+									<label>$INFO[Listitem.label]</label>
+									<align>left</align>
+									<aligny>center</aligny>
+									<font>Tile</font>
+									<textcolor>$VAR[FocusedColor]</textcolor>
+								</control>
+							</control>
+						</focusedlayout>
+						<content>
+							<item>
+								<label>Switch Theme</label>
+								<onclick>Skin.Setstring(GameToggle,Switch)</onclick>
+								<onclick>Control.SetFocus(1)</onclick>
+							</item>
+							<item>
+								<label>Retroarch Theme</label>
+								<onclick>Skin.Setstring(GameToggle,Retroarch)</onclick>
+								<onclick>Control.SetFocus(1)</onclick>
+							</item>
+						</content>
+					</control>
+				</control> -->
+
+				<!-- Music Layout -->
+				<control type="group">
+					<left>650</left>
+					<height>150%</height>
+					<visible>Container(1).HasFocus(8)</visible>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="200"/>
+						<effect type="slide" start="500" end="0,0" time="500" tween="cubic" easing="out"/>
+					</animation>
+					<animation type="Hidden">
+						<effect type="fade" start="100" end="0" time="100"/>
+						<effect type="slide" start="0,0" end="0,150" time="200" tween="cubic" easing="out"/>
+					</animation>
+					<control type="label" id="-">
+						<top>-100</top>
+						<height>70</height>
+						<font>LargeLogo</font>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+						<label>Music Layout</label>
+					</control>
+
+					<control type="panel" id="3116">
+						<viewtype label="31438">icons</viewtype>
+						<width>100%</width>
+						<height>85%</height>
+						<orientation>vertical</orientation>
+						<onleft>1</onleft>
+						<onright>3115</onright>
+						<onup>1</onup>
+						<ondown>1</ondown>
+						<preloaditems>4</preloaditems>
+						<pagecontrol>60</pagecontrol>
+						<focusposition>-1</focusposition>
+						<movement>6</movement>
+						<itemlayout width="510" height="150">
+							<control type="group">
+								<left>20</left>
+								<top>20</top>
+								<control type="image">
+									<width>500</width>
+									<height>140</height>
+									<texture colordiffuse="$VAR[MaterialColorDark]">common/white.png</texture>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="label">
+									<left>20</left>
+									<width>500</width>
+									<height>140</height>
+									<label>$INFO[Listitem.label]</label>
+									<align>left</align>
+									<aligny>center</aligny>
+									<font>Tile</font>
+									<textcolor>$VAR[FocusedColor]</textcolor>
+								</control>
+							</control>
+						</itemlayout>
+						<focusedlayout width="510" height="150">
+							<control type="group">
+								<left>20</left>
+								<top>20</top>
+								<control type="image">
+									<left>-5</left>
+									<top>0</top>
+									<width>510</width>
+									<height>140</height>
+									<texture colordiffuse="$VAR[SecondaryColor]">common/white.png</texture>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="image">
+									<left>-30</left>
+									<top>-30</top>
+									<width>560</width>
+									<height>200</height>
+									<texture colordiffuse="$VAR[SecondaryColor]" border="40">fo.png</texture>
+								</control>
+								<control type="label">
+									<left>20</left>
+									<width>500</width>
+									<height>140</height>
+									<label>$INFO[Listitem.label]</label>
+									<align>left</align>
+									<aligny>center</aligny>
+									<font>Tile</font>
+									<textcolor>$VAR[TextColor]</textcolor>
+								</control>
+							</control>
+						</focusedlayout>
+						<content>
+							<item id="1">
+								<label>COTW Layout</label>
+								<onclick>Skin.Setstring(MusicToggle, COTW)</onclick>
+								<onclick>Control.SetFocus(100)</onclick>
+								<visible>Skin.HasSetting(hiddenoptions)</visible>
+							</item>
+							<item id="2">
+								<label>FM Layout</label>
+								<onclick>Skin.Setstring(MusicToggle, FM)</onclick>
+								<onclick>Control.SetFocus(100)</onclick>
+								<visible>Skin.HasSetting(hiddenoptions)</visible>
+							</item>
+							<item id="1">
+								<label>Art Layout</label>
+								<onclick>Skin.Setstring(MusicToggle, 1)</onclick>
+								<onclick>Control.SetFocus(100)</onclick>
+							</item>
+							<item id="2">
+								<label>Playlist Layout</label>
+								<onclick>Skin.Setstring(MusicToggle, 2)</onclick>
+								<onclick>Control.SetFocus(100)</onclick>
+							</item>
+						</content>
+					</control>
+				</control>
+
+				<!-- Music Background Layout -->
+				<control type="group">
+					<left>650</left>
+					<height>150%</height>
+					<visible>Container(1).HasFocus(9)</visible>
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="200"/>
+						<effect type="slide" start="500" end="0,0" time="500" tween="cubic" easing="out"/>
+					</animation>
+					<animation type="Hidden">
+						<effect type="fade" start="100" end="0" time="100"/>
+						<effect type="slide" start="0,0" end="0,150" time="200" tween="cubic" easing="out"/>
+					</animation>
+					<control type="label" id="-">
+						<top>-100</top>
+						<height>70</height>
+						<font>LargeLogo</font>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+						<label>Music Layout</label>
+					</control>
+
+					<control type="panel" id="3117">
+						<viewtype label="31438">icons</viewtype>
+						<width>100%</width>
+						<height>85%</height>
+						<orientation>vertical</orientation>
+						<onleft>1</onleft>
+						<onright>3115</onright>
+						<onup>1</onup>
+						<ondown>1</ondown>
+						<preloaditems>4</preloaditems>
+						<pagecontrol>60</pagecontrol>
+						<focusposition>-1</focusposition>
+						<movement>6</movement>
+						<itemlayout width="510" height="150">
+							<control type="group">
+								<left>20</left>
+								<top>20</top>
+								<control type="image">
+									<width>500</width>
+									<height>140</height>
+									<texture colordiffuse="$VAR[MaterialColorDark]">common/white.png</texture>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="label">
+									<left>20</left>
+									<width>500</width>
+									<height>140</height>
+									<label>$INFO[Listitem.label]</label>
+									<align>left</align>
+									<aligny>center</aligny>
+									<font>Tile</font>
+									<textcolor>$VAR[FocusedColor]</textcolor>
+								</control>
+							</control>
+						</itemlayout>
+						<focusedlayout width="510" height="150">
+							<control type="group">
+								<left>20</left>
+								<top>20</top>
+								<control type="image">
+									<left>-5</left>
+									<top>0</top>
+									<width>510</width>
+									<height>140</height>
+									<texture colordiffuse="$VAR[SecondaryColor]">common/white.png</texture>
+									<aspectratio>stretch</aspectratio>
+								</control>
+								<control type="image">
+									<left>-30</left>
+									<top>-30</top>
+									<width>560</width>
+									<height>200</height>
+									<texture colordiffuse="$VAR[SecondaryColor]" border="40">fo.png</texture>
+								</control>
+								<control type="label">
+									<left>20</left>
+									<width>500</width>
+									<height>140</height>
+									<label>$INFO[Listitem.label]</label>
+									<align>left</align>
+									<aligny>center</aligny>
+									<font>Tile</font>
+									<textcolor>$VAR[TextColor]</textcolor>
+								</control>
+							</control>
+						</focusedlayout>
+						<content>
+							<item id="1">
+								<label>Cover Art</label>
+								<onclick>Skin.Setstring(MusicBackgroundToggle, COTW)</onclick>
+								<onclick>Control.SetFocus(100)</onclick>
+							</item>
+							<item id="2">
+								<label>Images</label>
+								<onclick>Skin.Setstring(MusicBackgroundToggle, FM)</onclick>
+								<onclick>Control.SetFocus(100)</onclick>
+							</item>
+							<item id="3">
+								<label>Background Image</label>
+								<onclick>Skin.Setstring(MusicBackgroundToggle, Background)</onclick>
+								<onclick>Control.SetFocus(100)</onclick>
+							</item>
+						</content>
+					</control>
+				</control>
+			</control>
+		</control>
+		<!--> Logo <!-->
+		<include>Logo</include>
+	</controls>
+</window>

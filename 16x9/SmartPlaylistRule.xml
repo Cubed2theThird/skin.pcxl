@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- smartplaylistrule -->
+	<defaultcontrol always="true">15</defaultcontrol>
+	<controls>
+		<!-- Background -->
+		<include>DialogBackgroundImage</include>
+		<!-- Main group -->
+		<control type="group" id="1000">
+			<include content="DialogHeading">
+				<param name="DialogHeaderId" value="2" />
+				<param name="DialogHeaderLabel" value="$LOCALIZE[21421]" />
+			</include>
+			<!-- Grouplist -->
+			<control type="grouplist">
+				<width>885</width>
+				<include>DialogGrouplist</include>
+				<!-- Rule Field -->
+				<control type="button" id="15">
+					<width>885</width>
+					<include>DialogButton</include>
+				</control>
+				<!-- Rule operator -->
+				<control type="button" id="16">
+					<width>885</width>
+					<include>DialogButton</include>
+				</control>
+				<!-- Rule value -->
+				<control type="edit" id="17">
+					<width>885</width>
+					<hinttext>31103</hinttext>
+					<include>DialogButton</include>
+				</control>
+				<!-- Browse Button -->
+				<control type="button" id="20">
+					<width>885</width>
+					<include>DialogButton</include>
+				</control>
+			</control>
+		</control>
+		<include content="DialogButtons">
+			<param name="Button4Visible" value="false" />
+			<param name="Button3Visible" value="false" />
+			<!-- Cancel Button -->
+			<param name="Button2ID" value="19" />
+			<param name="Button2Label" value="X" />
+			<param name="Button2Visible" value="true" />
+			<!-- OK Button -->
+			<param name="Button1ID" value="18" />
+			<param name="Button1Label" value="$LOCALIZE[186]" />
+			<param name="Button1Visible" value="true" />
+		</include>
+	</controls>
+</window>

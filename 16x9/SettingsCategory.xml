@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+	<!-- settingscategory -->
+	<backgroundcolor>$VAR[SecondaryColor]</backgroundcolor>
+	<onload condition="String.IsEmpty(Window(settings).Property(ChangeSettingsLevel))">SetFocus(3)</onload>
+	<onload condition="!String.IsEmpty(Window(settings).Property(ChangeSettingsLevel))">SetFocus(20)</onload>
+	<controls>
+
+		<!-- Clock -->
+		<include>Clock2</include>
+
+		<control type="group">
+            <animation type="WindowOpen">
+                <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="650" />
+                <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" />
+                <effect type="zoom" start="88" end="100" center="576,560" tween="cubic" easing="out" time="400" />
+            </animation>
+            <animation type="WindowClose">
+                <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+                <effect type="zoom" start="100" end="85" time="300" center="960,600" tween="sine" easing="out" />
+            </animation>
+            <animation type="Visible">
+                <effect type="fade" start="0" end="100" time="300" delay="300" tween="sine" easing="out" />
+                <effect type="zoom" start="85" end="100" time="300" delay="300" center="960,600" tween="sine" easing="out" />
+            </animation>
+            <animation type="Hidden">
+                <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+                <effect type="zoom" start="100" end="85" time="300" center="960,600" tween="sine" easing="out" />
+            </animation>
+
+			<!-- Top Buttons -->
+			<control type="grouplist" id="3">
+				<description>Button Area</description>
+				<centerleft>50%</centerleft>
+				<centertop>20%</centertop>
+				<width>90%</width>				
+				<height>150</height>
+				<itemgap>0</itemgap>
+				<onleft>9010</onleft>
+				<onright>3</onright>
+				<onup>20</onup>
+				<ondown>5</ondown>
+				<scrolltime tween="cubic" easing="out">500</scrolltime>
+				<orientation>horizontal</orientation>
+			</control>
+
+			<control type="image">
+				<centerleft>50%</centerleft>
+				<centertop>53%</centertop>
+				<width>90%</width>				
+				<height>70%</height>
+				<texture colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texture>
+			</control>
+
+			<!-- Sub list 71-->
+			<control type="grouplist" id="5">
+				<description>Control Area</description>
+				<posx>155</posx>
+				<posy>200</posy>
+				<width>1000</width>
+				<height>68%</height>
+				<itemgap>30</itemgap>
+				<onleft>3</onleft>
+				<onright>3</onright>
+				<onup>5</onup>
+				<ondown>5</ondown>
+				<scrolltime tween="cubic" easing="out">500</scrolltime>
+				<orientation>vertical</orientation>
+			</control>
+
+			<!-- Settings level button -->
+			<control type="button" id="20">
+				<ondown>3</ondown>
+				<left>10</left>
+				<top>10</top>
+				<width>auto</width>
+				<height>80</height>
+				<font>Font33</font>
+				<label>10037</label>
+				<onleft>ReplaceWindow(settings)</onleft>
+				<onright>noop</onright>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
+				<textoffsetx>20</textoffsetx>
+				<onclick>SettingsLevelChange</onclick>
+				<textcolor>$VAR[White]</textcolor>
+				<focusedcolor>$VAR[FocusedColor]</focusedcolor>
+				<invalidcolor>$VAR[DisabledColor]</invalidcolor>
+				<disabledcolor>$VAR[DisabledColor]</disabledcolor>
+				<texturefocus colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texturenofocus>
+			</control>
+
+			<!-- Settings level button arrow -->
+			<control type="image">
+				<left>1764</left>
+				<top>232</top>
+				<width>35</width>
+				<height>66</height>
+				<texture>common/ArrowDownFO.png</texture>
+				<visible>!String.IsEmpty(Window(settings).Property(ChangeSettingsLevel))</visible>
+			</control>
+
+			<!-- Settings description -->
+			<control type="textbox" id="6">
+				<left>1170</left>
+				<posy>220</posy>
+				<width>620</width>
+				<height>60%</height>
+				<textcolor>$VAR[UnFocusedColor]</textcolor>
+				<visible>ControlGroup(5).HasFocus</visible>
+			</control>
+			<control type="textbox">
+				<left>830</left>
+				<top>856</top>
+				<width>970</width>
+				<height>118</height>
+				<label>10047</label>
+				<textcolor>$VAR[FocusedColor]</textcolor>
+				<shadowcolor>$VAR[DisabledColor]</shadowcolor>
+				<visible>!String.IsEmpty(Window(settings).Property(ChangeSettingsLevel))</visible>
+			</control>
+
+			<!-- Top group buttons -->
+			<control type="button" id="10">
+				<width>250</width>
+				<height>60</height>
+				<font>Font33</font>
+				<onclick>SetFocus(5)</onclick>
+				<texturefocus colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texturenofocus>
+				<textcolor>$VAR[Black]</textcolor>
+      			<focusedcolor>$VAR[White]</focusedcolor>
+				<invalidcolor>$VAR[DisabledColor]</invalidcolor>
+				<disabledcolor>$VAR[DisabledColor]</disabledcolor>
+			</control>
+
+			<!-- Default button -->
+			<control type="button" id="7">
+				<height>77</height>
+				<font>Font-Condensed-S30-B</font>
+				<textoffsetx>45</textoffsetx>
+				<textwidth>900</textwidth>
+				<textcolor>$VAR[White]</textcolor>
+				<texturefocus colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texturenofocus>
+				<invalidcolor>$VAR[DisabledColor]</invalidcolor>
+				<disabledcolor>$VAR[DisabledColor]</disabledcolor>
+			</control>
+
+			<!-- Default radiobutton -->
+			<control type="radiobutton" id="8">
+				<height>77</height>
+				<font>Font-Condensed-S30-B</font>
+				<textoffsetx>45</textoffsetx>
+				<textwidth>900</textwidth>
+				<textcolor>$VAR[UnFocusedColor]</textcolor>
+				<texturefocus colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texturenofocus>
+				<invalidcolor>$VAR[DisabledColor]</invalidcolor>
+				<disabledcolor>$VAR[DisabledColor]</disabledcolor>
+			</control>
+
+			<!-- Default spincontrolex -->
+			<control type="spincontrolex" id="9">
+				<height>77</height>
+				<font>Font-Condensed-S30-B</font>
+				<textoffsetx>45</textoffsetx>
+				<textwidth>900</textwidth>
+				<textcolor>$VAR[UnFocusedColor]</textcolor>
+				<texturefocus colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texturenofocus>
+				<invalidcolor>$VAR[DisabledColor]</invalidcolor>
+				<disabledcolor>$VAR[DisabledColor]</disabledcolor>
+			</control>
+
+			<!-- Default sliderex -->		
+			<control type="sliderex" id="13">
+				<description>Default Slider</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<height>60</height>
+				<texturefocus border="2">dialogs/default/highlight.png</texturefocus>
+				<texturenofocus>dialogs/default/separator-btn.png</texturenofocus>
+				<sliderwidth>150</sliderwidth>
+				<sliderheight>28</sliderheight>
+				<texturesliderbar>dialogs/mediasource/slider-back.png</texturesliderbar>
+				<textureslidernib>dialogs/mediasource/slider-nib-nf.png</textureslidernib>
+				<textureslidernibfocus>dialogs/mediasource/slider-nib-fo.png</textureslidernibfocus>
+				<textcolor>FF585858</textcolor>
+				<focusedcolor>eewhite</focusedcolor>
+				<disabledcolor>77585858</disabledcolor>
+				<shadowcolor>20FFFFFF</shadowcolor>
+				<textoffsetx>45</textoffsetx>
+				<pulseonselect>false</pulseonselect>
+			</control>
+
+			<!-- Default image -->
+			<control type="image" id="11">
+				<width>970</width>
+				<height>-42</height>
+				<texture border="2">common/Divider.png</texture>
+			</control>
+
+			<!-- Default header -->
+			<control type="label" id="14">
+				<width>1200</width>
+				<height>66</height>
+				<label>-</label>
+			</control>
+
+		</control>
+
+		<!--> Logo <!-->
+		<include>Logo</include>
+
+	</controls>
+</window>

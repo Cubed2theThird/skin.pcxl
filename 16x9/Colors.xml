@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<!--> Custom <!-->
+	<!--><variable name="BackgroundColor">
+		<value condition="String.IsEmpty(Skin.String(BackgroundColor))">FF2B2C2E</value>
+		<value>$INFO[Skin.String(BackgroundColor)]</value>
+	</variable><!-->
+	<variable name="SecondaryColor">
+		<value condition="String.IsEmpty(Skin.String(SecondaryColor))">ff127812</value>
+		<value>ff$INFO[Skin.String(SecondaryColor)]</value>
+	</variable>
+	<variable name="DiffuseColor">
+		<value condition="String.IsEmpty(Skin.String(DiffuseColor))">80000000</value>
+		<value>80$INFO[Skin.String(DiffuseColor)]</value>
+	</variable>
+	<variable name="DiffuseColorPreview">
+		<value condition="String.IsEmpty(Skin.String(DiffuseColor))">ff000000</value>
+		<value>ff$INFO[Skin.String(DiffuseColor)]</value>
+	</variable>
+	<variable name="TextColor">
+		<value condition="String.IsEmpty(Skin.String(TextColor))">ffffffff</value>
+		<value>ff$INFO[Skin.String(TextColor)]</value>
+		<value>ffffffff</value>
+	</variable>
+	<!--><variable name="SelectedColor">
+		<value condition="String.IsEmpty(Skin.String(SelectedColor))">ffaaf200</value>
+		<value>ff$INFO[Skin.String(SelectedColor)]</value>
+		<value>ffaaf200</value>
+	</variable><!-->
+
+	<!--> Dynamic <!-->
+	<variable name="BackgroundColor">
+		<value condition="Skin.HasSetting(darkmode)">FFBDBDBD</value>
+		<value>FF2B2B2B</value>
+	</variable>
+	<variable name="FocusedColor">
+		<value condition="Skin.HasSetting(darkmode)">ff424242</value>
+		<value>ffffffff</value>
+	</variable>
+	<variable name="UnFocusedColor">
+		<value condition="Skin.HasSetting(darkmode)">993a3a3a</value>
+		<value>66f1f1f1</value>
+	</variable>
+	<variable name="DisabledColor">
+		<value condition="Skin.HasSetting(darkmode)">99ffffff</value>
+		<value>99000000</value>
+	</variable>
+	<variable name="MaterialColor">
+		<value condition="Skin.HasSetting(darkmode)">ffDBDAD4</value>
+		<value>ff24252B</value>
+	</variable>
+	<variable name="MaterialColorDark">
+		<value condition="Skin.HasSetting(darkmode)">ffDEDEDE</value>
+		<value>ff212121</value>
+	</variable>
+	<variable name="Dark">
+		<value condition="Skin.HasSetting(darkmode)">ffE7E7E7</value>
+		<value>ff181818</value>
+	</variable>
+	<variable name="White">
+		<value condition="Skin.HasSetting(darkmode)">ff000000</value>
+		<value>ffffffff</value>
+	</variable>
+	<variable name="Black">
+		<value condition="Skin.HasSetting(darkmode)">ffffffff</value>
+		<value>ff000000</value>
+	</variable>
+	<variable name="DarkFade">
+		<value condition="Skin.HasSetting(darkmode)">a0ffffff</value>
+		<value>a0000000</value>
+	</variable>
+
+	<!--> Solids <!-->
+	<variable name="FocusedColor2">
+		<value>ffffffff</value>
+	</variable>
+	<variable name="UnFocusedColor2">
+		<value>66f1f1f1</value>
+	</variable>
+	<variable name="Fade">
+		<value>50000000</value>
+	</variable>
+	<variable name="BlackOnly">
+		<value>ff000000</value>
+	</variable>
+
+	<!--> Apps <!-->
+	<variable name="TwitchBackground">
+		<value>ff201C2B</value>
+	</variable>
+	<variable name="YoutubeBackground">
+		<value condition="Skin.HasSetting(darkmode)">ffDEDEDE</value>
+		<value>ff212121</value>
+	</variable>
+	<variable name="YoutubeBox">
+		<value condition="Skin.HasSetting(darkmode)">ffe7e7e7</value>
+		<value>ff181818</value>
+	</variable>
+</includes>

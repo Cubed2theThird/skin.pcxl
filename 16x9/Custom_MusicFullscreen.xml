@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="9980">	
+	<defaultcontrol>9876</defaultcontrol>
+	<onload condition="System.HasAddon(script.artistslideshow)">RunScript(script.artistslideshow)</onload>
+	<onload>control.setfocus(9876)</onload>
+	<onunload>Dialog.Close(all,true)</onunload>
+	<controls>
+
+		<!--hidden buttons to handle dialog autohide-->
+		<control type="button" id="9876">
+			<posx>-100</posx>
+			<posy>-100</posy>
+			<height>0</height>
+			<width>0</width>
+			<onup>playercontrol(next)</onup>
+			<ondown>playercontrol(previous)</ondown>
+			<onleft>Seek(-10)</onleft>
+			<onright>Seek(10)</onright>
+			<onclick>playercontrol(Play)</onclick>
+		</control>
+
+		<include condition="Skin.String(MusicBackgroundToggle, COTW)">COTWBack</include>
+		<include condition="Skin.String(MusicBackgroundToggle, FM)">FMBack</include>
+		<include condition="Skin.String(MusicBackgroundToggle, Background)">ArtBack</include>
+		
+		<include condition="Skin.String(MusicToggle, 1)">1</include>
+		<include condition="Skin.String(MusicToggle, 2)">2</include>
+		<include condition="Skin.String(MusicToggle, COTW)">COTW</include>
+		<include condition="Skin.String(MusicToggle, FM)">FM</include>
+
+		<!--> Logo <!-->
+		<include>Logo</include>
+	</controls>
+</window>

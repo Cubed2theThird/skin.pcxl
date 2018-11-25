@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="Viewtype_532_Pluto">
+		<control type="group">
+			<visible>Control.IsVisible(532)</visible>
+			<animation type="Visible">
+				<effect type="slide" start="0,1000" end="0" center="auto" tween="Cubic" easing="out" time="500"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="0,1000" center="auto" tween="Cubic" easing="in" time="500"/>
+			</animation>
+			<include>WindowBackgroundImage</include>
+			<include>WindowBackgroundVideo</include>
+			<!--> List -->
+			<control type="group">
+				<animation type="Conditional" condition="Control.HasFocus(9050)">
+					<effect type="slide" start="0" end="0,2000" time="500" tween="cubic" easing="inout" />
+				</animation>
+				<control type="wraplist" id="532">
+					<left>0</left>
+					<top>0</top>
+					<width>100%</width>
+					<height>100%</height>				
+					<onup>noop</onup>
+					<ondown>noop</ondown>
+					<onleft>3000</onleft>
+					<onright>noop</onright>
+					<pagecontrol>60</pagecontrol>
+					<preloaditems>2</preloaditems>
+					<focusposition>2</focusposition>
+					<orientation>veritical</orientation>
+					<viewtype label="31521">list</viewtype>
+					<scrolltime tween="cubic" easing="out">360</scrolltime>
+					<visible>String.Contains(Container.Content, songs) | String.Contains(Container.FolderPath,plugin://plugin.video.pluto)</visible>
+					<itemlayout height="300" width="300">
+						<control type="image">
+							<width>300</width>
+							<height>300</height>
+							<aspectratio>scale</aspectratio>
+							<colordiffuse>50ffffff</colordiffuse>
+							<texture background="false">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<width>300</width>
+							<height>300</height>
+							<texture colordiffuse="$VAR[DiffuseColor]">views/white_100.png</texture>
+						</control>
+					</itemlayout>
+					<focusedlayout height="300">
+						<control type="image">
+							<width>100%</width>
+							<height>300</height>
+							<texture colordiffuse="$VAR[Fade]">views/white_100.png</texture>
+						</control>
+						<control type="image">
+							<width>300</width>
+							<height>300</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<width>300</width>
+							<height>300</height>
+							<texture colordiffuse="$VAR[TextColor]" border="11,43,43,11">$VAR[BorderImage]</texture>
+							<visible>!Control.HasFocus(60) + !Control.HasFocus(3000) + !SubString(ListItem.Icon,default)</visible>
+						</control>
+						<control type="label">
+							<left>350</left>
+							<top>10</top>
+							<width>80%</width>
+							<height>70</height>
+							<font>Med60</font>
+							<align>left</align>
+							<scroll>true</scroll>
+							<textcolor>$VAR[TextColor]</textcolor>
+							<label>$VAR[ListLabelNF]</label>
+						</control>
+						<control type="textbox">
+							<left>350</left>
+							<top>85</top>
+							<right>30</right>
+							<height>170</height>
+							<align>justify</align>
+							<label>$INFO[ListItem.Plot]</label>
+							<autoscroll delay="10000" time="3000" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
+						</control>
+					</focusedlayout>
+				</control>
+
+			</control>
+		</control>
+	</include>
+</includes>

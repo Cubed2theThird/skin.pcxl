@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<variable name="ListLabelFO">
+		<value condition="!Container.Content(episodes) | ListItem.IsParentFolder">[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</value>
+		<value condition="!IntegerGreaterThan(ListItem.Episode,9)">$INFO[ListItem.Season]$INFO[ListItem.Episode,x0] [UPPERCASE]$INFO[ListItem.Title][/UPPERCASE]</value>
+		<value>$INFO[ListItem.Season]$INFO[ListItem.Episode,x] [UPPERCASE]$INFO[ListItem.Title][/UPPERCASE]</value>
+	</variable>
+	<variable name="ListLabelNF">
+		<value condition="Container.Content(songs)">$INFO[ListItem.Artist]$INFO[ListItem.Title, - ]</value>
+		<value condition="!Container.Content(episodes) | ListItem.IsParentFolder">$INFO[ListItem.Label]</value>
+		<value>$INFO[ListItem.Title]</value>
+	</variable>
+	<variable name="Fanart">
+		<value condition="Container.Content(episodes) + !String.IsEmpty(Container.Art(season.fanart))">$INFO[Container.Art(season.fanart)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+	</variable>
+	<variable name="PictureFanart">
+		<value condition="!String.IsEmpty(ListItem.FileName)">$INFO[ListItem.FileNameAndPath]</value>
+	</variable>
+	<variable name="StarRating">
+		<value condition="!Container.Content(songs) + IntegerGreaterThan(ListItem.Rating,9.5)">flags/stars/rating10.png</value>
+		<value condition="!Container.Content(songs) + IntegerGreaterThan(ListItem.Rating,8.5)">flags/stars/rating9.png</value>
+		<value condition="!Container.Content(songs) + IntegerGreaterThan(ListItem.Rating,7.5)">flags/stars/rating8.png</value>
+		<value condition="!Container.Content(songs) + IntegerGreaterThan(ListItem.Rating,6.5)">flags/stars/rating7.png</value>
+		<value condition="!Container.Content(songs) + IntegerGreaterThan(ListItem.Rating,5.5)">flags/stars/rating6.png</value>
+		<value condition="!Container.Content(songs) + IntegerGreaterThan(ListItem.Rating,4.5)">flags/stars/rating5.png</value>
+		<value condition="!Container.Content(songs) + IntegerGreaterThan(ListItem.Rating,3.5)">flags/stars/rating4.png</value>
+		<value condition="!Container.Content(songs) + IntegerGreaterThan(ListItem.Rating,2.5)">flags/stars/rating3.png</value>
+		<value condition="!Container.Content(songs) + IntegerGreaterThan(ListItem.Rating,1.5)">flags/stars/rating2.png</value>
+		<value condition="!Container.Content(songs) + IntegerGreaterThan(ListItem.Rating,0.5)">flags/stars/rating1.png</value>
+		<value condition="Container.Content(songs) + IntegerGreaterThan(ListItem.UserRating,9.5)">flags/stars/rating10.png</value>
+		<value condition="Container.Content(songs) + IntegerGreaterThan(ListItem.UserRating,8.5)">flags/stars/rating9.png</value>
+		<value condition="Container.Content(songs) + IntegerGreaterThan(ListItem.UserRating,7.5)">flags/stars/rating8.png</value>
+		<value condition="Container.Content(songs) + IntegerGreaterThan(ListItem.UserRating,6.5)">flags/stars/rating7.png</value>
+		<value condition="Container.Content(songs) + IntegerGreaterThan(ListItem.UserRating,5.5)">flags/stars/rating6.png</value>
+		<value condition="Container.Content(songs) + IntegerGreaterThan(ListItem.UserRating,4.5)">flags/stars/rating5.png</value>
+		<value condition="Container.Content(songs) + IntegerGreaterThan(ListItem.UserRating,3.5)">flags/stars/rating4.png</value>
+		<value condition="Container.Content(songs) + IntegerGreaterThan(ListItem.UserRating,2.5)">flags/stars/rating3.png</value>
+		<value condition="Container.Content(songs) + IntegerGreaterThan(ListItem.UserRating,1.5)">flags/stars/rating2.png</value>
+		<value condition="Container.Content(songs) + IntegerGreaterThan(ListItem.UserRating,0.5)">flags/stars/rating1.png</value>
+		<value>flags/stars/rating0.png</value>
+	</variable>
+	<variable name="BorderImage">
+		<value condition="!String.Contains(ListItem.Overlay,OverlayWatched.png)">views/border.png</value>
+		<value>views/border_watched.png</value>
+	</variable>
+	<variable name="VideoPlayerTitle">
+		<value condition="!IntegerGreaterThan(VideoPlayer.Season,9) + !IntegerGreaterThan(VideoPlayer.Episode,9) + !SubString(VideoPlayer.Episode,s)">$INFO[VideoPlayer.TVShowTitle,, &#8226; ]$INFO[VideoPlayer.Season,S0,]$INFO[VideoPlayer.Episode,E0, &#8226; ]$INFO[Player.Title]</value>
+		<value condition="!IntegerGreaterThan(VideoPlayer.Season,9) + IntegerGreaterThan(VideoPlayer.Episode,9) + !SubString(VideoPlayer.Episode,s)">$INFO[VideoPlayer.TVShowTitle,, &#8226; ]$INFO[VideoPlayer.Season,S0,]$INFO[VideoPlayer.Episode,E, &#8226; ]$INFO[Player.Title]</value>
+		<value condition="IntegerGreaterThan(VideoPlayer.Season,9) + IntegerGreaterThan(VideoPlayer.Episode,9) + !SubString(VideoPlayer.Episode,s)">$INFO[VideoPlayer.TVShowTitle,, &#8226; ]$INFO[VideoPlayer.Season,S,]$INFO[VideoPlayer.Episode,E0, &#8226; ]$INFO[Player.Title]</value>
+		<value condition="SubString(VideoPlayer.Episode,s)">$INFO[VideoPlayer.TVShowTitle,, &#8226; ]$INFO[VideoPlayer.Episode,, &#8226; ]$INFO[Player.Title]</value>
+		<value>$INFO[Player.Title]</value>
+	</variable>	
+	<variable name="BillboardPlot">
+		<value condition="!String.IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
+		<value condition="!String.IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
+		<value>$INFO[ListItem.Plot]</value>
+	</variable>	
+
+	<!-- PCX L -->
+	<!-- Widgets -->
+	<variable name="WidgetView">
+		<value condition="String.Contains(Container(211).ListItem.Property(widgetLayout),Landscape)">Landscape</value>
+		<value condition="String.Contains(Container(211).ListItem.Property(widgetLayout),Poster)">Poster</value>
+		<value condition="String.Contains(Container(211).ListItem.Property(widgetLayout),Square)">Square</value>
+	</variable>
+	<variable name="WidgetArt">
+		<value condition="String.Contains(Container(211).ListItem.Property(widgetArt),Thumb)">Thumb</value>
+		<value condition="String.Contains(Container(211).ListItem.Property(widgetArt),Fanart)">Fanart</value>
+	</variable>
+
+	<variable name="WidgetsView">
+		<value condition="String.Contains(Container(100).ListItem.Property(widgetLayout),Landscape)">Landscape</value>
+		<value condition="String.Contains(Container(100).ListItem.Property(widgetLayout),Poster)">Poster</value>
+		<value condition="String.Contains(Container(100).ListItem.Property(widgetLayout),Square)">Square</value>
+	</variable>
+
+	<variable name="WidgetsViewHeightNetflix1">
+		<value condition="String.Contains(Container(100).ListItemNoWrap(0).Property(widgetLayout),Landscape)">280</value>
+		<value condition="String.Contains(Container(100).ListItemNoWrap(0).Property(widgetLayout),Poster)">400</value>
+		<value condition="String.Contains(Container(100).ListItemNoWrap(0).Property(widgetLayout),Square)">280</value>
+	</variable>
+	<!--<variable name="WidgetsArt">
+		<value condition="String.Contains(Container(100).ListItem.Property(widgetArt),Thumb)">Thumb</value>
+		<value condition="String.Contains(Container(100).ListItem.Property(widgetArt),Fanart)">Fanart</value>
+		<value>blank</value>
+	</variable>-->
+
+
+	<!-- Dashboard -->
+	<variable name="DashboardToggle">
+		<!--> Done <!-->
+		<value condition="String.IsEmpty(Skin.String(DashboardToggle))">TV</value>
+		<value condition="String.Contains(Skin.String(DashboardToggle), TV)">TV</value>
+		<value condition="String.Contains(Skin.String(DashboardToggle), Game)">Game</value>
+		<value condition="String.Contains(Skin.String(DashboardToggle), Android)">Android</value>
+		<value condition="String.Contains(Skin.String(DashboardToggle), Netflix)">Netflix</value>
+		<!--> WIP <!-->
+		<value condition="String.Contains(Skin.String(DashboardToggle), Oreo)">Oreo</value>
+		<value condition="String.Contains(Skin.String(DashboardToggle), Vertical)">Vertical</value>
+		<value condition="String.Contains(Skin.String(DashboardToggle), Retroarch)">Retroarch</value>
+		<value condition="String.Contains(Skin.String(DashboardToggle), Demo)">Demo</value>
+	</variable>
+
+	<!-- Music -->
+	<variable name="MusicToggle">
+		<value condition="String.IsEmpty(Skin.String(MusicToggle))">1</value>
+		<value condition="String.Contains(Skin.String(MusicToggle), 1)">1</value>
+		<value condition="String.Contains(Skin.String(MusicToggle), 2)">2</value>
+		<value condition="String.Contains(Skin.String(MusicToggle), COTW)">COTW</value>
+		<value condition="String.Contains(Skin.String(MusicToggle), FM)">FM</value>
+	</variable>
+
+	<variable name="MusicBackgroundToggle">
+		<value condition="String.IsEmpty(Skin.String(MusicBackgroundToggle))">COTW</value>
+		<value condition="String.Contains(Skin.String(MusicBackgroundToggle), COTW)">COTW</value>
+		<value condition="String.Contains(Skin.String(MusicBackgroundToggle), FM)">FM</value>
+		<value condition="String.Contains(Skin.String(MusicBackgroundToggle), Background)">Background</value>
+	</variable>
+
+	<!-- Games -->
+	<variable name="GameToggle">
+		<value condition="String.IsEmpty(Skin.String(GameToggle))">Switch</value>
+		<value condition="String.Contains(Skin.String(GameToggle),Switch)">Switch</value>
+		<value condition="String.Contains(Skin.String(GameToggle),Retroarch)">Retroarch</value>
+	</variable>
+
+	<variable name="ConsoleName">
+		<value condition="String.IsEqual(ListItem.Label,zxspectrum)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,zmachine)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,wonderswancolor)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,wonderswan)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,wii)">Wii</value>
+		<value condition="String.IsEqual(ListItem.Label,virtualboy)">Virtual Boy</value>
+		<value condition="String.IsEqual(ListItem.Label,videopac)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,vectrex)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,tg16)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,steam)">Steam</value>
+		<value condition="String.IsEqual(ListItem.Label,snes)">Super Nintendo Entertainment System</value>
+		<value condition="String.IsEqual(ListItem.Label,sg-1000)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,sfc)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,segacd)">Sega CD</value>
+		<value condition="String.IsEqual(ListItem.Label,sega32x)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,scummvm)">ScummVM</value>
+		<value condition="String.IsEqual(ListItem.Label,saturn)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,retropie)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,residualvm)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,psx)">Playstation</value>
+		<value condition="String.IsEqual(ListItem.Label,psp)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,ps2)">Playstation 2</value>
+		<value condition="String.IsEqual(ListItem.Label,pcengine)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,pc)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,ody2)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,ngpc)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,ngp)">Neo Geo Pocket</value>
+		<value condition="String.IsEqual(ListItem.Label,nes)">Nintendo Entertainment System</value>
+		<value condition="String.IsEqual(ListItem.Label,neogeocd)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,neogeo)">Neo Geo</value>
+		<value condition="String.IsEqual(ListItem.Label,nds)">Nintendo DS</value>
+		<value condition="String.IsEqual(ListItem.Label,n64)">Nintendo 64</value>
+		<value condition="String.IsEqual(ListItem.Label,msx)">MSX</value>
+		<value condition="String.IsEqual(ListItem.Label,megadrive)">Sega Mega Drive</value>
+		<value condition="String.IsEqual(ListItem.Label,mastersystem)">Sega Master System</value>
+		<value condition="String.IsEqual(ListItem.Label,macintosh)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,love)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,intellivision)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,genesis)">Sega Genesis</value>
+		<value condition="String.IsEqual(ListItem.Label,gc)">Gamecube</value>
+		<value condition="String.IsEqual(ListItem.Label,gbc)">Game Boy Color</value>
+		<value condition="String.IsEqual(ListItem.Label,gba)">Game Boy Advance</value>
+		<value condition="String.IsEqual(ListItem.Label,gb)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,gamegear)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,Flash)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,fds)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,fba)">Final Burn Alpha</value>
+		<value condition="String.IsEqual(ListItem.Label,dreamcast)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,dragon32)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,daphne)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,cps3)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,cps2)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,cps1)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,colecovision)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,c64)">Commodore 64</value>
+		<value condition="String.IsEqual(ListItem.Label,atarist)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,atarilynx)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,atarijaguarcd)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,atarijaguar)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,atari800)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,atari7800)">Atari 7800 Prosystem</value>
+		<value condition="String.IsEqual(ListItem.Label,atari5200)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,atari2600)">Atari 2600</value>
+		<value condition="String.IsEqual(ListItem.Label,arcade)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,apple2)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,amstradcpc)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,amiga)">Amiga</value>
+		<value condition="String.IsEqual(ListItem.Label,AGS)">$INFO[ListItem.Label]</value>
+		<value condition="String.IsEqual(ListItem.Label,3do)">$INFO[ListItem.Label]</value>
+		<value>$INFO[ListItem.Label]</value>
+	</variable>
+
+	<variable name="ConsoleLogo">
+		<value condition="String.Contains(ListItem.label,zxspectrum)">special://skin/extras/games/zxspectrum.png</value>
+		<value condition="String.Contains(ListItem.label,zmachine)">special://skin/extras/games/zmachine.png</value>
+		<value condition="String.Contains(ListItem.label,wonderswancolor)">special://skin/extras/games/wonderswancolor.png</value>
+		<value condition="String.Contains(ListItem.label,wonderswan)">special://skin/extras/games/wonderswan.png</value>
+		<value condition="String.Contains(ListItem.label,wii)">special://skin/extras/games/wii.png</value>
+		<value condition="String.Contains(ListItem.label,virtualboy)">special://skin/extras/games/virtualboy.png</value>
+		<value condition="String.Contains(ListItem.label,videopac)">special://skin/extras/games/videopac.png</value>
+		<value condition="String.Contains(ListItem.label,vectrex)">special://skin/extras/games/vectrex.png</value>
+		<value condition="String.Contains(ListItem.label,tg16)">special://skin/extras/games/tg16.png</value>
+		<value condition="String.Contains(ListItem.label,steam)">special://skin/extras/games/steam.png</value>
+		<value condition="String.Contains(ListItem.label,snes)">special://skin/extras/games/snes.png</value>
+		<value condition="String.Contains(ListItem.label,sg-1000)">special://skin/extras/games/sg-1000.png</value>
+		<value condition="String.Contains(ListItem.label,sfc)">special://skin/extras/games/sfc.png</value>
+		<value condition="String.Contains(ListItem.label,segacd)">special://skin/extras/games/segacd.png</value>
+		<value condition="String.Contains(ListItem.label,sega32x)">special://skin/extras/games/sega32x.png</value>
+		<value condition="String.Contains(ListItem.label,scummvm)">special://skin/extras/games/scummvm.png</value>
+		<value condition="String.Contains(ListItem.label,saturn)">special://skin/extras/games/saturn.png</value>
+		<value condition="String.Contains(ListItem.label,retropie)">special://skin/extras/games/retropie.png</value>
+		<value condition="String.Contains(ListItem.label,residualvm)">special://skin/extras/games/residualvm.png</value>
+		<value condition="String.Contains(ListItem.label,psx)">special://skin/extras/games/psx.png</value>
+		<value condition="String.Contains(ListItem.label,psp)">special://skin/extras/games/psp.png</value>
+		<value condition="String.Contains(ListItem.label,ps2)">special://skin/extras/games/ps2.png</value>
+		<value condition="String.Contains(ListItem.label,pcengine)">special://skin/extras/games/pcengine.png</value>
+		<value condition="String.Contains(ListItem.label,pc)">special://skin/extras/games/pc.png</value>
+		<value condition="String.Contains(ListItem.label,ody2)">special://skin/extras/games/ody2.png</value>
+		<value condition="String.Contains(ListItem.label,ngpc)">special://skin/extras/games/ngpc.png</value>
+		<value condition="String.Contains(ListItem.label,ngp)">special://skin/extras/games/ngp.png</value>
+		<value condition="String.Contains(ListItem.label,nes)">special://skin/extras/games/nes.png</value>
+		<value condition="String.Contains(ListItem.label,neogeocd)">special://skin/extras/games/neogeocd.png</value>
+		<value condition="String.Contains(ListItem.label,neogeo)">special://skin/extras/games/neogeo.png</value>
+		<value condition="String.Contains(ListItem.label,nds)">special://skin/extras/games/nds.png</value>
+		<value condition="String.Contains(ListItem.label,n64)">special://skin/extras/games/n64.png</value>
+		<value condition="String.Contains(ListItem.label,msx)">special://skin/extras/games/msx.png</value>
+		<value condition="String.Contains(ListItem.label,megadrive)">special://skin/extras/games/megadrive.png</value>
+		<value condition="String.Contains(ListItem.label,mastersystem)">special://skin/extras/games/mastersystem.png</value>
+		<value condition="String.Contains(ListItem.label,macintosh)">special://skin/extras/games/macintosh.png</value>
+		<value condition="String.Contains(ListItem.label,love)">special://skin/extras/games/love.png</value>
+		<value condition="String.Contains(ListItem.label,kodi)">special://skin/extras/games/kodi.png</value>
+		<value condition="String.Contains(ListItem.label,intellivision)">special://skin/extras/games/intellivision.png</value>
+		<value condition="String.Contains(ListItem.label,genesis)">special://skin/extras/games/genesis.png</value>
+		<value condition="String.Contains(ListItem.label,gc)">special://skin/extras/games/gc.png</value>
+		<value condition="String.Contains(ListItem.label,gbc)">special://skin/extras/games/gbc.png</value>
+		<value condition="String.Contains(ListItem.label,gba)">special://skin/extras/games/gba.png</value>
+		<value condition="String.Contains(ListItem.label,gb)">special://skin/extras/games/gb.png</value>
+		<value condition="String.Contains(ListItem.label,gamegear)">special://skin/extras/games/gamegear.png</value>
+		<value condition="String.Contains(ListItem.label,Flash)">special://skin/extras/games/Flash.png</value>
+		<value condition="String.Contains(ListItem.label,fds)">special://skin/extras/games/fds.png</value>
+		<value condition="String.Contains(ListItem.label,fba)">special://skin/extras/games/fba.png</value>
+		<value condition="String.Contains(ListItem.label,dreamcast)">special://skin/extras/games/dreamcast.png</value>
+		<value condition="String.Contains(ListItem.label,dragon32)">special://skin/extras/games/dragon32.png</value>
+		<value condition="String.Contains(ListItem.label,daphne)">special://skin/extras/games/daphne.png</value>
+		<value condition="String.Contains(ListItem.label,cps3)">special://skin/extras/games/cps3.png</value>
+		<value condition="String.Contains(ListItem.label,cps2)">special://skin/extras/games/cps2.png</value>
+		<value condition="String.Contains(ListItem.label,cps1)">special://skin/extras/games/cps1.png</value>
+		<value condition="String.Contains(ListItem.label,colecovision)">special://skin/extras/games/colecovision.png</value>
+		<value condition="String.Contains(ListItem.label,c64)">special://skin/extras/games/c64.png</value>
+		<value condition="String.Contains(ListItem.label,atarist)">special://skin/extras/games/atarist.png</value>
+		<value condition="String.Contains(ListItem.label,atarilynx)">special://skin/extras/games/atarilynx.png</value>
+		<value condition="String.Contains(ListItem.label,atarijaguarcd)">special://skin/extras/games/atarijaguarcd.png</value>
+		<value condition="String.Contains(ListItem.label,atarijaguar)">special://skin/extras/games/atarijaguar.png</value>
+		<value condition="String.Contains(ListItem.label,atari800)">special://skin/extras/games/atari800.png</value>
+		<value condition="String.Contains(ListItem.label,atari7800)">special://skin/extras/games/atari7800.png</value>
+		<value condition="String.Contains(ListItem.label,atari5200)">special://skin/extras/games/atari5200.png</value>
+		<value condition="String.Contains(ListItem.label,atari2600)">special://skin/extras/games/atari2600.png</value>
+		<value condition="String.Contains(ListItem.label,arcade)">special://skin/extras/games/arcade.png</value>
+		<value condition="String.Contains(ListItem.label,apple2)">special://skin/extras/games/apple2.png</value>
+		<value condition="String.Contains(ListItem.label,amstradcpc)">special://skin/extras/games/amstradcpc.png</value>
+		<value condition="String.Contains(ListItem.label,amiga)">special://skin/extras/games/amiga.png</value>
+		<value condition="String.Contains(ListItem.label,AGS)">special://skin/extras/games/AGS.png</value>
+		<value condition="String.Contains(ListItem.label,3do)">special://skin/extras/games/3do.png</value>
+	</variable>
+
+</includes>

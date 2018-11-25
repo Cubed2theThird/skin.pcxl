@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="1107">
+	<backgroundcolor>$VAR[BackgroundColor]</backgroundcolor>
+	<defaultcontrol always="true">1</defaultcontrol>
+	<onload>Skin.SetString(snapwindow, 1107)</onload>
+	<onload>Skin.SetString(snapico, home/snap/store.jpg,0)</onload>
+	<onload>Skin.SetString(snapname,My apps)</onload>
+	<onload>XBMC.RunScript(script.favourites)</onload>	
+	<controls>
+
+		<!--> Apps <!-->
+		<control type="panel" id="1">
+			<bottom>100</bottom>
+			<left>10</left>
+			<width>100%</width>
+			<height>70%</height>
+			<onleft>back</onleft>			
+			<pagecontrol>60</pagecontrol>
+			<focusposition>2</focusposition>
+			<movement>1</movement>
+			<orientation>horizontal</orientation>
+			<include>SettingAnimation</include>
+			<viewtype label="535">list</viewtype>
+			<scrolltime tween="sine" easing="inout">240</scrolltime>
+			<itemlayout height="300" width="300">
+				<control type="group">
+					<left>20</left>
+					<top>20</top>
+					<control type="image">
+						<width>300</width>
+						<height>300</height>
+						<aspectratio>scale</aspectratio>
+						<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+					</control>
+					<control type="image">
+						<width>300</width>
+						<height>300</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+					</control>
+					<control type="label">
+						<left>20</left>
+						<bottom>0</bottom>
+						<height>30</height>
+						<width>320</width>		
+						<label>$INFO[ListItem.Label]</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>Tile</font>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+					</control>
+				</control>
+			</itemlayout>
+			<focusedlayout height="300" width="300">
+				<control type="group">
+					<left>20</left>
+					<top>20</top>
+					<control type="image">
+						<width>300</width>
+						<height>300</height>
+						<aspectratio>scale</aspectratio>
+						<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+					</control>
+					<control type="image">
+						<width>300</width>
+						<height>300</height>
+						<aspectratio>scale</aspectratio>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+					</control>
+					<control type="image">
+						<width>300</width>
+						<height>300</height>
+						<texture colordiffuse="$VAR[TextColor]" border="11,43,43,11">$VAR[BorderImage]
+						</texture>
+					</control>
+					<control type="group">
+						<include>SelectionAnimation</include>
+						<control type="image">
+							<bottom>-20</bottom>
+							<width>300</width>
+							<height>60</height>
+							<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+						</control>
+					</control>
+					<control type="label">
+						<left>20</left>
+						<bottom>0</bottom>
+						<height>30</height>
+						<width>280</width>		
+						<label>$INFO[ListItem.Label]</label>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>Tile</font>
+						<textcolor>$VAR[TextColor]</textcolor>
+						<scroll>true</scroll>
+					</control>
+					<control type="image">
+						<top>-5</top>
+						<left>-5</left>
+						<animation type="Focus">
+							<effect type="zoom" center="auto" start="120" end="122" time="200"/>
+						</animation>
+						<animation type="UnFocus">
+							<effect type="zoom" center="auto" start="122" end="120" time="200"/>
+							<effect type="fade" start="100" end="0" time="200"/>
+						</animation>
+						<width>310</width>
+						<height>310</height>
+						<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
+					</control>
+				</control>
+			</focusedlayout>					
+			<content>
+				<include>AllApps</include>
+			</content>
+		</control>
+
+		<!--> Clock <!-->
+		<include>Clock</include>
+		
+		<include>Logo</include>
+
+	</controls>
+</window>
