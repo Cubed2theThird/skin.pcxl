@@ -3,7 +3,7 @@ To-do
 New Player Controls/Shutdown Menu
 
 ### **1.5**
-- **_First Public Release
+- **_First Public Release_**
 - 11/15/2018
 - Files Cleanup
 - New Dialogs
@@ -49,7 +49,7 @@ New Player Controls/Shutdown Menu
 - Added File Manager
 
 #### 1.0
-- **_First Release
+- **_First Release_**
 - 11/12/2018
 - Updated Youtube App
 - Added File Manager
