@@ -4,7 +4,7 @@ New Player Controls/Shutdown Menu
 
 ### **1.5**
 - **_First Public Release_**
-- 11/15/2018
+- 11/25/2018
 - Files Cleanup
 - New Dialogs
 - New My Apps
