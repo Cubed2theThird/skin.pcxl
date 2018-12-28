@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="Viewtype_522_WallSquare">
+		<control type="group">
+			<visible>Control.IsVisible(522)</visible>
+			<animation type="Visible">
+				<effect type="slide" start="0,1000" end="0" center="auto" tween="Cubic" easing="out" time="500"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="0,1000" center="auto" tween="Cubic" easing="in" time="500"/>
+			</animation>
+
+			<!--> List -->
+			<control type="group">
+				<control type="panel" id="522">
+					<centerleft>50%</centerleft>
+					<width>1900</width>
+					<height>100%</height>
+					<ondown condition="Player.HasAudio">9051</ondown>
+					<onleft condition="Player.HasAudio">9051</onleft>
+					<onleft>noop</onleft>
+					<onright>60</onright>
+					<pagecontrol>60</pagecontrol>
+					<preloaditems>2</preloaditems>
+					<focusposition>0</focusposition>
+					<movement>-1</movement>
+					<orientation>vertical</orientation>
+					<viewtype>Icon</viewtype>
+					<scrolltime tween="sine" easing="inout">400</scrolltime>
+					<visible>String.Contains(Container.Content,songs) | String.Contains(Container.Content,albums) | String.Contains(Container.Content,artists) + !Skin.ToggleSetting(disable522)</visible>
+					<itemlayout width="380" height="380">
+						<control type="group">
+					<top>20</top>
+							<control type="image">
+								<width>380</width>
+								<height>380</height>
+								<aspectratio>scale</aspectratio>
+								<texture colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texture>
+							</control>
+							<control type="image">
+								<width>380</width>
+								<height>380</height>
+								<aspectratio>scale</aspectratio>
+								<texture background="false">$INFO[ListItem.Icon]</texture>
+							</control>
+							<control type="image">
+								<width>380</width>
+								<height>380</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">views/white_100.png</texture>
+							</control>
+						</control>
+						<include>WatchedIndicator</include>
+					</itemlayout>
+					<focusedlayout width="380" height="380">
+						<control type="group">
+							<top>20</top>
+							<animation condition="ListItem.IsPlaying" effect="fade" center="auto" start="100" end="90" time="500" pulse="true">Conditional</animation>
+							<animation center="auto" condition="Control.HasFocus(522)" easing="inout" effect="zoom" end="105" start="100" time="300" tween="sine">Focus</animation>
+							<control type="image">
+								<top>-30</top>	
+								<left>-29</left>
+								<width>438</width>
+								<height>442</height>
+								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
+								<visible>Control.HasFocus(522)</visible>
+							</control>
+							<control type="image">
+								<width>380</width>
+								<height>380</height>
+								<aspectratio>scale</aspectratio>
+								<texture colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texture>
+							</control>
+							<control type="image">
+								<width>380</width>
+								<height>380</height>
+								<aspectratio>scale</aspectratio>
+								<texture background="true">$INFO[ListItem.Icon]</texture>
+							</control>
+							<control type="label">
+								<centerleft>50%</centerleft>
+								<bottom>-70</bottom>
+								<width>380</width>
+								<height>70</height>
+								<font>tile</font>
+								<align>center</align>
+								<texturefocus colordiffuse="$VAR[SecondaryColor]">color_white.png</texturefocus>
+								<texturenofocus colordiffuse="$VAR[SecondaryColor]">color_white.png</texturenofocus>
+								<textcolor>$VAR[TextColor]</textcolor>
+								<label>$INFO[ListItem.label]</label>
+								<animation type="Unfocus">
+									<effect type="fade" start="100" end="0" center="auto" tween="sine"  easing="inout" time="100"/>
+								</animation>
+							</control>
+						</control>
+					</focusedlayout>
+				</control>
+
+			</control>
+		</control>
+		<include>Logo</include>
+	</include>
+</includes>

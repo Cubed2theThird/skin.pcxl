@@ -2,108 +2,141 @@
 <includes>
 	<include name="Viewtype_531_ShowcasePoster">
 		<control type="group">
-			<visible>Control.IsVisible(531) + !Player.HasVideo</visible>
-			<animation type="Conditional" condition="Control.HasFocus(9050)">
-				<effect type="fade" start="2000" end="0,0" time="500" tween="cubic" easing="inout" />
-			</animation>
-			<!--> Vignette <!-->		
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<aspectratio>stretch</aspectratio>
-				<texture flipx="true" colordiffuse="$VAR[Black]">views\vignetteInfo_light.png</texture>
-			</control>
-			
-			<control type="label">
-				<left>50</left>
-				<top>20</top>
-				<width>90%</width>
-				<height>70</height>
-				<font>Med60</font>
-				<align>left</align>
-				<scroll>true</scroll>
-				<textcolor>$VAR[White]</textcolor>
-				<label>$VAR[ListLabelNF]</label> 
-			</control>
-			<control type="textbox">
-				<left>50</left>
-				<top>120</top>
-				<width>1000</width>
-				<height>300</height>
-				<font>Light27</font>
-				<label>$VAR[BillboardPlot]</label>
-				<textcolor>$VAR[White]</textcolor>
-			</control>
-			<include>Flags</include>
-			<control type="label">
-				<left>50</left>
-				<top>500</top>
-				<width>90%</width>
-				<height>70</height>
-				<font>Tile</font>
-				<align>left</align>
-				<scroll>true</scroll>
-				<textcolor>$VAR[SecondaryColor]</textcolor>
-				<label>Runtime</label>
-			</control>
-			<control type="label">
-				<left>200</left>
-				<top>500</top>
-				<width>90%</width>
-				<height>70</height>
-				<font>Tile</font>
-				<align>left</align>
-				<scroll>true</scroll>
-				<textcolor>$VAR[White]</textcolor>
-				<label>$INFO[ListItem.Duration]</label>
-			</control>
-
-			<control type="label">
-				<left>50</left>
-				<top>540</top>
-				<width>90%</width>
-				<height>70</height>
-				<font>Tile</font>
-				<align>left</align>
-				<scroll>true</scroll>
-				<textcolor>$VAR[SecondaryColor]</textcolor>
-				<label>Premiered</label>
-			</control>
-			<control type="label">
-				<left>200</left>
-				<top>540</top>
-				<width>90%</width>
-				<height>70</height>
-				<font>Tile</font>
-				<align>left</align>
-				<scroll>true</scroll>
-				<textcolor>$VAR[White]</textcolor>
-				<label>$INFO[ListItem.Premiered]</label>
-			</control>
-		</control>
-
-		<control type="group">
 			<visible>Control.IsVisible(531)</visible>
 			<animation type="WindowClose">
 				<effect type="slide" start="0" end="-1000" center="auto" tween="Cubic" easing="in" time="500"/>
 				<!--><effect type="fade" start="0" end="100" time="200"/><!-->
 			</animation>
-			<animation type="Conditional" condition="Player.HasVideo">
-				<effect type="slide" start="0" end="96,150" time="500" tween="cubic" easing="inout" />
-				<effect type="zoom" start="100" end="90" time="500" tween="cubic" easing="inout" />
-			</animation>
-			<animation condition="![Control.HasFocus(531) | Control.HasFocus(60) | Control.HasFocus(3000) | Control.HasFocus(9051)]" effect="slide" center="auto" start="0" end="0,50" time="200">Conditional</animation>
+			<control type="group">
+				<!--> Vignette <!-->
+				<control type="image">
+					<include>FullscreenDimensions</include>
+					<aspectratio>stretch</aspectratio>
+					<texture flipx="true" colordiffuse="$VAR[Black]">views\vignetteInfo_light.png</texture>
+				</control>
 
-			<control type="label">
-				<centerleft>50%</centerleft>
-				<centertop>57%</centertop>
-				<width>100%</width>
-				<height>70</height>
-				<font>Med60</font>
-				<align>center</align>
-				<scroll>true</scroll>
-				<textcolor>$VAR[TextColor]</textcolor>
-				<label>$VAR[ListLabelNF]</label>
-				<visible>Control.IsVisible(531) + Player.HasVideo</visible> 
+				<control type="label">
+					<left>50</left>
+					<top>20</top>
+					<width>90%</width>
+					<height>70</height>
+					<font>Med60</font>
+					<align>left</align>
+					<scroll>true</scroll>
+					<textcolor>$VAR[White]</textcolor>
+					<label>$VAR[ListLabelNF]</label> 
+				</control>
+				<control type="textbox">
+					<left>50</left>
+					<top>120</top>
+					<width>1000</width>
+					<height>300</height>
+					<font>Light27</font>
+					<label>$VAR[BillboardPlot]</label>
+					<textcolor>$VAR[White]</textcolor>
+				</control>
+				<include>Flags</include>
+				<control type="label">
+					<left>50</left>
+					<top>500</top>
+					<width>90%</width>
+					<height>70</height>
+					<font>Tile</font>
+					<align>left</align>
+					<scroll>true</scroll>
+					<textcolor>$VAR[SecondaryColor]</textcolor>
+					<label>$LOCALIZE[2050]:</label>
+				</control>
+				<control type="label">
+					<left>200</left>
+					<top>500</top>
+					<width>90%</width>
+					<height>70</height>
+					<font>Tile</font>
+					<align>left</align>
+					<scroll>true</scroll>
+					<textcolor>$VAR[White]</textcolor>
+					<label>$INFO[ListItem.Duration]</label>
+				</control>
+				<control type="label">
+					<left>50</left>
+					<top>540</top>
+					<width>90%</width>
+					<height>70</height>
+					<font>Tile</font>
+					<align>left</align>
+					<scroll>true</scroll>
+					<textcolor>$VAR[SecondaryColor]</textcolor>
+					<label>$LOCALIZE[31085]:</label>
+				</control>
+				<control type="label">
+					<top>540</top>
+					<left>200</left>
+					<width>90%</width>
+					<height>70</height>
+					<font>Tile</font>
+					<align>left</align>
+					<scroll>true</scroll>
+					<textcolor>$VAR[White]</textcolor>
+					<label>$INFO[ListItem.Premiered]</label>
+				</control>
+
+				<!-- Details Line 3 -->
+				<control type="label">
+					<left>350</left>
+					<top>500</top>
+					<width>120</width>
+					<height>70</height>
+					<font>Tile</font>
+					<align>left</align>
+					<scroll>true</scroll>
+					<textcolor>$VAR[SecondaryColor]</textcolor>
+					<label>$LOCALIZE[29909]:</label>
+				</control>
+				<control type="label">
+					<left>470</left>
+					<top>500</top>
+					<height>70</height>
+					<font>Tile</font>
+					<align>left</align>
+					<scroll>true</scroll>
+					<textcolor>$VAR[TextColor]</textcolor>
+					<wrapmultiline>true</wrapmultiline>
+					<label>$INFO[ListItem.Studio]</label>
+				</control>
+				<!-- Details Line 4 -->
+				<control type="label">
+					<left>350</left>
+					<top>540</top>
+					<width>120</width>
+					<height>70</height>
+					<font>Tile</font>
+					<align>left</align>
+					<scroll>true</scroll>
+					<textcolor>$VAR[SecondaryColor]</textcolor>
+					<label>$LOCALIZE[31086]:</label>
+				</control>
+				<control type="label">
+					<left>470</left>
+					<top>540</top>
+					<height>70</height>
+					<font>Tile</font>
+					<align>left</align>
+					<scroll>true</scroll>
+					<textcolor>$VAR[TextColor]</textcolor>
+					<wrapmultiline>true</wrapmultiline>
+					<label>$INFO[ListItem.Director]</label>
+				</control>
+				<!-- Star Rating -->
+				<control type="image">
+					<left>50</left>
+					<top>600</top>
+					<width>147</width>
+					<height>24</height>
+					<aspectratio>keep</aspectratio>
+					<texture colordiffuse="$VAR[TextColor]">$VAR[StarRating]</texture>
+					<visible>!String.Contains(Container.Content, seasons)</visible>
+				</control>
 			</control>
 
 			<!-- List -->
@@ -112,9 +145,6 @@
 				<width>120%</width>
 				<centertop>80%</centertop>
 				<height>35%</height>
-				<onleft>Back</onleft>
-				<onright>521</onright>
-				<onup condition="Player.HasVideo">9050</onup>
 				<ondown condition="Player.HasAudio">9051</ondown>
 				<ondown>60</ondown>
 				<ondown>3000</ondown>
@@ -125,7 +155,7 @@
 				<orientation>horizontal</orientation>
 				<viewtype label="31530">list</viewtype>
 				<scrolltime tween="sine" easing="inout">360</scrolltime>
-				<visible>[String.Contains(Container.Content,movies) | String.Contains(Container.Content,tvshows)  | String.Contains(Container.Content,seasons) | String.Contains(Container.Content,actors) | String.Contains(Container.Content,directors)] + !String.Contains(Container.FolderPath,plugin://plugin.video.netflix)</visible>
+				<visible>[String.Contains(Container.Content,movies) | String.Contains(Container.Content,tvshows) | String.Contains(Container.Content,seasons) | String.Contains(Container.Content,actors) | String.Contains(Container.Content,directors)] + !String.Contains(Container.FolderPath,plugin://plugin.video.netflix) + !Skin.ToggleSetting(disable531)</visible>
 				<itemlayout width="220" height="340">
 					<control type="image">
 						<width>220</width>

@@ -8,8 +8,8 @@
 	<onload>Skin.SetString(snapname,File manager)</onload>
 	<controls>
 
-		<!-- Clock -->
-		<include>Clock</include>
+		
+		
 
 		<!-- Main group -->
 		<control type="group">
@@ -45,7 +45,7 @@
 					<textcolor>$VAR[FocusedColor]</textcolor>
 				</control>
 
-				<!-- Seperator -->
+				<!-- Background -->
 				<control type="image">
 					<top>70</top>
 					<width>770</width>
@@ -127,7 +127,7 @@
 						<width>auto</width>
 						<height>44</height>
 						<align>right</align>
-						<label>31000</label>
+						<label>$LOCALIZE[744]</label>
 						<font>Setting</font>
 						<textcolor>$VAR[UnFocusedColor]</textcolor>
 						<visible>!IntegerGreaterThan(Container(20).NumItems,1)</visible>
@@ -136,7 +136,7 @@
 						<width>auto</width>
 						<height>44</height>
 						<align>right</align>
-						<label>31001</label>
+						<label>$LOCALIZE[561]</label>
 						<font>Setting</font>
 						<textcolor>$VAR[UnFocusedColor]</textcolor>
 						<visible>IntegerGreaterThan(Container(20).NumItems,1)</visible>
@@ -164,7 +164,7 @@
 					<textcolor>$VAR[FocusedColor]</textcolor>
 				</control>
 
-				<!-- Seperator -->
+				<!-- Background -->
 				<control type="image">
 					<top>70</top>
 					<width>770</width>
@@ -246,7 +246,7 @@
 						<width>auto</width>
 						<height>44</height>
 						<align>right</align>
-						<label>31000</label>
+						<label>$LOCALIZE[744]</label>
 						<font>Setting</font>
 						<textcolor>$VAR[UnFocusedColor]</textcolor>
 						<visible>!IntegerGreaterThan(Container(21).NumItems,1)</visible>
@@ -255,7 +255,7 @@
 						<width>auto</width>
 						<height>44</height>
 						<align>right</align>
-						<label>31001</label>
+						<label>$LOCALIZE[561]</label>
 						<font>Setting</font>
 						<textcolor>$VAR[UnFocusedColor]</textcolor>
 						<visible>IntegerGreaterThan(Container(21).NumItems,1)</visible>

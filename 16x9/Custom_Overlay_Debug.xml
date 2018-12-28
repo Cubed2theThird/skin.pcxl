@@ -990,6 +990,10 @@
 					<include>debug_Label</include>
 				</control>
 				<control type="button">
+					<label>Container.SortMethod: $INFO[Container.SortMethod]</label>
+					<include>debug_Label</include>
+				</control>
+				<control type="button">
 					<label>Container.FolderName: $INFO[Container.FolderName]</label>
 					<include>debug_Label</include>
 				</control>
@@ -1128,5 +1132,19 @@
 
 			</control>
 		</control>
+		
+		<control type="image">
+			<left>-3</left>
+			<top>-3</top>
+			<width>100.3%</width>
+			<height>100.7%</height>
+			<texture colordiffuse="$VAR[White]" border="11,43,43,11">views/border.png</texture>
+		</control>
+
+		 <!-- <control type="group">
+			<visible>![Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml)]</visible>
+		   Now Playing Music
+		    <include>PlayingMusicWindow</include>
+		</control> -->
 	</controls>
 </window>

@@ -1,53 +1,667 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<!-- shutdownmenu -->
-	<defaultcontrol always="true">6000</defaultcontrol>
-	<include>DialogZoomAnimation</include>
-    <onload>Dialog.Close(contextmenu)</onload>
-    <onload>Dialog.Close(all,true)</onload>
-	<onload>ActivateWindow(PlayerControls)</onload>
-    <!--  
-	<onload>ActivateWindow(PlayerControls)</onload><onload>Skin.SetFile(test)</onload>
-  <onload>Skin.SetImage(backgroundimage,special://skin/extras/wallpapers/)</onload>-->
+	<defaultcontrol always="true">6000</defaultcontrol>    
+	<onload condition="!Skin.HasSetting(oldshutdownmenu)">Dialog.Close(all,true)</onload>
+	<onload condition="!Skin.HasSetting(oldshutdownmenu)">ActivateWindow(PlayerControls)</onload>
+	<!-- 
+	<onload>Skin.SetFile(test)</onload>
+	<onload>Skin.SetImage(backgroundimage,special://skin/extras/wallpapers/)</onload> -->
 
 	<controls>
 
-		<!-- Background
-		<include>DialogBackgroundImage
-    </include> 
-    <onload>ActivateWindow(numericinput)virtualkeyboard</onload>PlayerControls-->
-
+		<!--> Vignette <!-->
 		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture colordiffuse="50000000">color_white.png</texture>
+			<left>0</left>
+			<width>100%</width>
+			<height>100%</height>
+			<aspectratio>stretch</aspectratio>
+			<texture colordiffuse="$VAR[Black]">views/fanart_gradient.png</texture>
+			<animation type="WindowOpen">
+				<effect type="fade" start="0" end="100" tween="Cubic" easing="inout" time="500"/>
+			</animation>
 		</control>
 
-		<!-- List -->
-		<control type="panel" id="6000">
-			<left>35%</left>
-			<top>120</top>
-			<width>500</width>
-			<height>100%</height>
-			<onup>6000</onup>
-			<ondown>6000</ondown>
-			<onleft>Close</onleft>
-			<onright>Close</onright>
-			<itemgap>40</itemgap>
-			<scrolltime>200</scrolltime>
-			<orientation>vertical</orientation>
-			<pagecontrol>2</pagecontrol>
-			<focusposition>-1</focusposition>
-			<viewtype>list</viewtype>
-			<defaultcontrol>1</defaultcontrol>
-			<itemlayout height="100" width="500">
+	<control type="grouplist" id="6000">
+		<itemgap>10</itemgap>
+		<width>100%</width>
+		<height>100%</height>
+		<control type="group">
+			<animation type="WindowOpen">
+				<effect type="slide" start="-500" end="0" tween="Cubic" easing="inout" time="100"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="-500" tween="Cubic" easing="inout" time="100"/>
+			</animation>
+			<height>100</height>
+			<visible>System.ShowExitButton</visible>
+			<control type="button" id="1">
+				<onup>1</onup>
+				<ondown>2</ondown>
+				<onleft>Close</onleft>
+				<onright>Close</onright>
+				<width>500</width>
+				<height>100</height>
+				<texturefocus>views/white_0.png</texturefocus>
+				<texturenofocus>views/white_0.png</texturenofocus>
+				<onclick>XBMC.Quit()</onclick>	
+			</control>
+			<control type="image">
+				<width>500</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[SecondaryColor]" border="49">views/circle.png</texture>
+				<visible>Control.HasFocus(1)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[MaterialColor]" border="49">views/circle.png</texture>
+				<visible>!Control.HasFocus(1)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[White]">settings/shutdown/close.png</texture>
+				<visible>!Control.HasFocus(1)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture>settings/shutdown/close.png</texture>
+				<visible>Control.HasFocus(1)</visible>
+			</control>
+			<control type="label">
+				<left>110</left>
+				<top>0</top>
+				<height>100</height>
+				<width>1200</width>
+				<label>$LOCALIZE[13012]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>Reg30</font>
+				<textcolor>$VAR[TextColor]</textcolor>
+				<scroll>true</scroll>
+				<visible>Control.HasFocus(1)</visible>
+			</control>
+		</control>
+		<control type="group">
+			<animation type="WindowOpen">
+				<effect type="slide" start="-500" end="0" tween="Cubic" easing="inout" time="150"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="-500" tween="Cubic" easing="inout" time="150"/>
+			</animation>
+			<height>100</height>
+			<visible>System.CanPowerDown</visible>
+			<control type="button" id="2">
+				<onup>1</onup>
+				<ondown>3</ondown>
+				<onleft>Close</onleft>
+				<onright>Close</onright>
+				<width>500</width>
+				<height>100</height>
+				<texturefocus>views/white_0.png</texturefocus>
+				<texturenofocus>views/white_0.png</texturenofocus>
+				<onclick>XBMC.Powerdown()</onclick>
+			</control>
+			<control type="image">
+				<width>500</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[SecondaryColor]" border="49">views/circle.png</texture>
+				<visible>Control.HasFocus(2)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[MaterialColor]" border="49">views/circle.png</texture>
+				<visible>!Control.HasFocus(2)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[White]">settings/shutdown/power.png</texture>
+				<visible>!Control.HasFocus(2)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture>settings/shutdown/power.png</texture>
+				<visible>Control.HasFocus(2)</visible>
+			</control>
+			<control type="label">
+				<left>110</left>
+				<top>0</top>
+				<height>100</height>
+				<width>1200</width>
+				<label>$LOCALIZE[13016]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>Reg30</font>
+				<textcolor>$VAR[TextColor]</textcolor>
+				<scroll>true</scroll>
+				<visible>Control.HasFocus(2)</visible>
+			</control>
+		</control>
+		<control type="group">
+			<animation type="WindowOpen">
+				<effect type="slide" start="-500" end="0" tween="Cubic" easing="inout" time="200"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="-500" tween="Cubic" easing="inout" time="200"/>
+			</animation>
+			<height>100</height>
+			<visible>System.CanSuspend</visible>
+			<control type="button" id="3">
+				<onup>2</onup>
+				<ondown>4</ondown>
+				<onleft>Close</onleft>
+				<onright>Close</onright>
+				<width>500</width>
+				<height>100</height>
+				<texturefocus>views/white_0.png</texturefocus>
+				<texturenofocus>views/white_0.png</texturenofocus>
+				<onclick>XBMC.Suspend()</onclick>
+			</control>
+			<control type="image">
+				<width>500</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[SecondaryColor]" border="49">views/circle.png</texture>
+				<visible>Control.HasFocus(3)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[MaterialColor]" border="49">views/circle.png</texture>
+				<visible>!Control.HasFocus(3)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[White]">settings/shutdown/sleep.png</texture>
+				<visible>!Control.HasFocus(3)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture>settings/shutdown/sleep.png</texture>
+				<visible>Control.HasFocus(3)</visible>
+			</control>
+			<control type="label">
+				<left>110</left>
+				<top>0</top>
+				<height>100</height>
+				<width>1200</width>
+				<label>$LOCALIZE[13011]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>Reg30</font>
+				<textcolor>$VAR[TextColor]</textcolor>
+				<scroll>true</scroll>
+				<visible>Control.HasFocus(3)</visible>
+			</control>
+		</control>
+		<control type="group">
+			<animation type="WindowOpen">
+				<effect type="slide" start="-500" end="0" tween="Cubic" easing="inout" time="250"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="-500" tween="Cubic" easing="inout" time="250"/>
+			</animation>
+			<height>100</height>
+			<visible>System.CanHibernate</visible>
+			<control type="button" id="4">
+				<onup>3</onup>
+				<ondown>5</ondown>
+				<onleft>Close</onleft>
+				<onright>Close</onright>
+				<width>500</width>
+				<height>100</height>
+				<texturefocus>views/white_0.png</texturefocus>
+				<texturenofocus>views/white_0.png</texturenofocus>
+				<onclick>XBMC.Hibernate()</onclick>
+			</control>
+			<control type="image">
+				<width>500</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[SecondaryColor]" border="49">views/circle.png</texture>
+				<visible>Control.HasFocus(4)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[MaterialColor]" border="49">views/circle.png</texture>
+				<visible>!Control.HasFocus(4)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[White]">settings/shutdown/hibernate.png</texture>
+				<visible>!Control.HasFocus(4)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture>settings/shutdown/hibernate.png</texture>
+				<visible>Control.HasFocus(4)</visible>
+			</control>
+			<control type="label">
+				<left>110</left>
+				<top>0</top>
+				<height>100</height>
+				<width>1200</width>
+				<label>$LOCALIZE[13010]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>Reg30</font>
+				<textcolor>$VAR[TextColor]</textcolor>
+				<scroll>true</scroll>
+				<visible>Control.HasFocus(4)</visible>
+			</control>
+		</control>
+		<control type="group">
+			<animation type="WindowOpen">
+				<effect type="slide" start="-500" end="0" tween="Cubic" easing="inout" time="300"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="-500" tween="Cubic" easing="inout" time="300"/>
+			</animation>
+			<height>100</height>
+			<visible>System.CanReboot</visible>
+			<control type="button" id="5">
+				<onup>4</onup>
+				<ondown>6</ondown>
+				<onleft>Close</onleft>
+				<onright>Close</onright>
+				<width>500</width>
+				<height>100</height>
+				<texturefocus>views/white_0.png</texturefocus>
+				<texturenofocus>views/white_0.png</texturenofocus>
+				<onclick>XBMC.Reset()</onclick>
+			</control>
+			<control type="image">
+				<width>500</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[SecondaryColor]" border="49">views/circle.png</texture>
+				<visible>Control.HasFocus(5)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[MaterialColor]" border="49">views/circle.png</texture>
+				<visible>!Control.HasFocus(5)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[White]">settings/shutdown/restart.png</texture>
+				<visible>!Control.HasFocus(5)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture>settings/shutdown/restart.png</texture>
+				<visible>Control.HasFocus(5)</visible>
+			</control>
+			<control type="label">
+				<left>110</left>
+				<top>0</top>
+				<height>100</height>
+				<width>1200</width>
+				<label>$LOCALIZE[13013]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>Reg30</font>
+				<textcolor>$VAR[TextColor]</textcolor>
+				<scroll>true</scroll>
+				<visible>Control.HasFocus(5)</visible>
+			</control>
+		</control>
+		<control type="group">
+			<animation type="WindowOpen">
+				<effect type="slide" start="-500" end="0" tween="Cubic" easing="inout" time="350"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="-500" tween="Cubic" easing="inout" time="350"/>
+			</animation>
+			<height>100</height>
+			<visible>[System.HasLoginScreen | Integer.IsGreater(System.ProfileCount,1)] + System.Loggedon</visible>
+			<control type="button" id="6">
+				<onup>5</onup>
+				<ondown>7</ondown>
+				<onleft>Close</onleft>
+				<onright>Close</onright>
+				<width>500</width>
+				<height>100</height>
+				<texturefocus>views/white_0.png</texturefocus>
+				<texturenofocus>views/white_0.png</texturenofocus>
+				<onclick>dialog.close(all,true)</onclick>
+				<onclick>System.LogOff</onclick>
+			</control>
+			<control type="image">
+				<width>600</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[SecondaryColor]" border="49">views/circle.png</texture>
+				<visible>Control.HasFocus(6)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[MaterialColor]" border="49">views/circle.png</texture>
+				<visible>!Control.HasFocus(6)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[White]">settings/shutdown/lock.png</texture>
+				<visible>!Control.HasFocus(6)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture>settings/shutdown/lock.png</texture>
+				<visible>Control.HasFocus(6)</visible>
+			</control>
+			<control type="label">
+				<left>110</left>
+				<top>0</top>
+				<height>100</height>
+				<width>1200</width>
+				<label>$LOCALIZE[20126] $INFO[system.profilename]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>Reg30</font>
+				<textcolor>$VAR[TextColor]</textcolor>
+				<scroll>true</scroll>
+				<visible>Control.HasFocus(6)</visible>
+			</control>
+		</control>
+		<control type="group">
+			<animation type="WindowOpen">
+				<effect type="slide" start="-500" end="0" tween="Cubic" easing="inout" time="400"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="-500" tween="Cubic" easing="inout" time="400"/>
+			</animation>
+			<height>100</height>
+			<visible>System.HasLocks</visible>
+			<control type="button" id="7">
+				<onup>6</onup>
+				<ondown>8</ondown>
+				<onleft>Close</onleft>
+				<onright>Close</onright>
+				<width>500</width>
+				<height>100</height>
+				<texturefocus>views/white_0.png</texturefocus>
+				<texturenofocus>views/white_0.png</texturenofocus>
+				<onclick>xbmc.mastermode</onclick>
+			</control>
+			<control type="image">
+				<width>600</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[SecondaryColor]" border="49">views/circle.png</texture>
+				<visible>Control.HasFocus(7)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[MaterialColor]" border="49">views/circle.png</texture>
+				<visible>!Control.HasFocus(7)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[White]">settings/shutdown/lock.png</texture>
+				<visible>!Control.HasFocus(7)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture>settings/shutdown/lock.png</texture>
+				<visible>Control.HasFocus(7)</visible>
+			</control>
+			<control type="label">
+				<left>110</left>
+				<top>0</top>
+				<height>100</height>
+				<width>1200</width>
+				<label>$LOCALIZE[20046]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>Reg30</font>
+				<textcolor>$VAR[TextColor]</textcolor>
+				<scroll>true</scroll>
+				<visible>Control.HasFocus(7)</visible>
+			</control>
+		</control>
+		<control type="group">
+			<animation type="WindowOpen">
+				<effect type="slide" start="-500" end="0" tween="Cubic" easing="inout" time="450"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="-500" tween="Cubic" easing="inout" time="450"/>
+			</animation>
+			<height>100</height>
+			<control type="button" id="8">
+				<onup>7</onup>
+				<ondown>9</ondown>
+				<onleft>Close</onleft>
+				<onright>Close</onright>
+				<width>500</width>
+				<height>100</height>
+				<texturefocus>views/white_0.png</texturefocus>
+				<texturenofocus>views/white_0.png</texturenofocus>
+				<onclick>Dialog.Close(all,true)</onclick>
+				<onclick>ActivateWindow(Settings)</onclick>
+			</control>
+			<control type="image">
+				<width>500</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[SecondaryColor]" border="49">views/circle.png</texture>
+				<visible>Control.HasFocus(8)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[MaterialColor]" border="49">views/circle.png</texture>
+				<visible>!Control.HasFocus(8)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[White]">settings/shutdown/settings.png</texture>
+				<visible>!Control.HasFocus(8)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture>settings/shutdown/settings.png</texture>
+				<visible>Control.HasFocus(8)</visible>
+			</control>
+			<control type="label">
+				<left>110</left>
+				<top>0</top>
+				<height>100</height>
+				<width>1200</width>
+				<label>$LOCALIZE[5]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>Reg30</font>
+				<textcolor>$VAR[TextColor]</textcolor>
+				<scroll>true</scroll>
+				<visible>Control.HasFocus(8)</visible>
+			</control>
+		</control>
+		<control type="group">
+			<animation type="WindowOpen">
+				<effect type="slide" start="-500" end="0" tween="Cubic" easing="inout" time="500"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="-500" tween="Cubic" easing="inout" time="500"/>
+			</animation>
+			<height>100</height>
+			<visible>Skin.HasSetting(hiddenoptions)</visible>
+			<control type="button" id="9">
+				<onup>8</onup>
+				<ondown>10</ondown>
+				<onleft>Close</onleft>
+				<onright>Close</onright>
+				<width>500</width>
+				<height>100</height>
+				<texturefocus>views/white_0.png</texturefocus>
+				<texturenofocus>views/white_0.png</texturenofocus>
+				<onclick>Dialog.Close(all,true)</onclick>
+				<onclick>XBMC.ReloadSkin()</onclick>
+			</control>
+			<control type="image">
+				<width>500</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[SecondaryColor]" border="49">views/circle.png</texture>
+				<visible>Control.HasFocus(9)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[MaterialColor]" border="49">views/circle.png</texture>
+				<visible>!Control.HasFocus(9)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[White]">settings/shutdown/debug.png</texture>
+				<visible>!Control.HasFocus(9)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture>settings/shutdown/debug.png</texture>
+				<visible>Control.HasFocus(9)</visible>
+			</control>
+			<control type="label">
+				<left>110</left>
+				<top>0</top>
+				<height>100</height>
+				<width>1200</width>
+				<label>$LOCALIZE[20183]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>Reg30</font>
+				<textcolor>$VAR[TextColor]</textcolor>
+				<scroll>true</scroll>
+				<visible>Control.HasFocus(9)</visible>
+			</control>
+		</control>
+		<control type="group">
+			<animation type="WindowOpen">
+				<effect type="slide" start="-500" end="0" tween="Cubic" easing="inout" time="550"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="-500" tween="Cubic" easing="inout" time="550"/>
+			</animation>
+			<height>100</height>
+			<visible>Skin.HasSetting(hiddenoptions)</visible>
+			<control type="button" id="10">
+				<onup>9</onup>
+				<ondown>10</ondown>
+				<onleft>Close</onleft>
+				<onright>Close</onright>
+				<width>500</width>
+				<height>100</height>
+				<texturefocus>views/white_0.png</texturefocus>
+				<texturenofocus>views/white_0.png</texturenofocus>
+				<onclick>Dialog.Close(all,true)</onclick>
+				<onclick>Skin.ToggleSetting(DebugInfo)</onclick>
+			</control>
+			<control type="image">
+				<width>500</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[SecondaryColor]" border="49">views/circle.png</texture>
+				<visible>Control.HasFocus(10)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[MaterialColor]" border="49">views/circle.png</texture>
+				<visible>!Control.HasFocus(10)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture colordiffuse="$VAR[White]">settings/shutdown/debug.png</texture>
+				<visible>!Control.HasFocus(10)</visible>
+			</control>
+			<control type="image">
+				<width>100</width>
+				<height>100</height>
+				<texture>settings/shutdown/debug.png</texture>
+				<visible>Control.HasFocus(10)</visible>
+			</control>
+			<control type="label">
+				<left>110</left>
+				<top>0</top>
+				<height>100</height>
+				<width>1200</width>
+				<label>$LOCALIZE[31070]</label>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>Reg30</font>
+				<textcolor>$VAR[TextColor]</textcolor>
+				<scroll>true</scroll>
+				<visible>Control.HasFocus(10)</visible>
+			</control>
+		</control>
+	</control>
+
+	<!-- List
+	<control type="panel" id="6000">
+		<left>15</left>
+		<centertop>50%</centertop>
+		<width>500</width>
+		<height>800</height>
+		<onup>6000</onup>
+		<ondown>6000</ondown>
+		<onleft>Close</onleft>
+		<onright>Close</onright>
+		<scrolltime>200</scrolltime>
+		<orientation>vertical</orientation>
+		<pagecontrol>2</pagecontrol>
+		<focusposition>-1</focusposition>
+		<viewtype>list</viewtype>
+		<defaultcontrol>1</defaultcontrol>
+		<itemlayout height="100" width="500">
+			<control type="group">
+				<control type="image">
+					<width>100</width>
+					<height>100</height>
+					<texture colordiffuse="$VAR[MaterialColor]" border="10">views/circle.png</texture>
+				</control>
+				<control type="image">
+					<width>100</width>
+					<height>100</height>
+					<texture>$INFO[ListItem.Icon]</texture>
+				</control>
+			</control>
+		</itemlayout>
+		<focusedlayout height="100">
+			<control type="group">
+				<animation type="Focus" reversible="false">
+					<effect type="slide" start="0" end="10" time="100" tween="cubic" easing="inout" />
+				</animation>
+				<animation type="Unfocus" reversible="false">
+					<effect type="slide" start="10" end="0" time="100" tween="cubic" easing="inout" />
+				</animation>
 				<control type="image">
 					<width>500</width>
 					<height>100</height>
-					<texture colordiffuse="ff424242">color_white.png</texture>
+					<texture colordiffuse="$VAR[SecondaryColor]" border="49">views/circle.png</texture>
+				</control>
+				<control type="image">
+					<width>100</width>
+					<height>100</height>
+					<texture>$INFO[ListItem.Icon]</texture>
 				</control>
 				<control type="label">
 					<description>Title label</description>
-					<left>50</left>
+					<left>110</left>
 					<bottom>0</bottom>
 					<height>100</height>
 					<width>1200</width>		
@@ -55,197 +669,76 @@
 					<align>left</align>
 					<aligny>center</aligny>
 					<font>Reg30</font>
-					<textcolor>$VAR[TextColor]</textcolor>
+					<textcolor>$VAR[White]</textcolor>
 					<scroll>true</scroll>
-				</control>
-			</itemlayout>			
-			<focusedlayout height="100" width="500">
-				<control type="group">
-					<animation type="Focus">
-						<effect type="zoom" center="250,50" start="100" end="110" time="500" tween="cubic" easing="inout" />
-					</animation>
-					<control type="image">
-						<width>500</width>
-						<height>100</height>
-						<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-					</control>
-					<control type="label">
-						<description>Title label</description>
-						<left>50</left>
-						<bottom>0</bottom>
-						<height>100</height>
-						<width>1200</width>		
-						<label>$INFO[ListItem.Label]</label>
-						<align>left</align>
-						<aligny>center</aligny>
-						<font>Reg30</font>
-						<textcolor>$VAR[TextColor]</textcolor>
-						<scroll>true</scroll>
-					</control>	
-					<control type="image">
-						<width>500</width>
-						<height>100</height>
-						<texture colordiffuse="$VAR[TextColor]" border="11,43,43,11">$VAR[BorderImage]</texture>
-					</control>
-				</control>
-			</focusedlayout>
-			<content>
-				<item id="1">
-					<label>13012</label>
-					<onclick>XBMC.Quit()</onclick>	
-					<visible>System.ShowExitButton</visible>
-				</item>
-				<item id="2">
-					<label>13016</label>
-					<onclick>XBMC.Powerdown()</onclick>
-					<visible>System.CanPowerDown</visible>
-				</item>
-				<item id="3">
-					<label>13011</label>
-					<onclick>XBMC.Suspend()</onclick>
-					<visible>System.CanSuspend</visible>	
-				</item>
-				<item id="4">
-					<label>13010</label>
-					<onclick>XBMC.Hibernate()</onclick>
-					<visible>System.CanHibernate</visible>
-				</item>
-				<item id="5">
-					<label>13013</label>
-					<onclick>XBMC.Reset()</onclick>
-					<visible>System.CanReboot</visible>	
-				</item>
-				<item id="6">
-					<label>$LOCALIZE[20126] $INFO[system.profilename]</label>
-					<onclick>dialog.close(all,true)</onclick>
-					<onclick>System.LogOff</onclick>
-					<visible>System.HasLoginScreen | IntegerGreaterThan(System.ProfileCount,1)</visible>
-					<visible>System.Loggedon</visible>	
-				</item>
-				<item id="7">
-					<label>20046</label>
-					<altlabel>20045</altlabel>
-					<usealttexture>!System.IsMaster</usealttexture>
-					<onclick>xbmc.mastermode</onclick>
-					<visible>System.HasLocks</visible>
-				</item>
-				<item id="11">
-					<label>5</label>
-					<onclick>ActivateWindow(Settings)</onclick>
-				</item>
-				<item id="12">
-					<label>Reload Skin</label>
-					<onclick>XBMC.ReloadSkin()</onclick>
-					<visible>System.ShowExitButton</visible>
-				</item>
-				<item id="13">
-					<label>Toggle Debug</label>
-					<onclick>Skin.ToggleDebug()</onclick>
-					<visible>System.ShowExitButton</visible>
-				</item>
-			</content>
-			<!-- Dummy to set focus to top
-			<control type="button" id="6001">
-				<width>0</width>
-				<height>-8</height>
-				<label>-</label>
-				<onfocus>Down</onfocus>
+				</control>	
 			</control>
-			<control type="button" id="6002">
-				<include>ShutdownButtons</include>
-				<label>13012</label>
-				<onclick>XBMC.Quit()</onclick>
+		</focusedlayout>
+		<content>
+			<item id="1">
+				<label>$LOCALIZE[13012]</label>
+				<icon>settings/shutdown/close.png</icon>
+				<onclick>XBMC.Quit()</onclick>	
 				<visible>System.ShowExitButton</visible>
-			</control>
-			<control type="button" id="6003">
-				<include>ShutdownButtons</include>
-				<label>13016</label>
+			</item>
+			<item id="2">
+				<label>$LOCALIZE[13016]</label>
+				<icon>settings/shutdown/power.png</icon>
 				<onclick>XBMC.Powerdown()</onclick>
 				<visible>System.CanPowerDown</visible>
-			</control>
-			<control type="button" id="6004">
-				<include>ShutdownButtons</include>
-				<label>13011</label>
+			</item>
+			<item id="3">
+				<label>$LOCALIZE[13011]</label>
+				<icon>settings/shutdown/sleep.png</icon>
 				<onclick>XBMC.Suspend()</onclick>
-				<visible>System.CanSuspend</visible>
-			</control>
-			<control type="button" id="6005">
-				<include>ShutdownButtons</include>
-				<label>13010</label>
+				<visible>System.CanSuspend</visible>	
+			</item>
+			<item id="4">
+				<label>$LOCALIZE[13010]</label>
+				<icon>settings/shutdown/hibernate.png</icon>
 				<onclick>XBMC.Hibernate()</onclick>
 				<visible>System.CanHibernate</visible>
-			</control>
-			<control type="button" id="6006">
-				<include>ShutdownButtons</include>
-				<label>13013</label>
+			</item>
+			<item id="5">
+				<label>$LOCALIZE[13013]</label>
+				<icon>settings/shutdown/restart.png</icon>
 				<onclick>XBMC.Reset()</onclick>
-				<visible>System.CanReboot</visible>
-			</control>
-			<control type="button" id="6007">
-				<include>ShutdownButtons</include>
+				<visible>System.CanReboot</visible>	
+			</item>
+			<item id="6">
 				<label>$LOCALIZE[20126] $INFO[system.profilename]</label>
 				<onclick>dialog.close(all,true)</onclick>
 				<onclick>System.LogOff</onclick>
 				<visible>System.HasLoginScreen | IntegerGreaterThan(System.ProfileCount,1)</visible>
-				<visible>System.Loggedon</visible>
-			</control>
-			<control type="togglebutton" id="6008">
-				<include>ShutdownButtons</include>
-				<label>20046</label>
-				<altlabel>20045</altlabel>
+				<visible>System.Loggedon</visible>	
+			</item>
+			<item id="7">
+				<label>$LOCALIZE[20046]</label>
+				<altlabel>$LOCALIZE[20045]</altlabel>
 				<usealttexture>!System.IsMaster</usealttexture>
 				<onclick>xbmc.mastermode</onclick>
 				<visible>System.HasLocks</visible>
-			</control>
-			<control type="button" id="6009">
-				<include>ShutdownButtons</include>
-				<label>13017</label>
-				<onclick>XBMC.InhibitIdleShutdown(true)</onclick>
-				<visible>System.HasShutdown +!System.IsInhibit</visible>
-			</control>
-			<control type="button" id="6010">
-				<include>ShutdownButtons</include>
-				<label>13018</label>
-				<onclick>XBMC.InhibitIdleShutdown(false)</onclick>
-				<visible>System.HasShutdown + System.IsInhibit</visible>
-			</control>
-			<control type="button" id="6011">
-				<include>ShutdownButtons</include>
-				<label>20150</label>
-				<onclick>XBMC.AlarmClock(shutdowntimer,XBMC.Shutdown())</onclick>
-				<visible>!System.HasAlarm(shutdowntimer)</visible>
-				<visible>System.CanPowerDown | System.CanSuspend | System.CanHibernate</visible>
-			</control>
-			<control type="button" id="6012">
-				<include>ShutdownButtons</include>
-				<label>20151</label>
-				<onclick>XBMC.CancelAlarm(shutdowntimer)</onclick>
-				<visible>System.HasAlarm(shutdowntimer)</visible>
-			</control>
-			<control type="label" id="6013">
-				<include>ShutdownButtons</include>
-				<label>$INFO[System.Alarmpos,T-]</label>
-				<visible>System.HasAlarm(shutdowntimer)</visible>
-			</control>
-			<control type="button" id="6014">
-				<include>ShutdownButtons</include>
-				<label>5</label>
+			</item>
+			<item id="11">
+				<label>$LOCALIZE[5]</label>
+				<onclick>Dialog.Close(all,true)</onclick>
 				<onclick>ActivateWindow(Settings)</onclick>
-			</control>
-			<control type="button" id="6015">
-				<include>ShutdownButtons</include>
-				<label>Reload Skin</label>
+				<icon>settings/shutdown/settings.png</icon>
+			</item>
+			<item id="12">
+				<label>$LOCALIZE[20183]</label>
+				<icon>settings/shutdown/debug.png</icon>
+				<onclick>Dialog.Close(all,true)</onclick>
 				<onclick>XBMC.ReloadSkin()</onclick>
-				<visible>System.ShowExitButton</visible>
-			</control>
-			<control type="button" id="6016">
-				<include>ShutdownButtons</include>
+				<visible>Skin.HasSetting(hiddenoptions)</visible>
+			</item>
+			<item id="13">
 				<label>Toggle Debug</label>
-				<onclick>Skin.ToggleDebug()</onclick>
-				<visible>System.ShowExitButton</visible>
-			</control> -->
-		</control>
-
-	</controls>
-
+				<icon>settings/shutdown/debug.png</icon>
+				<onclick>Skin.ToggleSetting(DebugInfo)</onclick>
+				<visible>Skin.HasSetting(hiddenoptions)</visible>
+			</item>
+		</content>
+	</control> -->
+</controls>
 </window>

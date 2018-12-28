@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window id="1109">
-	<backgroundcolor>$VAR[BackgroundColor]</backgroundcolor>
+	<backgroundcolor>$VAR[Black]</backgroundcolor>
 	<defaultcontrol always="false">111</defaultcontrol>
 	<onload>Skin.SetString(snapwindow, 1109)</onload>
 	<onload>Skin.SetString(snapico, home/snap/tv.jpg,0)</onload>
-	<onload>Skin.SetString(snapname,Film & TV)</onload>
+	<onload>Skin.SetString(snapname,$LOCALIZE[31028])</onload>
 	<onload>UpdateLibrary(video)</onload>
 	<controls>
 		<include>WindowBackgroundImage</include>
@@ -44,7 +44,7 @@
 					<left>50</left>
 					<width>1000</width>	
 					<height>40</height>
-					<label>Film & TV</label>
+					<label>$LOCALIZE[31028]</label>
 					<aligny>left</aligny>
 					<font>Header</font>
 					<textcolor>$VAR[White]</textcolor>						
@@ -61,7 +61,7 @@
 					<control type="label">
 						<width>1000</width>	
 						<height>40</height>
-						<label>My Movies</label>
+						<label>$LOCALIZE[31029]</label>
 						<aligny>left</aligny>
 						<font>SubHeader</font>
 						<textcolor>$VAR[TextColor]</textcolor>
@@ -77,7 +77,7 @@
 						<focusposition>-1</focusposition>
 						<movement>2</movement>
 						<orientation>horizontal</orientation>
-						<viewtype label="31521">list</viewtype>
+						<viewtype>list</viewtype>
 						<scrolltime tween="cubic" easing="out">360</scrolltime>
 						<itemlayout height="590" width="360">
 							<control type="group">
@@ -95,8 +95,8 @@
 									<aspectratio>scale</aspectratio>
 									<texture background="false">$INFO[ListItem.Icon]</texture>
 								</control>
+								<include>WatchedIndicator</include>
 							</control>
-							<include>WatchedIndicator2</include>
 						</itemlayout>
 						<focusedlayout height="590" width="360">
 							<control type="group">
@@ -120,15 +120,6 @@
 									<height>510</height>
 									<aspectratio>scale</aspectratio>
 									<texture background="true">$INFO[ListItem.Icon]</texture>
-								</control>			
-								<control type="image">
-									<include>SelectionAnimation2</include>
-									<top>-35</top>
-									<left>-30</left>
-									<width>400</width>
-									<height>650</height>
-									<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
-									<visible>Control.HasFocus(111)</visible>
 								</control>
 								<control type="group">
 									<visible>Control.HasFocus(111)</visible>
@@ -154,12 +145,25 @@
 										<textcolor>$VAR[UnFocusedColor2]</textcolor>
 									</control>
 								</control>
+									<include>WatchedIndicator</include>
+								<control type="group">
+									<visible>Control.HasFocus(111)</visible>
+									<include>WatchedIndicator2</include>
+								</control>
+								<control type="image">
+									<include>SelectionAnimation2</include>
+									<top>-35</top>
+									<left>-30</left>
+									<width>400</width>
+									<height>650</height>
+									<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
+									<visible>Control.HasFocus(111)</visible>
+								</control>
 							</control>
-							<include>WatchedIndicator2</include>
 						</focusedlayout>
 						<content>
 							<item>
-								<label>Random</label>
+								<label>$LOCALIZE[590]</label>
 								<onclick>RunScript(&quot;script.rndmov&quot;)</onclick>
 								<onclick condition="!System.HasAddon(script.rndmov)">InstallAddon(script.rndmov)</onclick>
 								<icon>DefaultAddonVideo.png</icon>
@@ -177,7 +181,7 @@
 					<control type="label">
 						<width>1000</width>	
 						<height>40</height>
-						<label>My TV Shows</label>
+						<label>$LOCALIZE[31030]</label>
 						<aligny>left</aligny>
 						<font>SubHeader</font>
 						<textcolor>$VAR[White]</textcolor>
@@ -193,8 +197,8 @@
 						<focusposition>-1</focusposition>
 						<movement>2</movement>
 						<orientation>horizontal</orientation>
-						<viewtype label="31521">list</viewtype>
-						<scrolltime tween="cubic" easing="out">360</scrolltime>				
+						<viewtype>list</viewtype>
+						<scrolltime tween="cubic" easing="out">360</scrolltime>
 						<itemlayout height="590" width="360">
 							<control type="group">
 								<top>20</top>
@@ -211,8 +215,8 @@
 									<aspectratio>scale</aspectratio>
 									<texture background="false">$INFO[ListItem.Icon]</texture>
 								</control>
-							</control>
 							<include>WatchedIndicator2</include>
+							</control>
 						</itemlayout>
 						<focusedlayout height="590" width="360">
 							<control type="group">
@@ -243,7 +247,7 @@
 									<left>-35</left>
 									<width>410</width>
 									<height>650</height>
-									<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo2.png</texture>
+									<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 									<visible>Control.HasFocus(222)</visible>
 								</control>
 								<control type="group">
@@ -269,8 +273,12 @@
 										<textcolor>$VAR[UnFocusedColor2]</textcolor>
 									</control>
 								</control>
+									<include>WatchedIndicator</include>
+								<control type="group">
+									<visible>Control.HasFocus(222)</visible>
+									<include>WatchedIndicator2</include>
+								</control>
 							</control>
-							<include>WatchedIndicator2</include>
 						</focusedlayout>
 						<content target="videos" sortby="title" sortorder="ascending">videodb://tvshows/titles</content>
 					</control>
@@ -284,7 +292,7 @@
 					<control type="label">
 						<width>1000</width>	
 						<height>40</height>
-						<label>Actors</label>
+						<label>$LOCALIZE[344]</label>
 						<aligny>left</aligny>
 						<font>SubHeader</font>
 						<textcolor>$VAR[White]</textcolor>
@@ -300,7 +308,7 @@
 						<focusposition>0</focusposition>
 						<movement>4</movement>
 						<orientation>horizontal</orientation>
-						<viewtype label="31521">list</viewtype>
+						<viewtype>list</viewtype>
 						<scrolltime tween="cubic" easing="out">360</scrolltime>
 						<itemlayout height="400" width="360">
 							<control type="group">
@@ -380,7 +388,7 @@
 					<control type="label">
 						<width>1000</width>	
 						<height>40</height>
-						<label>My Library</label>
+						<label>$LOCALIZE[31031]</label>
 						<aligny>left</aligny>
 						<font>SubHeader</font>
 						<textcolor>$VAR[White]</textcolor>
@@ -396,8 +404,8 @@
 						<focusposition>0</focusposition>
 						<movement>2</movement>
 						<orientation>horizontal</orientation>
-						<viewtype label="31521">list</viewtype>
-						<scrolltime tween="cubic" easing="out">360</scrolltime>				
+						<viewtype>list</viewtype>
+						<scrolltime tween="cubic" easing="out">360</scrolltime>
 						<itemlayout height="400" width="360">
 							<control type="group">
 								<top>20</top>
@@ -481,13 +489,13 @@
 						</focusedlayout>
 						<content>
 							<item id="99">						
-								<label fallback="31450">Movies & TV</label>
+								<label>$LOCALIZE[31032]</label>
 								<onclick>ActivateWindow(Videos,root)</onclick>
 								<thumb>apps/movie.png</thumb>
 							</item>
-							<include>VideoApps</include>
+							<!--><include>VideoApps</include><!-->
 						</content>
-						<!--><content target="videos" sortby="title" sortorder="ascending">addons://sources/video</content><!-->
+						<content target="videos" sortby="title" sortorder="ascending">addons://sources/video</content>
 					</control>
 				</control>
 

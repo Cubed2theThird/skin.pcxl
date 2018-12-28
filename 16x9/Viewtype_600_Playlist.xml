@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="Viewtype_600_Sidebar">
+		<control type="group">
+			<visible>Control.IsVisible(600)</visible>
+
+			<control type="image">
+				<right>0</right>
+				<width>50%</width>
+				<height>100%</height>
+				<aspectratio>scale</aspectratio>
+				<texture colordiffuse="$VAR[MaterialColorDark]">color_white.png</texture>
+				<animation type="WindowOpen">
+					<effect type="slide" start="1000,0" end="0" center="auto" tween="Cubic" easing="inout" time="600"/>
+				</animation>
+				<animation type="WindowClose">
+					<effect type="slide" start="0" end="1000,0" center="auto" tween="Cubic" easing="inout" time="600"/>
+				</animation>
+			</control>
+
+			<control type="image">
+				<centerleft>25%</centerleft>
+				<centertop>30%</centertop>
+				<width>500</width>
+				<height>500</height>
+				<aspectratio>keep</aspectratio>
+				<texture>$INFO[MusicPlayer.Cover]</texture>
+			</control>
+			<control type="label">
+				<centerleft>25%</centerleft>
+				<centertop>60%</centertop>
+				<width>1000</width>
+				<height>80</height>
+				<font>Reg20</font>
+				<align>center</align>
+				<textcolor>$VAR[TextColor]</textcolor>
+				<label>$INFO[MusicPlayer.Artist]</label>
+			</control>
+			<control type="label">
+				<centerleft>25%</centerleft>
+				<centertop>63%</centertop>
+				<width>1000</width>
+				<height>80</height>
+				<font>Reg30</font>
+				<align>center</align>
+				<textcolor>$VAR[TextColor]</textcolor>
+				<label>$INFO[Player.Title]</label>
+			</control>
+
+
+			<!-- List -->
+			<control type="fixedlist" id="600">
+				<width>50%</width>
+				<height>100%</height>
+				<centertop>50%</centertop>
+				<right>0</right>
+				<onup>600</onup>
+				<ondown>600</ondown>
+				<onleft>noop</onleft>
+				<onright>60</onright>
+				<pagecontrol>60</pagecontrol>
+				<focusposition>-1</focusposition>
+				<movement>12</movement>
+				<orientation>vertical</orientation>
+				<viewtype>list</viewtype>
+				<animation type="WindowOpen">
+					<effect type="slide" start="1000,0" end="0" center="auto" tween="Cubic" easing="inout" time="600"/>
+				</animation>
+				<animation type="WindowClose">
+					<effect type="slide" start="0" end="1000,0" center="auto" tween="Cubic" easing="inout" time="400"/>
+				</animation>
+				<itemlayout height="80">
+					<control type="label">
+						<left>100</left>
+						<height>80</height>
+						<font>Reg20</font>
+						<align>left</align>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+						<label>$VAR[ListLabelNF]</label>
+					</control>
+					<control type="label">
+						<left>20</left>
+						<width>1000</width>
+						<height>80</height>
+						<font>Reg20</font>
+						<align>left</align>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+						<label>$INFO[ListItem.TrackNumber]</label>
+					</control>
+					<control type="label">
+						<right>20</right>
+						<width>500</width>
+						<height>80</height>
+						<font>Reg20</font>
+						<align>right</align>
+						<textcolor>$VAR[White]</textcolor>
+						<label>$INFO[ListItem.Duration]</label>
+					</control>
+					<control type="image">
+						<right>50</right>
+						<top>45</top>
+						<width>36</width>
+						<height>30</height>
+						<texture colordiffuse="$VAR[White]">views/watched_tick_nf.png</texture>
+						<visible>String.Contains(ListItem.Overlay,OverlayWatched.png)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="80">
+					<control type="image">
+						<left>0</left>
+						<height>80</height>
+						<texture colordiffuse="10ffffff">color_white.png</texture>
+					</control>
+					<control type="label">
+						<left>20</left>
+						<width>50</width>
+						<height>80</height>
+						<font>Reg20</font>
+						<align>left</align>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+						<label>$INFO[ListItem.TrackNumber]</label>
+					</control>
+					<control type="label">
+						<left>100</left>
+						<width>1000</width>
+						<height>80</height>
+						<font>Reg20</font>
+						<align>left</align>
+						<scroll>true</scroll>
+						<textcolor>$VAR[White]</textcolor>
+						<label>$VAR[ListLabelNF]</label>
+					</control>
+					<control type="label">
+						<right>20</right>
+						<width>180</width>
+						<height>80</height>
+						<font>Reg20</font>
+						<align>right</align>
+						<textcolor>$VAR[White]</textcolor>
+						<label>$INFO[ListItem.Duration]</label>
+					</control>
+					<control type="image">
+						<right>50</right>
+						<top>45</top>
+						<width>36</width>
+						<height>30</height>
+						<texture colordiffuse="$VAR[White]">views/watched_tick_fo.png</texture>
+						<visible>String.Contains(ListItem.Overlay,OverlayWatched.png)</visible>
+					</control>
+				</focusedlayout>
+			</control>
+		</control>
+	</include>
+	<include name="Viewtype_601_Full">
+		<control type="group">
+			<visible>Control.IsVisible(601)</visible>
+
+			<control type="group">
+				<animation type="WindowOpen">
+					<effect type="slide" start="-1000,0" end="0" center="auto" tween="Cubic" easing="inout" time="600"/>
+				</animation>
+				<animation type="WindowClose">
+					<effect type="slide" start="0" end="-1000,0" center="auto" tween="Cubic" easing="inout" time="600"/>
+				</animation>
+				<control type="image">
+					<centerleft>15%</centerleft>
+					<centertop>25%</centertop>
+					<width>350</width>
+					<height>350</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[MusicPlayer.Cover]</texture>
+				</control>
+				<control type="label">
+					<left>500</left>
+					<top>150</top>
+					<width>1600</width>
+					<height>80</height>
+					<font>LargeLogoBold</font>
+					<align>left</align>
+					<textcolor>$VAR[TextColor]</textcolor>
+					<label>$INFO[Player.Title]</label>
+				</control>
+				<control type="label">
+					<left>500</left>
+					<top>210</top>
+					<width>800</width>
+					<height>80</height>
+					<font>Reg20</font>
+					<align>left</align>
+					<textcolor>$VAR[TextColor]</textcolor>
+					<label>$INFO[Player.Duration,$LOCALIZE[180]: ]</label>
+				</control>
+				<control type="label">
+					<left>500</left>
+					<top>240</top>
+					<width>800</width>
+					<height>80</height>
+					<font>Reg20</font>
+					<align>left</align>
+					<textcolor>$VAR[TextColor]</textcolor>
+					<label>$INFO[Playlist.Length,, $LOCALIZE[182]]</label>
+				</control>
+				<control type="label">
+					<left>500</left>
+					<top>270</top>
+					<width>800</width>
+					<height>80</height>
+					<font>Reg20</font>
+					<align>left</align>
+					<textcolor>$VAR[TextColor]</textcolor>
+					<label>$INFO[MusicPlayer.Year]</label>
+				</control>
+			</control>
+
+			<control type="image">
+				<bottom>0</bottom>
+				<width>100%</width>
+				<height>50%</height>
+				<aspectratio>scale</aspectratio>
+				<texture colordiffuse="$VAR[MaterialColorDark]">color_white.png</texture>
+				<animation type="WindowOpen">
+					<effect type="slide" start="0,1000" end="0" center="auto" tween="Cubic" easing="inout" time="600"/>
+				</animation>
+				<animation type="WindowClose">
+					<effect type="slide" start="0" end="0,1000" center="auto" tween="Cubic" easing="inout" time="600"/>
+				</animation>
+			</control>
+
+			<!-- List -->
+			<control type="fixedlist" id="601">
+				<bottom>0</bottom>
+				<width>100%</width>
+				<height>50%</height>
+				<left>0</left>
+				<onup>601</onup>
+				<ondown>601</ondown>
+				<onleft>noop</onleft>
+				<onright>60</onright>
+				<pagecontrol>60</pagecontrol>
+				<focusposition>-1</focusposition>
+				<movement>5</movement>
+				<orientation>vertical</orientation>
+				<viewtype>list</viewtype>
+				<animation type="WindowOpen">
+					<effect type="slide" start="0,1000" end="0" center="auto" tween="Cubic" easing="inout" time="700"/>
+				</animation>
+				<animation type="WindowClose">
+					<effect type="slide" start="0" end="0,1000" center="auto" tween="Cubic" easing="inout" time="400"/>
+				</animation>
+				<itemlayout height="80">
+					<control type="label">
+						<left>20</left>
+						<width>1000</width>
+						<height>80</height>
+						<font>Reg20</font>
+						<align>left</align>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+						<label>$INFO[ListItem.TrackNumber]</label>
+					</control>
+					<control type="label">
+						<left>100</left>
+						<width>1000</width>
+						<height>80</height>
+						<font>Reg20</font>
+						<align>left</align>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+						<label>$VAR[ListLabelNF]</label>
+					</control>
+					<control type="label">
+						<right>80</right>
+						<width>500</width>
+						<height>80</height>
+						<font>Reg20</font>
+						<align>right</align>
+						<textcolor>$VAR[White]</textcolor>
+						<label>$INFO[ListItem.Duration]</label>
+					</control>
+					<control type="image">
+						<right>50</right>
+						<top>45</top>
+						<width>36</width>
+						<height>30</height>
+						<texture colordiffuse="$VAR[White]">views/watched_tick_nf.png</texture>
+						<visible>String.Contains(ListItem.Overlay,OverlayWatched.png)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="80">
+					<control type="image">
+						<left>0</left>
+						<height>80</height>
+						<texture colordiffuse="$VAR[MaterialColor]">color_white.png</texture>
+					</control>
+					<control type="label">
+						<left>20</left>
+						<width>50</width>
+						<height>80</height>
+						<font>Reg20</font>
+						<align>left</align>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+						<label>$INFO[ListItem.TrackNumber]</label>
+					</control>
+					<control type="label">
+						<left>100</left>
+						<width>1000</width>
+						<height>80</height>
+						<font>Reg20</font>
+						<align>left</align>
+						<scroll>true</scroll>
+						<textcolor>$VAR[White]</textcolor>
+						<label>$VAR[ListLabelNF]</label>
+					</control>
+					<control type="label">
+						<right>80</right>
+						<width>180</width>
+						<height>80</height>
+						<font>Reg20</font>
+						<align>right</align>
+						<textcolor>$VAR[White]</textcolor>
+						<label>$INFO[ListItem.Duration]</label>
+					</control>
+					<control type="image">
+						<right>50</right>
+						<top>45</top>
+						<width>36</width>
+						<height>30</height>
+						<texture colordiffuse="$VAR[White]">views/watched_tick_fo.png</texture>
+						<visible>String.Contains(ListItem.Overlay,OverlayWatched.png)</visible>
+					</control>
+				</focusedlayout>
+			</control>
+		</control>
+	</include>
+</includes>

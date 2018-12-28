@@ -7,7 +7,14 @@
 	<controls>
 
 		<!-- Background -->
-		<include>DialogBackgroundImage</include>
+		<include>Fanart</include>
+
+		<!--> Vignette <!-->
+		<control type="image">
+			<include>FullscreenDimensions</include>
+			<aspectratio>stretch</aspectratio>
+			<texture flipx="true" colordiffuse="$VAR[Black]">views\vignetteInfo_light.png</texture>
+		</control>
 
 		<!-- Heading -->
 		<control type="label" id="1">
@@ -23,7 +30,7 @@
 			<left>150</left>
 			<top>235</top>
 			<width>1620</width>
-			<height>700</height>
+			<height>850</height>
 			<pagecontrol>61</pagecontrol>
 		</control>
 

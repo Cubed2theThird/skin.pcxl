@@ -3,19 +3,15 @@
 	<!-- loginscreen -->
 	<backgroundcolor>$VAR[BackgroundColor]</backgroundcolor>
 	<defaultcontrol always="true">52</defaultcontrol>
-
 	<controls>
 
 
-		<!-- Clock -->
-		<include>Clock</include>
+		
+		
 
 		<!-- Main group -->
 		<control type="group">
 			<include>WindowFadeAnimation</include>
-
-			<!-- Conq logo -->
-			<include condition="!Skin.HasSetting(HideConqLogo)">ConqLogo</include>
 
 			<!-- Image
 			<control type="image">

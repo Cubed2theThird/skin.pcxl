@@ -1,720 +1,3445 @@
 <includes>
-
+	<!--> 100% <!-->
 	<include name="WidgetGame">
 		<param name="listid"/>
 		<param name="widgetid"/>
+		<param name="leftid"/>
+		<param name="leftid2"/>
+		<param name="rightid"/>
 		<definition>
-			<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(path))</visible>
-		<!--> Landscape <!-->
-			<itemlayout height="228" width="400" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Landscape)">
-				<control type="group">
+			<!--> Poster <!-->
+			<control type="group">
+				<width>466</width>
+				<height>695</height>
+				<control type="label">
 					<left>20</left>
-					<control type="image">
-						<width>400</width>
-						<height>223</height>
-						<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-					</control>
-					<control type="image">
-						<width>400</width>
-						<height>223</height>
-						<texture>$INFO[ListItem.Icon]</texture>
-						<aspectratio>scale</aspectratio>
-					</control>
-					<control type="label">
-						<left>20</left>
-						<bottom>20</bottom>
-						<height>30</height>
-						<width>360</width>		
-						<label>$INFO[ListItem.Label]</label>
-						<align>left</align>
-						<aligny>center</aligny>
-						<font>Tile</font>
-						<textcolor>$VAR[TextColor]</textcolor>
-					</control>
+					<width>466</width>
+					<height>30</height>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<align>left</align>
+					<aligny>left</aligny>
+					<font>Tile</font>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
 				</control>
-			</itemlayout>
-			<focusedlayout height="228" width="400" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Landscape)">
-				<control type="group">
-					<left>20</left>
-					<animation effect="zoom" center="auto" start="100" end="100" time="200">Focus</animation>
-					<animation effect="zoom" center="auto" start="100" end="100" time="200">UnFocus</animation>
-					<control type="image">
-						<width>400</width>
-						<height>223</height>
-						<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-					</control>
-					<control type="image">
-						<width>400</width>
-						<height>223</height>
-						<texture>$INFO[ListItem.Icon]</texture>
-						<aspectratio>scale</aspectratio>
-					</control>
-					<control type="group">
-						<visible>Control.HasFocus($PARAM[listid])</visible>
-						<include>SelectionAnimation</include>
-						<control type="image">
-							<bottom>0</bottom>
-							<width>400</width>
-							<height>60</height>
-							<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+				<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Poster)</visible>
+				<control type="panel" id="$PARAM[listid]">
+					<description>Posters</description>
+					<top>30</top>
+					<onup>1</onup>
+					<onleft>$PARAM[leftid]</onleft>
+					<onleft>$PARAM[leftid2]</onleft>
+					<onright>$PARAM[rightid]</onright>
+					<focusposition>-1</focusposition>
+					<movement>2</movement>
+					<orientation>vertical</orientation>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="322" width="223">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>218</width>
+								<height>317</height>
+								<aspectratio>scale</aspectratio>
+								<texture background="true">$INFO[ListItem.Icon]</texture>
+							</control>
+							<control type="group">
+								<top>0</top>
+								<right>-15</right>
+								<include>WatchedIndicator</include>
+							</control>
 						</control>
-					</control>
-					<control type="label">
-						<left>20</left>
-						<bottom>20</bottom>
-						<height>30</height>
-						<width>360</width>		
-						<label>$INFO[ListItem.Label]</label>
-						<align>left</align>
-						<aligny>center</aligny>
-						<font>Tile</font>
-						<textcolor>$VAR[TextColor]</textcolor>
-						<scroll>true</scroll>
-					</control>
-					<control type="image">
-						<width>400</width>
-						<height>223</height>
-						<texture colordiffuse="$VAR[TextColor]" border="11,43,43,11">views/border.png</texture>
-						<visible>Control.HasFocus($PARAM[listid])</visible>
-					</control>
+					</itemlayout>
+					<focusedlayout height="322" width="223">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>218</width>
+								<height>317</height>
+								<aspectratio>scale</aspectratio>
+								<texture background="true">$INFO[ListItem.Icon]</texture>
+							</control>
+							<control type="group">
+								<include>SelectionAnimation</include>
+								<control type="image">
+									<bottom>-15</bottom>
+									<width>218</width>
+									<height>60</height>
+									<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								</control>
+								<control type="label">
+									<left>10</left>
+									<bottom>5</bottom>
+									<height>30</height>
+									<width>198</width>
+									<label>$INFO[ListItem.Label]</label>
+									<align>left</align>
+									<aligny>center</aligny>
+									<font>Tile</font>
+									<textcolor>$VAR[TextColor]</textcolor>
+									<scroll>true</scroll>
+								</control>
+							</control>
+							<control type="group">
+								<top>0</top>
+								<right>-15</right>
+								<include>WatchedIndicator</include>
+							</control>
+							<control type="group">
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+								<top>0</top>
+								<right>-15</right>
+								<include>WatchedIndicator2</include>
+							</control>
+							<control type="image">
+								<width>218</width>
+								<height>317</height>
+								<texture colordiffuse="$VAR[TextColor]" border="11,43,43,11">$VAR[BorderImage]</texture>
+							</control>
+						</control>
+					</focusedlayout>
+					<!--> Content <!-->
+					<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
 				</control>
-			</focusedlayout>	
-		<!--> Poster <!-->
-			<itemlayout height="350" width="233" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Poster)">
-				<control type="image">
-					<width>233</width>
-					<height>350</height>
-					<aspectratio>scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Icon]</texture>
+			</control>
+			<!--> Banner <!-->
+			<control type="group">
+				<width>405</width>
+				<control type="label">
+					<left>20</left>
+					<width>405</width>
+					<height>30</height>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<align>left</align>
+					<aligny>left</aligny>
+					<font>Tile</font>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
 				</control>
-				<include>WatchedIndicator</include>
-			</itemlayout>
-			<focusedlayout height="350" width="233" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Poster)">
-				<control type="image">
-					<width>233</width>
-					<height>350</height>
-					<aspectratio>scale</aspectratio>
-					<texture background="true">$INFO[ListItem.Icon]</texture>
+				<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Banner)</visible>
+				<control type="panel" id="$PARAM[listid]">
+					<description>Banner</description>
+					<top>30</top>
+					<height>665</height>
+					<onup>1</onup>
+					<onleft>$PARAM[leftid]</onleft>
+					<onleft>$PARAM[leftid2]</onleft>
+					<onright>$PARAM[rightid]</onright>
+					<focusposition>-1</focusposition>
+					<movement>2</movement>
+					<orientation>vertical</orientation>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>		
+					<itemlayout height="216" width="375" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>375</width>
+								<height>211</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>375</width>
+								<height>211</height>
+								<texture>$INFO[ListItem.Art(fanart)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="label">
+								<left>20</left>
+								<bottom>0</bottom>
+								<height>30</height>
+								<width>355</width>
+								<label>$INFO[ListItem.Label]</label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Tile</font>
+								<textcolor>$VAR[TextColor]</textcolor>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="216" width="375" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<animation effect="zoom" center="auto" start="100" end="100" time="200">Focus</animation>
+							<animation effect="zoom" center="auto" start="100" end="100" time="200">UnFocus</animation>
+							<control type="image">
+								<width>375</width>
+								<height>211</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>375</width>
+								<height>211</height>
+								<texture>$INFO[ListItem.Art(fanart)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="group">
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+								<include>SelectionAnimation</include>
+								<control type="image">
+									<bottom>-15</bottom>
+									<width>375</width>
+									<height>60</height>
+									<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								</control>
+							</control>
+							<control type="label">
+								<left>20</left>
+								<bottom>0</bottom>
+								<height>30</height>
+								<width>355</width>
+								<label>$INFO[ListItem.Label]</label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Tile</font>
+								<textcolor>$VAR[TextColor]</textcolor>
+								<scroll>true</scroll>
+							</control>
+							<control type="image">
+								<width>375</width>
+								<height>211</height>
+								<texture colordiffuse="$VAR[TextColor]" border="11,43,43,11">views/border.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<itemlayout height="216" width="375" condition="!String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>375</width>
+								<height>211</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>375</width>
+								<height>211</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="label">
+								<left>20</left>
+								<bottom>0</bottom>
+								<height>30</height>
+								<width>355</width>
+								<label>$INFO[ListItem.Label]</label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Tile</font>
+								<textcolor>$VAR[TextColor]</textcolor>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="216" width="375" condition="!String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<animation effect="zoom" center="auto" start="100" end="100" time="200">Focus</animation>
+							<animation effect="zoom" center="auto" start="100" end="100" time="200">UnFocus</animation>
+							<control type="image">
+								<width>375</width>
+								<height>211</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>375</width>
+								<height>211</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="group">
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+								<include>SelectionAnimation</include>
+								<control type="image">
+									<bottom>-15</bottom>
+									<width>375</width>
+									<height>60</height>
+									<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								</control>
+							</control>
+							<control type="label">
+								<left>20</left>
+								<bottom>0</bottom>
+								<height>30</height>
+								<width>355</width>
+								<label>$INFO[ListItem.Label]</label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Tile</font>
+								<textcolor>$VAR[TextColor]</textcolor>
+								<scroll>true</scroll>
+							</control>
+							<control type="image">
+								<width>375</width>
+								<height>211</height>
+								<texture colordiffuse="$VAR[TextColor]" border="11,43,43,11">views/border.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<!--> Content <!-->
+					<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
 				</control>
-				<control type="group">
-					<include>SelectionAnimation</include>
-					<control type="image">
-						<bottom>0</bottom>
-						<width>233</width>
-						<height>60</height>
-						<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
-					</control>
-					<control type="label">
-						<left>20</left>
-						<bottom>20</bottom>
-						<height>30</height>
-						<width>200</width>		
-						<label>$INFO[ListItem.Label]</label>
-						<align>left</align>
-						<aligny>center</aligny>
-						<font>Tile</font>
-						<textcolor>$VAR[TextColor]</textcolor>
-						<scroll>true</scroll>
-					</control>
+			</control>
+			<!--> Landscape <!-->
+			<control type="group">
+				<width>405</width>
+				<control type="label">
+					<left>20</left>
+					<width>405</width>
+					<height>30</height>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<align>left</align>
+					<aligny>left</aligny>
+					<font>Tile</font>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
 				</control>
-				<include>WatchedIndicator</include>
-				<control type="image">
-					<width>233</width>
-					<height>350</height>
-					<texture colordiffuse="$VAR[TextColor]" border="11,43,43,11">$VAR[BorderImage]</texture>
+				<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Landscape)</visible>
+				<control type="panel" id="$PARAM[listid]">
+					<description>Landscape</description>
+					<top>30</top>
+					<height>665</height>
+					<onup>1</onup>
+					<onleft>$PARAM[leftid]</onleft>
+					<onleft>$PARAM[leftid2]</onleft>
+					<onright>$PARAM[rightid]</onright>
+					<focusposition>-1</focusposition>
+					<movement>2</movement>
+					<orientation>vertical</orientation>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="216" width="375" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>375</width>
+								<height>211</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>375</width>
+								<height>211</height>
+								<texture>$INFO[ListItem.Art(fanart)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="label">
+								<left>20</left>
+								<bottom>0</bottom>
+								<height>30</height>
+								<width>355</width>
+								<label>$INFO[ListItem.Label]</label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Tile</font>
+								<textcolor>$VAR[TextColor]</textcolor>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="216" width="375" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<animation effect="zoom" center="auto" start="100" end="100" time="200">Focus</animation>
+							<animation effect="zoom" center="auto" start="100" end="100" time="200">UnFocus</animation>
+							<control type="image">
+								<width>375</width>
+								<height>211</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>375</width>
+								<height>211</height>
+								<texture>$INFO[ListItem.Art(fanart)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="group">
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+								<include>SelectionAnimation</include>
+								<control type="image">
+									<bottom>-15</bottom>
+									<width>375</width>
+									<height>60</height>
+									<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								</control>
+							</control>
+							<control type="label">
+								<left>20</left>
+								<bottom>0</bottom>
+								<height>30</height>
+								<width>355</width>
+								<label>$INFO[ListItem.Label]</label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Tile</font>
+								<textcolor>$VAR[TextColor]</textcolor>
+								<scroll>true</scroll>
+							</control>
+							<control type="image">
+								<width>375</width>
+								<height>211</height>
+								<texture colordiffuse="$VAR[TextColor]" border="11,43,43,11">views/border.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<itemlayout height="216" width="375" condition="!String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>375</width>
+								<height>211</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>375</width>
+								<height>211</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="label">
+								<left>20</left>
+								<bottom>0</bottom>
+								<height>30</height>
+								<width>355</width>
+								<label>$INFO[ListItem.Label]</label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Tile</font>
+								<textcolor>$VAR[TextColor]</textcolor>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="216" width="375" condition="!String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<animation effect="zoom" center="auto" start="100" end="100" time="200">Focus</animation>
+							<animation effect="zoom" center="auto" start="100" end="100" time="200">UnFocus</animation>
+							<control type="image">
+								<width>375</width>
+								<height>211</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>375</width>
+								<height>211</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="group">
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+								<include>SelectionAnimation</include>
+								<control type="image">
+									<bottom>-15</bottom>
+									<width>375</width>
+									<height>60</height>
+									<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								</control>
+							</control>
+							<control type="label">
+								<left>20</left>
+								<bottom>0</bottom>
+								<height>30</height>
+								<width>355</width>
+								<label>$INFO[ListItem.Label]</label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Tile</font>
+								<textcolor>$VAR[TextColor]</textcolor>
+								<scroll>true</scroll>
+							</control>
+							<control type="image">
+								<width>375</width>
+								<height>211</height>
+								<texture colordiffuse="$VAR[TextColor]" border="11,43,43,11">views/border.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<!--> Content <!-->
+					<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
 				</control>
-			</focusedlayout>
-		<!--> Content <!-->
-			<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
+			</control>
+			<!--> Square <!-->
+			<control type="group">
+				<width>476</width>
+				<height>695</height>
+				<control type="label">
+					<width>476</width>
+					<left>20</left>
+					<height>30</height>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<align>left</align>
+					<aligny>left</aligny>
+					<font>Tile</font>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+				</control>
+				<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Square)</visible>
+				<control type="panel" id="$PARAM[listid]">
+					<description>Squares</description>
+					<top>30</top>
+					<onup>1</onup>
+					<onleft>$PARAM[leftid]</onleft>
+					<onleft>$PARAM[leftid2]</onleft>
+					<onright>$PARAM[rightid]</onright>
+					<focusposition>-1</focusposition>
+					<movement>2</movement>
+					<orientation>vertical</orientation>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="223" width="223">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>218</width>
+								<height>218</height>
+								<aspectratio>scale</aspectratio>
+								<texture background="true">$INFO[ListItem.Icon]</texture>
+							</control>
+							<include>WatchedIndicator</include>
+						</control>
+					</itemlayout>
+					<focusedlayout height="223" width="223">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>218</width>
+								<height>218</height>
+								<aspectratio>scale</aspectratio>
+								<texture background="true">$INFO[ListItem.Icon]</texture>
+							</control>
+							<control type="group">
+								<include>SelectionAnimation</include>
+								<control type="image">
+									<bottom>-15</bottom>
+									<width>218</width>
+									<height>60</height>
+									<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								</control>
+								<control type="label">
+									<left>10</left>
+									<bottom>5</bottom>
+									<height>30</height>
+									<width>198</width>
+									<label>$INFO[ListItem.Label]</label>
+									<align>left</align>
+									<aligny>center</aligny>
+									<font>Tile</font>
+									<textcolor>$VAR[TextColor]</textcolor>
+									<scroll>true</scroll>
+								</control>
+							</control>
+							<include>WatchedIndicator</include>
+							<control type="image">
+								<width>218</width>
+								<height>218</height>
+								<texture colordiffuse="$VAR[TextColor]" border="11,43,43,11">$VAR[BorderImage]</texture>
+							</control>
+						</control>
+					</focusedlayout>
+					<!--> Content <!-->
+					<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
+				</control>
+			</control>
 		</definition>
 	</include>
 
+	<!--> 100% <!-->
 	<include name="WidgetTV">
 		<param name="listid"/>
 		<param name="widgetid"/>
+		<param name="upid"/>
+		<param name="leftid"/>
+		<param name="downid"/>
 		<definition>
-			<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(path))</visible>
 			<!--> Poster <!-->
-			<itemlayout height="280" width="197" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Poster)">
-				<control type="group">
-					<top>20</top>
+			<control type="group">
+				<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Poster)</visible>
+				<height>440</height>
+				<control type="label">
 					<left>20</left>
-					<control type="image">
-						<width>187</width>
-						<height>280</height>
-						<aspectratio>scale</aspectratio>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-					</control>
+					<width>500</width>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<font>Reg25</font>
+					<textcolor>$VAR[FocusedColor]</textcolor>
+					<visible>!Skin.HasSetting(ShowLabels) + Control.HasFocus($PARAM[listid])</visible>
 				</control>
-				<control type="group">
-					<top>20</top>
-					<right>-15</right>
-					<include>WatchedIndicator</include>
-				</control>
-			</itemlayout>
-			<focusedlayout height="280" width="197" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Poster)">
-				<control type="group">
-					<top>20</top>
+				<control type="label">
 					<left>20</left>
-					<control type="image">
-						<width>187</width>
-						<height>280</height>
-						<aspectratio>scale</aspectratio>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-					</control>
-					<control type="group">
-						<top>0</top>
-						<right>-15</right>
-						<include>WatchedIndicator</include>
-					</control>
-					<control type="image">
-						<top>-10</top>
-						<left>-20</left>
-						<animation type="Focus">
-							<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-						</animation>
-						<animation type="UnFocus">
-							<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-							<effect type="fade" start="100" end="0" time="200"/>
-						</animation>
-						<width>220</width>
-						<height>300</height>
-						<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
-						<visible>Control.HasFocus($PARAM[listid])</visible>
-					</control>
+					<width>500</width>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<font>Reg25</font>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+					<visible>!Skin.HasSetting(ShowLabels) + !Control.HasFocus($PARAM[listid])</visible>
 				</control>
-			</focusedlayout>
+				<control type="list" id="$PARAM[listid]">
+					<width>100%</width>
+					<top>40</top>
+					<onup>$PARAM[upid]</onup>
+					<ondown>$PARAM[downid]</ondown>
+					<onleft>$PARAM[leftid]</onleft>
+					<focusposition>0</focusposition>
+					<movement>0</movement>
+					<orientation>horizontal</orientation>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="370" width="257">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>247</width>
+								<height>370</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>247</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="group">
+								<top>0</top>
+								<right>-10</right>
+								<include>WatchedIndicator</include>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="370" width="257">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>							
+							<control type="image">
+								<width>247</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>247</width>
+								<height>370</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>247</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="group">
+								<top>0</top>
+								<right>-10</right>
+								<include>WatchedIndicator</include>
+							</control>
+							<control type="group">
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+								<top>0</top>
+								<right>-10</right>
+								<include>WatchedIndicator2</include>
+							</control>
+							<control type="image">
+								<top>0</top>
+								<left>-10</left>
+								<animation type="Focus">
+									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
+								</animation>
+								<animation type="UnFocus">
+									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
+									<effect type="fade" start="100" end="0" time="200"/>
+								</animation>
+								<width>267</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
+				</control>
+			</control>
+			<!--> Banner <!-->
+			<control type="group">
+				<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Banner)</visible>
+				<height>310</height>
+				<control type="label">
+					<left>20</left>
+					<width>500</width>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<font>Reg25</font>
+					<textcolor>$VAR[FocusedColor]</textcolor>
+					<visible>!Skin.HasSetting(ShowLabels) + Control.HasFocus($PARAM[listid])</visible>
+				</control>
+				<control type="label">
+					<left>20</left>
+					<width>500</width>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<font>Reg25</font>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+					<visible>!Skin.HasSetting(ShowLabels) + !Control.HasFocus($PARAM[listid])</visible>
+				</control>
+				<control type="list" id="$PARAM[listid]">
+					<width>100%</width>
+					<top>40</top>
+					<onup>$PARAM[upid]</onup>
+					<ondown>$PARAM[downid]</ondown>
+					<onleft>$PARAM[leftid]</onleft>
+					<focusposition>0</focusposition>
+					<movement>0</movement>
+					<orientation>horizontal</orientation>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="260" width="550" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture>$INFO[ListItem.Art(fanart)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="group">
+								<top>0</top>
+								<right>-10</right>
+								<include>WatchedIndicator</include>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="260" width="550" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture>$INFO[ListItem.Art(fanart)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="group">
+								<top>0</top>
+								<right>-10</right>
+								<include>WatchedIndicator</include>
+							</control>
+							<control type="group">
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+								<top>0</top>
+								<right>-10</right>
+								<include>WatchedIndicator2</include>
+							</control>
+							<control type="image">
+								<top>-10</top>
+								<left>15</left>
+								<animation type="Focus">
+									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
+								</animation>
+								<animation type="UnFocus">
+									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
+									<effect type="fade" start="100" end="0" time="200"/>
+								</animation>
+								<width>510</width>
+								<height>270</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<itemlayout height="260" width="550" condition="!String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture>$INFO[ListItem.Art(thumb)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="group">
+								<top>0</top>
+								<right>-10</right>
+								<include>WatchedIndicator</include>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="260" width="550" condition="!String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture>$INFO[ListItem.Art(thumb)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="group">
+								<top>0</top>
+								<right>-10</right>
+								<include>WatchedIndicator</include>
+							</control>
+							<control type="group">
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+								<top>0</top>
+								<right>-10</right>
+								<include>WatchedIndicator2</include>
+							</control>
+							<control type="image">
+								<top>-10</top>
+								<left>15</left>
+								<animation type="Focus">
+									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
+								</animation>
+								<animation type="UnFocus">
+									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
+									<effect type="fade" start="100" end="0" time="200"/>
+								</animation>
+								<width>510</width>
+								<height>270</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
+				</control>
+			</control>
 			<!--> Landscape <!-->
-			<itemlayout height="260" width="370" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Landscape)">
-				<control type="group">
+			<control type="group">
+				<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Landscape)</visible>
+				<height>310</height>
+				<control type="label">
 					<left>20</left>
-					<top>20</top>
-					<control type="image">
-						<width>360</width>
-						<height>250</height>
-						<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-					</control>
-					<control type="image">
-						<width>360</width>
-						<height>250</height>
-						<texture>$INFO[ListItem.Art(thumb)]</texture>
-						<aspectratio>scale</aspectratio>
-					</control>
-					<control type="image">
-						<width>360</width>
-						<height>250</height>
-						<texture>$INFO[ListItem.Art(fanart)]</texture>
-						<aspectratio>scale</aspectratio>
-					</control>
-					<control type="image">
-						<width>360</width>
-						<height>250</height>
-						<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
-						<visible>!Control.HasFocus($PARAM[listid])</visible>
-					</control>
+					<width>500</width>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<font>Reg25</font>
+					<textcolor>$VAR[FocusedColor]</textcolor>
+					<visible>!Skin.HasSetting(ShowLabels) + Control.HasFocus($PARAM[listid])</visible>
 				</control>
-			</itemlayout>
-			<focusedlayout height="260" width="370" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Landscape)">
-				<control type="group">
+				<control type="label">
 					<left>20</left>
-					<top>20</top>
-					<control type="image">
-						<width>360</width>
-						<height>250</height>
-						<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-					</control>
-					<control type="image">
-						<width>360</width>
-						<height>250</height>
-						<texture>$INFO[ListItem.Art(thumb)]</texture>
-						<aspectratio>scale</aspectratio>
-					</control>
-					<control type="image">
-						<width>360</width>
-						<height>250</height>
-						<texture>$INFO[ListItem.Art(fanart)]</texture>
-						<aspectratio>scale</aspectratio>
-					</control>
-					<control type="image">
-						<width>360</width>
-						<height>250</height>
-						<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
-						<visible>!Control.HasFocus($PARAM[listid])</visible>
-					</control>
-					<control type="image">
-						<width>360</width>
-						<height>250</height>
-						<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border2.png</texture>
-						<visible>Control.HasFocus($PARAM[listid])</visible>
-					</control>
+					<width>500</width>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<font>Reg25</font>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+					<visible>!Skin.HasSetting(ShowLabels) + !Control.HasFocus($PARAM[listid])</visible>
 				</control>
-			</focusedlayout>
+				<control type="list" id="$PARAM[listid]">
+					<width>100%</width>
+					<top>40</top>
+					<onup>$PARAM[upid]</onup>
+					<ondown>$PARAM[downid]</ondown>
+					<onleft>$PARAM[leftid]</onleft>
+					<focusposition>0</focusposition>
+					<movement>0</movement>
+					<orientation>horizontal</orientation>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="260" width="370" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture>$INFO[ListItem.Art(fanart)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="group">
+								<top>0</top>
+								<right>-10</right>
+								<include>WatchedIndicator</include>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="260" width="370" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture>$INFO[ListItem.Art(fanart)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="group">
+								<top>0</top>
+								<right>-10</right>
+								<include>WatchedIndicator</include>
+							</control>
+							<control type="group">
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+								<top>0</top>
+								<right>-10</right>
+								<include>WatchedIndicator2</include>
+							</control>
+							<control type="image">
+								<top>-10</top>
+								<left>0</left>
+								<animation type="Focus">
+									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
+								</animation>
+								<animation type="UnFocus">
+									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
+									<effect type="fade" start="100" end="0" time="200"/>
+								</animation>
+								<width>360</width>
+								<height>270</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<itemlayout height="260" width="370" condition="!String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture>$INFO[ListItem.Art(thumb)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="group">
+								<top>0</top>
+								<right>-10</right>
+								<include>WatchedIndicator</include>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="260" width="370" condition="!String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture>$INFO[ListItem.Art(thumb)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="group">
+								<top>0</top>
+								<right>-10</right>
+								<include>WatchedIndicator</include>
+							</control>
+							<control type="group">
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+								<top>0</top>
+								<right>-10</right>
+								<include>WatchedIndicator2</include>
+							</control>
+							<control type="image">
+								<top>-10</top>
+								<left>0</left>
+								<animation type="Focus">
+									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
+								</animation>
+								<animation type="UnFocus">
+									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
+									<effect type="fade" start="100" end="0" time="200"/>
+								</animation>
+								<width>360</width>
+								<height>270</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
+				</control>
+			</control>
 			<!--> Square <!-->
-			<itemlayout height="260" width="260" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Square)">
-				<control type="group">
+			<control type="group">
+				<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Square)</visible>
+				<height>310</height>
+				<control type="label">
 					<left>20</left>
-					<top>20</top>
-					<control type="image">
-						<width>250</width>
-						<height>250</height>
-						<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-					</control>
-					<control type="image">
-						<width>250</width>
-						<height>250</height>
-						<texture>$INFO[ListItem.Icon]</texture>
-						<aspectratio>scale</aspectratio>
-					</control>
-					<control type="image">
-						<width>250</width>
-						<height>250</height>
-						<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
-						<visible>!Control.HasFocus($PARAM[listid])</visible>
-					</control>
+					<width>500</width>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<font>Reg25</font>
+					<textcolor>$VAR[FocusedColor]</textcolor>
+					<visible>!Skin.HasSetting(ShowLabels) + Control.HasFocus($PARAM[listid])</visible>
 				</control>
-			</itemlayout>
-			<focusedlayout height="260" width="260" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Square)">
-				<control type="group">
+				<control type="label">
 					<left>20</left>
-					<top>20</top>
-					<control type="image">
-						<width>250</width>
-						<height>250</height>
-						<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-					</control>
-					<control type="image">
-						<width>250</width>
-						<height>250</height>
-						<texture>$INFO[ListItem.Icon]</texture>
-						<aspectratio>scale</aspectratio>
-					</control>
-					<control type="image">
-						<width>250</width>
-						<height>250</height>
-						<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
-						<visible>!Control.HasFocus($PARAM[listid])</visible>
-					</control>
-					<control type="image">
-						<width>250</width>
-						<height>250</height>
-						<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border2.png</texture>
-						<visible>Control.HasFocus($PARAM[listid])</visible>
-					</control>
+					<width>500</width>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<font>Reg25</font>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+					<visible>!Skin.HasSetting(ShowLabels) + !Control.HasFocus($PARAM[listid])</visible>
 				</control>
-			</focusedlayout>
-			<!--> Content <!-->
-			<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
+				<control type="list" id="$PARAM[listid]">
+					<width>100%</width>
+					<top>40</top>
+					<onup>$PARAM[upid]</onup>
+					<ondown>$PARAM[downid]</ondown>
+					<onleft>$PARAM[leftid]</onleft>
+					<focusposition>0</focusposition>
+					<movement>0</movement>
+					<orientation>horizontal</orientation>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="260" width="260">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>250</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>250</width>
+								<height>250</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>250</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="group">
+								<top>0</top>
+								<right>-10</right>
+								<include>WatchedIndicator</include>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="260" width="260">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>250</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>250</width>
+								<height>250</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>250</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="group">
+								<top>0</top>
+								<right>-10</right>
+								<include>WatchedIndicator</include>
+							</control>
+							<control type="group">
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+								<top>0</top>
+								<right>-10</right>
+								<include>WatchedIndicator2</include>
+							</control>
+							<control type="image">
+								<top>-10</top>
+								<left>-10</left>
+								<animation type="Focus">
+									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
+								</animation>
+								<animation type="UnFocus">
+									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
+									<effect type="fade" start="100" end="0" time="200"/>
+								</animation>
+								<width>270</width>
+								<height>270</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
+				</control>
+			</control>
 		</definition>
 	</include>
 
+	<!--> 98% <!-->
 	<include name="WidgetAndroid">
 		<param name="listid"/>
 		<param name="widgetid"/>
+		<param name="upid"/>
+		<param name="downid"/>
+		<param name="leftid"/>
+		<param name="width" default="100%"/>
+		<param name="height" default="340"/>
+		<param name="Showcase" default="false"/>
+		<param name="System" default="false"/>
+		<param name="Apps" default="false"/>
+		<param name="Favourites" default="false"/>
+		<param name="Settings" default="false"/>
+		<param name="visible" default="true"/>
 		<definition>
+			<control type="group">
+				<visible>$PARAM[System] + $PARAM[visible] + !Skin.HasSetting(ShowLabels)</visible>
+				<left>20</left>
+				<height>40</height>
+				<control type="label">
+					<width>500</width>
+					<label>$LOCALIZE[31022]</label>
+					<font>Reg25</font>
+					<textcolor>$VAR[FocusedColor2]</textcolor>
+					<visible>Control.HasFocus($PARAM[listid])</visible>
+				</control>
+				<control type="label">
+					<width>500</width>
+					<label>$LOCALIZE[31022]</label>
+					<font>Reg25</font>
+					<textcolor>$VAR[UnFocusedColor2]</textcolor>
+					<visible>!Control.HasFocus($PARAM[listid])</visible>
+				</control>
+			</control>
+			<control type="group">
+				<visible>!Skin.HasSetting(ShowLabels) + !String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + ![$PARAM[Showcase]|$PARAM[System]|$PARAM[Apps]|$PARAM[Favourites]|$PARAM[Settings]]</visible>
+				<left>20</left>
+				<height>40</height>
+				<control type="label">
+					<width>500</width>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<font>Reg25</font>
+					<textcolor>$VAR[FocusedColor2]</textcolor>
+					<visible>Control.HasFocus($PARAM[listid])</visible>
+				</control>
+				<control type="label">
+					<width>500</width>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<font>Reg25</font>
+					<textcolor>$VAR[UnFocusedColor2]</textcolor>
+					<visible>!Control.HasFocus($PARAM[listid])</visible>
+				</control>
+			</control>
+			<control type="group">
+				<visible>!String.IsEmpty(Window(Home).Property(favourite.1.Path)) + !Skin.HasSetting(ShowLabels) + $PARAM[Favourites] + $PARAM[visible]</visible>
+				<left>20</left>
+				<height>40</height>
+				<control type="label">
+					<width>500</width>
+					<label>$LOCALIZE[1036]</label>
+					<font>Reg25</font>
+					<textcolor>$VAR[FocusedColor2]</textcolor>
+					<visible>Control.HasFocus($PARAM[listid])</visible>
+				</control>
+				<control type="label">
+					<width>500</width>
+					<label>$LOCALIZE[1036]</label>
+					<font>Reg25</font>
+					<textcolor>$VAR[UnFocusedColor2]</textcolor>
+					<visible>!Control.HasFocus($PARAM[listid])</visible>
+				</control>
+			</control>
+			<control type="group">
+				<visible>[$PARAM[Apps] + System.Platform.Android] + !Skin.HasSetting(ShowLabels)</visible>
+				<top>0</top>
+				<left>20</left>
+				<height>60</height>
+				<control type="label">
+					<width>500</width>
+					<label>$LOCALIZE[31025]</label>
+					<font>Reg25</font>
+					<textcolor>$VAR[FocusedColor]</textcolor>
+					<visible>Control.HasFocus($PARAM[listid])</visible>
+				</control>
+				<control type="label">
+					<width>500</width>
+					<label>$LOCALIZE[31025]</label>
+					<font>Reg25</font>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+					<visible>!Control.HasFocus($PARAM[listid])</visible>
+				</control>
+			</control>
+			<!--> System <!-->
+			<control type="group">
+				<visible>$PARAM[System] + $PARAM[visible]</visible>
+				<height>400</height>
+				<control type="panel" id="$PARAM[listid]">
+					<left>20</left>
+					<width>100%</width>
+					<onup>$PARAM[upid]</onup>
+					<ondown>$PARAM[downid]</ondown>
+					<focusposition>-1</focusposition>
+					<movement>4</movement>
+					<orientation>horizontal</orientation>
+					<include>HomeZoomAnimation3</include>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="190" width="330">
+						<control type="group">
+							<top>20</top>
+							<control type="image">
+								<width>320</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[MaterialColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<left>20</left>
+								<width>100</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[White]">$INFO[ListItem.Icon]</texture>
+								<aspectratio>keep</aspectratio>
+							</control>
+							<control type="label">
+								<left>150</left>
+								<bottom>-20</bottom>
+								<height>190</height>
+								<width>160</width>		
+								<label>$INFO[ListItem.Label]</label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Tile</font>
+								<textcolor>$VAR[White]</textcolor>
+								<scroll>false</scroll>
+							</control>
+							<control type="image">
+								<width>320</width>
+								<height>180</height>
+								<texture>$INFO[ListItem.ActualIcon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>320</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="190" width="330">
+						<control type="group">
+							<top>20</top>
+							<animation type="Focus">
+								<effect type="zoom" center="auto" start="100" end="105" time="200"/>
+							</animation>
+							<animation type="UnFocus">
+								<effect type="zoom" center="auto" start="105" end="100" time="0"/>
+							</animation>
+							<control type="image">
+								<top>-15</top>
+								<left>0</left>
+								<animation type="Focus">
+									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
+								</animation>
+								<animation type="UnFocus">
+									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
+									<effect type="fade" start="100" end="0" time="200"/>
+								</animation>
+								<width>320</width>
+								<height>210</height>
+								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
+							</control>
+							<control type="image">
+								<width>320</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[MaterialColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<left>20</left>
+								<width>100</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[White]">$INFO[ListItem.Icon]</texture>
+								<aspectratio>keep</aspectratio>
+							</control>
+							<control type="label">
+								<left>150</left>
+								<bottom>-20</bottom>
+								<height>190</height>
+								<width>160</width>		
+								<label>$INFO[ListItem.Label]</label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Tile</font>
+								<textcolor>$VAR[White]</textcolor>
+								<scroll>false</scroll>
+							</control>
+							<control type="image">
+								<width>320</width>
+								<height>180</height>
+								<texture>$INFO[ListItem.ActualIcon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+						</control>
+					</focusedlayout>
+					<content>
+						<include>AllApps</include>
+						<include>AndroidApps</include>
+					</content>
+				</control>
+			</control>
+			<!--> Apps <!-->
+			<control type="group">
+				<visible>$PARAM[Apps] + System.Platform.Android</visible>
+				<height>400</height>
+				<control type="panel" id="$PARAM[listid]">
+					<left>20</left>
+					<width>100%</width>
+					<onup>$PARAM[upid]</onup>
+					<ondown>$PARAM[downid]</ondown>
+					<focusposition>-1</focusposition>
+					<movement>4</movement>
+					<orientation>horizontal</orientation>
+					<include>HomeZoomAnimation3</include>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="190" width="330">
+						<control type="group">
+							<top>20</top>
+							<control type="image">
+								<width>320</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<left>20</left>
+								<width>100</width>
+								<height>180</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>keep</aspectratio>
+							</control>
+							<control type="label">
+								<left>150</left>
+								<bottom>-20</bottom>
+								<height>190</height>
+								<width>160</width>		
+								<label>$INFO[ListItem.Label]</label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Tile</font>
+								<textcolor>$VAR[White]</textcolor>
+								<scroll>false</scroll>
+							</control>
+							<control type="image">
+								<width>320</width>
+								<height>180</height>
+								<texture>$INFO[ListItem.ActualIcon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>320</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="190" width="330">
+						<control type="group">
+							<top>20</top>
+							<animation type="Focus">
+								<effect type="zoom" center="auto" start="100" end="105" time="200"/>
+							</animation>
+							<animation type="UnFocus">
+								<effect type="zoom" center="auto" start="105" end="100" time="0"/>
+							</animation>
+							<control type="image">
+								<top>-15</top>
+								<left>0</left>
+								<animation type="Focus">
+									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
+								</animation>
+								<animation type="UnFocus">
+									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
+									<effect type="fade" start="100" end="0" time="200"/>
+								</animation>
+								<width>320</width>
+								<height>210</height>
+								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
+							</control>
+							<control type="image">
+								<width>320</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<left>20</left>
+								<width>100</width>
+								<height>180</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>keep</aspectratio>
+							</control>
+							<control type="label">
+								<left>150</left>
+								<bottom>-20</bottom>
+								<height>190</height>
+								<width>160</width>		
+								<label>$INFO[ListItem.Label]</label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Tile</font>
+								<textcolor>$VAR[White]</textcolor>
+								<scroll>false</scroll>
+							</control>
+							<control type="image">
+								<width>320</width>
+								<height>180</height>
+								<texture>$INFO[ListItem.ActualIcon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+						</control>
+					</focusedlayout>
+					<include>Android</include>
+				</control>
+			</control>
+			<!--> Banner <!-->
+			<control type="group">
+				<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Banner) + ![$PARAM[Favourites]|$PARAM[Apps]|$PARAM[System]|$PARAM[Settings]]</visible>
+				<height>400</height>
+				<control type="panel" id="$PARAM[listid]">
+					<width>$PARAM[width]</width>
+					<onup>$PARAM[upid]</onup>
+					<ondown>$PARAM[downid]</ondown>
+					<onleft>$PARAM[leftid]</onleft>
+					<focusposition>-1</focusposition>
+					<movement>4</movement>
+					<orientation>horizontal</orientation>
+					<include>HomeZoomAnimation3</include>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="190" width="395" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>385</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>385</width>
+								<height>180</height>
+								<texture>$INFO[ListItem.Art(fanart)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>385</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="190" width="395" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<animation type="Focus">
+								<effect type="zoom" center="auto" start="100" end="105" time="200"/>
+							</animation>
+							<animation type="UnFocus">
+								<effect type="zoom" center="auto" start="105" end="100" time="200"/>
+							</animation>
+							<control type="image">
+								<top>-14</top>
+								<left>10</left>
+								<animation type="Focus">
+									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
+								</animation>
+								<animation type="UnFocus">
+									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
+									<effect type="fade" start="100" end="0" time="200"/>
+								</animation>
+								<width>364</width>
+								<height>210</height>
+								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>385</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>385</width>
+								<height>180</height>
+								<texture>$INFO[ListItem.Art(fanart)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>385</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<itemlayout height="190" width="395" condition="!String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>385</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>385</width>
+								<height>180</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>385</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="190" width="395" condition="!String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<animation type="Focus">
+								<effect type="zoom" center="auto" start="100" end="105" time="200"/>
+							</animation>
+							<animation type="UnFocus">
+								<effect type="zoom" center="auto" start="105" end="100" time="200"/>
+							</animation>
+							<control type="image">
+								<top>-14</top>
+								<left>10</left>
+								<animation type="Focus">
+									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
+								</animation>
+								<animation type="UnFocus">
+									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
+									<effect type="fade" start="100" end="0" time="200"/>
+								</animation>
+								<width>365</width>
+								<height>210</height>
+								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>385</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>385</width>
+								<height>180</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>385</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
+				</control>
+			</control>
+			<!--> Landscape <!-->
+			<control type="group">
+				<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Landscape) + ![$PARAM[Favourites]|$PARAM[Apps]|$PARAM[System]|$PARAM[Settings]]</visible>
+				<height>440</height>
+				<control type="fixedlist" id="$PARAM[listid]">
+					<width>$PARAM[width]</width>
+					<onup>$PARAM[upid]</onup>
+					<ondown>$PARAM[downid]</ondown>
+					<onleft>$PARAM[leftid]</onleft>
+					<focusposition>-1</focusposition>
+					<movement>1</movement>
+					<orientation>horizontal</orientation>
+					<include>HomeZoomAnimation3</include>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="370" width="535" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>530</width>
+								<height>300</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>530</width>
+								<height>300</height>
+								<texture>$INFO[ListItem.Art(fanart)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<bottom>-20</bottom>
+								<width>530</width>
+								<height>70</height>
+								<texture colordiffuse="$VAR[MaterialColor]">color_white.png</texture>
+							</control>
+							<control type="label">
+								<left>20</left>
+								<bottom>-20</bottom>
+								<width>490</width>
+								<height>70</height>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Reg20</font>
+								<textcolor>$VAR[White]</textcolor>
+								<label>$INFO[ListItem.label]</label>
+							</control>
+							<control type="image">
+								<width>530</width>
+								<height>300</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="370" width="535" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<animation type="Focus">
+								<effect type="zoom" center="auto" start="100" end="105" time="200"/>
+							</animation>
+							<animation type="UnFocus">
+								<effect type="zoom" center="auto" start="105" end="100" time="200"/>
+							</animation>
+							<control type="image">
+								<top>10</top>
+								<left>20</left>
+								<animation type="Focus">
+									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
+								</animation>
+								<animation type="UnFocus">
+									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
+									<effect type="fade" start="100" end="0" time="200"/>
+								</animation>
+								<width>490</width>
+								<height>360</height>
+								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>530</width>
+								<height>300</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>530</width>
+								<height>300</height>
+								<texture>$INFO[ListItem.Art(fanart)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<bottom>-20</bottom>
+								<width>530</width>
+								<height>70</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<bottom>-20</bottom>
+								<width>530</width>
+								<height>70</height>
+								<texture colordiffuse="$VAR[MaterialColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="label">
+								<left>20</left>
+								<bottom>-20</bottom>
+								<width>490</width>
+								<height>70</height>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Reg20</font>
+								<textcolor>$VAR[White]</textcolor>
+								<label>$INFO[ListItem.label]</label>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="label">
+								<left>20</left>
+								<bottom>-20</bottom>
+								<width>490</width>
+								<height>70</height>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Reg20</font>
+								<label>$INFO[ListItem.label]</label>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>530</width>
+								<height>300</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<itemlayout height="370" width="535" condition="!String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>530</width>
+								<height>300</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>530</width>
+								<height>300</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<bottom>-20</bottom>
+								<width>530</width>
+								<height>70</height>
+								<texture colordiffuse="$VAR[MaterialColor]">color_white.png</texture>
+							</control>
+							<control type="label">
+								<left>20</left>
+								<bottom>-20</bottom>
+								<width>490</width>
+								<height>70</height>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Reg20</font>
+								<textcolor>$VAR[White]</textcolor>
+								<label>$INFO[ListItem.label]</label>
+							</control>
+							<control type="image">
+								<width>530</width>
+								<height>300</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="370" width="535" condition="!String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<animation type="Focus">
+								<effect type="zoom" center="auto" start="100" end="105" time="200"/>
+							</animation>
+							<animation type="UnFocus">
+								<effect type="zoom" center="auto" start="105" end="100" time="200"/>
+							</animation>
+							<control type="image">
+								<top>10</top>
+								<left>20</left>
+								<animation type="Focus">
+									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
+								</animation>
+								<animation type="UnFocus">
+									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
+									<effect type="fade" start="100" end="0" time="200"/>
+								</animation>
+								<width>490</width>
+								<height>360</height>
+								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>530</width>
+								<height>300</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>530</width>
+								<height>300</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<bottom>-20</bottom>
+								<width>530</width>
+								<height>70</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<bottom>-20</bottom>
+								<width>530</width>
+								<height>70</height>
+								<texture colordiffuse="$VAR[MaterialColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="label">
+								<left>20</left>
+								<bottom>-20</bottom>
+								<width>490</width>
+								<height>70</height>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Reg20</font>
+								<textcolor>$VAR[White]</textcolor>
+								<label>$INFO[ListItem.label]</label>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="label">
+								<left>20</left>
+								<bottom>-20</bottom>
+								<width>490</width>
+								<height>70</height>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Reg20</font>
+								<label>$INFO[ListItem.label]</label>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>530</width>
+								<height>300</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
+				</control>
+			</control>
 			<!--> Poster <!-->
-			<itemlayout height="370" width="260" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Poster)">
-				<control type="group">
-					<left>20</left>
-					<top>20</top>
-					<control type="image">
-						<width>250</width>
-						<height>370</height>
-						<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-					</control>
-					<control type="image">
-						<width>250</width>
-						<height>370</height>
-						<texture>$INFO[ListItem.Icon]</texture>
-						<aspectratio>scale</aspectratio>
-					</control>
-					<control type="image">
-						<width>250</width>
-						<height>370</height>
-						<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
-						<visible>!Control.HasFocus($PARAM[listid])</visible>
-					</control>
+			<control type="group">
+				<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Poster) + ![$PARAM[Favourites]|$PARAM[Apps]|$PARAM[System]|$PARAM[Settings]]</visible>
+				<height>400</height>
+				<control type="panel" id="$PARAM[listid]">
+					<width>$PARAM[width]</width>
+					<onup>$PARAM[upid]</onup>
+					<ondown>$PARAM[downid]</ondown>
+					<onleft>$PARAM[leftid]</onleft>
+					<focusposition>-1</focusposition>
+					<movement>4</movement>
+					<orientation>horizontal</orientation>
+					<include>HomeZoomAnimation3</include>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="370" width="260">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>250</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>250</width>
+								<height>370</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<bottom>-20</bottom>
+								<width>250</width>
+								<height>50</height>
+								<texture colordiffuse="$VAR[MaterialColor]">color_white.png</texture>
+							</control>
+							<control type="label">
+								<left>10</left>
+								<bottom>-20</bottom>
+								<width>230</width>
+								<height>50</height>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Reg20</font>
+								<textcolor>$VAR[White]</textcolor>
+								<label>$INFO[ListItem.label]</label>
+							</control>
+							<control type="image">
+								<width>250</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="370" width="260">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<animation type="Focus">
+								<effect type="zoom" center="auto" start="100" end="105" time="200"/>
+							</animation>
+							<animation type="UnFocus">
+								<effect type="zoom" center="auto" start="105" end="100" time="200"/>
+							</animation>
+							<control type="image">
+								<top>3</top>
+								<left>-8</left>
+								<animation type="Focus">
+									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
+								</animation>
+								<animation type="UnFocus">
+									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
+									<effect type="fade" start="100" end="0" time="200"/>
+								</animation>
+								<width>265</width>
+								<height>365</height>
+								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>250</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>250</width>
+								<height>370</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<bottom>-20</bottom>
+								<width>250</width>
+								<height>50</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="label">
+								<left>10</left>
+								<bottom>-20</bottom>
+								<width>230</width>
+								<height>50</height>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Reg20</font>
+								<label>$INFO[ListItem.label]</label>
+							</control>
+							<control type="image">
+								<width>250</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
 				</control>
-			</itemlayout>
-			<focusedlayout height="370" width="260" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Poster)">
-				<control type="group">
-					<left>20</left>
-					<top>20</top>
-					<animation type="Focus">
-						<effect type="zoom" center="auto" start="100" end="110" time="200"/>
-					</animation>
-					<animation type="UnFocus">
-						<effect type="zoom" center="auto" start="110" end="100" time="200"/>
-					</animation>
-					<control type="image">
-						<top>3</top>
-						<left>-8</left>
-						<animation type="Focus">
-							<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-						</animation>
-						<animation type="UnFocus">
-							<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-							<effect type="fade" start="100" end="0" time="200"/>
-						</animation>
-						<width>265</width>
-						<height>365</height>
-						<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
-						<visible>Control.HasFocus($PARAM[listid])</visible>
-					</control>
-					<control type="image">
-						<width>250</width>
-						<height>370</height>
-						<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-					</control>
-					<control type="image">
-						<width>250</width>
-						<height>370</height>
-						<texture>$INFO[ListItem.Icon]</texture>
-						<aspectratio>scale</aspectratio>
-					</control>
-					<control type="image">
-						<width>250</width>
-						<height>370</height>
-						<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
-						<visible>!Control.HasFocus($PARAM[listid])</visible>
-					</control>
-				</control>
-			</focusedlayout>
+			</control>
 			<!--> Square <!-->
-			<itemlayout height="195" width="195" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Square)">
-				<control type="group">
-					<left>20</left>
-					<top>20</top>
-					<control type="image">
-						<width>185</width>
-						<height>185</height>
-						<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-					</control>
-					<control type="image">
-						<width>185</width>
-						<height>185</height>
-						<texture>$INFO[ListItem.Icon]</texture>
-						<aspectratio>scale</aspectratio>
-					</control>
-					<control type="image">
-						<width>185</width>
-						<height>185</height>
-						<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
-						<visible>!Control.HasFocus($PARAM[listid])</visible>
-					</control>
+			<control type="group">
+				<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Square) + ![$PARAM[Favourites]|$PARAM[Apps]|$PARAM[System]|$PARAM[Settings]]</visible>
+				<height>$PARAM[height]</height>
+				<control type="fixedlist" id="$PARAM[listid]">
+					<width>$PARAM[width]</width>
+					<onup>$PARAM[upid]</onup>
+					<ondown>$PARAM[downid]</ondown>
+					<onleft>$PARAM[leftid]</onleft>
+					<focusposition>-1</focusposition>
+					<movement>4</movement>
+					<orientation>horizontal</orientation>
+					<include>HomeZoomAnimation3</include>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="310" width="310" condition="!$PARAM[Showcase]">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>300</width>
+								<height>300</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>300</width>
+								<height>300</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<bottom>-20</bottom>
+								<width>300</width>
+								<height>50</height>
+								<texture colordiffuse="$VAR[MaterialColor]">color_white.png</texture>
+							</control>
+							<control type="label">
+								<left>10</left>
+								<bottom>-20</bottom>
+								<width>290</width>
+								<height>50</height>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Reg20</font>
+								<textcolor>$VAR[White]</textcolor>
+								<label>$INFO[ListItem.label]</label>
+							</control>
+							<control type="image">
+								<width>300</width>
+								<height>310</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="310" width="310" condition="!$PARAM[Showcase]">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<animation type="Focus">
+								<effect type="zoom" center="auto" start="100" end="105" time="200"/>
+							</animation>
+							<animation type="UnFocus">
+								<effect type="zoom" center="auto" start="105" end="100" time="200"/>
+							</animation>
+							<control type="image">
+								<top>0</top>
+								<left>0</left>
+								<animation type="Focus">
+									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
+								</animation>
+								<animation type="UnFocus">
+									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
+									<effect type="fade" start="100" end="0" time="200"/>
+								</animation>
+								<width>300</width>
+								<height>310</height>
+								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>300</width>
+								<height>300</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>300</width>
+								<height>300</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<bottom>-20</bottom>
+								<width>300</width>
+								<height>50</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<bottom>-20</bottom>
+								<width>300</width>
+								<height>50</height>
+								<texture colordiffuse="$VAR[MaterialColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="label">
+								<left>10</left>
+								<bottom>-20</bottom>
+								<width>290</width>
+								<height>50</height>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Reg20</font>
+								<label>$INFO[ListItem.label]</label>
+							</control>
+							<control type="label">
+								<left>10</left>
+								<bottom>-20</bottom>
+								<width>290</width>
+								<height>50</height>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Reg20</font>
+								<textcolor>$VAR[White]</textcolor>
+								<label>$INFO[ListItem.label]</label>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>300</width>
+								<height>310</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<itemlayout height="370" width="370" condition="$PARAM[Showcase]">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>360</width>
+								<height>360</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>360</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<bottom>-20</bottom>
+								<width>360</width>
+								<height>50</height>
+								<texture colordiffuse="$VAR[MaterialColor]">color_white.png</texture>
+							</control>
+							<control type="label">
+								<left>10</left>
+								<bottom>-20</bottom>
+								<width>340</width>
+								<height>50</height>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Reg20</font>
+								<textcolor>$VAR[White]</textcolor>
+								<label>$INFO[ListItem.label]</label>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="370" width="370" condition="$PARAM[Showcase]">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<animation type="Focus">
+								<effect type="zoom" center="auto" start="100" end="105" time="200"/>
+							</animation>
+							<animation type="UnFocus">
+								<effect type="zoom" center="auto" start="105" end="100" time="200"/>
+							</animation>
+							<control type="image">
+								<top>0</top>
+								<left>0</left>
+								<animation type="Focus">
+									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
+								</animation>
+								<animation type="UnFocus">
+									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
+									<effect type="fade" start="100" end="0" time="200"/>
+								</animation>
+								<width>360</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>360</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>360</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<bottom>-20</bottom>
+								<width>360</width>
+								<height>50</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<bottom>-20</bottom>
+								<width>360</width>
+								<height>50</height>
+								<texture colordiffuse="$VAR[MaterialColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="label">
+								<left>10</left>
+								<bottom>-20</bottom>
+								<width>340</width>
+								<height>50</height>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Reg20</font>
+								<label>$INFO[ListItem.label]</label>
+							</control>
+							<control type="label">
+								<left>10</left>
+								<bottom>-20</bottom>
+								<width>340</width>
+								<height>50</height>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Reg20</font>
+								<textcolor>$VAR[White]</textcolor>
+								<label>$INFO[ListItem.label]</label>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
 				</control>
-			</itemlayout>
-			<focusedlayout height="195" width="195" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Square)">
-				<control type="group">
+			</control>
+			<!--> Favourites <!-->
+			<control type="group">
+				<visible>!String.IsEmpty(Window(Home).Property(favourite.1.Path)) + $PARAM[Favourites] + $PARAM[visible]</visible>
+				<height>420</height>
+				<control type="panel" id="$PARAM[listid]">
 					<left>20</left>
-					<top>20</top>
-					<animation type="Focus">
-						<effect type="zoom" center="auto" start="100" end="110" time="200"/>
-					</animation>
-					<animation type="UnFocus">
-						<effect type="zoom" center="auto" start="110" end="100" time="200"/>
-					</animation>
-					<control type="image">
-						<top>-15</top>
-						<left>-12</left>
-						<animation type="Focus">
-							<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-						</animation>
-						<animation type="UnFocus">
-							<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-							<effect type="fade" start="100" end="0" time="200"/>
-						</animation>
-						<width>210</width>
-						<height>215</height>
-						<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
-						<visible>Control.HasFocus($PARAM[listid])</visible>
-					</control>
-					<control type="image">
-						<width>185</width>
-						<height>185</height>
-						<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-					</control>
-					<control type="image">
-						<width>185</width>
-						<height>185</height>
-						<texture>$INFO[ListItem.Icon]</texture>
-						<aspectratio>scale</aspectratio>
-					</control>
-					<control type="image">
-						<width>185</width>
-						<height>185</height>
-						<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
-						<visible>!Control.HasFocus($PARAM[listid])</visible>
-					</control>
+					<width>100%</width>
+					<onup>$PARAM[upid]</onup>
+					<ondown>$PARAM[downid]</ondown>
+					<focusposition>-1</focusposition>
+					<movement>4</movement>
+					<orientation>horizontal</orientation>
+					<include>HomeZoomAnimation3</include>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="190" width="330">
+						<control type="group">
+							<top>20</top>
+							<control type="image">
+								<width>320</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="label">
+								<left>20</left>
+								<bottom>-20</bottom>
+								<height>185</height>
+								<width>280</width>		
+								<label>$INFO[ListItem.Label]</label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Tile</font>
+								<textcolor>$VAR[UnFocusedColor]</textcolor>
+								<scroll>false</scroll>
+							</control>
+							<control type="image">
+								<width>320</width>
+								<height>180</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>320</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="190" width="330">
+						<control type="group">
+							<top>20</top>
+							<animation type="Focus">
+								<effect type="zoom" center="auto" start="100" end="105" time="200"/>
+							</animation>
+							<animation type="UnFocus">
+								<effect type="zoom" center="auto" start="105" end="100" time="0"/>
+							</animation>
+							<control type="image">
+								<top>-15</top>
+								<left>0</left>
+								<animation type="Focus">
+									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
+								</animation>
+								<animation type="UnFocus">
+									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
+									<effect type="fade" start="100" end="0" time="200"/>
+								</animation>
+								<width>320</width>
+								<height>210</height>
+								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
+							</control>
+							<control type="image">
+								<width>320</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="label">
+								<left>20</left>
+								<bottom>-20</bottom>
+								<height>185</height>
+								<width>280</width>		
+								<label>$INFO[ListItem.Label]</label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Tile</font>
+								<textcolor>$VAR[TextColor]</textcolor>
+								<scroll>false</scroll>
+							</control>
+							<control type="image">
+								<width>320</width>
+								<height>180</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+						</control>
+					</focusedlayout>
+					<content>favourites://</content>
 				</control>
-			</focusedlayout>
-			<!--> Content <!-->
-			<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
+			</control>
+			<!--> Settings <!-->
+			<control type="group">
+				<visible>$PARAM[Settings]</visible>
+				<height>420</height>
+				<control type="panel" id="$PARAM[listid]">
+					<left>20</left>
+					<width>100%</width>
+					<onup>$PARAM[upid]</onup>
+					<ondown>$PARAM[downid]</ondown>
+					<focusposition>-1</focusposition>
+					<movement>4</movement>
+					<orientation>vertical</orientation>
+					<include>HomeZoomAnimation3</include>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="180" width="190">
+						<control type="group">
+							<top>20</top>
+							<control type="image">
+								<width>180</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[UnFocusedColor2]">$INFO[ListItem.Icon]</texture>
+								<aspectratio>keep</aspectratio>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="180" width="190">
+						<control type="group">
+							<top>20</top>
+							<animation type="Focus">
+								<effect type="zoom" center="auto" start="100" end="110" time="200"/>
+							</animation>
+							<animation type="UnFocus">
+								<effect type="zoom" center="auto" start="110" end="100" time="0"/>
+							</animation>
+							<control type="image">
+								<width>180</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[MaterialColor]" border="9">views/Card_bg_white.png</texture>
+							</control>
+							<control type="image">
+								<width>180</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[White]">$INFO[ListItem.Icon]</texture>
+								<aspectratio>keep</aspectratio>
+							</control>
+						</control>
+					</focusedlayout>
+					<content>
+						<item>
+							<label>$LOCALIZE[5]</label>
+							<thumb>home/settings.png</thumb>
+							<onclick>Dialog.Close(all,true)</onclick>
+							<onclick>ActivateWindow(Settings)</onclick>
+						</item>
+						<item>
+							<label>$LOCALIZE[33060]</label>
+							<thumb>home/power.png</thumb>
+							<onclick>ActivateWindow(PlayerControls)</onclick>
+						</item>
+					</content>
+				</control>
+			</control>
 		</definition>
 	</include>
 
+	<!--> 100% <!-->
 	<include name="WidgetNetflix">
 		<param name="listid"/>
 		<param name="widgetid"/>
-		<definition>			
-			<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(path))</visible>
-			<!--> Poster <!-->
-			<itemlayout height="260" width="177" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Poster)">
-				<control type="group">
-					<top>20</top>
-					<left>210</left>
-					<control type="image">
-						<width>167</width>
-						<height>250</height>
-						<aspectratio>scale</aspectratio>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-					</control>
-				</control>
-				<control type="group">
-					<top>20</top>
-					<right>-25</right>
-					<include>WatchedIndicator</include>
-				</control>
-			</itemlayout>
-			<focusedlayout height="260" width="177" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Poster)">
-				<control type="group">
-					<top>20</top>
-					<left>210</left>
-					<control type="image">
-						<width>167</width>
-						<height>250</height>
-						<aspectratio>scale</aspectratio>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-					</control>
-					<control type="group">
-						<top>20</top>
-						<right>-25</right>
-						<include>WatchedIndicator</include>
-					</control>
-					<control type="image">
-						<width>167</width>
-						<height>250</height>
-						<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border2.png</texture>
-						<visible>Control.HasFocus($PARAM[listid])</visible>
-					</control>
-				</control>
-			</focusedlayout>
-			<!--> Landscape <!-->
-			<itemlayout height="260" width="370" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Landscape)">
-				<control type="group">
-					<left>20</left>
-					<top>20</top>
-					<control type="image">
-						<width>360</width>
-						<height>250</height>
-						<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-					</control>
-					<control type="image">
-						<width>360</width>
-						<height>250</height>
-						<texture>$INFO[ListItem.Art(thumb)]</texture>
-						<aspectratio>scale</aspectratio>
-					</control>
-					<control type="image">
-						<width>360</width>
-						<height>250</height>
-						<texture>$INFO[ListItem.Art(fanart)]</texture>
-						<aspectratio>scale</aspectratio>
-					</control>
-					<control type="image">
-						<width>360</width>
-						<height>250</height>
-						<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
-						<visible>!Control.HasFocus($PARAM[listid])</visible>
-					</control>
-				</control>
-			</itemlayout>
-			<focusedlayout height="260" width="370" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Landscape)">
-				<control type="group">
-					<left>20</left>
-					<top>20</top>
-					<control type="image">
-						<width>360</width>
-						<height>250</height>
-						<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-					</control>
-					<control type="image">
-						<width>360</width>
-						<height>250</height>
-						<texture>$INFO[ListItem.Art(thumb)]</texture>
-						<aspectratio>scale</aspectratio>
-					</control>
-					<control type="image">
-						<width>360</width>
-						<height>250</height>
-						<texture>$INFO[ListItem.Art(fanart)]</texture>
-						<aspectratio>scale</aspectratio>
-					</control>
-					<control type="image">
-						<width>360</width>
-						<height>250</height>
-						<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
-						<visible>!Control.HasFocus($PARAM[listid])</visible>
-					</control>
-					<control type="image">
-						<width>360</width>
-						<height>250</height>
-						<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border2.png</texture>
-						<visible>Control.HasFocus($PARAM[listid])</visible>
-					</control>
-				</control>
-			</focusedlayout>
-			<!--> Square <!-->
-			<itemlayout height="260" width="260" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Square)">
-				<control type="group">
-					<left>130</left>
-					<top>20</top>
-					<control type="image">
-						<width>250</width>
-						<height>250</height>
-						<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-					</control>
-					<control type="image">
-						<width>250</width>
-						<height>250</height>
-						<texture>$INFO[ListItem.Icon]</texture>
-						<aspectratio>scale</aspectratio>
-					</control>
-					<control type="image">
-						<width>250</width>
-						<height>250</height>
-						<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
-						<visible>!Control.HasFocus($PARAM[listid])</visible>
-					</control>
-				</control>
-			</itemlayout>
-			<focusedlayout height="260" width="260" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Square)">
-				<control type="group">
-					<left>130</left>
-					<top>20</top>
-					<control type="image">
-						<width>250</width>
-						<height>250</height>
-						<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-					</control>
-					<control type="image">
-						<width>250</width>
-						<height>250</height>
-						<texture>$INFO[ListItem.Icon]</texture>
-						<aspectratio>scale</aspectratio>
-					</control>
-					<control type="image">
-						<width>250</width>
-						<height>250</height>
-						<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
-						<visible>!Control.HasFocus($PARAM[listid])</visible>
-					</control>
-					<control type="image">
-						<width>250</width>
-						<height>250</height>
-						<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border2.png</texture>
-						<visible>Control.HasFocus($PARAM[listid])</visible>
-					</control>
-				</control>
-			</focusedlayout>
-			<!--> Content <!-->
-			<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
-		</definition>
-	</include>
-
-	<include name="WidgetAndroidO">
-		<param name="listid"/>
-		<param name="widgetid"/>
+		<param name="upid"/>
+		<param name="downid"/>
+		<param name="favourites"/>
+		<param name="path"/>
+		<param name="target"/>
+		<param name="visible" default="true"/>
 		<definition>
+			<control type="group">
+				<visible>!Skin.HasSetting(ShowLabels) + !String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + !$PARAM[favourites]</visible>
+				<left>390</left>
+				<top>-20</top>
+				<height>60</height>
+				<control type="label">
+					<width>500</width>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<font>Reg25</font>
+					<textcolor>$VAR[FocusedColor]</textcolor>
+					<visible>Control.HasFocus($PARAM[listid])</visible>
+				</control>
+				<control type="label">
+					<width>500</width>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<font>Reg25</font>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+					<visible>!Control.HasFocus($PARAM[listid])</visible>
+				</control>
+			</control>
+			<control type="group">
+				<visible>!Skin.HasSetting(ShowLabels) + !String.IsEmpty(Window(Home).Property(favourite.1.Path)) + Skin.HasSetting(enableFavourites) + $PARAM[favourites]</visible>
+				<left>370</left>
+				<top>-10</top>
+				<height>60</height>
+				<control type="label">
+					<left>20</left>
+					<width>500</width>
+					<label>$LOCALIZE[1036]</label>
+					<font>Reg25</font>
+					<textcolor>$VAR[FocusedColor]</textcolor>
+					<visible>Control.HasFocus($PARAM[listid])</visible>
+				</control>
+				<control type="label">
+					<left>20</left>
+					<width>500</width>
+					<label>$LOCALIZE[1036]</label>
+					<font>Reg25</font>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+					<visible>!Control.HasFocus($PARAM[listid])</visible>
+				</control>
+			</control>
 			<!--> Landscape <!-->
-			<itemlayout width="560" height="400" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Landscape)">
-				<control type="group">
-					<top>20</top>
-					<left>20</left>
-					<control type="image">
-						<width>550</width>
-						<height>380</height>
-						<texture colordiffuse="FF000000">views/white_100.png</texture>
-						<aspectratio>scale</aspectratio>
-					</control>
-					<control type="image">
-						<width>550</width>
-						<height>310</height>
-						<texture background="true" fallback="color_black.png">$INFO[ListItem.Art(fanart)]</texture>
-						<aspectratio>scale</aspectratio>
-					</control>
-					<control type="label">
-						<left>0</left>
-						<bottom>10</bottom>
-						<width>550</width>
-						<height>66</height>
-						<label>$INFO[ListItem.Label]</label>
-						<font>Tile</font>
-						<textcolor>$VAR[TextColor]</textcolor>
-						<align>left</align>
-						<aligny>center</aligny>
-						<textoffsetx>20</textoffsetx>
-						<scroll>false</scroll>
-					</control>
+			<control type="group">
+				<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Landscape) + !$PARAM[favourites]</visible>
+				<height>260</height>
+				<left>20</left>
+				<control type="fixedlist" id="$PARAM[listid]">
+					<width>100%</width>
+					<onup>$PARAM[upid]</onup>
+					<ondown>$PARAM[downid]</ondown>
+					<onleft>9050</onleft>
+					<focusposition>1</focusposition>
+					<movement>0</movement>
+					<orientation>horizontal</orientation>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="250" width="370" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture>$INFO[ListItem.Art(fanart)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="250" width="370" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture>$INFO[ListItem.Art(fanart)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<itemlayout height="250" width="370" condition="!String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture>$INFO[ListItem.Art(thumb)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="250" width="370" condition="!String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture>$INFO[ListItem.Art(thumb)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
 				</control>
-			</itemlayout>
-			<focusedlayout width="560" height="400" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Landscape)">
-				<control type="group">
-					<top>20</top>
-					<left>20</left>
-					<animation effect="zoom" center="auto" start="100" end="110" time="200">Focus</animation>
-					<animation effect="zoom" center="auto" start="110" end="100" time="200">UnFocus</animation>
-					<control type="image">
-						<width>550</width>
-						<height>380</height>
-						<texture colordiffuse="FF000000">views/white_100.png</texture>
-						<aspectratio>scale</aspectratio>
-					</control>
-					<control type="image">
-						<width>550</width>
-						<height>380</height>
-						<texture colordiffuse="FF000000">views/white_100.png</texture>
-						<aspectratio>scale</aspectratio>
-						<visible>Control.HasFocus($PARAM[listid])</visible>
-					</control>
-					<control type="image">
-						<width>550</width>
-						<height>380</height>
-						<texture colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texture>
-						<aspectratio>scale</aspectratio>
-						<visible>Control.HasFocus($PARAM[listid])</visible>
-					</control>
-					<control type="image">
-						<width>550</width>
-						<height>310</height>
-						<texture background="true" fallback="color_black.png">$INFO[ListItem.Art(fanart)]</texture>
-						<aspectratio>scale</aspectratio>
-					</control>
-					<control type="label">
-						<left>0</left>
-						<bottom>10</bottom>
-						<width>550</width>
-						<height>66</height>
-						<label>$INFO[ListItem.Label]</label>
-						<font>Tile</font>
-						<textcolor>$VAR[TextColor]</textcolor>
-						<align>left</align>
-						<aligny>center</aligny>
-						<textoffsetx>20</textoffsetx>
-						<scroll>true</scroll>
-					</control>
-					<control type="image">
-						<left>-30</left>
-						<top>-35</top>
-						<width>610</width>
-						<height>450</height>
-						<texture colordiffuse="$VAR[SecondaryColor]" border="40">fo.png</texture>
-						<visible>Control.HasFocus($PARAM[listid])</visible>
-					</control>
+			</control>
+			<!--> Banner <!-->
+			<control type="group">
+				<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Banner) + !$PARAM[favourites]</visible>
+				<height>260</height>
+				<left>-160</left>
+				<control type="fixedlist" id="$PARAM[listid]">
+					<width>100%</width>
+					<onup>$PARAM[upid]</onup>
+					<ondown>$PARAM[downid]</ondown>
+					<onleft>9050</onleft>
+					<focusposition>1</focusposition>
+					<movement>0</movement>
+					<orientation>horizontal</orientation>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<!--> Fanart <!-->
+					<itemlayout height="250" width="550" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture>$INFO[ListItem.Art(fanart)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="250" width="550" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),fanart)">
+						<control type="group">
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture>$INFO[ListItem.Art(fanart)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<!--> Thumb <!-->
+					<itemlayout height="250" width="550" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),thumb)">
+						<control type="group">
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture>$INFO[ListItem.Art(thumb)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="250" width="550" condition="String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetArt),thumb)">
+						<control type="group">
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture>$INFO[ListItem.Art(thumb)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>540</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
 				</control>
-			</focusedlayout>
-			<!--> Content <!-->
-			<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
+			</control>
+			<!--> Poster <!-->
+			<control type="group">
+				<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Poster) + !$PARAM[favourites]</visible>
+				<height>380</height>
+				<left>132</left>
+				<control type="fixedlist" id="$PARAM[listid]">
+					<width>100%</width>
+					<onup>$PARAM[upid]</onup>
+					<ondown>$PARAM[downid]</ondown>
+					<onleft>9050</onleft>
+					<focusposition>1</focusposition>
+					<movement>0</movement>
+					<orientation>horizontal</orientation>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="370" width="257">
+						<control type="group">
+							<control type="image">
+								<width>247</width>
+								<height>370</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>247</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="370" width="257">
+						<control type="group">
+							<control type="image">
+								<width>247</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>247</width>
+								<height>370</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>247</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>247</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
+				</control>
+			</control>
+			<!--> Square <!-->
+			<control type="group">
+				<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Square) + !$PARAM[favourites]</visible>
+				<height>260</height>
+				<left>130</left>
+				<control type="fixedlist" id="$PARAM[listid]">
+					<width>100%</width>
+					<onup>$PARAM[upid]</onup>
+					<ondown>$PARAM[downid]</ondown>
+					<onleft>9050</onleft>
+					<focusposition>1</focusposition>
+					<movement>0</movement>
+					<orientation>horizontal</orientation>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="260" width="260">
+						<control type="group">
+							<control type="image">
+								<width>250</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>250</width>
+								<height>250</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>250</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="260" width="260">
+						<control type="group">
+							<control type="image">
+								<width>250</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>250</width>
+								<height>250</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>250</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>250</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
+				</control>
+			</control>
+			<!--> Favourites <!-->
+			<control type="group">
+				<visible>!String.IsEmpty(Window(Home).Property(favourite.1.Path)) + Skin.HasSetting(enableFavourites) + $PARAM[favourites]</visible>
+				<height>260</height>
+				<left>390</left>
+				<control type="fixedlist" id="$PARAM[listid]">
+					<width>100%</width>
+					<onup>$PARAM[upid]</onup>
+					<ondown>$PARAM[downid]</ondown>
+					<onleft>9050</onleft>
+					<focusposition>0</focusposition>
+					<movement>0</movement>
+					<orientation>horizontal</orientation>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="260" width="370">
+						<control type="group">
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="260" width="370">
+						<control type="group">
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>360</width>
+								<height>250</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+						<content>favourites://</content>
+				</control>
+			</control>
 		</definition>
 	</include>
 
+	<!--> 80% <!-->
+	<include name="WidgetHorizontal">
+		<param name="listid"/>
+		<param name="upid"/>
+		<param name="downid"/>
+		<definition>
+			<!--> Poster <!-->
+			<control type="group">
+				<visible>!String.IsEmpty(Container(9000).ListItemNoWrap(0).Property(widgetPath)) + String.Contains(Container(9000).ListItemNoWrap(0).Property(widgetLayout),Poster)</visible>
+				<height>400</height>
+				<left>0</left>
+				<control type="fixedlist" id="$PARAM[listid]">
+					<top>10</top>
+					<width>100%</width>
+					<onup>$PARAM[upid]</onup>
+					<ondown>$PARAM[downid]</ondown>
+					<focusposition>-1</focusposition>
+					<movement>6</movement>
+					<orientation>horizontal</orientation>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="370" width="257">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>247</width>
+								<height>370</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>247</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="370" width="257">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<animation type="Focus">
+								<effect type="zoom" center="auto" start="100" end="105" time="200"/>
+							</animation>
+							<animation type="UnFocus">
+								<effect type="zoom" center="auto" start="105" end="100" time="200"/>
+							</animation>
+							<control type="image">
+								<width>247</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>247</width>
+								<height>370</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>247</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>247</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="$INFO[Container(9000).ListItemNoWrap(0).Property(widgetTarget)]">$INFO[Container(9000).ListItemNoWrap(0).Property(widgetPath)]</content>
+					<content>
+						<include>RetroSystem</include>
+					</content>
+				</control>
+			</control>
+			<!--> Banner <!-->
+			<control type="group">
+				<visible>!String.IsEmpty(Container(9000).ListItemNoWrap(0).Property(widgetPath)) + String.Contains(Container(9000).ListItemNoWrap(0).Property(widgetLayout),Banner)</visible>
+				<height>240</height>
+				<top>160</top>
+				<left>0</left>
+				<control type="list" id="$PARAM[listid]">
+					<width>100%</width>
+					<onup>$PARAM[upid]</onup>
+					<ondown>$PARAM[downid]</ondown>
+					<focusposition>1</focusposition>
+					<movement>0</movement>
+					<orientation>horizontal</orientation>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<!--> Fanart <!-->
+					<itemlayout height="225" width="470" condition="String.Contains(Container(9000).ListItemNoWrap(0).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<control type="image">
+								<width>460</width>
+								<height>215</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>460</width>
+								<height>215</height>
+								<texture>$INFO[ListItem.Art(fanart)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>460</width>
+								<height>215</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="225" width="470" condition="String.Contains(Container(9000).ListItemNoWrap(0).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<animation type="Focus">
+								<effect type="zoom" center="auto" start="100" end="105" time="200"/>
+							</animation>
+							<animation type="UnFocus">
+								<effect type="zoom" center="auto" start="105" end="100" time="200"/>
+							</animation>
+							<control type="image">
+								<width>460</width>
+								<height>215</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>460</width>
+								<height>215</height>
+								<texture>$INFO[ListItem.Art(fanart)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>460</width>
+								<height>215</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>460</width>
+								<height>215</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<!--> Thumb <!-->
+					<itemlayout height="225" width="470" condition="String.Contains(Container(9000).ListItemNoWrap(0).Property(widgetArt),thumb)">
+						<control type="group">
+							<left>20</left>
+							<control type="image">
+								<width>460</width>
+								<height>215</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>460</width>
+								<height>215</height>
+								<texture>$INFO[ListItem.Art(thumb)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>460</width>
+								<height>215</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="225" width="470" condition="String.Contains(Container(9000).ListItemNoWrap(0).Property(widgetArt),thumb)">
+						<control type="group">
+							<left>20</left>
+							<animation type="Focus">
+								<effect type="zoom" center="auto" start="100" end="105" time="200"/>
+							</animation>
+							<animation type="UnFocus">
+								<effect type="zoom" center="auto" start="105" end="100" time="200"/>
+							</animation>
+							<control type="image">
+								<width>460</width>
+								<height>215</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>460</width>
+								<height>215</height>
+								<texture>$INFO[ListItem.Art(thumb)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>460</width>
+								<height>215</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>460</width>
+								<height>215</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="$INFO[Container(9000).ListItemNoWrap(0).Property(widgetTarget)]">$INFO[Container(9000).ListItemNoWrap(0).Property(widgetPath)]</content>
+				</control>
+			</control>
+			<!--> Landscape <!-->
+			<control type="group">
+				<visible>!String.IsEmpty(Container(9000).ListItemNoWrap(0).Property(widgetPath)) + String.Contains(Container(9000).ListItemNoWrap(0).Property(widgetLayout),Landscape)</visible>
+				<height>400</height>
+				<control type="fixedlist" id="$PARAM[listid]">
+					<top>10</top>
+					<width>100%</width>
+					<onup>$PARAM[upid]</onup>
+					<ondown>$PARAM[downid]</ondown>
+					<focusposition>-1</focusposition>
+					<movement>2</movement>
+					<orientation>horizontal</orientation>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="370" width="543" condition="String.Contains(Container(9000).ListItemNoWrap(0).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>533</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>533</width>
+								<height>370</height>
+								<texture>$INFO[ListItem.Art(fanart)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>533</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="370" width="543" condition="String.Contains(Container(9000).ListItemNoWrap(0).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<animation type="Focus">
+								<effect type="zoom" center="auto" start="100" end="105" time="200"/>
+							</animation>
+							<animation type="UnFocus">
+								<effect type="zoom" center="auto" start="105" end="100" time="200"/>
+							</animation>
+							<control type="image">
+								<width>533</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>533</width>
+								<height>370</height>
+								<texture>$INFO[ListItem.Art(fanart)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>533</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>533</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<itemlayout height="370" width="543" condition="!String.Contains(Container(9000).ListItemNoWrap(0).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>533</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>533</width>
+								<height>370</height>
+								<texture>$INFO[ListItem.Art(thumb)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>533</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="370" width="543" condition="!String.Contains(Container(9000).ListItemNoWrap(0).Property(widgetArt),fanart)">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<animation type="Focus">
+								<effect type="zoom" center="auto" start="100" end="105" time="200"/>
+							</animation>
+							<animation type="UnFocus">
+								<effect type="zoom" center="auto" start="105" end="100" time="200"/>
+							</animation>
+							<control type="image">
+								<width>533</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>533</width>
+								<height>370</height>
+								<texture>$INFO[ListItem.Art(thumb)]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>533</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>533</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="$INFO[Container(9000).ListItemNoWrap(0).Property(widgetTarget)]">$INFO[Container(9000).ListItemNoWrap(0).Property(widgetPath)]</content>
+					<content>
+						<include>RetroSystem</include>
+					</content>
+				</control>
+			</control>
+			<!--> Square <!-->
+			<control type="group">
+				<visible>!String.IsEmpty(Container(9000).ListItemNoWrap(0).Property(widgetPath)) + String.Contains(Container(9000).ListItemNoWrap(0).Property(widgetLayout),Square)</visible>
+				<height>400</height>
+				<left>0</left>
+				<control type="fixedlist" id="$PARAM[listid]">
+					<top>10</top>
+					<width>100%</width>
+					<onup>$PARAM[upid]</onup>
+					<ondown>$PARAM[downid]</ondown>
+					<focusposition>-1</focusposition>
+					<movement>4</movement>
+					<orientation>horizontal</orientation>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="370" width="380">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>370</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>370</width>
+								<height>370</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>370</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="370" width="380">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<animation type="Focus">
+								<effect type="zoom" center="auto" start="100" end="105" time="200"/>
+							</animation>
+							<animation type="UnFocus">
+								<effect type="zoom" center="auto" start="105" end="100" time="200"/>
+							</animation>
+							<control type="image">
+								<width>370</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>370</width>
+								<height>370</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="image">
+								<width>370</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>370</width>
+								<height>370</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border.png</texture>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="$INFO[Container(9000).ListItemNoWrap(0).Property(widgetTarget)]">$INFO[Container(9000).ListItemNoWrap(0).Property(widgetPath)]</content>
+					<content>
+						<include>RetroSystem</include>
+					</content>
+				</control>
+			</control>
+			<!--> Custom <!-->
+			<control type="group">
+				<height>200</height>
+				<top>200</top>
+				<left>0</left>
+				<control type="fixedlist" id="$PARAM[listid]">
+					<width>100%</width>
+					<onup>$PARAM[upid]</onup>
+					<ondown>$PARAM[downid]</ondown>
+					<focusposition>-1</focusposition>
+					<movement>10</movement>
+					<orientation>horizontal</orientation>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="170" width="170">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>170</width>
+								<height>170</height>
+								<texture colordiffuse="$VAR[White]">$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+								<bordertexture colordiffuse="$VAR[MaterialColor]" border="9">views/Card_bg_white.png</bordertexture>
+								<bordersize>7</bordersize>
+							</control>
+							<control type="image">
+								<width>170</width>
+								<height>170</height>
+								<aspectratio>keep</aspectratio>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<bordertexture colordiffuse="$VAR[MaterialColor]" border="9">views/Card_bg_white.png</bordertexture>
+								<bordersize>7</bordersize>
+								<visible>Container(9000).HasFocus(91)</visible>
+							</control>
+							<control type="image">
+								<width>170</width>
+								<height>170</height>
+								<texture colordiffuse="$VAR[DiffuseColor]" border="9">views/Card_bg_white.png</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="170" width="170">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<animation type="Focus">
+								<effect type="zoom" center="auto" start="100" end="105" time="200" tween="cubic" easing="inout" />
+							</animation>
+							<control type="image">
+								<width>170</width>
+								<height>170</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+								<bordertexture colordiffuse="$VAR[SecondaryColor]" border="9">views/Card_bg_white.png</bordertexture>
+								<bordersize>7</bordersize>
+								<visible>Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>170</width>
+								<height>170</height>
+								<texture colordiffuse="$VAR[White]">$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+								<bordertexture colordiffuse="$VAR[MaterialColor]" border="9">views/Card_bg_white.png</bordertexture>
+								<bordersize>7</bordersize>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>170</width>
+								<height>170</height>
+								<aspectratio>keep</aspectratio>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<bordertexture colordiffuse="$VAR[MaterialColor]" border="9">views/Card_bg_white.png</bordertexture>
+								<bordersize>7</bordersize>
+								<visible>Container(9000).HasFocus(91) + !Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>170</width>
+								<height>170</height>
+								<aspectratio>keep</aspectratio>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<bordertexture colordiffuse="$VAR[SecondaryColor]" border="9">views/Card_bg_white.png</bordertexture>
+								<bordersize>7</bordersize>
+								<visible>Container(9000).HasFocus(91) + Control.HasFocus($PARAM[listid])</visible>
+							</control>
+							<control type="image">
+								<width>170</width>
+								<height>170</height>
+								<texture colordiffuse="$VAR[DiffuseColor]" border="9">views/Card_bg_white.png</texture>
+								<aspectratio>scale</aspectratio>
+								<visible>!Control.HasFocus($PARAM[listid])</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content>
+						<include>RetroSystem</include>
+					</content>
+				</control>
+			</control>
+		</definition>
+	</include>
 </includes>

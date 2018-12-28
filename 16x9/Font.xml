@@ -3,13 +3,6 @@
 
 	<fontset id="Default">
 
-		<!-- Profile -->
-		<font>
-			<name>Profile</name>
-			<filename>Anurati-Regular.ttf</filename>
-			<size>50</size>
-		</font>
-
 		<!-- Bold -->
 		<font>
 			<name>Bold100</name>
@@ -25,17 +18,18 @@
 		<!--> Header <!-->
 		<font>
 			<name>NetflixHeader</name>
-			<filename>NetflixSans-Regular-Opt.ttf</filename>
+			<filename>Roboto-Light.ttf</filename>
+			<!--><filename>NetflixSans-Regular-Opt.ttf</filename><!-->
 			<size>60</size>
 		</font>
 		<font>
 			<name>Header</name>
-			<filename>Siro-Light.ttf</filename>
+			<filename>Roboto-Thin.ttf</filename>
 			<size>40</size>
 		</font>
 		<font>
 			<name>SubHeader</name>
-			<filename>Siro-SemiBold.ttf</filename>
+			<filename>Roboto-Medium.ttf</filename>
 			<size>25</size>
 		</font>
 
@@ -76,10 +70,17 @@
 			<linespacing>0.65</linespacing>
 		</font>
 		
+		<font>
+			<name>LargeLogoBold</name>
+			<filename>SegoeWP-Bold.ttf</filename>
+			<size>75</size>
+			<linespacing>0.65</linespacing>
+		</font>
+		
 		<!-- Now Playing -->
 		<font>
 			<name>MNPlayTit</name>
-			<filename>SourceSansPro-SemiLight.ttf</filename>
+			<filename>SegoeWP-Semibold.ttf</filename>
 			<size>24</size>
 		</font>
 		<font>
@@ -113,14 +114,16 @@
 		</font>
 		<font>
 			<name>McatACotw</name>
-			<filename>Stem-Bold.ttf</filename>
+			<filename>Nexa Bold.ttf</filename>
+			<!-- <filename>Stem-Bold.ttf</filename> -->
      		<aspect>0.98</aspect>
 			<style>uppercase</style>
 			<size>85</size>
 		</font>
 		<font>
 			<name>McatTCotw</name>
-			<filename>Stem-Regular.ttf</filename>
+			<filename>Nexa Light.ttf</filename>
+			<!-- <filename>Stem-Regular.ttf</filename> -->
 			<style>uppercase</style>
      		<aspect>0.99</aspect>
 			<size>54</size>

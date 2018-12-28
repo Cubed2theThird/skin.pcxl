@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<!--> Custom <!-->
-	<!--><variable name="BackgroundColor">
-		<value condition="String.IsEmpty(Skin.String(BackgroundColor))">FF2B2C2E</value>
-		<value>$INFO[Skin.String(BackgroundColor)]</value>
-	</variable><!-->
+	<variable name="BackgroundColor2">
+		<value condition="String.IsEmpty(Skin.String(BackgroundColor2))">$VAR[SecondaryColor]</value>
+		<value>FF$INFO[Skin.String(BackgroundColor2)]</value>
+	</variable>
 	<variable name="SecondaryColor">
 		<value condition="String.IsEmpty(Skin.String(SecondaryColor))">ff127812</value>
 		<value>ff$INFO[Skin.String(SecondaryColor)]</value>
 	</variable>
 	<variable name="DiffuseColor">
-		<value condition="String.IsEmpty(Skin.String(DiffuseColor))">80000000</value>
-		<value>80$INFO[Skin.String(DiffuseColor)]</value>
+		<value condition="String.IsEmpty(Skin.String(DiffuseColor))">a0000000</value>
+		<value>a0$INFO[Skin.String(DiffuseColor)]</value>
 	</variable>
 	<variable name="DiffuseColorPreview">
 		<value condition="String.IsEmpty(Skin.String(DiffuseColor))">ff000000</value>
 		<value>ff$INFO[Skin.String(DiffuseColor)]</value>
 	</variable>
 	<variable name="TextColor">
-		<value condition="String.IsEmpty(Skin.String(TextColor))">ffffffff</value>
-		<value>ff$INFO[Skin.String(TextColor)]</value>
-		<value>ffffffff</value>
+		<value condition="String.IsEmpty(Skin.String(TextColor))">FFFFFFFF</value>
+		<value>FF$INFO[Skin.String(TextColor)]</value>
+		<value>FFFFFFFF</value>
 	</variable>
 	<!--><variable name="SelectedColor">
 		<value condition="String.IsEmpty(Skin.String(SelectedColor))">ffaaf200</value>
@@ -83,10 +83,19 @@
 	<variable name="BlackOnly">
 		<value>ff000000</value>
 	</variable>
+	<variable name="MaterialColorDarkOnly">
+		<value>ff212121</value>
+	</variable>
+	<variable name="BackgroundOnly">
+		<value>ff2b2b2b</value>
+	</variable>
 
 	<!--> Apps <!-->
 	<variable name="TwitchBackground">
 		<value>ff201C2B</value>
+	</variable>
+	<variable name="TwitchColor">
+		<value>ff6441a5</value>
 	</variable>
 	<variable name="YoutubeBackground">
 		<value condition="Skin.HasSetting(darkmode)">ffDEDEDE</value>
@@ -95,5 +104,8 @@
 	<variable name="YoutubeBox">
 		<value condition="Skin.HasSetting(darkmode)">ffe7e7e7</value>
 		<value>ff181818</value>
+	</variable>
+	<variable name="YoutubeColor">
+		<value>ffcc181e</value>
 	</variable>
 </includes>

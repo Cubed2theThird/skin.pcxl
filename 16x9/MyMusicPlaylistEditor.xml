@@ -5,10 +5,7 @@
 	<onload>SetFocus(9000)</onload>
 	<views>50</views>
 	<controls>
-
-		<!-- Clock -->
-		<include>Clock</include>
-
+		
 		<control type="button" id="6">
 			<include>HiddenControl</include>
 		</control>
@@ -94,17 +91,17 @@
 				<content>
 					<!-- Open Button -->
 					<item id="6">
-						<label>31009</label>
+						<label>$LOCALIZE[502] $LOCALIZE[559]</label>
 						<onclick>SendClick(6)</onclick>
 					</item>
 					<!-- Save Button -->
 					<item id="7">
-						<label>31010</label>
+						<label>$LOCALIZE[190] $LOCALIZE[559]</label>
 						<onclick>SendClick(7)</onclick>
 					</item>
 					<!-- Clear Button -->
 					<item id="8">
-						<label>31011</label>
+						<label>$LOCALIZE[192] $LOCALIZE[559]</label>
 						<onclick>SendClick(8)</onclick>
 					</item>
 				</content>
@@ -141,7 +138,7 @@
 					<width>610</width>
 					<height>66</height>
 					<textcolor>$VAR[FocusedColor]</textcolor>
-					<label>31007</label>
+					<label>$LOCALIZE[2]</label>
 				</control>
 
 				<!-- Left list -->
@@ -231,7 +228,7 @@
 					<width>800</width>
 					<height>66</height>
 					<textcolor>$VAR[FocusedColor]</textcolor>
-					<label>31012</label>
+					<label>$LOCALIZE[10500]</label>
 					<visible>Control.HasFocus(100)</visible>
 				</control>
 
@@ -334,11 +331,10 @@
 					<orientation>horizontal</orientation>
 					<usecontrolcoords>true</usecontrolcoords>
 					<control type="label">
-						<top>3</top>
 						<width>auto</width>
 						<height>44</height>
 						<align>right</align>
-						<font>Font25</font>
+						<font>Setting</font>
 						<label>$INFO[Container(100).NumItems]</label>
 						<textcolor>$VAR[UnFocusedColor]</textcolor>
 					</control>
@@ -346,8 +342,8 @@
 						<width>auto</width>
 						<height>44</height>
 						<align>right</align>
-						<label>31000</label>
-						<font>Font33</font>
+						<label>$LOCALIZE[744]</label>
+						<font>Setting</font>
 						<textcolor>$VAR[UnFocusedColor]</textcolor>
 						<visible>!IntegerGreaterThan(Container(100).NumItems,1)</visible>
 					</control>
@@ -355,8 +351,8 @@
 						<width>auto</width>
 						<height>44</height>
 						<align>right</align>
-						<label>31001</label>
-						<font>Font33</font>
+						<label>$LOCALIZE[561]</label>
+						<font>Setting</font>
 						<textcolor>$VAR[UnFocusedColor]</textcolor>
 						<visible>IntegerGreaterThan(Container(100).NumItems,1)</visible>
 					</control>

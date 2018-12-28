@@ -4,8 +4,7 @@
 	<backgroundcolor>$VAR[BackgroundColor]</backgroundcolor>
 	<defaultcontrol always="true">510</defaultcontrol>
 	<menucontrol>3000</menucontrol>
-	<onload condition="!SubString(Control.GetLabel(9),*) | IsEmpty(Skin.String(PicturesRandom))">Skin.SetString(PicturesRandom,off)</onload>
-	<views>510</views>
+	<views>50,510</views>
 	<controls>
 		<!-- Hidden controls -->
 		<control type="button" id="3">
@@ -29,26 +28,15 @@
 		</control>
 		<!-- Image -->
 		<control type="group">
-			<animation effect="fade" start="100" end="0" time="200" condition="!Control.IsVisible(50) | SubString(ListItem.Icon,Default) | SubString(Control.GetLabel(999),empty)">Conditional</animation>
-			<control type="image" id="999">
-				<include>FullscreenDimensions</include>
-				<include>VisibleFadeAnimation</include>
-				<fadetime>400</fadetime>
-				<aspectratio>scale</aspectratio>
-				<colordiffuse>$VAR[FanartColor]</colordiffuse>
-				<texture fallback="empty" background="true">$VAR[PictureFanart]</texture>
-			</control>
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture colordiffuse="$VAR[DiffuseColor]">views/white_100.png</texture>
-			</control>
+			<animation type="Conditional" condition="Window.IsActive(contextmenu)">
+				<effect type="zoom" center="auto" start="100" end="95" time="200" tween="cubic" easing="out"/>
+			</animation>
+	        <!-- Now Playing Video -->
+			<include>WindowBackgroundVideo</include>
 		</control>
-		<!-- Now Playing -->
-		<include>NowPlayingWindow</include>
 		<!-- Main group -->
 		<control type="group">
-			<include>WindowFadeAnimation</include>
-			<include>OptionsHideAnimation</include>
+			<include>WindowFadeAnimation</include>			
 			<!-- Views -->
 			<include>Viewtype_50_List</include>
 			<include>Viewtype_510_Pics</include>
@@ -60,47 +48,58 @@
 		<control type="image">
 			<include>VisibleFadeAnimation</include>
 			<include>FullscreenDimensions</include>
-			<texture colordiffuse="$VAR[SecondaryColor]">views/white_70.png</texture>
+			<texture colordiffuse="$VAR[BackgroundColor]">views/white_70.png</texture>
 			<visible>Control.HasFocus(3000)</visible>
 		</control>
 		<control type="fixedlist" id="3000">
-			<left>1030</left>
-			<top>144</top>
-			<width>860</width>
-			<height>896</height>
-			<onup>50</onup>
-			<ondown>50</ondown>
-			<onback>50</onback>
-			<onleft condition="String.IsEmpty(Container(3000).ListItem.Property(ActionLeft))">50</onleft>
-			<onright condition="String.IsEmpty(Container(3000).ListItem.Property(ActionRight))">50</onright>
+			<centerleft>50%</centerleft>
+			<centertop>40%</centertop>
+			<width>500</width>
+			<height>100%</height>
+			<onup>510</onup>
+			<ondown>510</ondown>
+			<onback>510</onback>
+			<onleft condition="String.IsEmpty(Container(3000).ListItem.Property(ActionLeft))">510</onleft>
+			<onright condition="String.IsEmpty(Container(3000).ListItem.Property(ActionRight))">510</onright>
 			<onleft condition="!String.IsEmpty(Container(3000).ListItem.Property(ActionLeft))">$INFO[Container(3000).ListItem.Property(ActionLeft)]</onleft>
-			<onleft condition="!String.IsEmpty(Container(3000).ListItem.Property(ActionLeft2))">$INFO[Container(3000).ListItem.Property(ActionLeft2)]</onleft>
 			<onright condition="!String.IsEmpty(Container(3000).ListItem.Property(ActionRight))">$INFO[Container(3000).ListItem.Property(ActionRight)]</onright>
-			<onright condition="!String.IsEmpty(Container(3000).ListItem.Property(ActionRight2))">$INFO[Container(3000).ListItem.Property(ActionRight2)]</onright>
 			<movement>6</movement>
 			<focusposition>6</focusposition>
 			<orientation>vertical</orientation>
-			<viewtype label="535">list</viewtype>
 			<defaultcontrol always="true">0</defaultcontrol>
 			<scrolltime tween="sine" easing="inout">200</scrolltime>
 			<visible allowhiddenfocus="true">Control.HasFocus(3000)</visible>
 			<include>OptionsAnimation</include>
-			<itemlayout height="59" width="860">
+			<itemlayout width="500" height="100">
+				<control type="image">
+					<width>500</width>
+					<height>100</height>
+					<texture colordiffuse="$VAR[BackgroundColor]" border="9">views/Card_bg_white.png</texture>
+				</control>
 				<control type="label">
-					<width>860</width>
-					<height>59</height>
-					<font>Thin48</font>
+					<width>500</width>
+					<height>100</height>
+					<font>Thin20</font>
+					<alignx>center</alignx>
+					<align>center</align>
 					<textcolor>$VAR[TextColor]</textcolor>
 					<label>$INFO[ListItem.Label2]</label>
 				</control>
 			</itemlayout>
-			<focusedlayout height="70" width="860">
+			<focusedlayout width="500" height="100">
+				<control type="image">
+					<width>500</width>
+					<height>100</height>
+					<texture colordiffuse="$VAR[SecondaryColor]" border="9">views/Card_bg_white.png</texture>
+				</control>
 				<control type="label">
-					<width>860</width>
-					<height>70</height>
-					<font>Light60</font>
+					<width>500</width>
+					<height>100</height>
+					<font>Thin20</font>
+					<alignx>center</alignx>
+					<align>center</align>
 					<textcolor>$VAR[TextColor]</textcolor>
-					<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+					<label>$INFO[ListItem.Label]</label>
 				</control>
 			</focusedlayout>
 			<content>
@@ -108,47 +107,23 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[535] ›</label>
-					<label2>$LOCALIZE[31105] | $LOCALIZE[535]</label2>
+					<label2>$LOCALIZE[535]</label2>
 					<property name="ActionLeft">Container.PreviousViewMode</property>
 					<property name="ActionRight">Container.NextViewMode</property>
 					<visible>Control.IsVisible(50)</visible>
 				</item>
 				<item>
-					<onclick>SetFocus(500)</onclick>
-					<label>‹ $LOCALIZE[31500] ›</label>
-					<label2>$LOCALIZE[31105] | $LOCALIZE[31500]</label2>
-					<property name="ActionLeft">Container.PreviousViewMode</property>
-					<property name="ActionRight">Container.NextViewMode</property>
-					<visible>Control.IsVisible(500)</visible>
-				</item>
-				<item>
-					<onclick>SetFocus(501)</onclick>
-					<label>‹ $LOCALIZE[31501] ›</label>
-					<label2>$LOCALIZE[31105] | $LOCALIZE[31501]</label2>
-					<property name="ActionLeft">Container.PreviousViewMode</property>
-					<property name="ActionRight">Container.NextViewMode</property>
-					<visible>Control.IsVisible(501)</visible>
-				</item>
-				<item>
 					<onclick>SetFocus(510)</onclick>
 					<label>‹ $LOCALIZE[31510] ›</label>
-					<label2>$LOCALIZE[31105] | $LOCALIZE[31510]</label2>
+					<label2>$LOCALIZE[31510]</label2>
 					<property name="ActionLeft">Container.PreviousViewMode</property>
 					<property name="ActionRight">Container.NextViewMode</property>
 					<visible>Control.IsVisible(510)</visible>
 				</item>
 				<item>
-					<onclick>SetFocus(511)</onclick>
-					<label>‹ $LOCALIZE[31511] ›</label>
-					<label2>$LOCALIZE[31105] | $LOCALIZE[31511]</label2>
-					<property name="ActionLeft">Container.PreviousViewMode</property>
-					<property name="ActionRight">Container.NextViewMode</property>
-					<visible>Control.IsVisible(511)</visible>
-				</item>
-				<item>
 					<onclick>SetFocus(520)</onclick>
 					<label>‹ $LOCALIZE[31520] ›</label>
-					<label2>$LOCALIZE[31105] | $LOCALIZE[31520]</label2>
+					<label2>$LOCALIZE[31520]</label2>
 					<property name="ActionLeft">Container.PreviousViewMode</property>
 					<property name="ActionRight">Container.NextViewMode</property>
 					<visible>Control.IsVisible(520)</visible>
@@ -156,7 +131,7 @@
 				<item>
 					<onclick>SetFocus(521)</onclick>
 					<label>‹ $LOCALIZE[31521] ›</label>
-					<label2>$LOCALIZE[31105] | $LOCALIZE[31521]</label2>
+					<label2>$LOCALIZE[31521]</label2>
 					<property name="ActionLeft">Container.PreviousViewMode</property>
 					<property name="ActionRight">Container.NextViewMode</property>
 					<visible>Control.IsVisible(521)</visible>
@@ -164,23 +139,15 @@
 				<item>
 					<onclick>SetFocus(522)</onclick>
 					<label>‹ $LOCALIZE[31522] ›</label>
-					<label2>$LOCALIZE[31105] | $LOCALIZE[31522]</label2>
+					<label2>$LOCALIZE[31522]</label2>
 					<property name="ActionLeft">Container.PreviousViewMode</property>
 					<property name="ActionRight">Container.NextViewMode</property>
 					<visible>Control.IsVisible(522)</visible>
 				</item>
 				<item>
-					<onclick>SetFocus(523)</onclick>
-					<label>‹ $LOCALIZE[31523] ›</label>
-					<label2>$LOCALIZE[31105] | $LOCALIZE[31523]</label2>
-					<property name="ActionLeft">Container.PreviousViewMode</property>
-					<property name="ActionRight">Container.NextViewMode</property>
-					<visible>Control.IsVisible(523)</visible>
-				</item>
-				<item>
 					<onclick>SetFocus(530)</onclick>
 					<label>‹ $LOCALIZE[31530] ›</label>
-					<label2>$LOCALIZE[31105] | $LOCALIZE[31530]</label2>
+					<label2>$LOCALIZE[31530]</label2>
 					<property name="ActionLeft">Container.PreviousViewMode</property>
 					<property name="ActionRight">Container.NextViewMode</property>
 					<visible>Control.IsVisible(530)</visible>
@@ -188,7 +155,7 @@
 				<item>
 					<onclick>SetFocus(531)</onclick>
 					<label>‹ $LOCALIZE[31531] ›</label>
-					<label2>$LOCALIZE[31105] | $LOCALIZE[31531]</label2>
+					<label2>$LOCALIZE[31531]</label2>
 					<property name="ActionLeft">Container.PreviousViewMode</property>
 					<property name="ActionRight">Container.NextViewMode</property>
 					<visible>Control.IsVisible(531)</visible>
@@ -196,32 +163,16 @@
 				<item>
 					<onclick>SetFocus(532)</onclick>
 					<label>‹ $LOCALIZE[31532] ›</label>
-					<label2>$LOCALIZE[31105] | $LOCALIZE[31532]</label2>
+					<label2>$LOCALIZE[31532]</label2>
 					<property name="ActionLeft">Container.PreviousViewMode</property>
 					<property name="ActionRight">Container.NextViewMode</property>
 					<visible>Control.IsVisible(532)</visible>
-				</item>
-				<item>
-					<onclick>SetFocus(533)</onclick>
-					<label>‹ $LOCALIZE[31533] ›</label>
-					<label2>$LOCALIZE[31105] | $LOCALIZE[31533]</label2>
-					<property name="ActionLeft">Container.PreviousViewMode</property>
-					<property name="ActionRight">Container.NextViewMode</property>
-					<visible>Control.IsVisible(533)</visible>
-				</item>
-				<item>
-					<onclick>SetFocus(534)</onclick>
-					<label>‹ $LOCALIZE[31534] ›</label>
-					<label2>$LOCALIZE[31105] | $LOCALIZE[31534]</label2>
-					<property name="ActionLeft">Container.PreviousViewMode</property>
-					<property name="ActionRight">Container.NextViewMode</property>
-					<visible>Control.IsVisible(534)</visible>
 				</item>
 				<!-- Sort -->
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[551] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[551]</label2>
+					<label2>$LOCALIZE[551]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[551])</visible>
@@ -229,15 +180,15 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[552] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[552]</label2>
+					<label2>$LOCALIZE[552]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
-					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[552])</visible>
+					<visible>Control.IsEnabled(3) + String.IsEqual(Container.SortMethod,$LOCALIZE[552])</visible>
 				</item>
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[553] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[553]</label2>
+					<label2>$LOCALIZE[553]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[553])</visible>
@@ -245,7 +196,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[623] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[623]</label2>
+					<label2>$LOCALIZE[623]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[623])</visible>
@@ -253,7 +204,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[564] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[564]</label2>
+					<label2>$LOCALIZE[564]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[564])</visible>
@@ -261,7 +212,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[554] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[554]</label2>
+					<label2>$LOCALIZE[554]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[554])</visible>
@@ -269,15 +220,15 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[20359] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[20359]</label2>
+					<label2>$LOCALIZE[20359]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
-					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[20359])</visible>
+					<visible>Control.IsEnabled(3) + String.IsEqual(Container.SortMethod,$LOCALIZE[20359])</visible>
 				</item>
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[180] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[180]</label2>
+					<label2>$LOCALIZE[180]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[180])</visible>
@@ -285,7 +236,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[556] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[556]</label2>
+					<label2>$LOCALIZE[556]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[556])</visible>
@@ -293,7 +244,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[557] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[557]</label2>
+					<label2>$LOCALIZE[557]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[557])</visible>
@@ -301,7 +252,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[558] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[558]</label2>
+					<label2>$LOCALIZE[558]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[558])</visible>
@@ -309,7 +260,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[515] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[515]</label2>
+					<label2>$LOCALIZE[515]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[515])</visible>
@@ -317,7 +268,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[574] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[574]</label2>
+					<label2>$LOCALIZE[574]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[574])</visible>
@@ -325,7 +276,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[570] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[570]</label2>
+					<label2>$LOCALIZE[570]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[570])</visible>
@@ -333,7 +284,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[561] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[561]</label2>
+					<label2>$LOCALIZE[561]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[561])</visible>
@@ -341,15 +292,15 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[563] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[563]</label2>
+					<label2>$LOCALIZE[563]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
-					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[563])</visible>
+					<visible>Control.IsEnabled(3) + String.IsEqual(Container.SortMethod,$LOCALIZE[563])</visible>
 				</item>
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[38018] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[38018]</label2>
+					<label2>$LOCALIZE[38018]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[38018])</visible>
@@ -357,7 +308,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[171] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[171]</label2>
+					<label2>$LOCALIZE[171]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[171])</visible>
@@ -365,7 +316,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[562] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[562]</label2>
+					<label2>$LOCALIZE[562]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[562])</visible>
@@ -373,7 +324,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[20368] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[20368]</label2>
+					<label2>$LOCALIZE[20368]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[20368])</visible>
@@ -381,7 +332,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[567] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[567]</label2>
+					<label2>$LOCALIZE[567]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[567])</visible>
@@ -389,7 +340,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[559] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[559]</label2>
+					<label2>$LOCALIZE[559]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[559])</visible>
@@ -397,7 +348,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[20074] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[20074]</label2>
+					<label2>$LOCALIZE[20074]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[20074])</visible>
@@ -405,7 +356,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[572] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[572]</label2>
+					<label2>$LOCALIZE[572]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[572])</visible>
@@ -413,7 +364,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[573] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[573]</label2>
+					<label2>$LOCALIZE[573]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[573])</visible>
@@ -421,7 +372,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[568] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[568]</label2>
+					<label2>$LOCALIZE[568]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[568])</visible>
@@ -429,7 +380,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[20455] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[20455]</label2>
+					<label2>$LOCALIZE[20455]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[20455])</visible>
@@ -437,7 +388,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[19029] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[19029]</label2>
+					<label2>$LOCALIZE[19029]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[19029])</visible>
@@ -445,7 +396,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[549] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[549]</label2>
+					<label2>$LOCALIZE[549]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[549])</visible>
@@ -453,7 +404,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[577] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[577]</label2>
+					<label2>$LOCALIZE[577]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[577])</visible>
@@ -461,7 +412,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[16018] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[16018]</label2>
+					<label2>$LOCALIZE[16018]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[16018])</visible>
@@ -469,7 +420,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[205] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[205]</label2>
+					<label2>$LOCALIZE[205]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[205])</visible>
@@ -477,7 +428,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[13409] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[13409]</label2>
+					<label2>$LOCALIZE[13409]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[13409])</visible>
@@ -485,7 +436,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[20364] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[20364]</label2>
+					<label2>$LOCALIZE[20364]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[20364])</visible>
@@ -493,7 +444,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[126] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[126]</label2>
+					<label2>$LOCALIZE[126]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[126])</visible>
@@ -501,7 +452,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[20373] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[20373]</label2>
+					<label2>$LOCALIZE[20373]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[20373])</visible>
@@ -509,7 +460,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[20360] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[20360]</label2>
+					<label2>$LOCALIZE[20360]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[20360])</visible>
@@ -517,7 +468,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[21441] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[21441]</label2>
+					<label2>$LOCALIZE[21441]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[21441])</visible>
@@ -525,7 +476,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[21443] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[21443]</label2>
+					<label2>$LOCALIZE[21443]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[21443])</visible>
@@ -533,7 +484,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[21445] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[21445]</label2>
+					<label2>$LOCALIZE[21445]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[21445])</visible>
@@ -541,7 +492,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[21374] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[21374]</label2>
+					<label2>$LOCALIZE[21374]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[21374])</visible>
@@ -549,7 +500,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[21444] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[21444]</label2>
+					<label2>$LOCALIZE[21444]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[21444])</visible>
@@ -557,7 +508,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[21446] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[21446]</label2>
+					<label2>$LOCALIZE[21446]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[21446])</visible>
@@ -565,7 +516,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[21447] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[21447]</label2>
+					<label2>$LOCALIZE[21447]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[21447])</visible>
@@ -573,7 +524,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[21448] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[21448]</label2>
+					<label2>$LOCALIZE[21448]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[21448])</visible>
@@ -581,7 +532,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[590] ›</label>
-					<label2>$LOCALIZE[31106] | $LOCALIZE[590]</label2>
+					<label2>$LOCALIZE[590]</label2>
 					<property name="ActionLeft">Container.PreviousSortMethod</property>
 					<property name="ActionRight">Container.NextSortMethod</property>
 					<visible>Control.IsEnabled(3) + String.Contains(Container.SortMethod,$LOCALIZE[590])</visible>
@@ -590,7 +541,7 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[584] ›</label>
-					<label2>$LOCALIZE[31107] | $LOCALIZE[584]</label2>
+					<label2>$LOCALIZE[584]</label2>
 					<property name="ActionLeft">SendClick(4)</property>
 					<property name="ActionRight">SendClick(4)</property>
 					<visible>Control.IsEnabled(4) + Container.SortDirection(ascending)</visible>
@@ -598,10 +549,27 @@
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[585] ›</label>
-					<label2>$LOCALIZE[31107] | $LOCALIZE[585]</label2>
+					<label2>$LOCALIZE[585]</label2>
 					<property name="ActionLeft">SendClick(4)</property>
 					<property name="ActionRight">SendClick(4)</property>
 					<visible>Control.IsEnabled(4) + Container.SortDirection(descending)</visible>
+				</item>
+				<!-- Include Watched/All-->
+				<item>
+					<onclick>SetFocus(50)</onclick>
+					<label>‹ $LOCALIZE[16100] ›</label>
+					<label2>$LOCALIZE[16100]</label2>
+					<property name="ActionLeft">SendClick(14)</property>
+					<property name="ActionRight">SendClick(14)</property>
+					<visible>Control.IsEnabled(14) + !System.Setting(hidewatched)</visible>
+				</item>
+				<item>
+					<onclick>SetFocus(50)</onclick>
+					<label>‹ $LOCALIZE[16101] ›</label>
+					<label2>$LOCALIZE[16101]</label2>
+					<property name="ActionLeft">SendClick(14)</property>
+					<property name="ActionRight">SendClick(14)</property>
+					<visible>Control.IsEnabled(14) + System.Setting(hidewatched)</visible>
 				</item>
 				<!-- Filter -->
 				<item>
@@ -614,40 +582,41 @@
 					<label2>587</label2>
 					<visible>Container.CanFilter | Container.CanFilterAdvanced</visible>
 				</item>
-				<!-- Slideshow -->
-				<item>
-					<onclick condition="!ListItem.IsFolder + Control.IsEnabled(6)">SendClick(6)</onclick>
-					<onclick condition="ListItem.IsFolder + Control.IsEnabled(7)">SendClick(7)</onclick>
-					<label>108</label>
-					<label2>108</label2>
-					<visible>Control.IsEnabled(6) | Control.IsEnabled(7)</visible>
-				</item>
-				<!-- Randomize -->
+				<!-- Search -->
 				<item>
 					<onclick>SetFocus(50)</onclick>
-					<onclick condition="!ListItem.IsFolder + Control.IsEnabled(6)">SendClick(6)</onclick>
-					<onclick condition="ListItem.IsFolder + Control.IsEnabled(7)">SendClick(7)</onclick>
-					<label>‹ $LOCALIZE[16039] ›</label>
-					<label2>$LOCALIZE[13319] | $LOCALIZE[16039]</label2>
-					<property name="ActionLeft">SendClick(9)</property>
-					<property name="ActionLeft2">Skin.SetString(PicturesRandom,on)</property>
-					<property name="ActionRight">SendClick(9)</property>
-					<property name="ActionRight2">Skin.SetString(PicturesRandom,on)</property>
-					<visible>Control.IsEnabled(9) + SubString(Skin.String(PicturesRandom),off)</visible>
+					<onclick>SendClick(8)</onclick>
+					<label>137</label>
+					<label2>137</label2>
+					<visible>Control.IsEnabled(8)</visible>
 				</item>
+				<!-- Update library -->
 				<item>
 					<onclick>SetFocus(50)</onclick>
-					<onclick condition="!ListItem.IsFolder + Control.IsEnabled(6)">SendClick(6)</onclick>
-					<onclick condition="ListItem.IsFolder + Control.IsEnabled(7)">SendClick(7)</onclick>
-					<label>‹ $LOCALIZE[16041] ›</label>
-					<label2>$LOCALIZE[13319] | $LOCALIZE[16041]</label2>
-					<property name="ActionLeft">SendClick(9)</property>
-					<property name="ActionLeft2">Skin.SetString(PicturesRandom,off)</property>
-					<property name="ActionRight">SendClick(9)</property>
-					<property name="ActionRight2">Skin.SetString(PicturesRandom,off)</property>
-					<visible>Control.IsEnabled(9) + SubString(Skin.String(PicturesRandom),on)</visible>
+					<onclick>SendClick(20)</onclick>
+					<label>$LOCALIZE[653]</label>
+					<label2>$LOCALIZE[653]</label2>
+					<visible>Control.IsEnabled(20) + !Library.IsScanningVideo</visible>
+				</item>
+				<!-- Cancel update -->
+				<item>
+					<onclick>SetFocus(50)</onclick>
+					<onclick>SendClick(20)</onclick>
+					<label>$LOCALIZE[13353]</label>
+					<label2>$LOCALIZE[13353]</label2>
+					<visible>Control.IsEnabled(20) + Library.IsScanningVideo</visible>
+				</item>
+				<!-- Current playlist -->
+				<item>
+					<onclick>SetFocus(50)</onclick>
+					<onclick>ActivateWindow(videoplaylist)</onclick>
+					<label>$LOCALIZE[13350]</label>
+					<label2>$LOCALIZE[13350]</label2>
+					<visible>!String.Contains(Playlist.Length(video),0)</visible>
 				</item>
 			</content>
 		</control>
+		<!--> Logo <!-->
+		<include>Logo</include>
 	</controls>
 </window>

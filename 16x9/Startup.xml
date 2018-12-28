@@ -2,11 +2,13 @@
 <window>
 	<onload condition="Skin.HasSetting(installed)">AlarmClock(CloseStartup,ReplaceWindow(home),00:05,silent)</onload>
 	<onload condition="!Skin.HasSetting(installed)">AlarmClock(CloseStartup,ReplaceWindow(9085),00:01,silent)</onload>
-	<onload condition="!String.IsEmpty(Skin.SetString(snapwindow))">Skin.SetString(snapwindow, 1109)</onload>
-	<onload condition="!String.IsEmpty(Skin.SetString(snapico))">Skin.SetString(snapico, home/snap/tv.jpg,0)</onload>
-	<onload condition="!String.IsEmpty(Skin.SetString(snapname))">Skin.SetString(snapname, Film & TV)</onload>
-	<onload condition="String.IsEmpty(Skin.String(DashboardToggle))">Skin.SetString(DashboardToggle, TV)</onload>
-	<onunload condition="String.IsEmpty(Skin.String(DashboardToggle))">Skin.SetString(DashboardToggle, TV)</onunload>
+	<onload condition="String.IsEmpty(Skin.SetString(snapwindow))">Skin.SetString(snapwindow, 1109)</onload>
+	<onload condition="String.IsEmpty(Skin.SetString(snapico))">Skin.SetString(snapico, home/snap/tv.jpg,0)</onload>
+	<onload condition="String.IsEmpty(Skin.SetString(snapname))">Skin.SetString(snapname, Film & TV)</onload>
+	<onload condition="String.IsEmpty(Skin.String(DashboardToggle))">Skin.SetString(DashboardToggle, Retroarch)</onload>
+	<onunload condition="String.IsEmpty(Skin.String(DashboardToggle))">Skin.SetString(DashboardToggle, Retroarch)</onunload>
+	<onload condition="String.IsEmpty(Skin.String(MusicToggle))">Skin.SetString(MusicToggle, 1)</onload>
+	<onload condition="String.IsEmpty(Skin.String(MusicBackgroundToggle))">Skin.SetString(MusicBackgroundToggle, FM)</onload>
 	<controls>
 
 		<include>WindowBackgroundImage</include>
@@ -22,6 +24,7 @@
 			<posy>0</posy>
 			<width>100%</width>
 			<height>100%</height>
+			<aspectratio>scale</aspectratio>
 			<texture colordiffuse="$VAR[Black]">Splash.png</texture>
 		</control>
 

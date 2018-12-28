@@ -83,7 +83,7 @@
 				<left>150</left>
 				<top>235</top>
 				<width>700</width>
-				<height>740</height>
+				<height>600</height>
 				<onup>noop</onup>
 				<ondown>5</ondown>
 				<onleft>5</onleft>
@@ -186,9 +186,9 @@
 				<textcolor>$VAR[White]</textcolor>
 				<visible>!Control.HasFocus(11)</visible>
 			</control>
-
 		</control>
-		<!-- List -->
+		
+		<!-- Game List
 		<control type="list" id="11">
 			<left>550</left>
 			<top>400</top>
@@ -199,6 +199,7 @@
 			<onleft>back</onleft>
 			<onright>11</onright>
 			<orientation>vertical</orientation>
+			<visible>Skin.HasSetting(gamemode)</visible>
 			<scrolltime tween="sine" easing="out">240</scrolltime>
 			<itemlayout height="150">
 				<control type="group">
@@ -250,8 +251,48 @@
 					</control>
 				</control>
 			</focusedlayout>
+		</control> -->
+		<control type="group">
+			<control type="list" id="11">
+			<centertop>50%</centertop>
+			<right>0</right>
+			<width>700</width>
+			<height>1000</height>
+			<onup>noop</onup>
+			<ondown>11</ondown>
+			<onleft>back</onleft>
+			<onright>11</onright>
+			<orientation>vertical</orientation>
+			<scrolltime tween="sine" easing="out">240</scrolltime>
+			<itemlayout height="80">
+				<control type="group">
+					<control type="label">
+						<right>110</right>
+						<width>540</width>
+						<height>100</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>Reg20</font>
+						<align>right</align>
+						<aligny>center</aligny>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+					</control>
+				</control>
+			</itemlayout>
+			<focusedlayout height="100">
+				<control type="group">
+					<right>-100</right>
+					<control type="label">
+						<right>200</right>
+						<height>150</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>Reg30</font>
+						<align>right</align>
+						<aligny>center</aligny>
+						<textcolor>$VAR[FocusedColor]</textcolor>
+					</control>
+				</control>
+			</focusedlayout>
+			</control>
 		</control>
-
 	</controls>
-
 </window>

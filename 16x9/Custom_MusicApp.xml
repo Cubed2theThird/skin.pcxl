@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window id="1108">
-	<backgroundcolor>$VAR[BackgroundColor]</backgroundcolor>
+	<backgroundcolor>$VAR[Black]</backgroundcolor>
 	<defaultcontrol always="false">111</defaultcontrol>
 	<onload>Skin.SetString(snapwindow, 1108)</onload>
 	<onload>Skin.SetString(snapico, home/snap/music.jpg,0)</onload>
@@ -41,7 +41,7 @@
 					<left>50</left>
 					<width>1000</width>	
 					<height>40</height>
-					<label>My Music</label>
+					<label>$LOCALIZE[2]</label>
 					<aligny>left</aligny>
 					<font>Header</font>
 					<textcolor>$VAR[White]</textcolor>						
@@ -56,7 +56,7 @@
 				<control type="label">
 					<width>1000</width>	
 					<height>40</height>
-					<label>My Albums</label>
+					<label>$LOCALIZE[31033]</label>
 					<aligny>left</aligny>
 					<font>SubHeader</font>
 					<textcolor>$VAR[FocusedColor2]</textcolor>
@@ -72,7 +72,7 @@
 					<focusposition>-1</focusposition>
 					<movement>2</movement>
 					<orientation>horizontal</orientation>
-					<viewtype label="31521">list</viewtype>
+					<viewtype>list</viewtype>
 					<scrolltime tween="cubic" easing="out">360</scrolltime>				
 					<itemlayout height="400" width="360">
 						<control type="group">
@@ -152,7 +152,7 @@
 					</focusedlayout>
 					<content>
 						<item>
-							<label>Party Mode</label>
+							<label>$LOCALIZE[589]</label>
 							<onclick>PlayerControl(Partymode(music))</onclick>
 							<icon>DefaultAddonVisualization.png</icon>
 						</item>
@@ -169,7 +169,7 @@
 				<control type="label">
 					<width>1000</width>	
 					<height>40</height>
-					<label>Artist</label>
+					<label>$LOCALIZE[133]</label>
 					<aligny>left</aligny>
 					<font>SubHeader</font>
 					<textcolor>$VAR[White]</textcolor>
@@ -185,7 +185,7 @@
 					<focusposition>-1</focusposition>
 					<movement>2</movement>
 					<orientation>horizontal</orientation>
-					<viewtype label="31521">list</viewtype>
+					<viewtype>list</viewtype>
 					<scrolltime tween="cubic" easing="out">360</scrolltime>				
 					<itemlayout height="400" width="360">
 						<control type="group">
@@ -264,7 +264,7 @@
 				<control type="label">
 					<width>1000</width>	
 					<height>40</height>
-					<label>My Library</label>
+					<label>$LOCALIZE[31031]</label>
 					<aligny>left</aligny>
 					<font>SubHeader</font>
 					<textcolor>$VAR[White]</textcolor>
@@ -280,7 +280,7 @@
 					<focusposition>-1</focusposition>
 					<movement>2</movement>
 					<orientation>horizontal</orientation>
-					<viewtype label="31521">list</viewtype>
+					<viewtype>list</viewtype>
 					<scrolltime tween="cubic" easing="out">360</scrolltime>				
 					<itemlayout height="400" width="360">
 						<control type="group">
@@ -365,18 +365,16 @@
 					</focusedlayout>
 					<content>
 						<item id="99">						
-							<label fallback="31450">Music</label>
-							<onclick>ActivateWindow(Music,root)</onclick>
+							<label>$LOCALIZE[2]</label>
+							<onclick>ActivateWindow(music,root)</onclick>
 							<thumb>apps/music.png</thumb>
 						</item>
-						<include>MusicApps</include>
+						<!--><include>MusicApps</include><!-->
 					</content>
-					<!--><content target="music" sortby="title" sortorder="ascending">addons://sources/audio</content><!-->
+					<content target="music" sortby="title" sortorder="ascending">addons://sources/audio</content>
 				</control>
 			</control>
-
 		</control>
-
 		<include>Logo</include>
 	</controls>
 </window>

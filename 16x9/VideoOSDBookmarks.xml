@@ -27,7 +27,7 @@
 				<control type="image">
 					<width>324</width>
 					<height>242</height>
-					<texture border="1">osd/OSDBack.png</texture>
+					<texture colordiffuse="$VAR[MaterialColor]" border="9">views/Card_bg_white.png</texture>
 				</control>
 				<control type="image">
 					<left>6</left>
@@ -35,13 +35,14 @@
 					<width>312</width>
 					<height>176</height>
 					<aspectratio aligny="top">keep</aspectratio>
-					<texture background="true">$INFO[ListItem.Icon]</texture>
+					<texture>$INFO[ListItem.Icon]</texture>
 				</control>
 				<control type="label">
 					<left>10</left>
 					<top>190</top>
 					<width>304</width>
 					<height>44</height>
+					<font>Tile</font>
 					<textcolor>$VAR[UnFocusedColor]</textcolor>
 					<label>$INFO[ListItem.Label] / $INFO[ListItem.Label2]</label>
 				</control>
@@ -50,12 +51,7 @@
 				<control type="image">
 					<width>324</width>
 					<height>242</height>
-					<texture border="1">osd/OSDBack.png</texture>
-				</control>
-				<control type="image">
-					<width>324</width>
-					<height>242</height>
-					<texture border="1">osd/OSDBack.png</texture>
+					<texture colordiffuse="$VAR[SecondaryColor]" border="9">views/Card_bg_white.png</texture>
 				</control>
 				<control type="image">
 					<left>6</left>
@@ -63,13 +59,14 @@
 					<width>312</width>
 					<height>176</height>
 					<aspectratio aligny="top">keep</aspectratio>
-					<texture background="true">$INFO[ListItem.Icon]</texture>
+					<texture>$INFO[ListItem.Icon]</texture>
 				</control>
 				<control type="label">
 					<left>10</left>
 					<top>190</top>
 					<width>304</width>
 					<height>44</height>
+					<font>Tile</font>
 					<textcolor>$VAR[FocusedColor]</textcolor>
 					<label>$INFO[ListItem.Label] / $INFO[ListItem.Label2]</label>
 				</control>
@@ -91,7 +88,7 @@
 			<!-- Button grouplist -->
 			<control type="grouplist" id="9001">
 				<left>20</left>
-				<top>-6</top>
+				<top>-10</top>
 				<width>1600</width>
 				<height>60</height>
 				<itemgap>20</itemgap>
@@ -103,20 +100,26 @@
 
 				<!-- Create Bookmark button -->
 				<control type="button" id="2">
-					<width>520</width>
+					<width>400</width>
+					<height>60</height>
 					<label>294</label>
+					<include>DialogButton</include>
 				</control>
 
 				<!-- Clear Bookmark button -->
 				<control type="button" id="3">
-					<width>520</width>
+					<width>400</width>
+					<height>60</height>
 					<label>296</label>
+					<include>DialogButton</include>
 				</control>
 
 				<!-- Use current for episode thumb -->
 				<control type="button" id="4">
-					<width>520</width>
+					<width>400</width>
+					<height>60</height>
 					<label>20406</label>
+					<include>DialogButton</include>
 				</control>
 
 			</control>

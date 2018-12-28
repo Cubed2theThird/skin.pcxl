@@ -2,7 +2,6 @@
 <window id="9500">
 	<backgroundcolor>FF000000</backgroundcolor>
 	<defaultcontrol always="true">9000</defaultcontrol>
-    <onload condition="Window.Previous(videos)">close</onload>
 	<onload>AlarmClock(focus,Control.SetFocus(9000),00:01,silent)</onload>
 	<onload>Skin.SetString(snapwindow, 9500)</onload>
 	<onload>Skin.SetString(snapico, home/snap/netflix.jpg,0)</onload>
@@ -14,8 +13,9 @@
 			<centertop>30%</centertop>
 			<width>550</width>
 			<height>66</height>
-			<label>Who's Watching?</label>
+			<label>$LOCALIZE[31075]</label>
 			<font>NetflixHeader</font>
+			<!--><font>Reg60</font><!-->
 			<textcolor>$VAR[TextColor]</textcolor>
 			<align>center</align>
 			<aligny>center</aligny>
@@ -23,10 +23,10 @@
 			<scroll>false</scroll>
 		</control>
 
-		<control type="wraplist" id="9000">
+		<control type="list" id="9000">
 			<description>Control list</description>
 			<height>500</height>
-			<width>270</width>
+			<width>95%</width>
 			<centerleft>50%</centerleft>
 			<centertop>70%</centertop>
 			<onup>noop</onup>

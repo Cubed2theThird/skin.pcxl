@@ -7,33 +7,33 @@
 
 		<!-- Pointer -->
 		<control type="image" id="1">
-			<width>25</width>
-			<height>25</height>
-			<texture colordiffuse="$VAR[White]">mouse.png</texture>
+			<width>50</width>
+			<height>50</height>
+			<texture colordiffuse="$VAR[UnFocusedColor]">mouse.png</texture>
 			<visible>!Skin.HasSetting(HideMouse)</visible>
 		</control>
 
 		<!-- Pointer focus -->
 		<control type="image" id="2">
-			<width>25</width>
-			<height>25</height>
+			<width>50</width>
+			<height>50</height>
 			<texture colordiffuse="$VAR[White]">mouse.png</texture>
 			<visible>!Skin.HasSetting(HideMouse)</visible>
 		</control>
 
 		<!-- Pointer drag -->
 		<control type="image" id="3">
-			<width>25</width>
-			<height>25</height>
-			<texture>mouse.png</texture>
-			<visible colordiffuse="$VAR[White]">!Skin.HasSetting(HideMouse)</visible>
+			<width>50</width>
+			<height>50</height>
+			<texture colordiffuse="$VAR[White]">mouse.png</texture>
+			<visible>!Skin.HasSetting(HideMouse)</visible>
 		</control>
 
 		<!-- Pointer click -->
 		<control type="image" id="4">
-			<width>25</width>
-			<height>25</height>
-			<texture colordiffuse="$VAR[White]">mouse.png</texture>
+			<width>50</width>
+			<height>50</height>
+			<texture colordiffuse="$VAR[SecondaryColor]">mouse2.png</texture>
 			<visible>!Skin.HasSetting(HideMouse)</visible>
 		</control>
 

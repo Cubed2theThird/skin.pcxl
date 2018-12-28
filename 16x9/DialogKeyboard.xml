@@ -26,13 +26,14 @@
 
 		<!-- Heading -->
 		<control type="label" id="311">
-			<left>50</left>
-			<top>50</top>
+			<left>375</left>
+			<top>130</top>
 			<width>1620</width>
 			<height>72</height>
-			<font>Font72</font>
+			<font>Large</font>
 			<label>13406</label>
 			<animation effect="slide" end="0,-148" condition="Control.IsVisible(313)">Conditional</animation>
+			<visible>!Window.IsActive(DialogNumeric.xml)</visible>
 		</control>
 
 		<!-- HZCode -->
@@ -125,14 +126,13 @@
 				<include>KeyboardButtons2</include>
 				<label>1006</label>
 			</control>
-
 		</control>
 
 		<!-- Keys -->
 		<control type="group">
-			<left>300</left>
+			<centerleft>50%</centerleft>
+			<width>1185</width>
 			<top>650</top>
-
 			<!-- First row -->
 			<control type="grouplist" id="1000">
 				<left>0</left>
@@ -142,7 +142,7 @@
 				<itemgap>5</itemgap>
 				<onleft>309</onleft>
 				<onright>300</onright>
-				<onup>312</onup>
+				<onup>9010</onup>
 				<orientation>horizontal</orientation>
 
 				<control type="button" id="100">
@@ -205,7 +205,6 @@
 					<ondown>131</ondown>
 					<include>KeyboardButtons</include>
 				</control>
-
 			</control>
 
 			<!-- Second row -->
@@ -291,7 +290,6 @@
 					<ondown>151</ondown>
 					<include>KeyboardButtons</include>
 				</control>
-
 			</control>
 
 			<!-- Third row -->
@@ -377,7 +375,6 @@
 					<ondown>171</ondown>
 					<include>KeyboardButtons</include>
 				</control>
-
 			</control>
 
 			<!-- Forth row -->
@@ -463,7 +460,6 @@
 					<ondown>306</ondown>
 					<include>KeyboardButtons</include>
 				</control>
-
 			</control>
 
 			<!-- Fifth row -->
@@ -506,30 +502,66 @@
 					<label>&gt;</label>
 					<include>KeyboardButtons</include>
 				</control>
-
 			</control>
+		</control>
 
-			<!-- Edit Text background -->
-			<control type="image">
-				<top>-500</top>
-				<width>1208</width>
-				<height>74</height>
-				<texture>dialogs/DialogTextBackground.png</texture>
-			</control>
-
-			<!-- Edit -->
-			<control type="edit" id="312">
-				<left>20</left>
-				<top>-500</top>
-				<width>1168</width>
-				<height>74</height>
-				<onup>noop</onup>
-				<ondown>100</ondown>
-				<scroll>true</scroll>
-				<font>Font48</font>
-				<textcolor>$VAR[FocusedColor]</textcolor>
-			</control>
-
+		<control type="fixedlist" id="9010">
+			<bottom>290</bottom>
+			<left>20</left>
+			<width>1880</width>
+			<height>200</height>
+			<scrolltime tween="cubic" easing="out">500</scrolltime>
+			<orientation>horizontal</orientation>
+			<onup>312</onup>
+			<ondown>1000</ondown>
+			<focusposition>-1</focusposition>
+			<movement>3</movement>
+			<itemlayout width="500" height="60">
+				<control type="image">
+					<width>500</width>
+					<height>50</height>
+					<texture colordiffuse="$VAR[Black]">color_white.png</texture>
+				</control>
+				<control type="label">
+					<textoffsetx>10</textoffsetx>
+					<width>500</width>
+					<height>50</height>
+					<label>$INFO[ListItem.Label]</label>
+					<font>tile</font>
+					<aligny>center</aligny>
+				</control>
+			</itemlayout>
+			<focusedlayout width="500" height="60">
+				<control type="group">
+					<control type="image">
+						<width>500</width>
+						<height>50</height>
+						<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+					</control>
+					<control type="label">
+						<textoffsetx>10</textoffsetx>
+						<width>500</width>
+						<height>50</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>tile</font>
+						<aligny>center</aligny>
+					</control>
+				</control>
+			</focusedlayout>
+			<content>plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Control.GetLabel(312).index(1)]&amp;&amp;limit=9</content>
+		</control>
+		
+		<!-- Edit -->
+		<control type="edit" id="312">
+			<centerleft>50%</centerleft>
+			<top>200</top>
+			<width>1185</width>
+			<height>74</height>
+			<onup>noop</onup>
+			<ondown>9010</ondown>
+			<scroll>true</scroll>
+			<font>reg48</font>
+			<textcolor>$VAR[FocusedColor]</textcolor>
 		</control>
 
 		<!-- Button grouplist -->
@@ -559,7 +591,6 @@
 				<include>KeyboardButtons2</include>
 				<label>222</label>
 			</control>
-
 		</control>
 	</controls>
 

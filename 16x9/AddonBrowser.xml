@@ -25,11 +25,11 @@
 		<!-- Fanart -->
 		<include>Fanart</include>
         <!-- Now Playing -->
-        <include>NowPlayingWindow</include>
+        <include>WindowBackgroundVideo</include>
 		<!-- Main group -->
 		<control type="group">
 			<include>WindowFadeAnimation</include>
-			<include>OptionsHideAnimation</include>
+			
 			<!-- Views -->
 			<include>Viewtype_50_List</include>
 			<!-- Now Playing Music -->
@@ -37,100 +37,78 @@
 		</control>
 		<!-- Scrollbar -->
 			<include>ScrollBars</include>
-		<!-- Options -->
-		<control type="image">
-			<include>VisibleFadeAnimation</include>
-			<include>FullscreenDimensions</include>
-			<texture colordiffuse="$VAR[SecondaryColor]">views/white_70.png</texture>
-			<visible>Control.HasFocus(3000)</visible>
-		</control>
+    	<!-- Options -->
+    	<control type="image">
+    		<include>VisibleFadeAnimation</include>
+    		<include>FullscreenDimensions</include>
+    		<texture colordiffuse="$VAR[BackgroundColor]">views/white_70.png</texture>
+    		<visible>Control.HasFocus(3000)</visible>
+    	</control>
 		<control type="fixedlist" id="3000">
-			<left>1030</left>
-			<top>144</top>
-			<width>860</width>
-			<height>896</height>
-			<onup>50</onup>
-			<ondown>50</ondown>
-			<onback>50</onback>
-			<onleft condition="String.IsEmpty(Container(3000).ListItem.Property(ActionLeft))">50</onleft>
-			<onright condition="String.IsEmpty(Container(3000).ListItem.Property(ActionRight))">50</onright>
-			<onleft condition="!String.IsEmpty(Container(3000).ListItem.Property(ActionLeft))">$INFO[Container(3000).ListItem.Property(ActionLeft)]</onleft>
-			<onleft condition="!String.IsEmpty(Container(3000).ListItem.Property(ActionLeft2))">$INFO[Container(3000).ListItem.Property(ActionLeft2)]</onleft>
-			<onright condition="!String.IsEmpty(Container(3000).ListItem.Property(ActionRight))">$INFO[Container(3000).ListItem.Property(ActionRight)]</onright>
-			<onright condition="!String.IsEmpty(Container(3000).ListItem.Property(ActionRight2))">$INFO[Container(3000).ListItem.Property(ActionRight2)]</onright>
-			<movement>6</movement>
-			<focusposition>6</focusposition>
-			<orientation>vertical</orientation>
-			<viewtype label="535">list</viewtype>
-			<defaultcontrol always="true">0</defaultcontrol>
-			<scrolltime tween="sine" easing="inout">200</scrolltime>
-			<visible allowhiddenfocus="true">Control.HasFocus(3000)</visible>
-			<include>OptionsAnimation</include>
-			<itemlayout height="59" width="860">
-				<control type="label">
-					<width>860</width>
-					<height>59</height>
-					<font>Thin48</font>
-					<textcolor>$VAR[TextColor]</textcolor>
-					<label>$INFO[ListItem.Label2]</label>
-				</control>
-			</itemlayout>
-			<focusedlayout height="70" width="860">
-				<control type="label">
-					<width>860</width>
-					<height>70</height>
-					<font>Light60</font>
-					<textcolor>$VAR[TextColor]</textcolor>
-					<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
-				</control>
-			</focusedlayout>
+            <centerleft>50%</centerleft>
+            <centertop>40%</centertop>
+            <width>500</width>
+            <height>100%</height>
+    		<onup>50</onup>
+    		<ondown>50</ondown>
+    		<onback>50</onback>
+    		<onleft condition="String.IsEmpty(Container(3000).ListItem.Property(ActionLeft))">50</onleft>
+    		<onright condition="String.IsEmpty(Container(3000).ListItem.Property(ActionRight))">50</onright>
+    		<onleft condition="!String.IsEmpty(Container(3000).ListItem.Property(ActionLeft))">$INFO[Container(3000).ListItem.Property(ActionLeft)]</onleft>
+    		<onright condition="!String.IsEmpty(Container(3000).ListItem.Property(ActionRight))">$INFO[Container(3000).ListItem.Property(ActionRight)]</onright>
+    		<movement>6</movement>
+    		<focusposition>6</focusposition>
+    		<orientation>vertical</orientation>
+    		<defaultcontrol always="true">0</defaultcontrol>
+    		<scrolltime tween="sine" easing="inout">200</scrolltime>
+    		<visible allowhiddenfocus="true">Control.HasFocus(3000)</visible>
+    		<include>OptionsAnimation</include>
+ <itemlayout width="500" height="100">
+                <control type="image">
+                    <width>500</width>
+                    <height>100</height>
+                    <texture colordiffuse="$VAR[MaterialColor]" border="9">views/Card_bg_white.png</texture>
+                </control>
+    			<control type="label">
+                    <width>500</width>
+                    <height>100</height>
+    				<font>Thin20</font>
+                    <alignx>center</alignx>
+                    <align>center</align>
+    				<textcolor>$VAR[White]</textcolor>
+    				<label>$INFO[ListItem.Label2]</label>
+    			</control>
+    		</itemlayout>
+    		<focusedlayout width="500" height="100">
+                <control type="image">
+                    <width>500</width>
+                    <height>100</height>
+                    <texture colordiffuse="$VAR[SecondaryColor]" border="9">views/Card_bg_white.png</texture>
+                </control>
+                <control type="label">
+                    <width>500</width>
+                    <height>100</height>
+                    <font>Thin20</font>
+                    <alignx>center</alignx>
+                    <align>center</align>
+                    <textcolor>$VAR[TextColor]</textcolor>
+                    <label>$INFO[ListItem.Label]</label>
+                </control>
+    		</focusedlayout>
 			<content>
 				<!-- Viewmode -->
 				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[535] ›</label>
-					<label2>$LOCALIZE[31105] | $LOCALIZE[535]</label2>
+					<label2>$LOCALIZE[535]</label2>
 					<property name="ActionLeft">Container.PreviousViewMode</property>
 					<property name="ActionRight">Container.NextViewMode</property>
 					<visible>Control.IsVisible(50)</visible>
 				</item>
 				<item>
-					<onclick>SetFocus(511)</onclick>
-					<label>‹ $LOCALIZE[31511] ›</label>
-					<label2>$LOCALIZE[31105] | $LOCALIZE[31511]</label2>
-					<property name="ActionLeft">Container.PreviousViewMode</property>
-					<property name="ActionRight">Container.NextViewMode</property>
-					<visible>Control.IsVisible(511)</visible>
-				</item>
-				<item>
-					<onclick>SetFocus(521)</onclick>
-					<label>‹ $LOCALIZE[31521] ›</label>
-					<label2>$LOCALIZE[31105] | $LOCALIZE[31521]</label2>
-					<property name="ActionLeft">Container.PreviousViewMode</property>
-					<property name="ActionRight">Container.NextViewMode</property>
-					<visible>Control.IsVisible(521)</visible>
-				</item>
-				<item>
-					<onclick>SetFocus(531)</onclick>
-					<label>‹ $LOCALIZE[31531] ›</label>
-					<label2>$LOCALIZE[31105] | $LOCALIZE[31531]</label2>
-					<property name="ActionLeft">Container.PreviousViewMode</property>
-					<property name="ActionRight">Container.NextViewMode</property>
-					<visible>Control.IsVisible(531)</visible>
-				</item>
-				<!-- Order -->
-				<item>
-					<onclick>SetFocus(50)</onclick>
-					<label>‹ $LOCALIZE[584] ›</label>
-					<label2>$LOCALIZE[31107] | $LOCALIZE[584]</label2>
-					<property name="ActionLeft">SendClick(4)</property>
-					<property name="ActionRight">SendClick(4)</property>
-					<visible>Control.IsEnabled(4) + Container.SortDirection(ascending)</visible>
-				</item>
-				<item>
 					<onclick>SetFocus(50)</onclick>
 					<label>‹ $LOCALIZE[585] ›</label>
-					<label2>$LOCALIZE[31107] | $LOCALIZE[585]</label2>
+					<label2>$LOCALIZE[585]</label2>
 					<property name="ActionLeft">SendClick(4)</property>
 					<property name="ActionRight">SendClick(4)</property>
 					<visible>Control.IsEnabled(4) + Container.SortDirection(descending)</visible>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="1200">
+	<backgroundcolor>$VAR[BlackOnly]</backgroundcolor>
+	<onload condition="Skin.String(gotoapp,xfinity)">RunScript(special://skin/scripts/xfinity.py)</onload>
+	<controls>		
+		<control type="image" id="99">
+			<centerleft>50%</centerleft>
+			<centertop>50%</centertop>
+			<width>150</width>
+			<height>150</height>
+            <texture>dialogs/loading.png</texture>
+            <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" condition="true">Conditional</animation>
+		</control>
+	</controls>
+</window>

@@ -16,6 +16,15 @@
 				<effect type="zoom" start="100" end="80" center="auto" delay="500"  tween="Cubic" easing="inout" time="200"/>
 			</animation>
 			
+			<control type="button" id="1">
+				<posx>290</posx>
+				<posy>62</posy>
+				<width>1430</width>
+				<height>75</height>
+				<ondown>11</ondown>
+				<onclick>ActivateWindow(10025,plugin://plugin.video.twitch/?content=streams&mode=new_search,return)</onclick>
+			</control>
+
 			<control type="image">
 				<include>FullscreenDimensions</include>
 				<texture colordiffuse="$VAR[MaterialColorDark]">views/white_100.png</texture>
@@ -43,7 +52,7 @@
 					<align>left</align>
 					<aligny>center</aligny>
 					<textoffsetx>5</textoffsetx>
-					<label>Games</label>    
+					<label>$LOCALIZE[10821]</label>    
 				</control>
 
 				<control type="fixedlist" id="11">
@@ -51,7 +60,7 @@
 					<left>10</left>
 					<width>100%</width>
 					<height>552</height>
-					<onup>noop</onup>
+					<onup>1</onup>
 					<ondown>22</ondown>
 					<focusposition>-1</focusposition>
 					<movement>2</movement>
@@ -104,7 +113,7 @@
 					<align>left</align>
 					<aligny>center</aligny>
 					<textoffsetx>5</textoffsetx>
-					<label>Featured Streams</label>    
+					<label>$LOCALIZE[31081]</label>    
 				</control>
 
 				<control type="fixedlist" id="22">
@@ -175,11 +184,26 @@
 								<height>66</height>
 								<label>$INFO[ListItem.Label]</label>
 								<font>Tile</font>
+								<textcolor>$VAR[TextColor]</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<scroll>true</scroll>
+								<visible>Control.HasFocus(22)</visible>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<bottom>10</bottom>
+								<width>550</width>
+								<height>66</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Tile</font>
 								<textcolor>$VAR[UnFocusedColor]</textcolor>
 								<align>left</align>
 								<aligny>center</aligny>
 								<textoffsetx>20</textoffsetx>
 								<scroll>true</scroll>
+								<visible>!Control.HasFocus(22)</visible>
 							</control>
 							<control type="image">
 								<left>-30</left>
@@ -205,7 +229,7 @@
 					<align>left</align>
 					<aligny>center</aligny>
 					<textoffsetx>5</textoffsetx>
-					<label>Live Game Stream</label>    
+					<label>$LOCALIZE[31082]</label>    
 				</control>
 
 				<control type="fixedlist" id="33">
@@ -276,11 +300,26 @@
 								<height>66</height>
 								<label>$INFO[ListItem.Label]</label>
 								<font>Tile</font>
+								<textcolor>$VAR[TextColor]</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<scroll>true</scroll>
+								<visible>Control.HasFocus(33)</visible>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<bottom>10</bottom>
+								<width>550</width>
+								<height>66</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Tile</font>
 								<textcolor>$VAR[UnFocusedColor]</textcolor>
 								<align>left</align>
 								<aligny>center</aligny>
 								<textoffsetx>20</textoffsetx>
 								<scroll>true</scroll>
+								<visible>!Control.HasFocus(33)</visible>
 							</control>
 							<control type="image">
 								<left>-30</left>
@@ -306,7 +345,7 @@
 					<align>left</align>
 					<aligny>center</aligny>
 					<textoffsetx>5</textoffsetx>
-					<label>Clips</label>    
+					<label>$LOCALIZE[31083]</label>    
 				</control>
 
 				<control type="fixedlist" id="44">
@@ -377,11 +416,26 @@
 								<height>66</height>
 								<label>$INFO[ListItem.Label]</label>
 								<font>Tile</font>
+								<textcolor>$VAR[TextColor]</textcolor>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textoffsetx>20</textoffsetx>
+								<scroll>true</scroll>
+								<visible>Control.HasFocus(44)</visible>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<bottom>10</bottom>
+								<width>550</width>
+								<height>66</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Tile</font>
 								<textcolor>$VAR[UnFocusedColor]</textcolor>
 								<align>left</align>
 								<aligny>center</aligny>
 								<textoffsetx>20</textoffsetx>
 								<scroll>true</scroll>
+								<visible>!Control.HasFocus(44)</visible>
 							</control>
 							<control type="image">
 								<left>-30</left>
@@ -407,6 +461,34 @@
 			<control type="image">
 				<include>FullscreenDimensions</include>
 				<texture>custom/twitch.png</texture>
+			</control>
+
+			<control type="image">
+				<animation type="WindowOpen" reversible="true">
+					<effect type="fade" start="90" end="100" tween="sine" easing="in" time="450" />
+				</animation>
+				<animation type="WindowClose" reversible="true">
+					<effect type="fade" start="100" end="100" tween="cubic" easing="out" time="50" />
+				</animation>
+				<posx>290</posx>
+				<posy>62</posy>
+				<width>1430</width>
+				<height>75</height>
+				<texture>custom/search.png</texture>
+			</control>
+			<control type="image">
+				<animation type="WindowOpen" reversible="true">
+					<effect type="fade" start="90" end="100" tween="sine" easing="in" time="450" />
+				</animation>
+				<animation type="WindowClose" reversible="true">
+					<effect type="fade" start="100" end="100" tween="cubic" easing="out" time="50" />
+				</animation>
+				<posx>290</posx>
+				<posy>62</posy>
+				<width>1430</width>
+				<height>75</height>
+				<texture>custom/search2.png</texture>
+				<visible>Control.HasFocus(1)</visible>
 			</control>
 		</control>
 	</controls>

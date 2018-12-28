@@ -17,7 +17,10 @@
 			</animation>
 			
 			<control type="button" id="1">
-				<include>HiddenControl</include>
+				<posx>190</posx>
+				<posy>62</posy>
+				<width>1430</width>
+				<height>75</height>
 				<ondown>2</ondown>
 				<onclick>ActivateWindow(10025,&quot;plugin://plugin.video.youtube/kodion/search/input/&quot;,return)</onclick>
 			</control>
@@ -46,7 +49,7 @@
 					<align>left</align>
 					<aligny>center</aligny>
 					<textoffsetx>5</textoffsetx>
-					<label>Trending</label>    
+					<label>$LOCALIZE[31076]</label>    
 				</control>
 
 				<control type="fixedlist" id="11">
@@ -161,7 +164,7 @@
 					<align>left</align>
 					<aligny>center</aligny>
 					<textoffsetx>5</textoffsetx>
-					<label>Live</label>    
+					<label>$LOCALIZE[31077]</label>    
 				</control>
 
 				<control type="fixedlist" id="22">
@@ -276,7 +279,7 @@
 					<align>left</align>
 					<aligny>center</aligny>
 					<textoffsetx>5</textoffsetx>
-					<label>Subscriptions</label>    
+					<label>$LOCALIZE[31078]</label>    
 				</control>
 
 				<control type="fixedlist" id="33">
@@ -391,7 +394,7 @@
 					<align>left</align>
 					<aligny>center</aligny>
 					<textoffsetx>5</textoffsetx>
-					<label>Recommended</label>    
+					<label>$LOCALIZE[31079]</label>    
 				</control>
 
 				<control type="fixedlist" id="44">
@@ -506,7 +509,7 @@
 					<align>left</align>
 					<aligny>center</aligny>
 					<textoffsetx>5</textoffsetx>
-					<label>History</label>    
+					<label>$LOCALIZE[31080]</label>    
 				</control>
 
 				<control type="fixedlist" id="55">

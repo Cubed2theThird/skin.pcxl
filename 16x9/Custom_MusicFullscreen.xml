@@ -8,15 +8,38 @@
 
 		<!--hidden buttons to handle dialog autohide-->
 		<control type="button" id="9876">
-			<posx>-100</posx>
-			<posy>-100</posy>
-			<height>0</height>
-			<width>0</width>
+			<centerleft>50%</centerleft>
+			<centertop>50%</centertop>
+			<width>1000</width>
+			<height>100%</height>
+			<label> </label>
+			<texturefocus> </texturefocus>
+			<texturenofocus> </texturenofocus>
 			<onup>playercontrol(next)</onup>
 			<ondown>playercontrol(previous)</ondown>
 			<onleft>Seek(-10)</onleft>
 			<onright>Seek(10)</onright>
 			<onclick>playercontrol(Play)</onclick>
+		</control>
+		<control type="button" id="9875">
+			<left>0</left>
+			<centertop>50%</centertop>
+			<label> </label>
+			<texturefocus> </texturefocus>
+			<texturenofocus> </texturenofocus>
+			<width>450</width>
+			<height>100%</height>
+			<onclick>Seek(-30)</onclick>
+		</control>
+		<control type="button" id="9877">
+			<right>0</right>
+			<centertop>50%</centertop>
+			<label> </label>
+			<texturefocus> </texturefocus>
+			<texturenofocus> </texturenofocus>
+			<width>450</width>
+			<height>100%</height>
+			<onclick>Seek(30)</onclick>
 		</control>
 
 		<include condition="Skin.String(MusicBackgroundToggle, COTW)">COTWBack</include>
@@ -28,6 +51,8 @@
 		<include condition="Skin.String(MusicToggle, COTW)">COTW</include>
 		<include condition="Skin.String(MusicToggle, FM)">FM</include>
 
+		<include>Progress</include>
+		
 		<!--> Logo <!-->
 		<include>Logo</include>
 	</controls>

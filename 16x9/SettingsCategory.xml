@@ -6,8 +6,8 @@
 	<onload condition="!String.IsEmpty(Window(settings).Property(ChangeSettingsLevel))">SetFocus(20)</onload>
 	<controls>
 
-		<!-- Clock -->
-		<include>Clock2</include>
+		
+		
 
 		<control type="group">
             <animation type="WindowOpen">
@@ -33,7 +33,7 @@
 				<description>Button Area</description>
 				<centerleft>50%</centerleft>
 				<centertop>20%</centertop>
-				<width>90%</width>				
+				<width>89%</width>				
 				<height>150</height>
 				<itemgap>0</itemgap>
 				<onleft>9010</onleft>
@@ -49,7 +49,7 @@
 				<centertop>53%</centertop>
 				<width>90%</width>				
 				<height>70%</height>
-				<texture colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texture>
+				<texture colordiffuse="$VAR[BackgroundColor]" border="9">views/Card_bg_white.png</texture>
 			</control>
 
 			<!-- Sub list 71-->
@@ -87,8 +87,8 @@
 				<focusedcolor>$VAR[FocusedColor]</focusedcolor>
 				<invalidcolor>$VAR[DisabledColor]</invalidcolor>
 				<disabledcolor>$VAR[DisabledColor]</disabledcolor>
-				<texturefocus colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texturefocus>
-				<texturenofocus colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texturenofocus>
+				<texturefocus colordiffuse="$VAR[BackgroundColor]" border="9">views/Card_bg_white.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[SecondaryColor]" border="9">views/Card_bg_white.png</texturenofocus>
 			</control>
 
 			<!-- Settings level button arrow -->

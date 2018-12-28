@@ -5,7 +5,6 @@
 	<include file="Include_Music.xml" />
 	<include file="Include_Colors.xml" />
 	<include file="Colors.xml" />
-	<include file="Custom_Colour_Picker.xml" />
 	<include file="Defaults.xml" />
 	<include file="Parameters.xml" />
 	<include file="script-skinshortcuts-includes.xml"/>
@@ -16,23 +15,28 @@
 	<!-- Pictures -->
 	<include file="Viewtype_510_Pics.xml" />
 
-	<!-- Music -->
-	<include file="Viewtype_522_ShowcaseSquare.xml" />
-	<include file="Viewtype_523_ShowcaseSquareLarge.xml" />
+	<!-- Music 20-29 -->
+	<include file="Viewtype_520_RowSquare.xml" />
+	<include file="Viewtype_521_SquareLarge.xml" />
+	<include file="Viewtype_522_WallSquare.xml" />
 
-	<!-- Games -->
-	<include file="Viewtype_524_Switch.xml" />
-	<include file="Viewtype_525_RetroArch.xml" />
-
-	<!-- Movies -->
+	<!-- Movies 30-39 -->
 	<include file="Viewtype_530_WallPoster.xml" />
 	<include file="Viewtype_531_ShowcasePoster.xml" />
+	<include file="Viewtype_532_WallLandscape.xml" />
+	<include file="Viewtype_533_WallLandscape_Fanart.xml" />
+	<include file="Viewtype_534_Episode.xml" />
+	<include file="Viewtype_535_RowPoster.xml" />
 
-	<!-- Custom -->
-	<include file="Viewtype_532_Pluto.xml" />
-	<include file="Viewtype_533_Youtube.xml" />
-	<include file="Viewtype_535_Netflix.xml" />
-	<include file="Viewtype_600_Sidebar.xml" />
+	<!-- Games 40-49 -->
+	<include file="Viewtype_540_Switch.xml" />
+	<include file="Viewtype_541_RetroArch.xml" />
+
+	<!-- Custom 50-59 -->
+	<include file="Viewtype_550_Youtube.xml" />
+	<include file="Viewtype_551_Netflix.xml" />
+	<include file="Viewtype_552_Pluto.xml" />
+	<include file="Viewtype_600_Playlist.xml" />
 
 	<include file="Variables.xml" />
 	<!-- Fullscreen dimensions -->
@@ -52,64 +56,96 @@
 	<include name="DialogBackgroundImage">
 		<control type="image">
 			<include>FullscreenDimensions</include>
-			<texture colordiffuse="$VAR[BackgroundColor]">color_white.png</texture>
+			<texture colordiffuse="$VAR[Black]">views/white_50.png</texture>
 		</control>
 	</include>
 	<include name="WindowBackgroundImage">
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture colordiffuse="$VAR[Black]">views/white_100.png</texture>
-		</control>
 		<control type="group">
 			<animation type="Conditional" condition="Window.IsActive(contextmenu)">
 				<effect type="zoom" center="auto" start="100" end="95" time="200" tween="cubic" easing="out"/>
 			</animation>
 			<control type="image">
 				<include>FullscreenDimensions</include>
-				<texture>$INFO[Skin.String(backgroundimage)]</texture>
+				<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
 			</control>
 			<control type="image">
 				<include>FullscreenDimensions</include>
-				<texture colordiffuse="$VAR[Fade]">views/white_100.png</texture>
+				<texture colordiffuse="$VAR[BackgroundColor2]">$INFO[Skin.String(backgroundimage)]</texture>
+				<aspectratio>scale</aspectratio>
+				<visible>Skin.HasSetting(backgroundcolor)</visible>
+			</control>
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture>$INFO[Skin.String(backgroundimage)]</texture>
+				<visible>!Skin.HasSetting(backgroundcolor)</visible>
+			</control>
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture colordiffuse="$VAR[Black]">views/white_10.png</texture>
 			</control>
 		</control>
 	</include>
 	<!-- Fullscreen Video -->
 	<include name="WindowBackgroundVideo">
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture colordiffuse="$VAR[Black]">color_white.png</texture>
-			<visible>Player.HasVideo | Player.HasGame</visible>	
-		</control>
-		<control type="videowindow">
-			<include>FullscreenDimensions</include>
-		</control>
-		<control type="gamewindow">
-			<include>FullscreenDimensions</include>
-			<videofilter>$INFO[ListItem.Property(game.videofilter)]</videofilter>
-			<stretchmode>$INFO[ListItem.Property(game.stretchmode)]</stretchmode>
-			<rotation>$INFO[ListItem.Property(game.videorotation)]</rotation>
-			<visible></visible>
-		</control>
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture colordiffuse="$VAR[Black]">views/white_50.png</texture>		
+		<control type="group">
+			<visible>Skin.HasSetting(showvideobackground)</visible>
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture colordiffuse="$VAR[Black]">color_white.png</texture>
+				<visible>Player.HasVideo | Player.HasGame</visible>	
+			</control>
+			<control type="videowindow">
+				<include>FullscreenDimensions</include>
+			</control>
+			<control type="gamewindow">
+				<include>FullscreenDimensions</include>
+				<videofilter>$INFO[ListItem.Property(game.videofilter)]</videofilter>
+				<stretchmode>$INFO[ListItem.Property(game.stretchmode)]</stretchmode>
+				<rotation>$INFO[ListItem.Property(game.videorotation)]</rotation>
+			</control>
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture colordiffuse="$VAR[Black]">views/white_10.png</texture>		
+			</control>
 		</control>
 	</include>
 	<!-- Logo -->
 	<include name="Logo">
+		<control type="group">
+		<top>35</top>
 		<control type="button">
-			<centerright>100</centerright>
-			<top>25</top>
-			<width>80</width>
-			<height>80</height>
+			<right>80</right>
+			<width>70</width>
+			<height>70</height>
 			<label> </label>
 			<onclick>Dialog.Close(contextmenu)</onclick>
 			<onclick>Dialog.Close(all,true)</onclick>
-			<onclick>ActivateWindow(home)</onclick>
-			<texturefocus colordiffuse="$VAR[White]">xb1.png</texturefocus>
-			<texturenofocus colordiffuse="$VAR[White]">xb1.png</texturenofocus>
+			<onclick>ActivateWindow(PlayerControls)</onclick>
+			<texturefocus colordiffuse="$VAR[FocusedColor]">logo.png</texturefocus>
+			<texturenofocus colordiffuse="$VAR[FocusedColor]">logo.png</texturenofocus>
 		</control>
+		<control type="label">
+			<top>-5</top>
+			<right>170</right>
+			<width>1000</width>
+			<height>60</height>
+			<font>Reg25</font>
+			<align>right</align>
+			<textcolor>$VAR[UnFocusedColor]</textcolor>
+			<label>$INFO[System.Time(hh:mm)]</label>
+		</control>
+		<control type="label">
+			<right>170</right>
+			<top>20</top>
+			<width>1000</width>
+			<height>60</height>
+			<font>Reg20</font>
+			<align>right</align>
+			<alignx>right</alignx>
+			<textcolor>$VAR[UnFocusedColor]</textcolor>
+			<label>$INFO[System.Date]</label>
+		</control>
+	</control>
 	</include>
 	<!-- Menu fade background image -->
 	<include name="MenuFadeBackgroundImage">
@@ -133,64 +169,6 @@
 				<include>FullscreenDimensions</include>
 				<fadetime>400</fadetime>
 				<texture fallback="views/white_0.png" background="true">$VAR[Fanart]</texture>
-				<visible>![Window.IsActive(music) + Control.IsVisible(521)]</visible>
-			</control>
-		</control>
-	</include>
-	<!-- Clock -->
-	<include name="Clock">
-		<control type="grouplist">
-			<right>20</right>
-			<bottom>10</bottom>
-			<width>400</width>
-			<height>60</height>
-			<align>right</align>
-			<itemgap>0</itemgap>
-			<orientation>horizontal</orientation>
-			<include>HomeClockAnimation</include>
-			<control type="label">
-				<width>auto</width>
-				<height>59</height>
-				<font>Med60</font>
-				<align>right</align>
-				<textcolor>$VAR[SecondaryColor]</textcolor>
-				<label>$INFO[System.Time(hh)]</label>
-			</control>
-			<control type="label">
-				<width>auto</width>
-				<height>69</height>
-				<font>Thin48</font>
-				<align>right</align>
-				<textcolor>$VAR[White]</textcolor>
-				<label>$INFO[System.Time(mm)]</label>
-			</control>
-		</control>
-	</include>
-	<include name="Clock2">
-		<control type="grouplist">
-			<right>20</right>
-			<bottom>10</bottom>
-			<width>400</width>
-			<height>60</height>
-			<align>right</align>
-			<itemgap>0</itemgap>
-			<orientation>horizontal</orientation>
-			<include>HomeClockAnimation</include>
-			<control type="label">
-				<width>auto</width>
-				<height>59</height>
-				<font>Med60</font>
-				<align>right</align>
-				<textcolor>$VAR[BackgroundColor]</textcolor>
-				<label>$INFO[System.Time(hh)]</label>
-			</control>
-			<control type="label">
-				<width>auto</width>
-				<height>69</height>
-				<font>Thin48</font>
-				<align>right</align>
-				<textcolor>$VAR[White]</textcolor>
-				<label>$INFO[System.Time(mm)]</label>
 			</control>
 		</control>
 	</include>
@@ -200,50 +178,53 @@
 			<right>0</right>
 			<width>50</width>
 			<height>50</height>
-			<texture>views/watched_indicator.png</texture>
-			<visible>String.Contains(ListItem.Overlay,OverlayWatched.png)</visible>
-		</control>
-		<control type="image">
-			<right>0</right>
-			<width>50</width>
-			<height>50</height>
-			<texture colordiffuse="$VAR[BackgroundColor]">views/watched_indicator_back.png</texture>
+			<texture colordiffuse="$VAR[SecondaryColor]">views/watched_indicator_back.png</texture>
 			<visible>String.Contains(ListItem.Overlay,OverlayWatched.png)</visible>
 		</control>
 	</include>
 	<include name="WatchedIndicator2">
-		<control type="image">
-			<top>20</top>
+		<!--><control type="image">
 			<right>0</right>
 			<width>50</width>
 			<height>50</height>
 			<texture>views/watched_indicator.png</texture>
 			<visible>String.Contains(ListItem.Overlay,OverlayWatched.png)</visible>
-		</control>
+		</control><!-->
 		<control type="image">
-			<top>20</top>
 			<right>0</right>
 			<width>50</width>
 			<height>50</height>
-			<texture colordiffuse="black">views/watched_indicator_back.png</texture>
+			<texture colordiffuse="$VAR[SecondaryColor]">views/watched_indicator_back.png</texture>
 			<visible>String.Contains(ListItem.Overlay,OverlayWatched.png)</visible>
 		</control>
 	</include>
 	<!--  Selected -->
 	<include name="BorderSelected">
 		<param name="type"/>
+		<param name="width"/>
+		<param name="height"/>
 		<definition>
 			<control type="image">
-				<centerleft>50%</centerleft>
-				<centertop>50%</centertop>
-				<width>60</width>
-				<height>60</height>
-				<texture colordiffuse="$VAR[White]">views/check.png</texture>
+				<width>$PARAM[width]</width>
+				<height>$PARAM[height]</height>
+				<texture>views/border_check.png</texture>
 				<visible>String.IsEqual(System.CurrentControl,Skin.String($PARAM[type]))</visible>
 			</control>
 		</definition>
 	</include>
-
+	<include name="BorderSelected2">
+		<param name="type"/>
+		<param name="width"/>
+		<param name="height"/>
+		<definition>
+			<control type="image">
+				<width>$PARAM[width]</width>
+				<height>$PARAM[height]</height>
+				<texture>views/border_check.png</texture>
+				<visible>String.IsEqual(listitem.label,Skin.String($PARAM[type]))</visible>
+			</control>
+		</definition>
+	</include>
 	<include name="MediaInfoDiffuse">
 		<control type="image">
 			<include>FullscreenDimensions</include>
@@ -277,6 +258,14 @@
 			<texture colordiffuse="$VAR[White]" fallback="flags/default_rating.png">$VAR[Info_Certificate]</texture>
 			<visible>!SubString(ListItem.Icon,Default) + !Container.Content(artists)</visible>
 		</control>
+		<!-- Source Flag -->
+		<control type="image">
+			<left>350</left>
+			<width>120</width>
+			<height>80</height>
+			<aspectratio>keep</aspectratio>
+			<texture colordiffuse="$VAR[TextColor]">$VAR[Video_Source]</texture>
+		</control>
 	</include>
 	<!-- Hidden control -->
 	<include name="HiddenControl">
@@ -300,13 +289,26 @@
 		<height>100</height>
 		<font>Font-Condensed-S34</font>
 		<align>left</align>
-		<textcolor>white</textcolor>
+		<textcolor>$VAR[White]</textcolor>
 		<focusedcolor>white</focusedcolor>
 		<disabledcolor>FF484848</disabledcolor>
-		<texturefocus colordiffuse="$VAR[SecondaryColor]" border="20">kb/key-fo.png</texturefocus>
-		<texturenofocus border="20">kb/key-nf.png</texturenofocus>
+		<texturefocus colordiffuse="$VAR[SecondaryColor]" border="9">views/Card_bg_white.png</texturefocus>
+		<texturenofocus colordiffuse="$VAR[MaterialColorDark]" border="9">views/Card_bg_white.png</texturenofocus>
+		<textoffsetx>55</textoffsetx>
+		<textoffsety>25</textoffsety>
+	</include>
+	<!-- Dialog Button -->
+	<include name="InfoButton">
+		<width>auto</width>
+		<height>70</height>
+		<font>tile</font>
+		<align>left</align>
+		<textcolor>$VAR[White]</textcolor>
+		<focusedcolor>white</focusedcolor>
+		<disabledcolor>FF484848</disabledcolor>
+		<texturefocus colordiffuse="$VAR[SecondaryColor]" border="9">views/Card_bg_white.png</texturefocus>
+		<texturenofocus colordiffuse="$VAR[MaterialColorDark]" border="9">views/Card_bg_white.png</texturenofocus>
 		<textoffsetx>25</textoffsetx>
-		<textoffsety>55</textoffsety>
 	</include>
 	<!-- Settings Button -->
 	<include name="SettingsButton">
@@ -314,11 +316,11 @@
 		<height>100</height>
 		<font>Font-Condensed-S34</font>
 		<align>left</align>
-		<textcolor>$VAR[Black]</textcolor>
-		<focusedcolor>$VAR[White]</focusedcolor>
+		<textcolor>$VAR[White]</textcolor>
+		<focusedcolor>$VAR[Black]</focusedcolor>
 		<disabledcolor>FF484848</disabledcolor>
 		<texturefocus colordiffuse="$VAR[SecondaryColor]">color_white.png</texturefocus>
-		<texturenofocus colordiffuse="$VAR[White]">color_white.png</texturenofocus>
+		<texturenofocus colordiffuse="$VAR[Black]">color_white.png</texturenofocus>
 		<textoffsetx>25</textoffsetx>
 		<textoffsety>55</textoffsety>
 	</include>
@@ -375,19 +377,19 @@
 			<width>60</width>
 			<height>60</height>
 			<label>  </label>
-			<texturefocus colordiffuse="$VAR[White]">osd/OSDPauseFO.png</texturefocus>
-			<texturenofocus colordiffuse="$VAR[White]">osd/OSDPauseNF.png</texturenofocus>
+			<texturefocus colordiffuse="$VAR[White]">osd/pause.png</texturefocus>
+			<texturenofocus colordiffuse="$VAR[UnFocusedColor]">osd/pause.png</texturenofocus>
 			<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
-			<alttexturefocus colordiffuse="$VAR[White]">osd/OSDPlayFO.png</alttexturefocus>
-			<alttexturenofocus colordiffuse="$VAR[White]">osd/OSDPlayNF.png</alttexturenofocus>
+			<alttexturefocus colordiffuse="$VAR[White]">osd/play.png</alttexturefocus>
+			<alttexturenofocus colordiffuse="$VAR[UnFocusedColor]">osd/play.png</alttexturenofocus>
 			<onclick>PlayerControl(Play)</onclick>
 		</control>
 		<control type="button" id="2">
 			<width>60</width>
 			<height>60</height>
 			<label>  </label>
-			<texturefocus colordiffuse="$VAR[White]">osd/OSDStopFO.png</texturefocus>
-			<texturenofocus colordiffuse="$VAR[White]">osd/OSDStopNF.png</texturenofocus>
+			<texturefocus colordiffuse="$VAR[White]">osd/stop.png</texturefocus>
+			<texturenofocus colordiffuse="$VAR[UnFocusedColor]">osd/stop.png</texturenofocus>
 			<onclick>PlayerControl(Stop)</onclick>
 		</control>
 	</include>
@@ -397,8 +399,8 @@
 			<width>60</width>
 			<height>60</height>
 			<label>  </label>
-			<texturefocus colordiffuse="$VAR[White]">osd/OSDStopFO.png</texturefocus>
-			<texturenofocus colordiffuse="$VAR[White]">osd/OSDStopNF.png</texturenofocus>
+			<texturefocus colordiffuse="$VAR[White]">osd/stop.png</texturefocus>
+			<texturenofocus colordiffuse="$VAR[UnFocusedColor]">osd/stop.png</texturenofocus>
 			<onclick>PlayerControl(Stop)</onclick>
 		</control>
 	</include>
@@ -441,18 +443,18 @@
 			<width>10</width>
 			<height>100%</height>
 			<onleft>50</onleft>
+			<onleft>600</onleft>
 			<onright>3000</onright>
 			<showonepage>false</showonepage>
 			<orientation>vertical</orientation>
-			<texturesliderbackground colordiffuse="$VAR[UnFocusedColor]">views/white_50.png</texturesliderbackground>
+			<texturesliderbackground colordiffuse="$VAR[UnFocusedColor]">views/white_0.png</texturesliderbackground>
 			<texturesliderbar colordiffuse="$VAR[BackgroundColor]">views/white_70.png</texturesliderbar>
-			<texturesliderbarfocus colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texturesliderbarfocus>
+			<texturesliderbarfocus colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texturesliderbarfocus>
 			<textureslidernib>-</textureslidernib>
 			<textureslidernibfocus>-</textureslidernibfocus>
-			<visible>Control.IsVisible(50) | Control.IsVisible(52) | Control.IsVisible(530) | Control.IsVisible(533)</visible>
+			<visible>Control.IsVisible(50) | Control.IsVisible(522) | Control.IsVisible(530) | Control.IsVisible(532) | Control.IsVisible(533) | Control.IsVisible(600) | Control.IsVisible(601)</visible>
 			<include>ScrollBarAnimation</include>
 		</control>
-
 		<control type="scrollbar" id="60">
 			<bottom>0</bottom>
 			<width>1920</width>
@@ -461,90 +463,89 @@
 			<ondown>3000</ondown>
 			<showonepage>true</showonepage>
 			<orientation>horizontal</orientation>
-			<texturesliderbackground colordiffuse="$VAR[UnFocusedColor]">views/white_50.png</texturesliderbackground>
+			<texturesliderbackground colordiffuse="$VAR[UnFocusedColor]">views/white_0.png</texturesliderbackground>
 			<texturesliderbar colordiffuse="$VAR[BackgroundColor]">views/white_70.png</texturesliderbar>
-			<texturesliderbarfocus colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texturesliderbarfocus>
+			<texturesliderbarfocus colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texturesliderbarfocus>
 			<textureslidernib>-</textureslidernib>
 			<textureslidernibfocus>-</textureslidernibfocus>
-			<visible>![Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(52) | Control.IsVisible(530) | Control.IsVisible(533)]</visible>
+			<visible>![Control.IsVisible(50) | Control.IsVisible(522) | Control.IsVisible(530) | Control.IsVisible(532) | Control.IsVisible(533)  | Control.IsVisible(534) | Control.IsVisible(550) | Control.IsVisible(600) | Control.IsVisible(601)]</visible>
 			<include>ScrollBarAnimation</include>
 		</control>
 	</include>
-
-	<!-- PlayingWindows -->
-	<include name="NowPlayingWindow">
-		<control type="group">
-			<visible>Player.HasVideo</visible>
-			<animation type="Conditional" condition="Control.HasFocus(9050)">
-				<effect type="zoom" start="100" end="110" center="auto" time="500" tween="cubic" easing="inout" />
-				<effect type="slide" start="0" end="0,50" center="auto" time="500" tween="cubic" easing="inout" />
-			</animation>
-			<animation type="Conditional" condition="Control.HasFocus(9050) + Control.IsVisible(530)">
-				<effect type="zoom" start="100" end="110" center="auto" time="500" tween="cubic" easing="inout" />
-				<effect type="slide" start="0" end="0,1050" delay="100" center="auto" time="500" tween="cubic" easing="inout" />
-			</animation>
-			<animation type="Conditional" condition="Control.IsVisible(530)">
-				<effect type="slide" end="0,-1000" center="auto" time="0" tween="cubic" easing="inout" />
-			</animation>
-			<control type="list" id="9050">
-				<description>Control list</description>
-				<height>2</height>
-				<width>2</width>
-				<onleft condition="Control.IsVisible(50)">3000</onleft>
-				<onleft condition="Control.IsVisible(51)">3000</onleft>
-				<onleft>noop</onleft>
-				<onup>noop</onup>
-				<ondown condition="Control.IsVisible(500)">500</ondown>
-				<ondown condition="Control.IsVisible(510)">510</ondown>
-				<ondown condition="Control.IsVisible(501)">501</ondown>
-				<ondown condition="Control.IsVisible(520)">520</ondown>
-				<ondown condition="Control.IsVisible(521)">521</ondown>
-				<ondown condition="Control.IsVisible(522)">522</ondown>
-				<ondown condition="Control.IsVisible(523)">523</ondown>
-				<ondown condition="Control.IsVisible(530)">530</ondown>
-				<ondown condition="Control.IsVisible(531)">531</ondown>
-				<onright condition="Control.IsVisible(533)">533</onright>
-				<ondown condition="Control.IsVisible(535)">535</ondown>
-				<ondown condition="Control.IsVisible(50)">50</ondown>
-				<ondown condition="Control.IsVisible(52)">52</ondown>
-				<orientation>vertical</orientation>
-				<scrolltime>0</scrolltime>
-				<pagecontrol>2</pagecontrol>
-				<viewtype>list</viewtype>
-				<defaultcontrol>1</defaultcontrol>
-				<content>
-					<item id="1">
-						<label>Fullscreen</label>
-						<onclick>Fullscreen</onclick>
-					</item>
-				</content>
-			</control>
-			<control type="group">
-				<visible>!Control.IsVisible(533)</visible>
-				<control type="image">	
-					<top>10</top>
-					<centerleft>50%</centerleft>
-					<width>1140</width>
-					<height>630</height>
-					<texture colordiffuse="$VAR[Black]">color_white.png</texture>
-					<aspectratio>stretch</aspectratio>
-				</control>
-				<control type="videowindow">
-					<top>10</top>
-					<centerleft>50%</centerleft>
-					<width>1140</width>
-					<height>630</height>
-					<aspectratio>scale</aspectratio>
-					<visible>Player.HasVideo</visible>
-					<onclick>Fullscreen</onclick>							
-				</control>
-			</control>
-		</control>
-	</include>
-
+	<!-- Now Playing -->
 	<include name="PlayingMusicWindow">
 		<control type="group">
-			<visible>Player.HasAudio</visible>
+			<visible>Player.HasAudio + !Skin.HasSetting(showminimalbar)</visible>
+			<!--> Vignette <!-->
+			<control type="image">
+				<bottom>0</bottom>
+				<width>100%</width>
+				<height>50%</height>
+				<aspectratio>stretch</aspectratio>
+				<texture colordiffuse="f0000000">views/vignette.png</texture>
+				<animation type="WindowOpen">
+					<effect type="fade" start="0" end="100" center="auto" tween="Cubic" easing="inout" delay="100" time="500"/>
+				</animation>
+			</control>
+
+			<!--> Artist & Track <!-->
+			<control type="label">
+				<left>20</left>		
+				<width>auto</width>
+				<height>100</height>
+				<align>left</align>
+				<bottom>0</bottom>
+				<label>$INFO[MusicPlayer.Title]</label>
+				<font>MNPlayTit</font>
+				<textcolor>$VAR[FocusedColor2]</textcolor>
+				<animation type="WindowOpen">
+					<effect type="slide" start="-1900" end="0,0" center="auto" tween="Cubic" easing="inout" delay="100" time="500"/>
+				</animation>
+				<animation type="Conditional" condition="!String.Contains(MusicPlayer.Time,00:00)">
+					<effect type="slide" start="0,200" end="0" tween="back" easing="inout" time="500"/>
+					<effect type="fade" start="0" end="100" time="100"/>
+				</animation>
+			</control>
+
+			<control type="label">
+				<left>20</left>		
+				<width>auto</width>
+				<height>50</height>
+				<align>left</align>
+				<bottom>0</bottom>
+				<label>$INFO[MusicPlayer.Artist]</label>
+				<font>MNPlayArt</font>
+				<textcolor>$VAR[UnFocusedColor2]</textcolor>
+				<animation type="WindowOpen">
+					<effect type="slide" start="-1900" end="0,0" center="auto" tween="Cubic" easing="inout" delay="100" time="500"/>
+				</animation>
+				<animation type="Conditional" condition="!String.Contains(MusicPlayer.Time,00:00)">
+					<effect type="slide" start="0,200" end="0" tween="back" easing="inout" time="500"/>
+					<effect type="fade" start="0" end="100" time="100"/>
+				</animation>
+			</control>
+			<!--> TimeRemaining & Duration <!-->
+			<control type="label">
+				<right>50</right>		
+				<width>1000</width>
+				<height>90</height>
+				<align>right</align>
+				<aligny>center</aligny>
+				<bottom>0</bottom>
+				<label>$INFO[Player.Time] [COLOR $VAR[SecondaryColor]]/[/COLOR] $INFO[Player.Duration]</label>
+				<font>tile</font>
+				<textcolor>$VAR[FocusedColor2]</textcolor>
+				<animation type="WindowOpen">
+					<effect type="slide" start="1900" end="0,0" center="auto" tween="Cubic" easing="inout" delay="100" time="500"/>
+				</animation>
+				<animation type="Conditional" condition="!String.Contains(MusicPlayer.Time,00:00)">
+					<effect type="slide" start="0,200" end="0" tween="back" easing="inout" time="500"/>
+					<effect type="fade" start="0" end="100" time="100"/>
+				</animation>
+			</control>
+		</control>
+		<control type="group">
+			<visible>Player.HasAudio + Skin.HasSetting(showminimalbar)</visible>
 			<animation type="WindowOpen">
 				<effect type="slide" start="0,600" end="0,0" center="auto" tween="Cubic" easing="inout" delay="100" time="500"/>
 			</animation>
@@ -584,7 +585,7 @@
 				<height>120</height>
 				<bottom>0</bottom>
 				<aspectratio>keep</aspectratio>
-				<texture colordiffuse="$VAR[UnFocusedColor]">osd/now/volume.png</texture>
+				<texture colordiffuse="$VAR[UnFocusedColor]">osd/volume.png</texture>
 			</control>
 			<control type="progress">
 				<right>65</right>
@@ -598,39 +599,63 @@
 				<righttexture>-</righttexture>
 				<overlaytexture>-</overlaytexture>
 			</control>
-			<!--> Cover <!-->
-			<control type="image">
-				<left>20</left>
+			<!-- Play/Pause -->
+			<control type="group">
 				<bottom>0</bottom>
-				<width>120</width>
-				<height>120</height>
-				<aspectratio>keep</aspectratio>
-				<texture>$INFO[MusicPlayer.Cover]</texture>
-			</control> 
+				<left>25</left>
+				<width>100</width>
+				<height>90</height>				
+				<control type="togglebutton" id="9052">
+					<onright>9051</onright>
+					<onup condition="Control.IsVisible(50)">50</onup>
+					<onup condition="Control.IsVisible(510)">510</onup>
+					<onup condition="Control.IsVisible(520)">520</onup>
+					<onup condition="Control.IsVisible(521)">521</onup>
+					<onup condition="Control.IsVisible(522)">522</onup>
+					<onup condition="Control.IsVisible(530)">530</onup>
+					<onup condition="Control.IsVisible(531)">531</onup>
+					<onup condition="Control.IsVisible(532)">532</onup>
+					<onup condition="Control.IsVisible(540)">540</onup>
+					<onup condition="Control.IsVisible(550)">550</onup>
+					<onup condition="Control.IsVisible(551)">551</onup>
+					<onup condition="Control.IsVisible(552)">552</onup>
+					<width>60</width>
+					<height>60</height>
+					<label>  </label>
+					<texturefocus colordiffuse="$VAR[White]">osd/pause.png</texturefocus>
+					<texturenofocus colordiffuse="$VAR[UnFocusedColor]">osd/pause.png</texturenofocus>
+					<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+					<alttexturefocus colordiffuse="$VAR[White]">osd/play.png</alttexturefocus>
+					<alttexturenofocus colordiffuse="$VAR[UnFocusedColor]">osd/play.png</alttexturenofocus>
+					<onclick>PlayerControl(Play)</onclick>
+				</control>
+			</control>
 
 			<control type="list" id="9051">
 				<width>20%</width>
 				<height>120</height>
-				<right>340</right>
+				<right>300</right>
 				<bottom>0</bottom>
-				<onup condition="Control.IsVisible(500)">500</onup>
-				<onup condition="Control.IsVisible(501)">501</onup>
+				<onup condition="Control.IsVisible(50)">50</onup>
 				<onup condition="Control.IsVisible(510)">510</onup>
 				<onup condition="Control.IsVisible(520)">520</onup>
 				<onup condition="Control.IsVisible(521)">521</onup>
 				<onup condition="Control.IsVisible(522)">522</onup>
-				<onup condition="Control.IsVisible(523)">523</onup>
+				<onup condition="Control.IsVisible(530)">530</onup>
 				<onup condition="Control.IsVisible(531)">531</onup>
-				<onup condition="Control.IsVisible(535)">535</onup>
-				<onup condition="Control.IsVisible(50)">50</onup>
-				<onup condition="Control.IsVisible(51)">51</onup>
+				<onup condition="Control.IsVisible(532)">532</onup>
+				<onup condition="Control.IsVisible(540)">540</onup>
+				<onup condition="Control.IsVisible(550)">550</onup>
+				<onup condition="Control.IsVisible(551)">551</onup>
+				<onup condition="Control.IsVisible(552)">552</onup>
+				<onleft>9052</onleft>
 				<ondown>60</ondown>
 				<ondown>3000</ondown>
 				<orientation>horizontal</orientation>
 				<scrolltime>0</scrolltime>
 				<viewtype>list</viewtype>
 				<defaultcontrol>1</defaultcontrol>
-				<itemlayout width="100" height="80">
+				<itemlayout width="80" height="80">
 					<control type="image">
 						<width>40</width>
 						<height>120</height>
@@ -638,7 +663,7 @@
 						<texture colordiffuse="$VAR[UnFocusedColor]">$INFO[ListItem.Icon]</texture>
 					</control>
 				</itemlayout>
-				<focusedlayout width="100" height="80">
+				<focusedlayout width="80" height="80">
 					<control type="image">
 						<width>40</width>
 						<height>120</height>
@@ -655,51 +680,42 @@
 				</focusedlayout>
 				<content>
 					<item id="1">
-						<label>Playlist</label>
-						<icon>osd/now/playlist.png</icon>
+						<label>$LOCALIZE[559]</label>
+						<icon>osd/playlist.png</icon>
 						<onclick>ActivateWindow(musicplaylist)</onclick>
 					</item>
 					<item id="2">
-						<label>Shuffle Off</label>
-						<icon>osd/now/shuffleoff.png</icon>
+						<label>$LOCALIZE[191]</label>
+						<icon>osd/shuffleoff.png</icon>
 						<onclick>PlayerControl(Random)</onclick>
 						<visible>!Playlist.IsRandom</visible>
 					</item>
 					<item id="2">
-						<label>Shuffle On</label>
-						<icon>osd/now/shuffle.png</icon>
+						<label>$LOCALIZE[191]</label>
+						<icon>osd/shuffle.png</icon>
 						<onclick>PlayerControl(Random)</onclick>
 						<visible>Playlist.IsRandom</visible>
 					</item>
 					<item id="3">
-						<label>Repeat Off</label>
-						<icon>osd/now/repeatoff.png</icon>
+						<label>$LOCALIZE[486]</label>
+						<icon>osd/repeatoff.png</icon>
 						<onclick>PlayerControl(Repeat)</onclick>
 						<visible>![Playlist.IsRepeat | Playlist.IsRepeatOne]</visible>
 					</item>
 					<item id="3">
-						<label>Repeat On</label>
-						<icon>osd/now/repeat.png</icon>
+						<label>$LOCALIZE[486]</label>
+						<icon>osd/repeat.png</icon>
 						<onclick>PlayerControl(Repeat)</onclick>
 						<visible>Playlist.IsRepeat</visible>
 					</item>
 					<item id="3">
-						<label>Repeat One</label>
-						<icon>osd/now/repeat_one.png</icon>
+						<label>$LOCALIZE[487]</label>
+						<icon>osd/repeat_one.png</icon>
 						<onclick>PlayerControl(Repeat)</onclick>
 						<visible>Playlist.IsRepeatOne</visible>
 					</item>
 				</content>
 			</control>
-
-			<!--> Background 
-			<control type="image">
-				<bottom>-480</bottom>
-				<width>100%</width>
-				<height>100%</height>
-				<aspectratio>keep</aspectratio>
-				<texture>demo/single-track.png</texture>
-			</control><!-->
 
 			<!--> Artist & Track <!-->
 			<control type="label">
@@ -737,7 +753,6 @@
 			</control>
 		</control>
 	</include>
-
 	<!-- debug -->
 	<include name="debug_Header">
 		<height>40</height>
@@ -747,64 +762,107 @@
 		<height>25</height>
 		<font>Tile</font>
 	</include>
-
 	<!-- Apps -->
 	<include name="RetroSystem">
+		<!-- Resume -->
 		<item>
-			<label>Play Disc</label>
+			<label>$LOCALIZE[559]</label>
+			<icon>osd/home/playlist.png</icon>
+			<onclick>ActivateWindow(musicplaylist)</onclick>
+			<visible>Container(9000).HasFocus(89) + [Player.HasAudio]</visible>
+		</item>
+		<item>
+			<label>$LOCALIZE[559]</label>
+			<icon>osd/home/playlist.png</icon>
+			<onclick>ActivateWindow(videoplaylist)</onclick>
+			<visible>Container(9000).HasFocus(89) + [Player.HasVideo + !Player.HasGame]</visible>
+		</item>
+		<item>
+			<label>$LOCALIZE[31059]</label>
+			<thumb>osd/home/pause.png</thumb>
+			<onclick>PlayerControl(Play)</onclick>
+			<visible>Container(9000).HasFocus(89) + !Player.Paused</visible>
+		</item>
+		<item>
+			<label>$LOCALIZE[31059]</label>
+			<thumb>osd/home/play.png</thumb>
+			<onclick>PlayerControl(Play)</onclick>
+			<visible>Container(9000).HasFocus(89) + Player.Paused</visible>
+		</item>
+		<item>
+			<label>$LOCALIZE[209]</label>
+			<thumb>osd/home/next.png</thumb>
+			<onclick>PlayerControl(Next)</onclick>
+			<visible>Container(9000).HasFocus(89)</visible>
+		</item>
+		<item>
+			<label>$LOCALIZE[210]</label>
+			<thumb>osd/home/prev.png</thumb>
+			<onclick>PlayerControl(Previous)</onclick>
+			<visible>Container(9000).HasFocus(89)</visible>
+		</item>
+		<item>
+			<label>$LOCALIZE[31060]</label>
+			<thumb>osd/home/stop.png</thumb>
+			<onclick>PlayerControl(Stop)</onclick>
+			<visible>Container(9000).HasFocus(89)</visible>
+		</item>
+		<!-- System -->
+		<item>
+			<label>$LOCALIZE[31024]</label>
 			<onclick>PlayDisc()</onclick>
 			<thumb>home/disc.png</thumb>
 			<visible>System.HasMediadvd + Container(9000).HasFocus(90)</visible>
 		</item>
 		<item>
-			<label>Games</label>
-			<onclick>ActivateWindow(games)</onclick>
-			<!--<onclick>ActivateWindow(1106)</onclick>-->
-			<thumb>home/games.png</thumb>
-			<visible>Container(9000).HasFocus(90)</visible>
+			<label>$LOCALIZE[14204]</label>
+			<onclick>ActivateWindow(tvchannels)</onclick>
+			<thumb>home/pvr.png</thumb>
+			<visible>Pvr.HasTVChannels + Container(9000).HasFocus(90)</visible>
 		</item>
 		<item>
-			<label>Videos</label>
+			<label>$LOCALIZE[3]</label>
 			<onclick>ActivateWindow(1109)</onclick>
 			<thumb>home/tv.png</thumb>
 			<visible>Container(9000).HasFocus(90)</visible>
 		</item>
 		<item>
-			<label>Music</label>
+			<label>$LOCALIZE[2]</label>
 			<onclick>ActivateWindow(1108)</onclick>
 			<thumb>home/music.png</thumb>
 			<visible>Container(9000).HasFocus(90)</visible>
 		</item>
-		<item>					
-			<label>Live TV</label>
-			<onclick>ActivateWindow(tvchannels)</onclick>
-			<thumb>home/tv.png</thumb>
-			<visible>Pvr.HasTVChannels + Container(9000).HasFocus(90)</visible>
+		<item>
+			<label>$LOCALIZE[10821]</label>
+			<onclick>ActivateWindow(games)</onclick>
+			<thumb>home/games.png</thumb>
+			<visible>Container(9000).HasFocus(90)</visible>
 		</item>
 		<item>
-			<label>Addons</label>
+			<label>$LOCALIZE[1]</label>
+			<onclick>ActivateWindow(pictures)</onclick>
+			<thumb>home/pictures.png</thumb>
+			<visible>Container(9000).HasFocus(90)</visible>
+		</item>
+		<item>
+			<label>$LOCALIZE[31027]</label>
 			<onclick>ActivateWindow(addonbrowser)</onclick>
 			<thumb>home/addon.png</thumb>
 			<visible>Container(9000).HasFocus(90)</visible>
 		</item>
 		<item>
-			<label>Settings</label>
+			<label>$LOCALIZE[21417]</label>
 			<onclick>ActivateWindow(Settings)</onclick>
 			<thumb>home/settings.png</thumb>
-			<visible>Container(9000).HasFocus(90)</visible>
+			<visible>Container(9000).HasFocus(90) + !Skin.String(DashboardToggle, Horizontal)</visible>
 		</item>
 		<item>
-			<label>Power</label>
-			<onclick>ActivateWindow(PlayerControls)</onclick>
-			<thumb>dialogs/charms/charm_shutdown.png</thumb>
+			<label>$LOCALIZE[33060]</label>
+			<onclick>ActivateWindow(shutdownmenu)</onclick>
+			<thumb>home/power.png</thumb>
 			<visible>Container(9000).HasFocus(90)</visible>
 		</item>
-		<item>
-			<label>Android Apps</label>
-			<onclick>ActivateWindow(programs,androidapp://sources/apps/,return)</onclick>
-			<thumb>home/gapps.png</thumb>
-			<visible>System.Platform.Android + Container(9000).HasFocus(91)</visible>
-		</item>
+		<!-- Apps -->
 		<item>
 			<label>Netflix</label>
 			<onclick>ActivateWindow(9500)</onclick>
@@ -812,6 +870,14 @@
 			<thumb>home/apps/netflix.png</thumb>
 			<visible>System.HasAddon(plugin.video.netflix) + Container(9000).HasFocus(91)</visible>
 		</item>
+		<!--><item>
+			<label>Xfinity</label>
+			<onclick>ActivateWindow(1200)</onclick>
+			<onclick>Skin.SetString(gotoapp,xfinity)</onclick>
+			<icon>home/apps/thumb/xfinity.png</icon>
+			<thumb>home/apps/xfinity.png</thumb>
+			<visible>Container(9000).HasFocus(91)</visible>
+		</item><!-->
 		<item>
 			<label>Youtube</label>
 			<onclick>ActivateWindow(1110)</onclick>
@@ -835,14 +901,13 @@
 		</item>
 		<item>
 			<label>Amazon</label>
-			<onclick>ActivateWindow(Videos,plugin://plugin.video.amazon-test/)</onclick>
+			<onclick>ActivateWindow(1112)</onclick>
 			<icon>home/apps/thumb/amazon.png</icon>
 			<thumb>home/apps/amazon.png</thumb>
 			<visible>System.HasAddon(plugin.video.amazon-test) + Container(9000).HasFocus(91)</visible>
 		</item>
 		<item>
 			<label>Spotify</label>
-			<!--><onclick>RunScript(special://skin/scripts/spotify.py)</onclick><!-->
 			<onclick>ActivateWindow(Music,plugin://plugin.audio.spotify/,return)</onclick>
 			<icon>home/apps/thumb/spotify.png</icon>
 			<thumb>home/apps/spotify.jpg</thumb>
@@ -858,57 +923,101 @@
 	</include>
 	<include name="SystemApps1">
 		<item>
-			<label>Play Disc</label>
-			<onclick>PlayDisc()</onclick>
-			<thumb>home/disc.png</thumb>
-			<visible>System.HasMediadvd</visible>
-		</item>
-		<item>
-			<label>Games</label>
+			<label>$LOCALIZE[10821]</label>
 			<onclick>ActivateWindow(games)</onclick>
 			<!--<onclick>ActivateWindow(1106)</onclick>-->
 			<thumb>home/games.png</thumb>
 		</item>
+		<item>
+			<label>$LOCALIZE[31024]</label>
+			<onclick>PlayDisc()</onclick>
+			<thumb>home/disc.png</thumb>
+			<visible>System.HasMediadvd</visible>
+		</item>
 	</include>
 	<include name="SystemApps2">
 		<item>
-			<label>Videos</label>
+			<label>$LOCALIZE[3]</label>
 			<onclick>ActivateWindow(1109)</onclick>
 			<thumb>home/tv.png</thumb>
 		</item>
 		<item>
-			<label>Music</label>
+			<label>$LOCALIZE[2]</label>
 			<onclick>ActivateWindow(1108)</onclick>
 			<thumb>home/music.png</thumb>
 		</item>
+		<item>
+			<label>$LOCALIZE[1]</label>
+			<onclick>ActivateWindow(pictures)</onclick>
+			<thumb>home/pictures.png</thumb>
+		</item>
 		<item>					
-			<label>Live TV</label>
+			<label>$LOCALIZE[14204]</label>
 			<onclick>ActivateWindow(tvchannels)</onclick>
-			<thumb>home/tv.png</thumb>
+			<thumb>home/pvr.png</thumb>
 			<visible>Pvr.HasTVChannels</visible>
 		</item>
 		<item>
-			<label>All Apps</label>
+			<label>$LOCALIZE[31025]</label>
 			<onclick>ActivateWindow(programs,androidapp://sources/apps/,return)</onclick>
 			<thumb>DefaultAddonHelper.png</thumb>
 			<visible>System.Platform.Android</visible>
 		</item>
 		<item>
-			<label>Addons</label>
+			<label>$LOCALIZE[31027]</label>
 			<onclick>ActivateWindow(addonbrowser)</onclick>
 			<thumb>home/addon.png</thumb>
 		</item>
 		<item id="99">
-			<label>Settings</label>
+			<label>$LOCALIZE[21417]</label>
 			<onclick>ActivateWindow(Settings)</onclick>
 			<thumb>home/settings.png</thumb>
+		</item>
+	</include>
+	<include name="AndroidApps">
+		<item>
+			<label>$LOCALIZE[31024]</label>
+			<onclick>PlayDisc()</onclick>
+			<thumb>home/disc.png</thumb>
+			<visible>System.HasMediadvd</visible>
+		</item>
+		<item>
+			<label>$LOCALIZE[10821]</label>
+			<onclick>ActivateWindow(games)</onclick>
+			<!--<onclick>ActivateWindow(1106)</onclick>-->
+			<thumb>home/games.png</thumb>
+		</item>
+		<item>
+			<label>$LOCALIZE[3]</label>
+			<onclick>ActivateWindow(1109)</onclick>
+			<thumb>home/tv.png</thumb>
+		</item>
+		<item>
+			<label>$LOCALIZE[2]</label>
+			<onclick>ActivateWindow(1108)</onclick>
+			<thumb>home/music.png</thumb>
+		</item>
+		<item>
+			<label>$LOCALIZE[1]</label>
+			<onclick>ActivateWindow(pictures)</onclick>
+			<thumb>home/pictures.png</thumb>
+		</item>
+		<item>					
+			<label>$LOCALIZE[14204]</label>
+			<onclick>ActivateWindow(tvchannels)</onclick>
+			<thumb>home/pvr.png</thumb>
+			<visible>Pvr.HasTVChannels</visible>
+		</item>
+		<item>
+			<label>$LOCALIZE[31027]</label>
+			<onclick>ActivateWindow(addonbrowser)</onclick>
+			<thumb>home/addon.png</thumb>
 		</item>
 	</include>
 	<include name="VideoApps">
 		<item>
 			<label>Netflix</label>
 			<onclick>ActivateWindow(9500)</onclick>
-			<!--><onclick>ActivateWindow(Videos,plugin://plugin.video.netflix)</onclick><!-->
 			<icon>home/apps/thumb/netflix.png</icon>
 			<thumb>home/apps/netflix.png</thumb>
 			<visible>System.HasAddon(plugin.video.netflix)</visible>
@@ -916,14 +1025,19 @@
 		<item>
 			<label>Youtube</label>
 			<onclick>ActivateWindow(1110)</onclick>
-			<!--><onclick>ActivateWindow(Videos,plugin://plugin.video.youtube/,return)</onclick><!-->
 			<icon>home/apps/thumb/youtube.jpg</icon>
 			<thumb>home/apps/youtube.png</thumb>
 			<visible>System.HasAddon(plugin.video.youtube)</visible>
 		</item>
+		<!--><item>
+			<label>Xfinity</label>
+			<onclick>ActivateWindow(1200)</onclick>
+			<onclick>Skin.SetString(gotoapp,xfinity)</onclick>
+			<icon>home/apps/thumb/xfinity.png</icon>
+			<thumb>home/apps/xfinity.png</thumb>
+		</item><!-->
 		<item>
 			<label>Twitch</label>
-			<!--><onclick>ActivateWindow(Videos,plugin://plugin.video.twitch/,return)</onclick><!-->
 			<onclick>ActivateWindow(1111)</onclick>
 			<icon>home/apps/thumb/twitch.jpg</icon>
 			<thumb>home/apps/twitch.jpg</thumb>
@@ -938,7 +1052,7 @@
 		</item>
 		<item>
 			<label>Amazon</label>
-			<onclick>ActivateWindow(Videos,plugin://plugin.video.amazon-test/)</onclick>
+			<onclick>ActivateWindow(1112)</onclick>
 			<icon>home/apps/thumb/amazon.png</icon>
 			<thumb>home/apps/amazon.png</thumb>
 			<visible>System.HasAddon(plugin.video.amazon-test)</visible>
@@ -963,107 +1077,27 @@
 			<visible>System.HasAddon(script.steam.launcher)</visible>
 		</item>
 	</include>
-
 	<include name="Android">
 		<content target="programs">androidapp://sources/apps/</content>
 	</include>
-
 	<include name="AllApps">
 		<include>VideoApps</include>
 		<include>MusicApps</include>
 		<include>GameApps</include>
 	</include>
-
-	<include name="Favourites">
-		<item id="1">
-			<label>$INFO[Window(Home).Property(favourite.1.Name)]</label>
-			<onclick>$INFO[Window(Home).Property(favourite.1.Path)]</onclick>
-			<icon>$INFO[Window(Home).Property(favourite.1.Thumb)]</icon>
-			<visible>!String.IsEmpty(Window(Home).Property(favourite.1.Path))</visible>
-		</item>
-		<item id="2">
-			<label>$INFO[Window(Home).Property(favourite.2.Name)]</label>
-			<onclick>$INFO[Window(Home).Property(favourite.2.Path)]</onclick>
-			<icon>$INFO[Window(Home).Property(favourite.2.Thumb)]</icon>
-			<visible>!String.IsEmpty(Window(Home).Property(favourite.2.Path))</visible>
-		</item>
-		<item id="3">
-			<label>$INFO[Window(Home).Property(favourite.3.Name)]</label>
-			<onclick>$INFO[Window(Home).Property(favourite.3.Path)]</onclick>
-			<icon>$INFO[Window(Home).Property(favourite.3.Thumb)]</icon>
-			<visible>!String.IsEmpty(Window(Home).Property(favourite.3.Path))</visible>
-		</item>
-		<item id="4">
-			<label>$INFO[Window(Home).Property(favourite.4.Name)]</label>
-			<onclick>$INFO[Window(Home).Property(favourite.4.Path)]</onclick>
-			<icon>$INFO[Window(Home).Property(favourite.4.Thumb)]</icon>
-			<visible>!String.IsEmpty(Window(Home).Property(favourite.4.Path))</visible>
-		</item>
-		<item id="5">
-			<label>$INFO[Window(Home).Property(favourite.5.Name)]</label>
-			<onclick>$INFO[Window(Home).Property(favourite.5.Path)]</onclick>
-			<icon>$INFO[Window(Home).Property(favourite.5.Thumb)]</icon>
-			<visible>!String.IsEmpty(Window(Home).Property(favourite.5.Path))</visible>
-		</item>
-		<item id="6">
-			<label>$INFO[Window(Home).Property(favourite.6.Name)]</label>
-			<onclick>$INFO[Window(Home).Property(favourite.6.Path)]</onclick>
-			<icon>$INFO[Window(Home).Property(favourite.6.Thumb)]</icon>
-			<visible>!String.IsEmpty(Window(Home).Property(favourite.6.Path))</visible>
-		</item>
-		<item id="7">
-			<label>$INFO[Window(Home).Property(favourite.7.Name)]</label>
-			<onclick>$INFO[Window(Home).Property(favourite.7.Path)]</onclick>
-			<icon>$INFO[Window(Home).Property(favourite.7.Thumb)]</icon>
-			<visible>!String.IsEmpty(Window(Home).Property(favourite.7.Path))</visible>
-		</item>
-		<item id="8">
-			<label>$INFO[Window(Home).Property(favourite.8.Name)]</label>
-			<onclick>$INFO[Window(Home).Property(favourite.8.Path)]</onclick>
-			<icon>$INFO[Window(Home).Property(favourite.8.Thumb)]</icon>
-			<visible>!String.IsEmpty(Window(Home).Property(favourite.8.Path))</visible>
-		</item>
-		<item id="9">
-			<label>$INFO[Window(Home).Property(favourite.9.Name)]</label>
-			<onclick>$INFO[Window(Home).Property(favourite.9.Path)]</onclick>
-			<icon>$INFO[Window(Home).Property(favourite.9.Thumb)]</icon>
-			<visible>!String.IsEmpty(Window(Home).Property(favourite.9.Path))</visible>
-		</item>
-		<item id="10">
-			<label>$INFO[Window(Home).Property(favourite.10.Name)]</label>
-			<onclick>$INFO[Window(Home).Property(favourite.10.Path)]</onclick>
-			<icon>$INFO[Window(Home).Property(favourite.10.Thumb)]</icon>
-			<visible>!String.IsEmpty(Window(Home).Property(favourite.10.Path))</visible>
-		</item>
-		<item id="11">
-			<label>$INFO[Window(Home).Property(favourite.11.Name)]</label>
-			<onclick>$INFO[Window(Home).Property(favourite.11.Path)]</onclick>
-			<icon>$INFO[Window(Home).Property(favourite.11.Thumb)]</icon>
-			<visible>!String.IsEmpty(Window(Home).Property(favourite.11.Path))</visible>
-		</item>
-		<item id="12">
-			<label>$INFO[Window(Home).Property(favourite.12.Name)]</label>
-			<onclick>$INFO[Window(Home).Property(favourite.12.Path)]</onclick>
-			<icon>$INFO[Window(Home).Property(favourite.12.Thumb)]</icon>
-			<visible>!String.IsEmpty(Window(Home).Property(favourite.12.Path))</visible>
-		</item>
-		<item id="13">
-			<label>$INFO[Window(Home).Property(favourite.13.Name)]</label>
-			<onclick>$INFO[Window(Home).Property(favourite.13.Path)]</onclick>
-			<icon>$INFO[Window(Home).Property(favourite.13.Thumb)]</icon>
-			<visible>!String.IsEmpty(Window(Home).Property(favourite.13.Path))</visible>
-		</item>
-		<item id="14">
-			<label>$INFO[Window(Home).Property(favourite.14.Name)]</label>
-			<onclick>$INFO[Window(Home).Property(favourite.14.Path)]</onclick>
-			<icon>$INFO[Window(Home).Property(favourite.14.Thumb)]</icon>
-			<visible>!String.IsEmpty(Window(Home).Property(favourite.14.Path))</visible>
-		</item>
-		<item id="15">
-			<label>$INFO[Window(Home).Property(favourite.15.Name)]</label>
-			<onclick>$INFO[Window(Home).Property(favourite.15.Path)]</onclick>
-			<icon>$INFO[Window(Home).Property(favourite.15.Thumb)]</icon>
-			<visible>!String.IsEmpty(Window(Home).Property(favourite.15.Path))</visible>
-		</item>
+	<!-->Reset all<!-->
+	<include name="resetall">
+		<onclick>Skin.ResetSettings</onclick>
+		<onclick>Skin.Reset(BackgroundColor)</onclick>
+		<onclick>Skin.Reset(BackgroundColor2)</onclick>
+		<onclick>Skin.Reset(backgroundimage)</onclick>
+		<onclick>Skin.Reset(SecondaryColor)</onclick>
+		<onclick>Skin.Reset(DiffuseColor)</onclick>
+		<onclick>Skin.Reset(darkmode)</onclick>
+		<onclick>Skin.Reset(hiddenoptions)</onclick>
+		<onclick>Skin.Reset(TextColor)</onclick>
+		<onclick>Skin.Reset(SelectedColor)</onclick>
+		<onclick>ReplaceWindow(startup)</onclick>
+		<!--><onclick>RunScript(script.skinshortcuts,type=resetall)</onclick><!-->
 	</include>
 </includes>

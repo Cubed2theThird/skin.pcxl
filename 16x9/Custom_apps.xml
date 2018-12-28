@@ -8,117 +8,320 @@
 	<onload>XBMC.RunScript(script.favourites)</onload>	
 	<controls>
 
-		<!--> Apps <!-->
-		<control type="panel" id="1">
-			<bottom>100</bottom>
-			<left>10</left>
-			<width>100%</width>
-			<height>70%</height>
-			<onleft>back</onleft>			
-			<pagecontrol>60</pagecontrol>
-			<focusposition>2</focusposition>
-			<movement>1</movement>
-			<orientation>horizontal</orientation>
-			<include>SettingAnimation</include>
-			<viewtype label="535">list</viewtype>
-			<scrolltime tween="sine" easing="inout">240</scrolltime>
-			<itemlayout height="300" width="300">
+		<control type="image">
+			<width>300</width>
+			<height>100%</height>
+			<texture colordiffuse="$VAR[MaterialColorDark]">color_white.png</texture>
+			<animation type="WindowOpen">
+				<effect type="fade" start="0" end="100" time="200"/>
+				<effect type="slide" start="-500" end="0" time="400" tween="cubic" easing="out"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="fade" start="100" end="0" time="200"/>
+				<effect type="slide" start="0" end="-500" time="400" tween="cubic" easing="out"/>
+			</animation>
+		</control>
+
+		<!--> List <!-->
+		<control type="list" id="1">
+			<description>Control list</description>
+			<posx>50</posx>
+			<posy>175</posy>
+			<height>0</height>
+			<width>0</width>
+			<onup>1001</onup>
+			<onright condition="Container(1).HasFocus(1)">111</onright>
+			<onright condition="Container(1).HasFocus(2)">222</onright>
+			<onright condition="Container(1).HasFocus(3)">333</onright>
+			<onright condition="Container(1).HasFocus(4)">444</onright>
+			<scrolltime>0</scrolltime>
+			<viewtype>list</viewtype>
+			<defaultcontrol>1</defaultcontrol>
+			<animation type="WindowOpen">
+				<effect type="fade" start="0" end="100" time="200"/>
+				<effect type="slide" start="-500" end="0" time="400" tween="cubic" easing="out"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="fade" start="100" end="0" time="200"/>
+				<effect type="slide" start="0" end="-500" time="400" tween="cubic" easing="out"/>
+			</animation>
+			<itemlayout width="510" height="60">
 				<control type="group">
-					<left>20</left>
 					<top>20</top>
-					<control type="image">
-						<width>300</width>
-						<height>300</height>
-						<aspectratio>scale</aspectratio>
-						<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-					</control>
-					<control type="image">
-						<width>300</width>
-						<height>300</height>
-						<aspectratio>scale</aspectratio>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-					</control>
 					<control type="label">
 						<left>20</left>
-						<bottom>0</bottom>
-						<height>30</height>
-						<width>320</width>		
-						<label>$INFO[ListItem.Label]</label>
+						<width>500</width>
+						<height>60</height>
+						<label>$INFO[Listitem.label]</label>
 						<align>left</align>
 						<aligny>center</aligny>
 						<font>Tile</font>
-						<textcolor>$VAR[UnFocusedColor]</textcolor>
+						<textcolor>$VAR[FocusedColor]</textcolor>
 					</control>
 				</control>
 			</itemlayout>
-			<focusedlayout height="300" width="300">
+			<focusedlayout width="510" height="60">
 				<control type="group">
-					<left>20</left>
 					<top>20</top>
 					<control type="image">
-						<width>300</width>
-						<height>300</height>
-						<aspectratio>scale</aspectratio>
+						<top>0</top>
+						<width>5</width>
+						<height>60</height>
 						<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-					</control>
-					<control type="image">
-						<width>300</width>
-						<height>300</height>
-						<aspectratio>scale</aspectratio>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-					</control>
-					<control type="image">
-						<width>300</width>
-						<height>300</height>
-						<texture colordiffuse="$VAR[TextColor]" border="11,43,43,11">$VAR[BorderImage]
-						</texture>
-					</control>
-					<control type="group">
-						<include>SelectionAnimation</include>
-						<control type="image">
-							<bottom>-20</bottom>
-							<width>300</width>
-							<height>60</height>
-							<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-						</control>
+						<aspectratio>stretch</aspectratio>
 					</control>
 					<control type="label">
 						<left>20</left>
-						<bottom>0</bottom>
-						<height>30</height>
-						<width>280</width>		
-						<label>$INFO[ListItem.Label]</label>
+						<width>500</width>
+						<height>60</height>
+						<label>$INFO[Listitem.label]</label>
 						<align>left</align>
 						<aligny>center</aligny>
 						<font>Tile</font>
-						<textcolor>$VAR[TextColor]</textcolor>
-						<scroll>true</scroll>
-					</control>
-					<control type="image">
-						<top>-5</top>
-						<left>-5</left>
-						<animation type="Focus">
-							<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-						</animation>
-						<animation type="UnFocus">
-							<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-							<effect type="fade" start="100" end="0" time="200"/>
-						</animation>
-						<width>310</width>
-						<height>310</height>
-						<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
+						<textcolor>$VAR[SecondaryColor]</textcolor>
 					</control>
 				</control>
-			</focusedlayout>					
+			</focusedlayout>
 			<content>
-				<include>AllApps</include>
+				<item id="1">
+					<label>$LOCALIZE[31022]</label>
+					<onclick>-</onclick>
+				</item>
+				<item id="2">
+					<label>$LOCALIZE[3]</label>
+					<onclick>-</onclick>
+				</item>
+				<item id="3">
+					<label>$LOCALIZE[2]</label>
+					<onclick>-</onclick>
+				</item>
+				<item id="4">
+					<label>$LOCALIZE[1036]</label>
+					<onclick>-</onclick>
+					<visible>!String.IsEmpty(Window(Home).Property(favourite.1.Path))</visible>
+				</item>
 			</content>
 		</control>
 
-		<!--> Clock <!-->
-		<include>Clock</include>
-		
-		<include>Logo</include>
+		<control type="group">
+			<left>350</left>
 
+			<!--> Apps <!-->
+			<control type="panel" id="111">
+				<bottom>0</bottom>
+				<width>100%</width>
+				<height>90%</height>	
+				<onleft>1</onleft>		
+				<pagecontrol>60</pagecontrol>
+				<focusposition>2</focusposition>
+				<movement>1</movement>
+				<include>SettingAnimation</include>
+				<viewtype label="535">list</viewtype>
+				<scrolltime tween="sine" easing="inout">240</scrolltime>
+				<visible>Container(1).HasFocus(1)</visible>
+				<animation type="Visible" reversible="false">
+					<effect type="fade" start="0" end="100" time="200"/>
+					<effect type="slide" start="500" end="0,0" time="500" tween="cubic" easing="out"/>
+				</animation>
+				<animation type="Hidden">
+					<effect type="fade" start="100" end="0" time="100"/>
+					<effect type="slide" start="0,0" end="0,150" time="200" tween="cubic" easing="out"/>
+				</animation>
+				<itemlayout height="230" width="230">
+					<control type="image">
+						<width>220</width>
+						<height>220</height>
+						<texture>$INFO[ListItem.Icon]</texture>
+					</control>
+				</itemlayout>
+				<focusedlayout height="230" width="230">
+					<control type="group">
+						<animation type="Focus">
+							<effect type="zoom" center="auto" start="100" end="110" time="200"/>
+						</animation>
+						<animation type="UnFocus">
+							<effect type="zoom" center="auto" start="110" end="100" time="0"/>
+						</animation>
+						<control type="image">
+							<width>220</width>
+							<height>220</height>
+							<texture>$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<width>220</width>
+							<height>220</height>
+							<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border.png</texture>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<include>AllApps</include>
+				</content>
+			</control>
+
+			<!--> Video Apps <!-->
+			<control type="panel" id="222">
+				<bottom>0</bottom>
+				<width>100%</width>
+				<height>90%</height>	
+				<onleft>1</onleft>		
+				<pagecontrol>60</pagecontrol>
+				<focusposition>2</focusposition>
+				<movement>1</movement>
+				<include>SettingAnimation</include>
+				<viewtype label="535">list</viewtype>
+				<scrolltime tween="sine" easing="inout">240</scrolltime>
+				<visible>Container(1).HasFocus(2)</visible>
+				<animation type="Visible" reversible="false">
+					<effect type="fade" start="0" end="100" time="200"/>
+					<effect type="slide" start="500" end="0,0" time="500" tween="cubic" easing="out"/>
+				</animation>
+				<animation type="Hidden">
+					<effect type="fade" start="100" end="0" time="100"/>
+					<effect type="slide" start="0,0" end="0,150" time="200" tween="cubic" easing="out"/>
+				</animation>
+				<itemlayout height="230" width="230">
+					<control type="image">
+						<width>220</width>
+						<height>220</height>
+						<texture>$INFO[ListItem.Icon]</texture>
+					</control>
+				</itemlayout>
+				<focusedlayout height="230" width="230">
+					<control type="group">
+						<animation type="Focus">
+							<effect type="zoom" center="auto" start="100" end="110" time="200"/>
+						</animation>
+						<animation type="UnFocus">
+							<effect type="zoom" center="auto" start="110" end="100" time="0"/>
+						</animation>
+						<control type="image">
+							<width>220</width>
+							<height>220</height>
+							<texture>$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<width>220</width>
+							<height>220</height>
+							<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border.png</texture>
+						</control>
+					</control>
+				</focusedlayout>	
+				<!--><content>
+					<include>VideoApps</include>
+				</content><!-->
+				<content target="videos" sortby="title" sortorder="ascending">addons://sources/video</content>
+			</control>
+
+			<!--> Music Apps <!-->
+			<control type="panel" id="333">
+				<bottom>0</bottom>
+				<width>100%</width>
+				<height>90%</height>	
+				<onleft>1</onleft>		
+				<pagecontrol>60</pagecontrol>
+				<focusposition>2</focusposition>
+				<movement>1</movement>
+				<include>SettingAnimation</include>
+				<viewtype label="535">list</viewtype>
+				<scrolltime tween="sine" easing="inout">240</scrolltime>
+				<visible>Container(1).HasFocus(3)</visible>
+				<animation type="Visible" reversible="false">
+					<effect type="fade" start="0" end="100" time="200"/>
+					<effect type="slide" start="500" end="0,0" time="500" tween="cubic" easing="out"/>
+				</animation>
+				<animation type="Hidden">
+					<effect type="fade" start="100" end="0" time="100"/>
+					<effect type="slide" start="0,0" end="0,150" time="200" tween="cubic" easing="out"/>
+				</animation>
+				<itemlayout height="230" width="230">
+					<control type="image">
+						<width>220</width>
+						<height>220</height>
+						<texture>$INFO[ListItem.Icon]</texture>
+					</control>
+				</itemlayout>
+				<focusedlayout height="230" width="230">
+					<control type="group">
+						<animation type="Focus">
+							<effect type="zoom" center="auto" start="100" end="110" time="200"/>
+						</animation>
+						<animation type="UnFocus">
+							<effect type="zoom" center="auto" start="110" end="100" time="0"/>
+						</animation>
+						<control type="image">
+							<width>220</width>
+							<height>220</height>
+							<texture>$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<width>220</width>
+							<height>220</height>
+							<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border.png</texture>
+						</control>
+					</control>
+				</focusedlayout>			
+				<!--><content>
+					<include>MusicApps</include>
+				</content><!-->
+				<content target="music" sortby="title" sortorder="ascending">addons://sources/audio</content>
+			</control>
+
+			<!--> Favourites <!-->
+			<control type="panel" id="444">
+				<bottom>0</bottom>
+				<width>100%</width>
+				<height>90%</height>	
+				<onleft>1</onleft>		
+				<pagecontrol>60</pagecontrol>
+				<focusposition>2</focusposition>
+				<movement>1</movement>
+				<include>SettingAnimation</include>
+				<viewtype label="535">list</viewtype>
+				<scrolltime tween="sine" easing="inout">240</scrolltime>
+				<visible>Container(1).HasFocus(4)</visible>
+				<animation type="Visible" reversible="false">
+					<effect type="fade" start="0" end="100" time="200"/>
+					<effect type="slide" start="500" end="0,0" time="500" tween="cubic" easing="out"/>
+				</animation>
+				<animation type="Hidden">
+					<effect type="fade" start="100" end="0" time="100"/>
+					<effect type="slide" start="0,0" end="0,150" time="200" tween="cubic" easing="out"/>
+				</animation>
+				<itemlayout height="230" width="230">
+					<control type="image">
+						<width>220</width>
+						<height>220</height>
+						<texture>$INFO[ListItem.Icon]</texture>
+					</control>
+				</itemlayout>
+				<focusedlayout height="230" width="230">
+					<control type="group">
+						<animation type="Focus">
+							<effect type="zoom" center="auto" start="100" end="110" time="200"/>
+						</animation>
+						<animation type="UnFocus">
+							<effect type="zoom" center="auto" start="110" end="100" time="0"/>
+						</animation>
+						<control type="image">
+							<width>220</width>
+							<height>220</height>
+							<texture>$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<width>220</width>
+							<height>220</height>
+							<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border.png</texture>
+						</control>
+					</control>
+				</focusedlayout>		
+				<content>favourites://</content>
+			</control>
+		</control>
+
+		<include>Logo</include>
+		<!-- Now Playing Music -->
+		<include>PlayingMusicWindow</include>
+		
 	</controls>
 </window>

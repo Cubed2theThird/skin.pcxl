@@ -6,8 +6,8 @@
 
 	<controls>
 
-		<!-- Clock -->
-		<include>Clock</include>
+		
+		
 
 		<!-- Default list -->
 		<control type="grouplist" id="500">

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="Viewtype_532_WallLandscape">
+		<control type="group">
+			<visible>Control.IsVisible(532)</visible>
+			<animation type="Visible">
+				<effect type="slide" start="0,1000" end="0" center="auto" tween="Cubic" easing="out" time="500"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="0,1000" center="auto" tween="Cubic" easing="in" time="500"/>
+			</animation>
+			<!--> List <!-->
+			<control type="group">
+				<control type="panel" id="532">
+					<centerleft>50%</centerleft>
+					<top>20</top>
+					<width>1840</width>
+					<height>100%</height>				
+					<onup>noop</onup>
+					<ondown condition="Player.HasAudio">9051</ondown>
+					<onleft condition="Player.HasAudio">9051</onleft>
+					<onright>60</onright>
+					<pagecontrol>60</pagecontrol>
+					<preloaditems>2</preloaditems>
+					<focusposition>2</focusposition>
+					<orientation>horizontial</orientation>
+					<viewtype>list</viewtype>
+					<scrolltime tween="cubic" easing="out">360</scrolltime>
+					<visible>[String.Contains(Container.Content,movies) | String.Contains(Container.Content,videos) | String.Contains(Container.FolderPath,plugin://plugin.video.twitch)] + ![String.Contains(Container.FolderPath,plugin://plugin.video.youtube)] + !Skin.ToggleSetting(disable532)</visible>
+					<itemlayout height="300" width="460">
+						<control type="image">
+							<width>460</width>
+							<height>300</height>
+							<aspectratio>scale</aspectratio>
+							<texture>$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="group">
+							<right>10</right>
+							<include>WatchedIndicator</include>
+						</control>
+						<control type="label">
+							<left>15</left>
+							<bottom>25</bottom>
+							<width>440</width>
+							<height>30</height>
+							<font>tile</font>
+							<align>left</align>
+							<textcolor>$VAR[TextColor]</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="image">
+							<width>460</width>
+							<height>300</height>
+							<texture colordiffuse="$VAR[DiffuseColor]">views/white_100.png</texture>
+						</control>
+					</itemlayout>
+					<focusedlayout height="300" width="460">
+						<control type="group">
+							<animation center="auto" condition="Control.HasFocus(532)" easing="inout" effect="zoom" end="105" start="100" time="300" tween="sine">Focus</animation>
+							<control type="image">
+								<width>460</width>
+								<height>300</height>
+								<aspectratio>scale</aspectratio>
+								<texture>$INFO[ListItem.Icon]</texture>
+							</control>
+							<control type="group">
+								<right>10</right>
+								<include>WatchedIndicator</include>
+							</control>
+							<control type="button">
+								<bottom>0</bottom>
+								<width>460</width>
+								<height>70</height>
+								<font>tile</font>
+								<align>left</align>
+								<textcolor>$VAR[TextColor]</textcolor>
+								<focusedcolor>$VAR[TextColor]</focusedcolor>
+								<disabledcolor>FF484848</disabledcolor>
+								<texturefocus colordiffuse="$VAR[SecondaryColor]">color_white.png</texturefocus>
+								<textoffsetx>15</textoffsetx>
+								<textoffsety>75</textoffsety>
+								<wrapmultiline>true</wrapmultiline>
+								<label>$INFO[ListItem.Label]</label>
+							</control>
+						</control>
+					</focusedlayout>
+				</control>
+
+			</control>
+		</control>
+	</include>
+</includes>

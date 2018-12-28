@@ -8,8 +8,8 @@
 	<onload>Skin.SetString(snapname, Settings)</onload>
 	<controls>
 
-		<!--> Clock -->
-		<include>Clock</include>
+		
+		
 
 		<control type="group">
 			<left>50</left>
@@ -21,12 +21,13 @@
 				<effect type="fade" start="100" end="0" time="100" />
 			</animation>
 
+		<!--> Row 3 <!-->
 			<control type="label">
 				<top>690</top>
 				<left>50</left>
 				<width>300</width>
 				<height>20</height>
-				<label>System</label>
+				<label>$LOCALIZE[13000]</label>
 				<align>left</align>
 				<font>Setting</font>
 				<textcolor>$VAR[White]</textcolor>
@@ -48,7 +49,7 @@
 						<control type="image">
 							<width>250</width>
 							<height>250</height>
-							<texture colordiffuse="$VAR[Black]">color_white.png</texture>
+							<texture colordiffuse="$VAR[MaterialColorDark]" border="9">views/Card_bg_white.png</texture>
 						</control>
 						<control type="image">
 							<width>250</width>
@@ -77,19 +78,19 @@
 						<control type="image">
 							<width>250</width>
 							<height>250</height>
-							<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							<texture colordiffuse="$VAR[SecondaryColor]" border="9">views/Card_bg_white.png</texture>
 						</control>
 						<control type="image">
 							<width>250</width>
 							<height>250</height>
-							<texture colordiffuse="$VAR[Black]">color_white.png</texture>
+							<texture colordiffuse="$VAR[MaterialColorDark]" border="9">views/Card_bg_white.png</texture>
 							<visible>!Control.HasFocus(9002)</visible>
 						</control>
 						<control type="image">
 							<width>250</width>
 							<height>250</height>
 							<aspectratio>scale</aspectratio>
-							<texture colordiffuse="$VAR[Black]">$INFO[ListItem.Icon]</texture>
+							<texture colordiffuse="$VAR[MaterialColorDark]">$INFO[ListItem.Icon]</texture>
 						</control>
 						<control type="image">
 							<width>250</width>
@@ -105,7 +106,7 @@
 							<label>$INFO[ListItem.Label]</label>
 							<align>center</align>
 							<font>Tile</font>
-							<textcolor>$VAR[Black]</textcolor>
+							<textcolor>$VAR[MaterialColorDark]</textcolor>
 							<scroll>true</scroll>
 						</control>
 						<control type="label">
@@ -124,7 +125,7 @@
 							<top>-30</top>
 							<left>-30</left>
 							<width>310</width>
-							<height>315</height>
+							<height>310</height>
 							<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 							<visible>Control.HasFocus(9002)</visible>
 						</control>
@@ -132,48 +133,40 @@
 				</focusedlayout>
 				<content>
 					<item>
-						<label>Add-ons</label>
+						<label>$LOCALIZE[24001]</label>
 						<onclick>ActivateWindow(addonbrowser)</onclick>
 						<thumb>settings/apps.png</thumb>
 					</item>
 					<item>
-						<label>File Manager</label>
+						<label>$LOCALIZE[7]</label>
 						<onclick>ActivateWindow(filemanager)</onclick>
 						<icon>settings/filemanager.png</icon>
 					</item>
 					<item>
-						<label>System</label>
+						<label>$LOCALIZE[13000]</label>
 						<onclick>ActivateWindow(SystemSettings)</onclick>
 						<icon>settings/settings.png</icon>
 					</item>
 					<item>
-						<label>System Info</label>
+						<label>$LOCALIZE[130]</label>
 						<onclick>ActivateWindow(systeminfo)</onclick>
 						<icon>settings/sysinfo.png</icon>
 					</item>
 					<item id="99">
-						<label>31152</label>
-						<onclick>Skin.Reset(BackgroundColor)</onclick>
-						<onclick>Skin.Reset(backgroundimage)</onclick>
-						<onclick>Skin.SetString(DashboardToggle, Blank)</onclick>
-						<onclick>Skin.Reset(SecondaryColor)</onclick>
-						<onclick>Skin.Reset(DiffuseColor)</onclick>
-						<onclick>Skin.Reset(TextColor)</onclick>
-						<onclick>Skin.Reset(SelectedColor)</onclick>
-						<onclick>Skin.ToggleSetting(installed)</onclick>
-						<onclick>ReplaceWindow(startup)</onclick>
-						<!--><onclick>RunScript(script.skinshortcuts,type=resetall)</onclick><!-->
+						<label>$LOCALIZE[31042]</label>
+						<include>resetall</include>
 						<icon>settings/console.png</icon>
 					</item>
 				</content>
 			</control>
 
+		<!--> Row 2 <!-->
 			<control type="label">
 				<top>370</top>
 				<left>50</left>
 				<width>300</width>
 				<height>20</height>
-				<label>Preferences</label>
+				<label>$LOCALIZE[31053]</label>
 				<align>left</align>
 				<font>Setting</font>
 				<textcolor>$VAR[White]</textcolor>
@@ -196,7 +189,7 @@
 						<control type="image">
 							<width>250</width>
 							<height>250</height>
-							<texture colordiffuse="$VAR[Black]">color_white.png</texture>
+							<texture colordiffuse="$VAR[MaterialColorDark]" border="9">views/Card_bg_white.png</texture>
 						</control>
 						<control type="image">
 							<width>250</width>
@@ -225,19 +218,19 @@
 						<control type="image">
 							<width>250</width>
 							<height>250</height>
-							<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							<texture colordiffuse="$VAR[SecondaryColor]" border="9">views/Card_bg_white.png</texture>
 						</control>
 						<control type="image">
 							<width>250</width>
 							<height>250</height>
-							<texture colordiffuse="$VAR[Black]">color_white.png</texture>
+							<texture colordiffuse="$VAR[MaterialColorDark]" border="9">views/Card_bg_white.png</texture>
 							<visible>!Control.HasFocus(9001)</visible>
 						</control>
 						<control type="image">
 							<width>250</width>
 							<height>250</height>
 							<aspectratio>scale</aspectratio>
-							<texture colordiffuse="$VAR[Black]">$INFO[ListItem.Icon]</texture>
+							<texture colordiffuse="$VAR[MaterialColorDark]">$INFO[ListItem.Icon]</texture>
 						</control>
 						<control type="image">
 							<width>250</width>
@@ -253,7 +246,7 @@
 							<label>$INFO[ListItem.Label]</label>
 							<align>center</align>
 							<font>Tile</font>
-							<textcolor>$VAR[Black]</textcolor>
+							<textcolor>$VAR[MaterialColorDark]</textcolor>
 							<scroll>true</scroll>
 						</control>
 						<control type="label">
@@ -272,7 +265,7 @@
 							<top>-30</top>
 							<left>-30</left>
 							<width>310</width>
-							<height>315</height>
+							<height>310</height>
 							<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 							<visible>Control.HasFocus(9001)</visible>
 						</control>
@@ -280,35 +273,37 @@
 				</focusedlayout>
 				<content>
 					<item>
-						<label>Accounts</label>
+						<label>$LOCALIZE[31054]</label>
 						<onclick>ActivateWindow(profiles)</onclick>
 						<thumb>settings/popcont.png</thumb>
 					</item>
 					<item>
-						<label>Themes</label>
+						<label>$LOCALIZE[31002]</label>
 						<onclick>ActivateWindow(1103)</onclick>
 						<thumb>settings/themes.png</thumb>
 					</item>
 					<item>
-						<label>Interface</label>
+						<label>$LOCALIZE[14206]</label>
 						<onclick>ActivateWindow(InterfaceSettings)</onclick>
 						<thumb>settings/home.png</thumb>
 					</item>
 					<item>
-						<label>Widgets</label>
+						<label>$LOCALIZE[31055]</label>
 						<onclick condition="System.HasAddon(script.skinshortcuts)">RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
 						<onclick condition="!System.HasAddon(script.skinshortcuts)">InstallAddon(script.skinshortcuts)</onclick>
-						<thumb>settings/menu.png</thumb>
+						<visible>!Skin.HasSetting(KioskMode)</visible>
+						<thumb>settings/widgets.png</thumb>
 					</item>
 				</content>
 			</control>
 
+		<!--> Row 1 <!-->
 			<control type="label">
 				<top>50</top>
 				<left>50</left>
 				<width>450</width>
 				<height>20</height>
-				<label>Device</label>
+				<label>$LOCALIZE[31056]</label>
 				<align>left</align>
 				<font>Setting</font>
 				<textcolor>$VAR[White]</textcolor>
@@ -330,7 +325,7 @@
 						<control type="image">
 							<width>250</width>
 							<height>250</height>
-							<texture colordiffuse="$VAR[Black]">color_white.png</texture>
+							<texture colordiffuse="$VAR[MaterialColorDark]" border="9">views/Card_bg_white.png</texture>
 						</control>
 						<control type="image">
 							<width>250</width>
@@ -359,19 +354,19 @@
 						<control type="image">
 							<width>250</width>
 							<height>250</height>
-							<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							<texture colordiffuse="$VAR[SecondaryColor]" border="9">views/Card_bg_white.png</texture>
 						</control>
 						<control type="image">
 							<width>250</width>
 							<height>250</height>
-							<texture colordiffuse="$VAR[Black]">color_white.png</texture>
+							<texture colordiffuse="$VAR[MaterialColorDark]" border="9">views/Card_bg_white.png</texture>
 							<visible>!Control.HasFocus(9000)</visible>
 						</control>
 						<control type="image">
 							<width>250</width>
 							<height>250</height>
 							<aspectratio>scale</aspectratio>
-							<texture colordiffuse="$VAR[Black]">$INFO[ListItem.Icon]</texture>
+							<texture colordiffuse="$VAR[MaterialColorDark]">$INFO[ListItem.Icon]</texture>
 						</control>
 						<control type="image">
 							<width>250</width>
@@ -387,7 +382,7 @@
 							<label>$INFO[ListItem.Label]</label>
 							<align>center</align>
 							<font>Tile</font>
-							<textcolor>$VAR[Black]</textcolor>
+							<textcolor>$VAR[MaterialColorDark]</textcolor>
 							<scroll>true</scroll>
 						</control>
 						<control type="label">
@@ -406,7 +401,7 @@
 							<top>-30</top>
 							<left>-30</left>
 							<width>310</width>
-							<height>315</height>
+							<height>310</height>
 							<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 							<visible>Control.HasFocus(9000)</visible>
 						</control>
@@ -414,29 +409,45 @@
 				</focusedlayout>
 				<content>
 					<item>
-						<label>Network settings</label>
+						<label>$LOCALIZE[705]</label>
 						<onclick>ActivateWindow(servicesettings)</onclick>
 						<thumb>settings/net.png</thumb>
+						<visible>System.InternetState</visible>
 					</item>
 					<item>
-						<label>Video & audio</label>
+						<label>$LOCALIZE[705]</label>
+						<onclick>ActivateWindow(servicesettings)</onclick>
+						<thumb>settings/nonet.png</thumb>
+						<visible>!System.InternetState</visible>
+					</item>
+					<item>
+						<label>$LOCALIZE[31057]</label>
 						<onclick>ActivateWindow(playersettings)</onclick>
 						<thumb>settings/tv.png</thumb>
 					</item>
 					<item>
-						<label>Library</label>
+						<label>$LOCALIZE[14202]</label>
 						<onclick>ActivateWindow(MediaSettings)</onclick>
-						<thumb>settings/video.png</thumb>
+						<thumb>settings/library.png</thumb>
 					</item>
 					<item>
-						<label>Live TV</label>
+						<label>$LOCALIZE[14204]</label>
 						<onclick>ActivateWindow(PVRSettings)</onclick>
 						<icon>settings/PVR.png</icon>
+					</item>
+					<item>
+						<label>$LOCALIZE[15016]</label>
+						<onclick>ActivateWindow(gamesettings)</onclick>
+						<icon>settings/Game.png</icon>
 					</item>
 				</content>
 			</control>
 		</control>
+
 		<!--> Logo <!-->
 		<include>Logo</include>
+		
+		<!-- Now Playing Music -->
+		<include>PlayingMusicWindow</include>
 	</controls>
 </window>

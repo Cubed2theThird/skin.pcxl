@@ -3,12 +3,34 @@
 	<!-- pictureinfo -->
 	<defaultcontrol always="true">5</defaultcontrol>
 	<include>DialogZoomAnimation</include>
-
 	<controls>
+		<control type="group">
+			<!-- Image -->
+			<control type="image">
+				<bottom>0</bottom>
+				<width>100%</width>
+				<height>600</height>
+				<fadetime>80</fadetime>
+				<texture colordiffuse="$VAR[MaterialColorDark]">color_white.png</texture>
+			</control>
+			<control type="image">
+				<bottom>0</bottom>
+				<width>100%</width>
+				<height>100</height>
+				<fadetime>80</fadetime>
+				<texture colordiffuse="$VAR[Fade]">color_white.png</texture>
+			</control>
+			<control type="image">
+				<centerright>13%</centerright>
+				<centerbottom>33%</centerbottom>
+				<width>400</width>
+				<height>400</height>
+				<fadetime>80</fadetime>
+				<aspectratio>keep</aspectratio>
+				<texture>$INFO[ListItem.Icon]</texture>
+			</control>
 
-		<!-- Background -->
-		<include>DialogBackgroundImage</include>
-
+		</control>
 		<!-- Heading -->
 		<control type="label">
 			<left>150</left>
@@ -21,10 +43,10 @@
 
 		<!-- List -->
 		<control type="list" id="5">
-			<left>360</left>
-			<top>235</top>
-			<width>1200</width>
-			<height>580</height>
+			<bottom>100</bottom>
+			<left>50</left>
+			<width>100%</width>
+			<height>500</height>
 			<onup>noop</onup>
 			<ondown>9000</ondown>
 			<onleft>9000</onleft>
@@ -32,61 +54,57 @@
 			<orientation>vertical</orientation>
 			<viewtype label="list">list</viewtype>
 			<scrolltime tween="sine" easing="out">240</scrolltime>
-
-			<itemlayout width="1200" height="58">
+			<itemlayout height="80">
 				<control type="label">
-					<width>1200</width>
 					<height>58</height>
-					<font>Font36</font>
+					<font>Reg30</font>
 					<textcolor>$VAR[UnFocusedColor]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 				</control>
 				<control type="label">
-					<width>1200</width>
+					<top>30</top>
 					<height>58</height>
-					<font>Font36</font>
-					<align>right</align>
+					<font>Reg25</font>
 					<textcolor>$VAR[UnFocusedColor]</textcolor>
 					<label>$INFO[ListItem.Label2]</label>
 				</control>
 			</itemlayout>
-
-			<focusedlayout width="1200" height="58">
+			<focusedlayout height="80">
 				<control type="label">
-					<width>1200</width>
 					<height>58</height>
-					<font>Font36</font>
+					<font>Reg30</font>
 					<textcolor>$VAR[FocusedColor]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
-					<animation effect="fade" start="100" end="75" time="0" condition="!Control.HasFocus(5)">Conditional</animation>
 				</control>
 				<control type="label">
-					<width>1200</width>
+					<top>30</top>
 					<height>58</height>
-					<font>Font36</font>
-					<align>right</align>
-					<textcolor>$VAR[FocusedColor]</textcolor>
+					<font>Reg25</font>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
 					<label>$INFO[ListItem.Label2]</label>
-					<animation effect="fade" start="100" end="75" time="0" condition="!Control.HasFocus(5)">Conditional</animation>
 				</control>
 			</focusedlayout>
-
 		</control>
 
-		<!-- OK button -->
-		<control type="button" id="9000">
-			<left>150</left>
-			<top>912</top>
-			<width>400</width>
-			<height>66</height>
-			<onleft>noop</onleft>
-			<onright>noop</onright>
-			<onup>5</onup>
-			<ondown>noop</ondown>
-			<onclick>Close</onclick>
-			<label>186</label>
+		<control type="grouplist">
+			<bottom>0</bottom>
+			<left>20</left>
+			<width>100%</width>
+			<height>85</height>
+			<itemgap>10</itemgap>
+			<orientation>horizontal</orientation>
+
+			<!-- OK button -->
+			<control type="button" id="9000">
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<onup>5</onup>
+				<ondown>noop</ondown>
+				<label>186</label>
+				<onclick>Close</onclick>
+				<include>DialogButton</include>
+			</control>
 		</control>
 
 	</controls>
-
 </window>

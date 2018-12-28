@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="Viewtype_534_Episode">
+		<control type="group">
+			<visible>Control.IsVisible(534)</visible>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="-1000" center="auto" tween="Cubic" easing="in" time="500"/>
+				<!--><effect type="fade" start="0" end="100" time="200"/><!-->
+			</animation>
+
+				<!--> Vignette <!-->
+				<control type="image">
+					<include>FullscreenDimensions</include>
+					<aspectratio>stretch</aspectratio>
+					<texture flipx="true" colordiffuse="$VAR[Black]">views\vignetteInfo_light.png</texture>
+				</control>
+
+			<control type="group">
+				<left>50</left>
+				<top>20</top>
+				<control type="label">
+					<width>90%</width>
+					<height>70</height>
+					<font>Med60</font>
+					<align>left</align>
+					<scroll>true</scroll>
+					<textcolor>$VAR[FocusedColor]</textcolor>
+					<label>$INFO[Container.ShowTitle]</label>
+				</control>
+				<control type="textbox">
+					<top>100</top>
+					<width>1000</width>
+					<height>300</height>
+					<font>Light27</font>
+					<textcolor>$VAR[White]</textcolor>
+					<label>$INFO[Container.ShowPlot]</label>
+				</control>
+				<control type="label">
+					<bottom>420</bottom>
+					<width>90%</width>
+					<height>70</height>
+					<font>Reg30</font>
+					<align>left</align>
+					<scroll>true</scroll>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+					<label>$INFO[ListItem.Season,Season ]</label>
+				</control>
+			</control>
+
+			<!-- List -->
+			<control type="group">
+				<control type="fixedlist" id="534">
+					<left>-20</left>
+					<width>101%</width>
+					<height>400</height>
+					<bottom>0</bottom>
+					<onup>noop</onup>
+					<ondown>noop</ondown>
+					<onleft>9051</onleft>
+					<onright>3000</onright>
+					<pagecontrol>60</pagecontrol>
+					<focusposition>1</focusposition>
+					<orientation>vertical</orientation>
+					<scrolltime tween="sine" easing="inout">500</scrolltime>
+					<viewtype label="535">list</viewtype>
+					<include>MediaInfoHideAnimation</include>
+					<visible>String.Contains(Container.Content, episodes) + !String.Contains(Container.FolderPath,plugin://plugin.video.netflix) + !Skin.ToggleSetting(disable534)</visible>
+					<animation type="WindowClose">
+						<effect type="slide" start="0" end="0,1000" center="auto" tween="Cubic" easing="in" time="500"/>
+					</animation>
+					<itemlayout height="400">
+						<control type="group">
+							<top>0</top>
+							<left>20</left>
+							<control type="image">
+								<left>0</left>
+								<height>400</height>
+								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<top>50</top>
+								<left>50</left>
+								<width>533</width>
+								<height>300</height>
+								<aspectratio>keep</aspectratio>
+								<texture background="true">$INFO[ListItem.Icon]</texture>
+							</control>
+							<control type="label">
+								<left>640</left>
+								<top>10</top>
+								<width>800</width>
+								<height>120</height>
+								<font>Reg48</font>
+								<align>left</align>
+								<textcolor>$VAR[FocusedColor2]</textcolor>
+								<label>$VAR[ListLabelNF]</label>
+								<scroll>true</scroll>
+							</control>
+							<control type="label">
+								<left>640</left>
+								<top>60</top>
+								<width>1000</width>
+								<height>120</height>
+								<font>light30</font>
+								<align>left</align>
+								<textcolor>$VAR[TextColor]</textcolor>
+								<label>$INFO[ListItem.Episode,Episode ]$INFO[ListItem.Duration,    |    ]$INFO[ListItem.Mpaa,    |    ]</label>
+							</control>
+							<control type="image">
+								<right>50</right>
+								<top>110</top>
+								<width>36</width>
+								<height>30</height>
+								<texture colordiffuse="$VAR[TextColor]">views/watched_tick_fo.png</texture>
+								<visible>String.Contains(ListItem.Overlay,OverlayWatched.png)</visible>
+							</control>
+							<control type="textbox">
+								<left>640</left>
+								<top>160</top>
+								<width>1000</width>
+								<height>200</height>
+								<font>light27</font>
+								<textcolor>$VAR[UnFocusedColor2]</textcolor>
+								<label>$INFO[ListItem.Plot]</label>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="400">
+						<control type="group">
+							<top>0</top>
+							<left>20</left>
+							<control type="image">
+								<left>0</left>
+								<height>400</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<top>50</top>
+								<left>50</left>
+								<width>533</width>
+								<height>300</height>
+								<aspectratio>keep</aspectratio>
+								<texture background="true">$INFO[ListItem.Icon]</texture>
+							</control>
+							<control type="label">
+								<left>640</left>
+								<top>10</top>
+								<width>800</width>
+								<height>120</height>
+								<font>Reg48</font>
+								<align>left</align>
+								<textcolor>$VAR[FocusedColor2]</textcolor>
+								<label>$VAR[ListLabelNF]</label>
+								<scroll>true</scroll>
+							</control>
+							<control type="label">
+								<left>640</left>
+								<top>60</top>
+								<width>1000</width>
+								<height>120</height>
+								<font>light30</font>
+								<align>left</align>
+								<textcolor>$VAR[TextColor]</textcolor>
+								<label>$INFO[ListItem.Episode,Episode ]$INFO[ListItem.Duration,    |    ]$INFO[ListItem.Mpaa,    |    ]</label>
+							</control>
+							<control type="image">
+								<right>50</right>
+								<top>110</top>
+								<width>36</width>
+								<height>30</height>
+								<texture colordiffuse="$VAR[TextColor]">views/watched_tick_fo.png</texture>
+								<visible>String.Contains(ListItem.Overlay,OverlayWatched.png)</visible>
+							</control>
+							<control type="textbox">
+								<left>640</left>
+								<top>160</top>
+								<width>1000</width>
+								<height>200</height>
+								<font>light27</font>
+								<textcolor>$VAR[FocusedColor2]</textcolor>
+								<label>$INFO[ListItem.Plot]</label>
+							</control>
+						</control>
+					</focusedlayout>
+				</control>
+			</control>
+		</control>
+	</include>
+</includes>

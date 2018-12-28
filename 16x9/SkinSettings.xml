@@ -10,10 +10,7 @@
 			<height>100%</height>
 			<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
 		</control>
-
-		<!-- Clock -->
-		<include>Clock</include>
-
+		
 		<!-- Skin settings -->
 		<control type="group">
 			<left>00</left>
@@ -88,19 +85,15 @@
 					</focusedlayout>
 					<content>
 						<item id="10">
-							<label>128</label>
+							<label>$LOCALIZE[128]</label>
 							<onclick>Control.SetFocus(1213)</onclick>
 						</item>
-						<item id="11">
-							<label>24997</label>
-							<onclick>Control.SetFocus(1002)</onclick>
-						</item>
 						<item id="12">
-							<label>Optional addons</label>
+							<label>$LOCALIZE[31061]</label>
 							<onclick>Control.SetFocus(1200)</onclick>
 						</item>
 						<item id="13">
-							<label>10038</label>
+							<label>$LOCALIZE[10038]</label>
 							<onclick>Control.SetFocus(1302)</onclick>
 						</item>
 					</content>
@@ -128,7 +121,8 @@
 					<width>1200</width>
 					<height>60</height>
 					<textwidth>1120</textwidth>
-					<label>31049</label>
+					<label>$LOCALIZE[31062]</label>
+					<focusedcolor>$VAR[TextColor]</focusedcolor>
 					<include>SettingsButton</include>
 					<onclick condition="System.HasAddon(script.skinshortcuts)">RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
 					<onclick condition="!System.HasAddon(script.skinshortcuts)">InstallAddon(script.skinshortcuts)</onclick>
@@ -139,22 +133,25 @@
 					<width>1200</width>
 					<height>60</height>
 					<textwidth>1120</textwidth>
-					<label>31064</label>
+					<label>$LOCALIZE[31002]</label>
+					<focusedcolor>$VAR[TextColor]</focusedcolor>
 					<include>SettingsButton</include>
 					<onclick>ActivateWindow(1103)</onclick>
 					<visible>Container(1).HasFocus(10)</visible>
 				</control>
 
 				<!-- Look and Feel options -->
-				<!-- Scroll plots 
+				<!-- Scroll plots
 				<control type="radiobutton" id="1002">
 					<width>1200</width>
 					<height>60</height>
 					<textwidth>1120</textwidth>
-					<label>20189</label>
+					<label>$LOCALIZE[31088]</label>
 					<include>SettingsButton</include>
+					<onclick>Skin.ToggleSetting(ShowLabels)</onclick>
+					<selected>Skin.HasSetting(ShowLabels)</selected>
 					<visible>Container(1).HasFocus(11)</visible>
-				</control>-->
+				</control> -->
 				<!-- Logo settings
 				<control type="radiobutton" id="1003">
 					<width>1200</width>
@@ -193,26 +190,18 @@
 					<visible>Container(1).HasFocus(11)</visible>
 				</control> -->
 				<!-- Discart settings -->
-				<control type="radiobutton" id="1007">
-					<width>1200</width>
-					<height>60</height>
-					<textwidth>1120</textwidth>
-					<label>Display Artist Art</label>
-					<include>SettingsButton</include>
-					<onclick>Skin.ToggleSetting(artistslideshow)</onclick>
-					<visible>Container(1).HasFocus(11)</visible>
-				</control>
-				<!-- Hide 'Mouse' warning -->
+				<!-- Hide 'Mouse' warning
 				<control type="radiobutton" id="1008">
 					<width>1200</width>
 					<height>60</height>
 					<textwidth>1120</textwidth>
 					<label>31065</label>
+					<focusedcolor>$VAR[TextColor]</focusedcolor>
 					<include>SettingsButton</include>
 					<onclick>Skin.ToggleSetting(HideMouse)</onclick>
 					<selected>Skin.HasSetting(HideMouse)</selected>
 					<visible>Container(1).HasFocus(11)</visible>
-				</control>
+				</control> -->
 
 				<!-- Optional addons -->
 				<!-- Skin Shortcuts script -->
@@ -220,10 +209,12 @@
 					<width>1200</width>
 					<height>60</height>
 					<textwidth>1120</textwidth>
-					<label>Skin Shortcuts script</label>
-					<label2>$VAR[SkinShortcutsScript]</label2>
+					<label>$LOCALIZE[31064]</label>
+					<focusedcolor>$VAR[TextColor]</focusedcolor>
+					<label2> </label2>
 					<include>SettingsButton</include>
 					<onclick condition="!System.HasAddon(script.skinshortcuts)">InstallAddon(script.skinshortcuts)</onclick>
+					<focusedcolor>$VAR[TextColor]</focusedcolor>
 					<selected>System.HasAddon(script.skinshortcuts)</selected>
 					<visible>Container(1).HasFocus(12)</visible>
 				</control>
@@ -244,8 +235,9 @@
 					<width>1200</width>
 					<height>60</height>
 					<textwidth>1120</textwidth>
-					<label>Artwork Downloader script</label>
-					<label2>$VAR[ArtworkDownloaderScript]</label2>
+					<label>$LOCALIZE[31065]</label>
+					<focusedcolor>$VAR[TextColor]</focusedcolor>
+					<label2> </label2>
 					<include>SettingsButton</include>
 					<onclick condition="!System.HasAddon(script.artwork.downloader)">InstallAddon(script.artwork.downloader)</onclick>
 					<selected>System.HasAddon(script.artwork.downloader)</selected>
@@ -256,8 +248,9 @@
 					<width>1200</width>
 					<height>60</height>
 					<textwidth>1120</textwidth>
-					<label>Artist Slideshow script</label>
-					<label2>$VAR[ArtistSlideshowScript]</label2>
+					<label>$LOCALIZE[31066]</label>
+					<focusedcolor>$VAR[TextColor]</focusedcolor>
+					<label2> </label2>
 					<include>SettingsButton</include>
 					<onclick condition="!System.HasAddon(script.artistslideshow)">InstallAddon(script.artistslideshow)</onclick>
 					<selected>System.HasAddon(script.artistslideshow)</selected>
@@ -268,20 +261,22 @@
 					<width>1200</width>
 					<height>60</height>
 					<textwidth>1120</textwidth>
-					<label>Global Search script</label>
-					<label2>$VAR[GlobalSearchScript]</label2>
+					<label>$LOCALIZE[31067]</label>
+					<focusedcolor>$VAR[TextColor]</focusedcolor>
+					<label2> </label2>
 					<include>SettingsButton</include>
 					<onclick condition="!System.HasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</onclick>
 					<selected>System.HasAddon(script.globalsearch)</selected>
 					<visible>Container(1).HasFocus(12)</visible>
 				</control>
-				<!-- Global Search script -->
+				<!-- Random Movies script -->
 				<control type="button" id="1205">
 					<width>1200</width>
 					<height>60</height>
 					<textwidth>1120</textwidth>
-					<label>Random Movie</label>
-					<label2>$VAR[GlobalSearchScript]</label2>
+					<label>$LOCALIZE[31068]</label>
+					<focusedcolor>$VAR[TextColor]</focusedcolor>
+					<label2> </label2>
 					<include>SettingsButton</include>
 					<onclick condition="!System.HasAddon(script.rndmov)">InstallAddon(script.rndmov)</onclick>
 					<selected>System.HasAddon(script.rndmov)</selected>
@@ -294,7 +289,8 @@
 					<width>1200</width>
 					<height>60</height>
 					<textwidth>1120</textwidth>
-					<label>31041</label>
+					<label>$LOCALIZE[31069]</label>
+					<focusedcolor>$VAR[TextColor]</focusedcolor>
 					<include>SettingsButton</include>
 					<onclick>Skin.ToggleSetting(DebugGrid)</onclick>
 					<selected>Skin.HasSetting(DebugGrid)</selected>
@@ -305,7 +301,8 @@
 					<width>1200</width>
 					<height>60</height>
 					<textwidth>1120</textwidth>
-					<label>31042</label>
+					<label>$LOCALIZE[31070]</label>
+					<focusedcolor>$VAR[TextColor]</focusedcolor>
 					<include>SettingsButton</include>
 					<onclick>Skin.ToggleSetting(DebugInfo)</onclick>
 					<selected>Skin.HasSetting(DebugInfo)</selected>
@@ -316,20 +313,11 @@
 					<width>1200</width>
 					<height>60</height>
 					<textwidth>1120</textwidth>
-					<label>31057</label>
+					<label>$LOCALIZE[31071]</label>
+					<focusedcolor>$VAR[TextColor]</focusedcolor>
 					<include>SettingsButton</include>
 					<onclick>Skin.ToggleSetting(KioskMode)</onclick>
 					<selected>Skin.HasSetting(KioskMode)</selected>
-					<visible>Container(1).HasFocus(13)</visible>
-				</control>
-				<!-- Auto Start Kodi -->
-				<control type="button" id="1305">
-					<width>1200</width>
-					<height>60</height>
-					<textwidth>1120</textwidth>
-					<label>Autorun Kodi on Crash</label>
-					<include>SettingsButton</include>
-					<onclick>RunScript(special://skin/scripts/kodi.py)</onclick>
 					<visible>Container(1).HasFocus(13)</visible>
 				</control>
 				<!-- Hidden options -->
@@ -337,30 +325,17 @@
 					<width>1200</width>
 					<height>60</height>
 					<textwidth>1120</textwidth>
-					<label>Hidden Options</label>
+					<label>$LOCALIZE[31072]</label>
+					<focusedcolor>$VAR[TextColor]</focusedcolor>
 					<include>SettingsButton</include>
 					<onclick>Skin.ToggleSetting(hiddenoptions)</onclick>
 					<selected>Skin.HasSetting(hiddenoptions)</selected>
 					<visible>Container(1).HasFocus(13)</visible>
 				</control>
-
 			</control>
-		</control>
-
-		<!-- Hide settings warning -->
-		<control type="textbox">
-			<left>600</left>
-			<top>894</top>
-			<width>1240</width>
-			<height>132</height>
-			<label>31051</label>
-			<textcolor>$VAR[DisabledColor]</textcolor>
-			<visible>Container(1).HasFocus(11) + Skin.HasSetting(HideSettings)</visible>
 		</control>
 
 		<!--> Logo <!-->
 		<include>Logo</include>
-
 	</controls>
-
 </window>

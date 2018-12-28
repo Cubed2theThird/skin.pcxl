@@ -8,7 +8,7 @@
 			<width>750</width>
 			<height>10</height>
 			<include>DialogToastAnimation</include>
-			<animation effect="fade" start="100" end="0" time="0" condition="Window.IsActive(fullscreenvideo)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="0" condition="Window.IsActive(fullscreenvideo)|Window.IsActive(1108)|Window.IsActive(1109)">Conditional</animation>
 			<animation effect="fade" start="100" end="50" time="0" condition="Window.IsActive(home)">Conditional</animation>
 			<!-- Background image -->
 			<control type="image">

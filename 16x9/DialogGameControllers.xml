@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol>3</defaultcontrol>
+	<controls>
+
+		<control type="group">
+			<include>DialogZoomAnimation</include>
+
+			<control type="group">
+				<control type="image">
+					<centerleft>50%</centerleft>
+					<centertop>50%</centertop>
+					<width>1660</width>
+					<height>86%</height>
+					<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo2.png</texture>
+				</control>
+				<control type="image">
+					<centerleft>50%</centerleft>
+					<centertop>50%</centertop>
+					<width>1600</width>
+					<height>80%</height>
+					<texture colordiffuse="$VAR[MaterialColorDark]">views/white_100.png</texture>
+				</control>
+			</control>
+
+			<!-- Controller types -->
+			<control type="group" id="8998">
+				<left>200</left>
+				<top>125</top>
+				<control type="label">
+					<top>0</top>
+					<width>552</width>
+					<height>90</height>
+					<font>Large</font>
+					<label>$LOCALIZE[35050]</label>
+				</control>
+				<control type="image">
+					<top>90</top>
+					<width>500</width>
+					<height>700</height>
+					<texture colordiffuse="ff181818">color_white.png</texture>
+				</control>
+				<control type="grouplist" id="3">
+					<top>90</top>
+					<width>500</width>
+					<height>700</height>
+					<onright>8999</onright>
+					<onup>3</onup>
+					<ondown>3</ondown>
+					<orientation>vertical</orientation>
+					<itemgap>0</itemgap>
+				</control>
+				<control type="button" id="10">
+					<left>50</left>
+					<width>500</width>
+					<height>56</height>
+					<font>Tile</font>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+					<texturefocus colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texturefocus>
+					<texturenofocus>views/white_0.png</texturenofocus>
+				</control>
+			</control>
+
+			<!-- Game controller image -->
+			<control type="gamecontroller" id="31">
+				<right>250</right>
+				<top>110</top>
+				<width>350</width>
+				<height>350</height>
+				<aspectratio>keep</aspectratio>
+			</control>
+
+			<!-- Feature types -->
+			<control type="group" id="8999">
+				<left>744</left>
+				<top>125</top>
+				<width>500</width>
+				<control type="image">
+					<top>90</top>
+					<width>500</width>
+					<height>700</height>
+					<texture colordiffuse="ff181818">color_white.png</texture>
+				</control>
+				<control type="grouplist" id="5">
+					<top>90</top>
+					<width>500</width>
+					<height>700</height>
+					<onleft>8998</onleft>
+					<onright>9000</onright>
+					<onup>5</onup>
+					<ondown>5</ondown>
+					<orientation>vertical</orientation>
+					<itemgap>0</itemgap>
+				</control>
+				<!-- Default feature button -->
+				<control type="button" id="7">
+					<left>50</left>
+					<width>500</width>
+					<height>56</height>
+					<font>Tile</font>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+					<texturefocus colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texturefocus>
+					<texturenofocus>views/white_0.png</texturenofocus>
+				</control>
+				<!-- Feature group header -->
+				<control type="label" id="8">
+					<left>130</left>
+					<width>552</width>
+					<height>90</height>
+					<font>Large</font>
+				</control>
+			</control>
+
+			<!-- Dialog buttons -->
+			<control type="image">
+				<bottom>200</bottom>
+				<right>300</right>
+				<width>250</width>
+				<height>300</height>
+				<texture colordiffuse="ff181818">color_white.png</texture>
+			</control>
+			
+			<control type="grouplist" id="9000">
+				<bottom>200</bottom>
+				<right>300</right>
+				<width>250</width>
+				<height>300</height>
+				<onleft>8999</onleft>
+				<orientation>vertical</orientation>
+				<itemgap>0</itemgap>
+				<!-- Ok -->
+				<control type="button" id="18">
+					<label>$LOCALIZE[186]</label>
+					<font>Tile</font>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+					<texturefocus colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texturefocus>
+					<texturenofocus>views/white_0.png</texturenofocus>
+				</control>
+				<!-- Reset -->
+				<control type="button" id="19">
+					<label>$LOCALIZE[13007]</label>
+					<font>Tile</font>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+					<texturefocus colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texturefocus>
+					<texturenofocus>views/white_0.png</texturenofocus>
+				</control>
+				<!-- Get more... -->
+				<control type="button" id="20">
+					<label>$LOCALIZE[21452]</label>
+					<font>Tile</font>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+					<texturefocus colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texturefocus>
+					<texturenofocus>views/white_0.png</texturenofocus>
+				</control>
+				<!-- Help -->
+				<control type="button" id="17">
+					<label>$LOCALIZE[10043]</label>
+					<font>Tile</font>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+					<texturefocus colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texturefocus>
+					<texturenofocus>views/white_0.png</texturenofocus>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

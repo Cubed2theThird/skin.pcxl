@@ -8,8 +8,8 @@
 	<controls>
 
 
-		<!-- Clock -->
-		<include>Clock2</include>
+		
+		
 		
 		<control type="group">
 			<animation type="WindowOpen">

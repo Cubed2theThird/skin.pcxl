@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <overrides>
-	<doNotShareMenu />
-	<!-- All elements here -->
+
+	<!-- Don't share additional submenu levels
+	<doNotShareLevels /> -->
+	<!-- Save any shortcut with a widgetPath property -->
+	<saveWithProperty>widgetPath</saveWithProperty>
 
 	<!-- Default Widgets -->
     <!-- Movies -->
-    <widgetdefaultnode labelID="20342" label="20386" path="videodb://recentlyaddedmovies/" target="videos">Movies</widgetdefaultnode>
-    <propertydefault labelID="20342" property="widgetLayout">Landscape</propertydefault>
+    <widgetdefaultnode labelID="movies" label="342" path="videodb://movies/titles/" target="videos">Movies</widgetdefaultnode>
+    <propertydefault labelID="movies" property="widgetLayout">Landscape</propertydefault>
+    <propertydefault labelID="movies" property="widgetArt">fanart</propertydefault>
 
     <!-- TvShows -->
-    <widgetdefaultnode labelID="tvshows" label="20387" path="videodb://tvshows/titles" target="videos">TV Shows</widgetdefaultnode>
+    <widgetdefaultnode labelID="tvshows" label="20343" path="videodb://tvshows/titles" target="videos">TV Shows</widgetdefaultnode>
     <propertydefault labelID="tvshows" property="widgetLayout">Poster</propertydefault>
     	
     <!-- Music -->
@@ -17,19 +21,21 @@
     <propertydefault labelID="music" property="widgetLayout">Square</propertydefault>
 	
 	<!-- Background -->
-	<backgroundBrowse default="special://skin/extras/wallpaper/">True</backgroundBrowse>
+	<backgroundBrowse default="special://skin/extras/wallpaper/">Single</backgroundBrowse>
+    <thumbnailBrowseDefault>special://skin/media/</thumbnailBrowseDefault>
 
 	<!-- Widget Layout -->
 	<propertySettings property="widgetLayout" buttonID="411" title="Widget Layout" showNone="False"/>
 	<propertyfallback property="widgetLayout" label="Landscape">Landscape</propertyfallback>
-	<property property="widgetLayout" label="Landscape" condition="!String.IsEqual(Container(211).ListItem.Property(widgetType),addons)">Landscape</property>
-	<property property="widgetLayout" label="Poster" condition="String.IsEqual(Container(211).ListItem.Property(widgetType),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType),episodes)">Poster</property>
+	<property property="widgetLayout" label="Landscape" condition="!String.IsEqual(Container(211).ListItem.Property(widgetTarget),addons)">Landscape</property>
+	<property property="widgetLayout" label="Banner" condition="!String.IsEqual(Container(211).ListItem.Property(widgetTarget),addons)">Banner</property>
+	<property property="widgetLayout" label="Poster" condition="String.IsEqual(Container(211).ListItem.Property(widgetTarget),videos)">Poster</property>
 	<property property="widgetLayout" label="Square">Square</property>
 
-	<!-- Widget Art
+	<!-- Widget Art -->
 	<propertySettings property="widgetArt" buttonID="412" title="Widget Art" showNone="False"/>
 	<propertyfallback property="widgetArt" label="Thumb">thumb</propertyfallback>	
 	<property property="widgetArt" label="Fanart">fanart</property>
-	<property property="widgetArt" label="Thumb">thumb</property> -->
+	<property property="widgetArt" label="Thumb">thumb</property>
 
 </overrides>

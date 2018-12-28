@@ -16,12 +16,13 @@
 
 		<!-- Heading -->
 		<control type="label" id="1">
-			<left>150</left>
-			<top>296</top>
+			<left>375</left>
+			<top>130</top>
 			<width>1620</width>
 			<height>72</height>
-			<font>Font72</font>
+			<font>Large</font>
 		</control>
+
 
 		<!-- Keys -->
 		<control type="group">
@@ -36,7 +37,7 @@
 				<height>74</height>
 				<itemgap>5</itemgap>
 				<onleft>13</onleft>
-				<onright>11</onright>
+				<onright>9001</onright>
 				<onup>312</onup>
 				<orientation>horizontal</orientation>
 
@@ -58,7 +59,6 @@
 					<label>12313</label>
 					<include>KeyboardButtons</include>
 				</control>
-
 			</control>
 
 			<!-- Second row -->
@@ -69,7 +69,7 @@
 				<height>74</height>
 				<itemgap>5</itemgap>
 				<onleft>16</onleft>
-				<onright>14</onright>
+				<onright>9001</onright>
 				<orientation>horizontal</orientation>
 
 				<!-- '4' -->
@@ -93,7 +93,6 @@
 					<label>12316</label>
 					<include>KeyboardButtons</include>
 				</control>
-
 			</control>
 
 			<!-- Third row -->
@@ -104,7 +103,7 @@
 				<height>74</height>
 				<itemgap>5</itemgap>
 				<onleft>19</onleft>
-				<onright>17</onright>
+				<onright>9001</onright>
 				<orientation>horizontal</orientation>
 
 				<!-- '7' -->
@@ -128,7 +127,6 @@
 					<label>12319</label>
 					<include>KeyboardButtons</include>
 				</control>
-
 			</control>
 
 			<!-- Forth row -->
@@ -139,7 +137,7 @@
 				<height>74</height>
 				<itemgap>5</itemgap>
 				<onleft>22</onleft>
-				<onright>20</onright>
+				<onright>9001</onright>
 				<ondown>23</ondown>
 				<orientation>horizontal</orientation>
 
@@ -161,7 +159,6 @@
 					<label>&gt;</label>
 					<include>KeyboardButtons</include>
 				</control>
-
 			</control>
 
 			<!-- Fifth row -->
@@ -172,7 +169,7 @@
 				<height>74</height>
 				<itemgap>5</itemgap>
 				<onup>20</onup>
-				<onright>21</onright>
+				<onright>9001</onright>
 				<ondown>21</ondown>
 				<orientation>horizontal</orientation>
 
@@ -182,31 +179,20 @@
 					<label>20181</label>
 					<include>KeyboardButtons</include>
 				</control>
-
 			</control>
+		</control>
 
-			<!-- Edit Text background -->
-			<control type="image">
-				<left>-70</left>
-				<top>-500</top>
-				<width>480</width>
-				<height>74</height>
-				<texture>dialogs/DialogTextBackground.png</texture>
-			</control>
-
-			<!-- Edit Text -->
-			<control type="label" id="4">
-	            <description>Edit Text</description>
-	            <posx>-340</posx>
-				<top>-500</top>
-	            <width>1000</width>
-	            <font>Font-Condensed-S32</font>
-	            <align>center</align>
-	            <textcolor>eewhite</textcolor>
-	            <selectedcolor>eewhite</selectedcolor>
-	            <disabledcolor>aawhite</disabledcolor>
-			</control>
-
+		<!-- Edit -->
+		<control type="label" id="4">
+			<centerleft>50%</centerleft>
+			<top>200</top>
+			<width>1185</width>
+			<height>74</height>
+			<onup>noop</onup>
+			<ondown>1000</ondown>
+			<scroll>true</scroll>
+			<font>Reg48</font>
+			<textcolor>$VAR[White]</textcolor>
 		</control>
 
 		<!-- Button grouplist -->
@@ -236,7 +222,6 @@
 				<include>KeyboardButtons2</include>
 				<onclick>Close</onclick>
 			</control>
-
 		</control>
 
 	</controls>

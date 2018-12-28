@@ -16,14 +16,19 @@
 		<control type="button" id="19">
 			<include>HiddenControl</include>
 		</control>
-		<!-- Fanart -->
-		<include>Fanart</include>
-		<!-- Now Playing -->
-		<include>NowPlayingWindow</include>
+		<control type="group">
+			<animation type="Conditional" condition="Window.IsActive(contextmenu)">
+				<effect type="zoom" center="auto" start="100" end="95" time="200" tween="cubic" easing="out"/>
+			</animation>
+			<!-- Fanart -->
+			<include>Fanart</include>
+	        <!-- Now Playing Video -->
+			<include>WindowBackgroundVideo</include>
+		</control>
 		<!-- Main group -->
 		<control type="group">
 			<include>WindowFadeAnimation</include>
-			<include>OptionsHideAnimation</include>
+			
 			<!-- Views -->
 			<include>Viewtype_50_List</include>
 			<!-- Now Playing Music -->
@@ -219,5 +224,7 @@
 				</item>
 			</content>
 		</control>
+		<!--> Logo <!-->
+		<include>Logo</include>
 	</controls>
 </window>

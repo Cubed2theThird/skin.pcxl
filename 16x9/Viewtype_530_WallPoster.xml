@@ -15,74 +15,68 @@
 			<!-- List -->
 			<control type="panel" id="530">
 				<centerleft>50%</centerleft>
-				<width>1610</width>
-				<top>20</top>
+				<width>1900</width>
+				<top>0</top>
 				<height>100%</height>
-				<onleft condition="Player.HasVideo">9050</onleft>
+				<ondown condition="Player.HasAudio">9051</ondown>
+				<ondown>530</ondown>
 				<onleft condition="Player.HasAudio">9051</onleft>
 				<onright>60</onright>
 				<onright>3000</onright>
-				<onup condition="Player.HasVideo">9050</onup>
-				<ondown condition="Player.HasAudio">9051</ondown>
-				<ondown>530</ondown>
 				<pagecontrol>60</pagecontrol>
 				<preloaditems>2</preloaditems>
 				<orientation>vertical</orientation>
-				<viewtype label="31530">list</viewtype>
+				<viewtype>list</viewtype>
 				<scrolltime tween="sine" easing="inout">360</scrolltime>
-				<visible>[String.Contains(Container.Content,movies) | String.Contains(Container.Content,actors) | String.Contains(Container.Content,directors)] + !String.Contains(Container.FolderPath,plugin://plugin.video.netflix)</visible>
-				<itemlayout width="230" height="340">
+				<visible>[String.Contains(Container.Content,movies) | String.Contains(Container.Content,tvshows) | String.Contains(Container.Content,actors) | String.Contains(Container.Content,seasons) | String.Contains(Container.Content,directors) | String.Contains(Container.FolderPath,plugin://plugin.video.twitch/?mode=games)] + !String.Contains(Container.FolderPath,plugin://plugin.video.netflix) + !Skin.ToggleSetting(disable530)</visible>
+				<itemlayout width="270" height="405">
+					<control type="group">
+						<top>20</top>
 						<control type="image">
-							<width>220</width>
-							<height>330</height>
+							<width>270</width>
+							<height>405</height>
 							<aspectratio>scale</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
 						</control>
 						<control type="image">
-							<width>220</width>
-							<height>330</height>
+							<width>270</width>
+							<height>405</height>
 							<texture colordiffuse="$VAR[DiffuseColor]">views/white_100.png</texture>
 						</control>
-						<include>WatchedIndicator</include>
+						<control type="group">
+							<right>0</right>
+							<include>WatchedIndicator</include>
+						</control>
+					</control>
 				</itemlayout>
-				<focusedlayout width="230" height="340">
+				<focusedlayout width="270" height="405">
 					<control type="group">
-						<animation center="auto" condition="Control.HasFocus(530)" easing="inout" effect="zoom" end="110" start="100" time="300" tween="sine">Focus</animation>
+						<top>20</top>
+						<animation center="auto" condition="Control.HasFocus(530)" easing="inout" effect="zoom" end="105" start="100" time="300" tween="sine">Focus</animation>
 						<control type="image">
-							<width>220</width>
-							<height>330</height>
+							<top>-30</top>
+							<left>-28</left>
+							<width>326</width>
+							<height>465</height>
+							<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
+							<visible>Control.HasFocus(530)</visible>
+						</control>
+						<control type="image">
+							<width>270</width>
+							<height>405</height>
 							<aspectratio>scale</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
 						</control>
 						<control type="image">
-							<width>220</width>
-							<height>330</height>
+							<width>270</width>
+							<height>405</height>
 							<texture colordiffuse="$VAR[DiffuseColor]">views/white_100.png</texture>
 							<animation center="auto" condition="Control.HasFocus(530)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
 							<animation center="auto" condition="Control.HasFocus(530)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
 						</control>
-						<include>WatchedIndicator</include>
-						<control type="image">
-							<width>220</width>
-							<height>330</height>
-							<texture colordiffuse="$VAR[TextColor]" border="11,43,43,11">$VAR[BorderImage]</texture>
-							<animation center="auto" condition="Control.HasFocus(530)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">Focus</animation>
-							<animation center="auto" condition="Control.HasFocus(530)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">UnFocus</animation>
-							<visible>!Control.HasFocus(60) + !Control.HasFocus(3000) + !SubString(ListItem.Icon,default)</visible>
-						</control>
-						<control type="button">
-							<visible>false</visible>
-							<onfocus condition="Container.Column(0)">SetProperty(CurrentColumn,0,home)</onfocus>
-							<onfocus condition="Container.Column(1)">SetProperty(CurrentColumn,1,home)</onfocus>
-							<onfocus condition="Container.Column(2)">SetProperty(CurrentColumn,2,home)</onfocus>
-							<onfocus condition="Container.Column(3)">SetProperty(CurrentColumn,3,home)</onfocus>
-							<onfocus condition="Container.Column(4)">SetProperty(CurrentColumn,4,home)</onfocus>
-							<onfocus condition="Container.Column(5)">SetProperty(CurrentColumn,5,home)</onfocus>
-							<onfocus condition="Container.Column(6)">SetProperty(CurrentColumn,6,home)</onfocus>
-							<onfocus condition="Container.Column(7)">SetProperty(CurrentColumn,7,home)</onfocus>
-							<onfocus condition="Container.Row(0)">SetProperty(CurrentRow,0,home)</onfocus>
-							<onfocus condition="Container.Row(1)">SetProperty(CurrentRow,1,home)</onfocus>
-							<onfocus condition="Container.Row(2)">SetProperty(CurrentRow,2,home)</onfocus>
+						<control type="group">
+							<right>0</right>
+							<include>WatchedIndicator2</include>
 						</control>
 					</control>
 				</focusedlayout>

@@ -3,13 +3,17 @@
 	<defaultcontrol always="true">9000</defaultcontrol>
 	<controls>
 		<control type="group">
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture colordiffuse="$VAR[Black]">views/white_70.png</texture>
-			</control>
+			<animation type="WindowOpen">
+				<effect type="fade" start="0" end="60" time="500"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="fade" start="60" end="0" time="500"/>
+			</animation>
+			<include>WindowBackgroundImage</include>
 		</control>
+
 		<control type="group">
-			<visible>true</visible>
+			<visible>Skin.HasSetting(gamemode)</visible>
 			<control type="label" id="1101">
 				<left>50</left>
 				<width>800</width>
@@ -20,9 +24,95 @@
 				<textcolor>$VAR[UnFocusedColor2]</textcolor>
 			</control>
 
-			<control type="fixedlist" id="2">
-				<centertop>74%</centertop>
-				<left>200</left>
+			<control type="label">
+				<left>50</left>
+				<top>75</top>
+				<width>100%</width>
+				<height>70</height>
+				<font>Home</font>
+				<align>Left</align>
+				<texturefocus colordiffuse="$VAR[SecondaryColor]">color_white.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[SecondaryColor]">color_white.png</texturenofocus>
+				<textcolor>$VAR[White]</textcolor>
+				<label>$VAR[ConsoleName]</label>
+				<animation type="Unfocus">
+					<effect type="fade" start="100" end="0" center="auto" tween="sine"  easing="inout" time="100"/>
+				</animation>
+			</control>
+
+			<control type="fixedlist" id="9000">
+				<centertop>55%</centertop>
+				<left>00</left>
+				<width>100%</width>
+				<height>80%</height>
+				<onleft>noop</onleft>
+				<onright>noop</onright>					
+				<onup>noop</onup>
+				<ondown>9001</ondown>
+				<focusposition>1</focusposition>
+				<movement>0</movement>
+				<orientation>horizontal</orientation>
+				<viewtype>icons</viewtype>
+				<scrolltime tween="sine" easing="inout">400</scrolltime>
+				<animation type="WindowOpen">
+					<effect type="slide" start="-1000" end="0,0" center="auto" tween="Cubic" easing="inout" time="500"/>
+				</animation>
+				<animation type="WindowClose">
+					<effect type="slide" start="0" end="-1000" center="auto" tween="Cubic" easing="in" time="500"/>
+				</animation>
+				<itemlayout width="160" height="450">
+					<control type="group">
+						<left>00</left>
+						<control type="image">
+							<width>150</width>
+							<height>150</height>
+							<aspectratio>scale</aspectratio>
+							<texture colordiffuse="$VAR[UnFocusedColor]">$INFO[ListItem.Icon]</texture>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout width="160" height="450">
+					<control type="group">
+						<left>00</left>
+						<control type="image">
+							<width>150</width>
+							<height>150</height>
+							<aspectratio>scale</aspectratio>
+							<texture colordiffuse="$VAR[FocusedColor2]">$INFO[ListItem.Icon]</texture>
+							<visible>Control.HasFocus(9000)</visible>
+						</control>
+						<control type="image">
+							<width>150</width>
+							<height>150</height>
+							<aspectratio>scale</aspectratio>
+							<texture colordiffuse="$VAR[UnFocusedColor]">$INFO[ListItem.Icon]</texture>
+							<visible>!Control.HasFocus(9000)</visible>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<label>Menu</label>
+						<icon>defaultembuary.png</icon>
+					</item>
+					<item id="2">
+						<label>Settings</label>
+						<icon>DefaultAddonService.png</icon>
+					</item>
+					<item id="3">
+						<label>System</label>
+						<icon>DefaultAddonService.png</icon>
+						<visible>Skin.HasSetting(hiddenoptions) + false</visible>
+					</item>
+				</content>
+				<!--> Does not work <!-->
+				<!--><content target="games">sources://games</content><!-->
+			</control>
+
+			<control type="fixedlist" id="9001">
+				<defaultcontrol always="true">1</defaultcontrol>
+				<centertop>69%</centertop>
+				<left>60</left>
 				<width>100%</width>
 				<height>80%</height>
 				<onleft>Control.Move(9000,-1)</onleft>
@@ -42,6 +132,7 @@
 				</animation>
 				<itemlayout height="150">
 					<control type="group">
+						<left>120</left>
 						<control type="image">
 							<width>100</width>
 							<height>100</height>
@@ -57,30 +148,25 @@
 							<aligny>center</aligny>
 							<textcolor>$VAR[UnFocusedColor]</textcolor>
 						</control>
-						<control type="image">
-							<width>100</width>
-							<height>100</height>
-							<aspectratio>scale</aspectratio>
-							<texture>$VAR[ConsoleLogo]</texture>
-						</control>
 					</control>
 				</itemlayout>
 				<focusedlayout height="210">
 					<control type="group">
-						<left>-100</left>
 						<control type="image">
 							<left>100</left>
 							<width>150</width>
 							<height>200</height>
 							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="$VAR[White]">$INFO[ListItem.Icon]</texture>
+							<texture colordiffuse="$VAR[UnFocusedColor]">$INFO[ListItem.Icon]</texture>
+							<visible>!Control.HasFocus(9001)</visible>
 						</control>
 						<control type="image">
-							<left>130</left>
-							<width>100</width>
+							<left>100</left>
+							<width>150</width>
 							<height>200</height>
 							<aspectratio>keep</aspectratio>
-							<texture>$VAR[ConsoleLogo]</texture>
+							<texture colordiffuse="$VAR[FocusedColor2]">$INFO[ListItem.Icon]</texture>
+							<visible>Control.HasFocus(9001)</visible>
 						</control>
 						<control type="label">
 							<left>260</left>
@@ -89,11 +175,22 @@
 							<font>Reg30</font>
 							<align>left</align>
 							<aligny>center</aligny>
-							<textcolor>$VAR[FocusedColor]</textcolor>
+							<textcolor>$VAR[UnFocusedColor]</textcolor>
+							<visible>!Control.HasFocus(9001)</visible>
 						</control>
 						<control type="label">
 							<left>260</left>
-							<height>260</height>
+							<height>200</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>Reg30</font>
+							<align>left</align>
+							<aligny>center</aligny>
+							<textcolor>$VAR[FocusedColor2]</textcolor>
+							<visible>Control.HasFocus(9001)</visible>
+						</control>
+						<control type="label">
+							<left>260</left>
+							<height>280</height>
 							<label>$INFO[ListItem.Property(ButtonHint)]</label>
 							<font>Reg25</font>
 							<align>left</align>
@@ -207,20 +304,31 @@
 					</item>
 				</content>
 			</control>
+		</control>
 
-			<control type="fixedlist" id="9000">
-				<defaultcontrol always="true">1</defaultcontrol>
-				<centertop>55%</centertop>
-				<left>10</left>
-				<width>150%</width>
-				<height>80%</height>
+		<control type="group">
+			<visible>!Skin.HasSetting(gamemode)</visible>
+			<control type="label" id="1101">
+				<left>50</left>
+				<width>800</width>
+				<height>90</height>
+				<font>Reg20</font>
+				<align>left</align>
+				<aligny>center</aligny>
+				<textcolor>$VAR[UnFocusedColor2]</textcolor>
+			</control>
+
+			<control type="list" id="9000">
+				<centertop>50%</centertop>
+				<width>100%</width>
+				<height>85%</height>
 				<onleft>noop</onleft>
-				<onright>noop</onright>					
+				<onright>ActivateWindow($INFO[ListItem.Property(Action)])</onright>
 				<onup>noop</onup>
-				<ondown>2</ondown>
-				<focusposition>1</focusposition>
+				<ondown>9001</ondown>
+				<focusposition>0</focusposition>
 				<movement>0</movement>
-				<orientation>horizontal</orientation>
+				<orientation>vertical</orientation>
 				<viewtype>icons</viewtype>
 				<scrolltime tween="sine" easing="inout">400</scrolltime>
 				<animation type="WindowOpen">
@@ -229,66 +337,146 @@
 				<animation type="WindowClose">
 					<effect type="slide" start="0" end="-1000" center="auto" tween="Cubic" easing="in" time="500"/>
 				</animation>
-				<itemlayout width="160" height="450">
+				<itemlayout height="80">
 					<control type="group">
-						<control type="image">
-							<width>150</width>
-							<height>150</height>
-							<aspectratio>scale</aspectratio>
-							<texture colordiffuse="$VAR[UnFocusedColor]">$INFO[ListItem.Icon]</texture>
-						</control>
-						<control type="image">
-							<width>150</width>
-							<height>150</height>
-							<aspectratio>scale</aspectratio>
-							<texture>$VAR[ConsoleLogo]</texture>
+						<left>50</left>
+						<control type="label">
+							<width>800</width>
+							<height>50</height>
+							<font>Reg20</font>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<textcolor>$VAR[UnFocusedColor2]</textcolor>
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout width="210" height="450">
+				<focusedlayout height="100">
 					<control type="group">
-						<top>0</top>
-						<control type="image">
-							<width>200</width>
-							<height>200</height>
-							<aspectratio>scale</aspectratio>
-							<texture colordiffuse="$VAR[SecondaryColor]">$INFO[ListItem.Icon]</texture>
+						<left>50</left>
+						<control type="label">
+							<width>800</width>
+							<height>90</height>
+							<font>Reg30</font>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<textcolor>$VAR[FocusedColor2]</textcolor>
 							<visible>Control.HasFocus(9000)</visible>
 						</control>
-						<control type="image">
-							<width>200</width>
-							<height>200</height>
-							<aspectratio>scale</aspectratio>
-							<texture colordiffuse="$VAR[White]">$INFO[ListItem.Icon]</texture>
+						<control type="label">
+							<width>800</width>
+							<height>90</height>
+							<font>Reg30</font>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<textcolor>$VAR[UnFocusedColor2]</textcolor>
 							<visible>!Control.HasFocus(9000)</visible>
 						</control>
-						<control type="image">
-							<width>200</width>
-							<height>200</height>
-							<aspectratio>scale</aspectratio>
-							<texture>$VAR[ConsoleLogo]</texture>
+						<control type="label">
+							<top>25</top>
+							<width>800</width>
+							<height>90</height>
+							<font>Reg25</font>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Property(ButtonHint)]</label>
+							<textcolor>$VAR[UnFocusedColor2]</textcolor>
 						</control>
 					</control>
 				</focusedlayout>
 				<content>
-					<item id="1">
-						<label>Menu</label>
-						<icon>defaultembuary.png</icon>
-					</item>
-					<item id="2">
-						<label>Settings</label>
+					<!-- Pause / resume -->
+					<item>
+						<label>$LOCALIZE[35224]</label>
 						<icon>DefaultAddonService.png</icon>
+						<property name="ButtonHint">Select + X</property>
+						<onclick>Play</onclick>	
 					</item>
-					<item id="3">
-						<label>System</label>
+					<item>
+						<label>Minimize</label>
 						<icon>DefaultAddonService.png</icon>
-						<visible>Skin.HasSetting(hiddenoptions) + false</visible>
+						<property name="ButtonHint"> </property>
+						<onclick>Dialog.Close(all,true)</onclick>
+						<onclick>ActivateWindow(Home)</onclick>
+					</item>
+					<!-- Pause / resume
+					<item>
+						<label>Save</label>
+						<icon>DefaultAddonService.png</icon>
+						<property name="ButtonHint"> </property>
+						<onclick>Save</onclick>	
+					</item> -->
+					<!-- Screenshot -->
+					<item>
+						<label>Take Screenshot</label>
+						<icon>DefaultAddonService.png</icon>
+						<property name="ButtonHint"> </property>
+						<onclick>Play</onclick>
+						<onclick>Screenshot</onclick>	
+					</item>
+					<!-- Reset -->
+					<item>
+						<label>Restart</label>
+						<icon>DefaultAddonService.png</icon>
+						<property name="ButtonHint"> </property>
+						<onclick>PlayerControl(Reset)</onclick>	
+					</item>
+					<!-- Stop -->
+					<item>
+						<label>$LOCALIZE[35222]</label>
+						<icon>DefaultAddonService.png</icon>
+						<property name="ButtonHint">Select + Start</property>
+						<onclick>Stop</onclick>	
+					</item>
+					<!-- Video Filter -->
+					<item>
+						<label>$LOCALIZE[35225]</label>
+						<icon>DefaultAddonService.png</icon>
+						<property name="Action">GameVideoFilter</property>
+						<onclick>ActivateWindow(GameVideoFilter)</onclick>
+					</item>
+					<!-- View mode -->
+					<item>
+						<label>$LOCALIZE[629]</label>
+						<icon>DefaultAddonService.png</icon>
+						<property name="Action">gamestretchmode</property>
+						<onclick>ActivateWindow(gamestretchmode)</onclick>
+					</item>
+					<!-- Video Rotation -->
+					<item>
+						<label>$LOCALIZE[35227]</label>
+						<icon>DefaultAddonService.png</icon>
+						<property name="Action">GameVideoRotation</property>
+						<onclick>ActivateWindow(GameVideoRotation)</onclick>
+					</item>
+					<!-- GameVolume -->
+					<item>
+						<label>$LOCALIZE[13376]</label>
+						<icon>DefaultAddonService.png</icon>
+						<property name="ButtonHint">Select + Right Stick</property>
+						<property name="Action">GameVolume</property>
+						<onclick>ActivateWindow(GameVolume)</onclick>
+					</item>
+					<!-- Advanced settings -->
+					<item>
+						<label>$LOCALIZE[35226]</label>
+						<icon>DefaultAddonService.png</icon>
+						<property name="Action">GameAdvancedSettings</property>
+						<onclick>ActivateWindow(GameAdvancedSettings)</onclick>
+					</item>
+					<!-- Controls settings -->
+					<item>
+						<label>Controls</label>
+						<icon>DefaultAddonService.png</icon>
+						<property name="Action">GameControllers</property>
+						<onclick>ActivateWindow(GameControllers)</onclick>
 					</item>
 				</content>
 				<!--> Does not work <!-->
 				<!--><content target="games">sources://games</content><!-->
 			</control>
-
 		</control>
 	</controls>
 </window>

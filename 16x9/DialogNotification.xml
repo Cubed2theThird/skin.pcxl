@@ -13,7 +13,7 @@
 			<control type="image">
 				<width>100%</width>
 				<height>150</height>
-				<texture colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texture>
+				<texture colordiffuse="$VAR[Black]">views/white_100.png</texture>
 			</control>
 			<!-- Heading -->
 			<control type="label" id="401">
@@ -23,7 +23,7 @@
 				<height>40</height>
 				<scroll>true</scroll>
 				<font>Light33Upper</font>
-				<textcolor>$VAR[TextColor]</textcolor>
+				<textcolor>$VAR[White]</textcolor>
 			</control>
 			<!-- Details -->
 			<control type="label" id="402">
@@ -33,14 +33,15 @@
 				<height>37</height>
 				<scroll>true</scroll>
 				<font>Light27</font>
-				<textcolor>$VAR[TextColor]</textcolor>
+				<textcolor>$VAR[White]</textcolor>
 			</control>
 			<!-- Default image -->
 			<control type="image" id="400">
-				<right>20</right>
+				<right>0</right>
 				<top>0</top>
 				<width>150</width>
 				<height>150</height>
+				<colordiffuse>$VAR[White]</colordiffuse>
 			</control>
 		</control>
 	</controls>

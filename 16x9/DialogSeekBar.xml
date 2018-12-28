@@ -17,6 +17,7 @@
 			</control>			
 			<!-- Background -->
 			<control type="image">
+				<visible>Skin.HasSetting(Delayedinfo)</visible>
 				<include>FullscreenDimensions</include>
 				<aspectratio>stretch</aspectratio>
 				<texture colordiffuse="$VAR[Black]">views\vignetteInfo_light.png</texture>
@@ -33,6 +34,7 @@
 
 			<!-- Info -->
 			<control type="group">
+				<visible>Skin.HasSetting(Delayedinfo)</visible>
 				<width>100%</width>
 				<height>234</height>
 				<animation type="WindowOpen">
@@ -97,7 +99,7 @@
 					<bottom>15</bottom>
 					<width>60</width>
 					<height>60</height>
-					<texture colordiffuse="$VAR[White]">osd/OSDPauseNF.png</texture>
+					<texture colordiffuse="$VAR[White]">osd/pause.png</texture>
 					<visible>player.paused</visible>
 				</control>
 			</control>

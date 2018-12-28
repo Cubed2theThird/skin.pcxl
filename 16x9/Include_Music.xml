@@ -3,15 +3,16 @@
 	<include name="COTWBack">
 		<!-- Visualisation -->
 		<control type="image">
-			<width>1980</width>
-			<height>1980</height>
-			<bottom>-700</bottom>
+			<width>200%</width>
+			<height>200%</height>
+			<centerleft>50%</centerleft>
+			<bottom>-500</bottom>
 			<aspectratio>keep</aspectratio>
-			<animation type="conditional" condition="Player.Playing" reversible="true" pulse="true">
+			<animation type="conditional" condition="Player.Playing + Skin.HasSetting(enableAnimation)" reversible="true" pulse="true">
 				<effect type="slide" start="0,0" end="0,-600" center="auto" tween="Cubic" easing="inout" time="30000"/>
 				<effect type="slide" start="0,0" end="0,600" center="auto" tween="Cubic" easing="inout" delay="30000" time="30000"/>
 			</animation>
-			<animation type="conditional" condition="Player.Playing" reversible="true" pulse="true">
+			<animation type="conditional" condition="Player.Playing + Skin.HasSetting(enableAnimation)" reversible="true" pulse="true">
 				<effect type="zoom" start="100" end="110" center="auto" tween="Cubic" easing="inout" time="10000"/>
 				<effect type="zoom" start="110" end="100" center="auto" tween="Cubic" easing="inout" delay="10000" time="10000"/>
 			</animation>
@@ -34,12 +35,25 @@
 		<control type="multiimage">
 			<description>My first slideshow control</description>
 			<include>FullscreenDimensions</include>
-			<imagepath>special://skin/extras/wallpapers</imagepath>
+			<imagepath>$INFO[Skin.String(backgroundslideshow)]</imagepath>
 			<timeperimage>100000</timeperimage>
 			<fadetime>2000</fadetime>
 			<randomize>true</randomize>
 			<loop>yes</loop>
-			<aspectratio>stretch</aspectratio>
+			<aspectratio>scale</aspectratio>
+			<visible>true</visible>
+		</control>
+		<control type="multiimage">
+			<description>My first slideshow control</description>
+			<include>FullscreenDimensions</include>
+			<imagepath>special://skin/extras/wallpapers</imagepath>
+			<timeperimage>100000</timeperimage>
+			<colordiffuse>$VAR[BackgroundColor2]</colordiffuse>
+			<fadetime>2000</fadetime>
+			<randomize>true</randomize>
+			<loop>yes</loop>
+			<aspectratio>scale</aspectratio>
+			<visible>false</visible>
 		</control>
 		<control type="image">
 			<include>FullscreenDimensions</include>
@@ -55,7 +69,15 @@
 
 	<include name="ArtBack">
 		<control type="image">
+			<include>FullscreenDimensions</include>
+			<texture colordiffuse="$VAR[BackgroundColor2]">$INFO[Skin.String(backgroundimage)]</texture>
+			<aspectratio>scale</aspectratio>
+			<visible>Skin.HasSetting(backgroundcolor)</visible>
+		</control>
+		<control type="image">
+			<include>FullscreenDimensions</include>
 			<texture>$INFO[Skin.String(backgroundimage)]</texture>
+			<visible>!Skin.HasSetting(backgroundcolor)</visible>
 		</control>
 		<control type="image">
 			<include>FullscreenDimensions</include>
@@ -68,34 +90,6 @@
 	<include name="1">
 		<control type="image">
 			<texture colordiffuse="$VAR[Black]">views/white_50.png</texture>
-		</control>
-
-		<!--  Progress bar -->
-		<control type="group">
-			<width>100%</width>
-			<control type="progress">
-				<left>0</left>
-				<bottom>0</bottom>
-				<width>100%</width>
-				<height>5</height>
-				<info>Player.Progress</info>
-				<animation type="WindowOpen">
-					<effect type="slide" start="0,500" end="0" center="auto" tween="sine" easing="inout" time="300"/>
-					<!--><effect type="fade" start="0" end="100" time="200"/><!-->
-				</animation>
-				<animation type="WindowClose">
-					<effect type="slide" start="0" end="0,500" center="auto" tween="sine" easing="inout" time="300"/>
-					<!--><effect type="fade" start="0" end="100" time="200"/><!-->
-				</animation>
-				<animation type="conditional" condition="!String.Contains(MusicPlayer.Time,00:00)">
-					<effect type="slide" start="0,100" end="0" tween="sine" easing="inout" time="300"/>
-				</animation>
-				<texturebg border="2">osd/OSDProgressBack.png</texturebg>
-				<lefttexture>-</lefttexture>
-				<midtexture border="2" colordiffuse="$VAR[FocusedColor]">osd/OSDProgressBar.png</midtexture>
-				<righttexture>-</righttexture>
-				<overlaytexture>-</overlaytexture>
-			</control>
 		</control>
 
 		<control type="group">
@@ -136,52 +130,6 @@
 				<texture colordiffuse="$VAR[Black]">views/white_50.png</texture>
 			</control>
 
-			<!--  Progress bar -->
-			<control type="group">
-				<width>100%</width>
-				<control type="progress">
-					<left>47</left>
-					<bottom>35</bottom>
-					<width>1830</width>
-					<height>5</height>
-					<info>Player.Progress</info>
-					<animation type="WindowOpen">
-						<effect type="slide" start="0,500" end="0" center="auto" tween="back" easing="inout" time="300"/>
-						<!--><effect type="fade" start="0" end="100" time="200"/><!-->
-					</animation>
-					<animation type="WindowClose">
-						<effect type="slide" start="0" end="0,500" center="auto" tween="back" easing="inout" time="300"/>
-						<!--><effect type="fade" start="0" end="100" time="200"/><!-->
-					</animation>
-					<animation type="conditional" condition="!String.Contains(MusicPlayer.Time,00:00)">
-						<effect type="slide" start="0,100" end="0" tween="back" easing="inout" time="300"/>
-					</animation>
-					<texturebg border="2">osd/OSDProgressBack.png</texturebg>
-					<lefttexture>-</lefttexture>
-					<midtexture border="2" colordiffuse="$VAR[FocusedColor]">osd/OSDProgressBar.png</midtexture>
-					<righttexture>-</righttexture>
-					<overlaytexture>-</overlaytexture>
-				</control>
-				<control type="label">
-					<animation type="WindowOpen">
-						<effect type="slide" start="0,500" end="0" center="auto" tween="back" easing="inout" time="500"/>
-					</animation>
-					<animation type="WindowClose">
-						<effect type="slide" start="0" end="0,500" center="auto" tween="back" easing="inout" time="500"/>
-					</animation>
-					<animation type="conditional" condition="!String.Contains(MusicPlayer.Time,00:00)">
-						<effect type="fade" start="0" end="100" time="200"/>
-						<effect type="slide" start="0,100" end="0" tween="back" easing="inout" time="500"/>
-					</animation>
-					<bottom>30</bottom>
-					<right>50</right>
-					<align>right</align>
-					<font>Light33</font>
-					<textcolor>$VAR[UnFocusedColor]</textcolor>
-					<label>$INFO[Player.Time] [COLOR $VAR[SecondaryColor]]/[/COLOR] $INFO[Player.Duration]</label>
-				</control>
-			</control>
-
 			<control type="group">
 				<animation type="WindowOpen">
 					<effect type="slide" start="-1500,0" end="0" center="auto" tween="sine" easing="inout" time="500"/>
@@ -217,7 +165,7 @@
 				<font>Light20</font>
 				<align>left</align>
 				<textcolor>$VAR[UnFocusedColor]</textcolor>
-					<label>$INFO[MusicPlayer.offset(1).TrackNumber]</label>
+				<label>$INFO[MusicPlayer.offset(1).TrackNumber]</label>
 			</control>
 
 			<control type="label">
@@ -436,56 +384,11 @@
 		</control>		
 	</include>
 
-	<!--> Hidden Options <!-->
 	<include name="COTW">
-		<!--> Background
-		<control type="image">
-			<bottom>-430</bottom>
-			<width>100%</width>
-			<height>100%</height>
-			<aspectratio>keep</aspectratio>
-			<texture>demo/call_of_the_wild.png</texture>
-		</control> <!-->
-
 		<control type="image">
 			<include>FullscreenDimensions</include>
 			<aspectratio>stretch</aspectratio>
 			<texture>views\vignette.png</texture>
-		</control>
-		<!--  Progress bar -->
-		<control type="group">
-			<width>100%</width>
-			<control type="progress">
-				<left>47</left>
-				<bottom>35</bottom>
-				<width>1830</width>
-				<height>5</height>
-				<info>Player.Progress</info>
-				<animation type="WindowOpen">
-					<effect type="slide" start="0,500" end="0" center="auto" tween="back" easing="inout" time="300"/>
-					<!--><effect type="fade" start="0" end="100" time="200"/><!-->
-				</animation>
-				<animation type="WindowClose">
-					<effect type="slide" start="0" end="0,500" center="auto" tween="back" easing="inout" time="300"/>
-					<!--><effect type="fade" start="0" end="100" time="200"/><!-->
-				</animation>
-				<animation type="conditional" condition="!String.Contains(MusicPlayer.Time,00:00)">
-					<effect type="slide" start="0,100" end="0" tween="back" easing="inout" time="300"/>
-				</animation>
-				<texturebg border="2">osd/OSDProgressBack.png</texturebg>
-				<lefttexture>-</lefttexture>
-				<midtexture border="2">osd/OSDProgressBar.png</midtexture>
-				<righttexture>-</righttexture>
-				<overlaytexture>-</overlaytexture>
-			</control>
-			<control type="label">
-				<bottom>30</bottom>
-				<right>50</right>
-				<align>right</align>
-				<font>McatTCotw</font>
-				<textcolor>$VAR[TextColor]</textcolor>
-				<label>$INFO[Player.SeekStepSize]</label>
-			</control>
 		</control>
 
 		<control type="group">
@@ -527,24 +430,14 @@
 	</include>
 
 	<include name="FM">
-
-		<!--> Background
-		<control type="image">
-			<bottom>-430</bottom>
-			<width>100%</width>
-			<height>100%</height>
-			<aspectratio>keep</aspectratio>
-			<texture>demo/FM.png</texture>
-		</control> <!-->
-
 		<control type="image">
 			<include>FullscreenDimensions</include>
 			<texture colordiffuse="$VAR[BackgroundColor]">views/white_70.png</texture>
 		</control>
 
 		<control type="group">
-			<left>60</left>
-			<top>860</top>
+			<left>40</left>
+			<top>850</top>
 			<animation type="WindowOpen">
 				<effect type="slide" start="-1000,0" end="0" center="auto" tween="Cubic" easing="out" time="500"/>
 			</animation>
@@ -577,6 +470,108 @@
 					<font>McatT</font>
 					<textcolor>$VAR[TextColor]</textcolor>
 					<label>$INFO[MusicPlayer.Title]</label>
+				</control>
+			</control>
+		</control>
+	</include>
+
+	<include name="Progress">
+		<control type="group">
+			<visible>!Skin.String(MusicProgToggle, no)</visible>
+
+			<!-- Bottom Progress bar -->
+			<control type="group">
+				<visible>Skin.String(MusicProgToggle, bottomno)|Skin.String(MusicProgToggle, bottomyes)</visible>
+				<width>100%</width>
+				<control type="progress">
+					<left>0</left>
+					<bottom>0</bottom>
+					<width>100%</width>
+					<height>5</height>
+					<info>Player.Progress</info>
+					<animation type="WindowOpen">
+						<effect type="slide" start="0,500" end="0" center="auto" tween="sine" easing="inout" time="300"/>
+						<!--><effect type="fade" start="0" end="100" time="200"/><!-->
+					</animation>
+					<animation type="WindowClose">
+						<effect type="slide" start="0" end="0,500" center="auto" tween="sine" easing="inout" time="300"/>
+						<!--><effect type="fade" start="0" end="100" time="200"/><!-->
+					</animation>
+					<animation type="conditional" condition="!String.Contains(MusicPlayer.Time,00:00)">
+						<effect type="slide" start="0,100" end="0" tween="sine" easing="inout" time="300"/>
+					</animation>
+					<texturebg border="2">osd/OSDProgressBack.png</texturebg>
+					<lefttexture>-</lefttexture>
+					<midtexture border="2">osd/OSDProgressBar.png</midtexture>
+					<righttexture>-</righttexture>
+					<overlaytexture>-</overlaytexture>
+				</control>
+				<control type="label">
+					<visible>Skin.String(MusicProgToggle, bottomyes)</visible>
+					<animation type="WindowOpen">
+						<effect type="slide" start="0,500" end="0" center="auto" tween="back" easing="inout" time="500"/>
+					</animation>
+					<animation type="WindowClose">
+						<effect type="slide" start="0" end="0,500" center="auto" tween="back" easing="inout" time="500"/>
+					</animation>
+					<animation type="conditional" condition="!String.Contains(MusicPlayer.Time,00:00)">
+						<effect type="fade" start="0" end="100" time="200"/>
+						<effect type="slide" start="0,100" end="0" tween="back" easing="inout" time="500"/>
+					</animation>
+					<bottom>0</bottom>
+					<right>20</right>
+					<align>right</align>
+					<font>Reg25</font>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+					<label>$INFO[Player.Time] [COLOR $VAR[SecondaryColor]]/[/COLOR] $INFO[Player.Duration]</label>
+				</control>
+			</control>
+
+			<!-- Lifted Progress bar -->
+			<control type="group">
+				<visible>Skin.String(MusicProgToggle, liftedno)|Skin.String(MusicProgToggle, liftedyes)</visible>
+				<width>100%</width>
+				<control type="progress">
+					<left>47</left>
+					<bottom>35</bottom>
+					<width>1830</width>
+					<height>5</height>
+					<info>Player.Progress</info>
+					<animation type="WindowOpen">
+						<effect type="slide" start="0,500" end="0" center="auto" tween="back" easing="inout" time="300"/>
+						<!--><effect type="fade" start="0" end="100" time="200"/><!-->
+					</animation>
+					<animation type="WindowClose">
+						<effect type="slide" start="0" end="0,500" center="auto" tween="back" easing="inout" time="300"/>
+						<!--><effect type="fade" start="0" end="100" time="200"/><!-->
+					</animation>
+					<animation type="conditional" condition="!String.Contains(MusicPlayer.Time,00:00)">
+						<effect type="slide" start="0,100" end="0" tween="back" easing="inout" time="300"/>
+					</animation>
+					<texturebg border="2">osd/OSDProgressBack.png</texturebg>
+					<lefttexture>-</lefttexture>
+					<midtexture border="2">osd/OSDProgressBar.png</midtexture>
+					<righttexture>-</righttexture>
+					<overlaytexture>-</overlaytexture>
+				</control>
+				<control type="label">
+					<visible>Skin.String(MusicProgToggle, liftedyes)</visible>
+					<animation type="WindowOpen">
+						<effect type="slide" start="0,500" end="0" center="auto" tween="back" easing="inout" time="500"/>
+					</animation>
+					<animation type="WindowClose">
+						<effect type="slide" start="0" end="0,500" center="auto" tween="back" easing="inout" time="500"/>
+					</animation>
+					<animation type="conditional" condition="!String.Contains(MusicPlayer.Time,00:00)">
+						<effect type="fade" start="0" end="100" time="200"/>
+						<effect type="slide" start="0,100" end="0" tween="back" easing="inout" time="500"/>
+					</animation>
+					<bottom>30</bottom>
+					<right>50</right>
+					<align>right</align>
+					<font>Reg25</font>
+					<textcolor>$VAR[UnFocusedColor]</textcolor>
+					<label>$INFO[Player.Time] [COLOR $VAR[SecondaryColor]]/[/COLOR] $INFO[Player.Duration]</label>
 				</control>
 			</control>
 		</control>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="Viewtype_535_RowPoster">
+		<control type="group">
+			<visible>Control.IsVisible(535)</visible>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="-1000" center="auto" tween="Cubic" easing="in" time="500"/>
+				<!--><effect type="fade" start="0" end="100" time="200"/><!-->
+			</animation>
+
+			<control type="image">
+				<texture colordiffuse="$VAR[Black]">views/white_50.png</texture>
+			</control>
+
+			<!-- List -->
+			<control type="fixedlist" id="535">
+				<centertop>50%</centertop>
+				<left>-200</left>
+				<width>120%</width>
+				<height>540</height>
+				<onleft>520</onleft>
+				<onright>520</onright>
+				<onup>noop</onup>
+				<ondown condition="Player.HasAudio">9051</ondown>
+				<ondown>60</ondown>
+				<ondown>3000</ondown>
+				<pagecontrol>60</pagecontrol>
+				<preloaditems>2</preloaditems>
+				<focusposition>3</focusposition>
+				<movement>-1</movement>
+				<orientation>horizontal</orientation>
+				<viewtype label="31521">list</viewtype>
+				<scrolltime tween="sine" easing="inout">400</scrolltime>
+				<visible>[String.Contains(Container.Content,movies) | String.Contains(Container.Content,tvshows) | String.Contains(Container.Content,seasons) | String.Contains(Container.Content,actors) | String.Contains(Container.Content,directors)] + !String.Contains(Container.FolderPath,plugin://plugin.video.netflix) + !Skin.ToggleSetting(disable535)</visible>
+				<itemlayout width="300" height="450">
+					<control type="group">
+						<top>50</top>
+						<left>85</left>
+						<control type="image">
+							<width>300</width>
+							<height>450</height>
+							<aspectratio>scale</aspectratio>
+							<texture colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texture>
+						</control>
+						<control type="image">
+							<width>300</width>
+							<height>450</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="false">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<width>300</width>
+							<height>450</height>
+							<texture colordiffuse="$VAR[DiffuseColor]">views/white_100.png</texture>
+						</control>
+					</control>
+					<include>WatchedIndicator</include>
+				</itemlayout>
+				<focusedlayout width="350" height="900">
+					<control type="group">
+						<top>20</top>
+						<left>85</left>
+						<control type="image">
+							<width>350</width>
+							<height>525</height>
+							<aspectratio>scale</aspectratio>
+							<texture colordiffuse="$VAR[SecondaryColor]">views/white_100.png</texture>
+						</control>
+						<control type="image">
+							<width>350</width>
+							<height>525</height>
+							<aspectratio>scale</aspectratio>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+						</control>
+					</control>
+				</focusedlayout>
+			</control>
+
+			<control type="label">
+				<centerleft>50%</centerleft>
+				<centertop>77%</centertop>
+				<width>100%</width>
+				<height>70</height>
+				<font>tile</font>
+				<align>center</align>
+				<texturefocus colordiffuse="$VAR[SecondaryColor]">color_white.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[SecondaryColor]">color_white.png</texturenofocus>
+				<textcolor>$VAR[White]</textcolor>
+				<label>$INFO[Container(535).ListItem(0).label]</label>
+				<animation type="Unfocus">
+					<effect type="fade" start="100" end="0" center="auto" tween="sine"  easing="inout" time="100"/>
+				</animation>
+				<visible>Control.HasFocus(535)</visible>
+			</control>
+
+		</control>
+	</include>
+</includes>

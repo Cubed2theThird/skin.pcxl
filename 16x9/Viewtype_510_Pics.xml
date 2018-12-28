@@ -4,64 +4,40 @@
 		<control type="group">
 			<visible>Control.IsVisible(510)</visible>
 
-			<!-- List -->			
+			<!-- List -->
 			<control type="group">
-				<animation type="Conditional" condition="Player.HasVideo">
-					<effect type="slide" start="0" end="480,530" time="500" tween="cubic" easing="inout" />
-					<effect type="zoom" start="100" end="50" time="500" tween="cubic" easing="inout" />
+				<animation type="WindowOpen">
+					<effect type="slide" start="0,1000" end="0" center="auto" tween="Cubic" easing="inout" time="600"/>
 				</animation>
-				<animation type="Conditional" condition="Player.HasAudio">
-					<effect type="slide" start="0" end="193,100" time="500" tween="cubic" easing="inout" />
-					<effect type="zoom" start="100" end="80" time="500" tween="cubic" easing="inout" />
+				<animation type="WindowClose">
+					<effect type="slide" start="0" end="0,1000" center="auto" tween="Cubic" easing="inout" time="600"/>
 				</animation>
-				<animation type="Conditional" condition="Control.HasFocus(9050)">
-					<effect type="slide" start="0" end="0,250" time="500" tween="cubic" easing="inout" />
-				</animation>
-
-				<control type="fixedlist" id="510">
-					<left>-840</left>
-					<centertop>50%</centertop>
-					<width>200%</width>
-					<height>1000</height>
+				<control type="image">
 					<bottom>0</bottom>
-					<onup condition="Player.HasVideo">9050</onup>
-					<ondown condition="Player.HasAudio">9051</ondown>
-					<onleft>510</onleft>
-					<onright>510</onright>
-					<pagecontrol>60</pagecontrol>
-					<focusposition>2</focusposition>
-					<movement>-1</movement>
-					<orientation>horizontal</orientation>
-					<viewtype label="535">list</viewtype>
-					<scrolltime tween="Cubic" easing="inout">200</scrolltime>
-					<include>MediaInfoHideAnimation</include>
+					<width>100%</width>
+					<height>25%</height>
+					<aspectratio>scale</aspectratio>
+					<texture colordiffuse="$VAR[MaterialColorDark]">color_white.png</texture>
+					<animation type="WindowOpen">
+						<effect type="slide" start="0,1000" end="0" center="auto" tween="Cubic" easing="inout" time="600"/>
+					</animation>
 					<animation type="WindowClose">
-						<effect type="slide" start="0" end="0,1000" center="auto" tween="Cubic" easing="in" time="500"/>
+						<effect type="slide" start="0" end="0,1000" center="auto" tween="Cubic" easing="inout" time="600"/>
 					</animation>
-					<itemlayout height="1300" width="1300">
-						<control type="image">
-							<width>1000</width>
-							<height>1000</height>
-							<texture>$INFO[ListItem.Icon]</texture>
-							<aspectratio>keep</aspectratio>
-						</control>
-					</itemlayout>
-					<focusedlayout height="1300" width="1300">
-						<control type="image">
-					<animation type="Focus">
-						<effect type="zoom" start="100" end="110" center="auto" tween="Cubic" easing="in" time="500"/>
-					</animation>
-							<width>1000</width>
-							<height>1000</height>
-							<texture>$INFO[ListItem.Icon]</texture>
-							<aspectratio>keep</aspectratio>
-						</control>
-					</focusedlayout>
+				</control>
+
+				<control type="image">
+					<centerleft>50%</centerleft>
+					<top>50</top>
+					<width>1000</width>
+					<height>650</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$VAR[PictureFanart]</texture>
 				</control>
 
 				<control type="label">
 					<centerleft>50%</centerleft>
-					<centerbottom>5%</centerbottom>
+					<centerbottom>30%</centerbottom>
 					<width>100%</width>
 					<height>70</height>
 					<font>Tile2</font>
@@ -72,6 +48,44 @@
 						<effect type="fade" start="100" end="0" center="auto" tween="sine"  easing="inout" time="100"/>
 					</animation>
 					<visible>Control.HasFocus(510)</visible>
+				</control>
+
+				<control type="fixedlist" id="510">
+					<left>0</left>
+					<bottom>10</bottom>
+					<width>100%</width>
+					<height>220</height>
+					<bottom>0</bottom>
+					<ondown condition="Player.HasAudio">9051</ondown>
+					<onleft>510</onleft>
+					<onright>510</onright>
+					<pagecontrol>60</pagecontrol>
+					<focusposition>2</focusposition>
+					<movement>-1</movement>
+					<orientation>horizontal</orientation>
+					<viewtype label="535">list</viewtype>
+					<visible>!Skin.ToggleSetting(disable510)</visible>
+					<scrolltime tween="Cubic" easing="inout">200</scrolltime>
+					<include>MediaInfoHideAnimation</include>
+					<itemlayout height="200" width="250">
+						<control type="image">
+							<width>200</width>
+							<height>200</height>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<aspectratio>keep</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout height="200" width="250">
+						<control type="image">
+							<animation type="Focus">
+								<effect type="zoom" start="100" end="110" center="auto" tween="Cubic" easing="in" time="500"/>
+							</animation>
+							<width>200</width>
+							<height>200</height>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<aspectratio>keep</aspectratio>
+						</control>
+					</focusedlayout>
 				</control>
 
 			</control>
