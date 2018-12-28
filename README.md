@@ -2,7 +2,7 @@
 A Skin for Kodi Leia featuring UI from both concepts and other apps.
 Been working on this project for 3 months with no knowledge of how to code Kodi, and this is the result of that.
 
-[Donate for future projects](paypal.me/cubed2the3rd)
+[Donate for future projects](www.paypal.me/cubed2the3rd)
 
 ### **1.5.5**
 - **_Theme Overhaul_**
