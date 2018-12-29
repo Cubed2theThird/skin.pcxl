@@ -492,6 +492,11 @@ msgid "Premiered"
 msgctxt "#31086"
 msgid "Director(s)"
 
+#View Options
+msgctxt "#31118"
+msgid "Show labels"
+msgstr ""
+
 #Views
 msgctxt "#31510"
 msgid "Picture Showcase"
