@@ -872,8 +872,8 @@
 		</item>
 		<!--><item>
 			<label>Xfinity</label>
-			<onclick>ActivateWindow(1200)</onclick>
 			<onclick>Skin.SetString(gotoapp,xfinity)</onclick>
+			<onclick>ActivateWindow(1200)</onclick>
 			<icon>home/apps/thumb/xfinity.png</icon>
 			<thumb>home/apps/xfinity.png</thumb>
 			<visible>Container(9000).HasFocus(91)</visible>
@@ -1031,8 +1031,8 @@
 		</item>
 		<!--><item>
 			<label>Xfinity</label>
-			<onclick>ActivateWindow(1200)</onclick>
 			<onclick>Skin.SetString(gotoapp,xfinity)</onclick>
+			<onclick>ActivateWindow(1200)</onclick>
 			<icon>home/apps/thumb/xfinity.png</icon>
 			<thumb>home/apps/xfinity.png</thumb>
 		</item><!-->

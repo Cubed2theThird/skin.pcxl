@@ -1482,7 +1482,7 @@
 			</control>
 			<!--> Banner <!-->
 			<control type="group">
-				<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Banner) + ![$PARAM[Favourites]|$PARAM[Apps]|$PARAM[System]|$PARAM[Settings]]</visible>
+				<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Banner) + ![$PARAM[Favourites]|$PARAM[Apps]|$PARAM[System]|$PARAM[Settings]] + $PARAM[visible]</visible>
 				<height>400</height>
 				<control type="panel" id="$PARAM[listid]">
 					<width>$PARAM[width]</width>
@@ -1634,7 +1634,7 @@
 			</control>
 			<!--> Landscape <!-->
 			<control type="group">
-				<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Landscape) + ![$PARAM[Favourites]|$PARAM[Apps]|$PARAM[System]|$PARAM[Settings]]</visible>
+				<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Landscape) + ![$PARAM[Favourites]|$PARAM[Apps]|$PARAM[System]|$PARAM[Settings]] + $PARAM[visible]</visible>
 				<height>440</height>
 				<control type="fixedlist" id="$PARAM[listid]">
 					<width>$PARAM[width]</width>
@@ -1894,7 +1894,7 @@
 			</control>
 			<!--> Poster <!-->
 			<control type="group">
-				<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Poster) + ![$PARAM[Favourites]|$PARAM[Apps]|$PARAM[System]|$PARAM[Settings]]</visible>
+				<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Poster) + ![$PARAM[Favourites]|$PARAM[Apps]|$PARAM[System]|$PARAM[Settings]] + $PARAM[visible]</visible>
 				<height>400</height>
 				<control type="panel" id="$PARAM[listid]">
 					<width>$PARAM[width]</width>
@@ -1902,7 +1902,7 @@
 					<ondown>$PARAM[downid]</ondown>
 					<onleft>$PARAM[leftid]</onleft>
 					<focusposition>-1</focusposition>
-					<movement>4</movement>
+					<movement>5</movement>
 					<orientation>horizontal</orientation>
 					<include>HomeZoomAnimation3</include>
 					<viewtype>list</viewtype>
@@ -2012,7 +2012,7 @@
 			</control>
 			<!--> Square <!-->
 			<control type="group">
-				<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Square) + ![$PARAM[Favourites]|$PARAM[Apps]|$PARAM[System]|$PARAM[Settings]]</visible>
+				<visible>!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)) + String.Contains(Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetLayout),Square) + ![$PARAM[Favourites]|$PARAM[Apps]|$PARAM[System]|$PARAM[Settings]] + $PARAM[visible]</visible>
 				<height>$PARAM[height]</height>
 				<control type="fixedlist" id="$PARAM[listid]">
 					<width>$PARAM[width]</width>

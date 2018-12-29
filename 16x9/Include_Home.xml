@@ -4059,6 +4059,18 @@
 									<!--> Widget 1-0 <!-->
 									<include content="WidgetAndroid">
 										<param name="listid" value="9001"/>
+										<param name="width" value="1500"/>
+										<param name="height" value="390"/>
+										<param name="widgetid" value="0"/>
+										<param name="upid" value="1001"/>
+										<param name="downid" value="9050"/>
+										<param name="leftid" value="90000"/>
+										<param name="Showcase" value="true"/>
+										<param name="visible" value="!Skin.HasSetting(showLastapp)"/>
+									</include>
+									<!--> Widget 1-0 <!-->
+									<include content="WidgetAndroid">
+										<param name="listid" value="9001"/>
 										<param name="width" value="1920"/>
 										<param name="height" value="390"/>
 										<param name="widgetid" value="0"/>
@@ -4066,6 +4078,7 @@
 										<param name="downid" value="9050"/>
 										<param name="leftid" value="90000"/>
 										<param name="Showcase" value="true"/>
+										<param name="visible" value="Skin.HasSetting(showLastapp)"/>
 									</include>
 								</control>
 							</control>

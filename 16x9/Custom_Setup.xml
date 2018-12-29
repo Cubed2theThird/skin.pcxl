@@ -27,7 +27,6 @@
 	<controls>
 		<include>WindowBackgroundImage</include>
 		<include>Logo</include>
-
 		<control type="label">
 			<left>10</left>
 			<bottom>10</bottom>
@@ -169,7 +168,7 @@
 			</control>
 		</control>
 
-		<!--> Setup 1 <!-->
+		<!--> Setup 1 Colors <!-->
 		<control type="group">
 			<visible>Container(1).HasFocus(2)</visible>
 			<animation type="Visible">
@@ -367,9 +366,17 @@
 							<height>220</height>
 							<texture>$INFO[ListItem.Icon]</texture>
 						</control>
+						<include content="BorderSelected2">
+							<param name="width">220</param>
+							<param name="height">220</param>
+							<param name="type">BackgroundColor2</param>
+						</include>
 					</itemlayout>
 					<focusedlayout height="230" width="230">
 						<control type="group">
+							<animation type="Focus">
+								<effect type="zoom" center="auto" start="100" end="110" time="0"/>
+							</animation>
 							<control type="image">
 								<width>220</width>
 								<height>220</height>
@@ -378,8 +385,13 @@
 							<control type="image">
 								<width>220</width>
 								<height>220</height>
-								<texture colordiffuse="$VAR[BackgroundColor2]" border="11,43,43,11">views/border2.png</texture>
+								<texture colordiffuse="$VAR[BackgroundColor2]" border="11,43,43,11">views/border.png</texture>
 							</control>
+							<include content="BorderSelected">
+								<param name="width">220</param>
+								<param name="height">220</param>
+								<param name="type">BackgroundColor2</param>
+							</include>
 						</control>
 					</focusedlayout>
 					<content>
@@ -431,9 +443,17 @@
 							<height>220</height>
 							<texture>$INFO[ListItem.Icon]</texture>
 						</control>
+						<include content="BorderSelected2">
+							<param name="width">220</param>
+							<param name="height">220</param>
+							<param name="type">SecondaryColor</param>
+						</include>
 					</itemlayout>
 					<focusedlayout height="230" width="230">
 						<control type="group">
+							<animation type="Focus">
+								<effect type="zoom" center="auto" start="100" end="110" time="0"/>
+							</animation>
 							<control type="image">
 								<width>220</width>
 								<height>220</height>
@@ -442,8 +462,13 @@
 							<control type="image">
 								<width>220</width>
 								<height>220</height>
-								<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border2.png</texture>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border.png</texture>
 							</control>
+							<include content="BorderSelected">
+								<param name="width">220</param>
+								<param name="height">220</param>
+								<param name="type">SecondaryColor</param>
+							</include>
 						</control>
 					</focusedlayout>
 					<content>
@@ -455,8 +480,11 @@
 			</control>
 		</control>
 
-		<!--> Setup 2 <!-->
+		<!--> Setup 2 Layout <!-->
 		<control type="group">
+			<centerleft>50%</centerleft>
+			<top>160</top>
+			<width>1320</width>
 			<visible>Container(1).HasFocus(3)</visible>
 			<animation type="Visible">
 				<effect type="slide" start="1000" end="0" time="500" tween="sine" easing="inout" center="auto" />
@@ -467,227 +495,227 @@
 				<effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
 			</animation>
 			<control type="group">
-				<centerleft>350</centerleft>
-				<centertop>50%</centertop>
-				<width>560</width>
-				<height>880</height>
-
+				<control type="image">
+					<width>1244</width>
+					<height>700</height>
+					<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+				</control>
+				<control type="image">
+					<width>1244</width>
+					<height>700</height>
+					<texture>$INFO[Skin.String(backgroundimage)]</texture>
+					<visible>!Skin.HasSetting(backgroundcolor)</visible>
+					<aspectratio>scale</aspectratio>
+				</control>
+				<control type="image">
+					<width>1244</width>
+					<height>700</height>
+					<texture colordiffuse="$VAR[BackgroundColor2]">$INFO[Skin.String(backgroundimage)]</texture>
+					<visible>Skin.HasSetting(backgroundcolor)</visible>
+					<aspectratio>scale</aspectratio>
+				</control>
+				<control type="image">
+					<width>1244</width>
+					<height>700</height>
+					<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/TV.png</texture>
+					<visible>Skin.String(DashboardToggle, TV)</visible>
+				</control>
+				<control type="image">
+					<width>1244</width>
+					<height>700</height>
+					<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Game.png</texture>
+					<visible>Skin.String(DashboardToggle, Game)</visible>
+				</control>
+				<control type="image">
+					<width>1244</width>
+					<height>700</height>
+					<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Android.png</texture>
+					<visible>Skin.String(DashboardToggle, Android)</visible>
+				</control>
+				<control type="image">
+					<width>1244</width>
+					<height>700</height>
+					<texture colordiffuse="$VAR[MaterialColorDark]" background="true">views/darkvignette.png</texture>
+					<visible>Skin.String(DashboardToggle, Netflix)</visible>
+				</control>
+				<control type="image">
+					<width>1244</width>
+					<height>700</height>
+					<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Netflix.png</texture>
+					<visible>Skin.String(DashboardToggle, Netflix)</visible>
+				</control>
+				<control type="image">
+					<width>1244</width>
+					<height>700</height>
+					<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Horizontal.png</texture>
+					<visible>Skin.String(DashboardToggle, Horizontal)</visible>
+				</control>
+				<control type="image">
+					<width>1244</width>
+					<height>700</height>
+					<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/PS3.png</texture>
+					<visible>Skin.String(DashboardToggle, Retroarch)</visible>
+				</control>
+				<control type="image">
+					<width>1244</width>
+					<height>700</height>
+					<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Oreo.png</texture>
+					<visible>Skin.String(DashboardToggle, Oreo)</visible>
+				</control>
+				<control type="image">
+					<width>1244</width>
+					<height>700</height>
+					<texture colordiffuse="$VAR[white]" border="11,43,43,11">views/border2.png</texture>
+				</control>
+			</control>
+			<control type="group">
+				<visible>!Skin.HasSetting(KioskMode)</visible>
+				<left>00</left>
+				<top>720</top>
+				<control type="image">
+					<width>1244</width>
+					<height>60</height>
+					<texture colordiffuse="$VAR[MaterialColorDark]" border="9">views/Card_bg_white.png</texture>
+					<aspectratio>stretch</aspectratio>
+					<visible>!Control.HasFocus(30)</visible>
+				</control>
+				<control type="image">
+					<width>1244</width>
+					<height>60</height>
+					<texture colordiffuse="$VAR[SecondaryColor]" border="9">views/Card_bg_white.png</texture>
+					<aspectratio>stretch</aspectratio>
+					<visible>Control.HasFocus(30)</visible>
+				</control>
 				<control type="list" id="30">
-					<width>100%</width>
-					<height>880</height>
-					<onright condition="Container(30).HasFocus(2)">3110</onright>
-					<onright condition="Container(30).HasFocus(3)">3111</onright>
-					<onright condition="Container(30).HasFocus(4)">3112</onright>
-					<onright condition="Container(30).HasFocus(5)">3113</onright>
-					<onright condition="Container(30).HasFocus(6)">3114</onright>
-					<onright condition="Container(30).HasFocus(7)">3115</onright>
-					<itemlayout width="510" height="120">
+					<top>-20</top>
+					<width>1244</width>
+					<height>90</height>
+					<orientation>horizontal</orientation>
+					<onleft>30</onleft>
+					<onright>30</onright>
+					<onup>noop</onup>
+					<ondown>31</ondown>
+					<preloaditems>4</preloaditems>
+					<pagecontrol>60</pagecontrol>
+					<focusposition>-1</focusposition>
+					<movement>6</movement>
+					<scrolltime>500</scrolltime>
+					<itemlayout height="100">
 						<control type="group">
-							<left>20</left>
-							<top>20</top>
-							<control type="image">
-								<width>500</width>
-								<height>120</height>
-								<texture colordiffuse="$VAR[BackgroundColor]">common/white.png</texture>
-								<aspectratio>stretch</aspectratio>
+							<control type="label">
+								<height>90</height>
+								<left>20</left>
+								<label>...</label>
+								<align>left</align>
+								<font>Tile</font>
+								<textcolor>$VAR[White]</textcolor>
 							</control>
 							<control type="label">
-								<left>20</left>
-								<width>500</width>
-								<height>120</height>
+								<height>90</height>
 								<label>$INFO[Listitem.label]</label>
-								<align>left</align>
-								<aligny>center</aligny>
+								<align>center</align>
 								<font>Tile</font>
-								<textcolor>$VAR[FocusedColor]</textcolor>
+								<textcolor>$VAR[White]</textcolor>
+							</control>
+							<control type="label">
+								<height>90</height>
+								<right>20</right>
+								<label>...</label>
+								<align>right</align>
+								<font>Tile</font>
+								<textcolor>$VAR[White]</textcolor>
 							</control>
 						</control>
 					</itemlayout>
-					<focusedlayout width="510" height="120">
+					<focusedlayout height="100">
+						<control type="button">
+							<include>HiddenControl</include>
+							<onfocus>Skin.SetString(DashboardToggle,$INFO[Container(30).ListItem.Label2])</onfocus>
+						</control>
 						<control type="group">
-							<left>20</left>
-							<top>20</top>
-							<control type="image">
-								<width>500</width>
-								<height>120</height>
-								<texture colordiffuse="$VAR[SecondaryColor]">common/white.png</texture>
-								<aspectratio>stretch</aspectratio>
+							<control type="label">
+								<left>20</left>
+								<height>90</height>
+								<label>...</label>
+								<align>left</align>
+								<font>Tile</font>
+								<textcolor>$VAR[TextColor]</textcolor>
+							</control>
+							<control type="label">
+								<height>90</height>
+								<label>$INFO[Listitem.label]</label>
+								<align>center</align>
+								<font>Tile</font>
+								<textcolor>$VAR[White]</textcolor>
 								<visible>!Control.HasFocus(30)</visible>
 							</control>
-							<control type="image">
-								<width>500</width>
-								<height>120</height>
-								<texture colordiffuse="$VAR[SecondaryColor]">common/white.png</texture>
-								<aspectratio>stretch</aspectratio>
-								<visible>Control.HasFocus(30)</visible>
-							</control>
-							<control type="image">
-								<left>-30</left>
-								<top>-30</top>
-								<width>560</width>
-								<height>180</height>
-								<texture colordiffuse="$VAR[SecondaryColor]" border="40">fo.png</texture>
+							<control type="label">
+								<height>90</height>
+								<label>$INFO[Listitem.label]</label>
+								<align>center</align>
+								<font>Tile</font>
+								<textcolor>$VAR[TextColor]</textcolor>
 								<visible>Control.HasFocus(30)</visible>
 							</control>
 							<control type="label">
-								<left>20</left>
-								<width>500</width>
-								<height>120</height>
-								<label>$INFO[Listitem.label]</label>
-								<align>left</align>
-								<aligny>center</aligny>
+								<height>90</height>
+								<right>20</right>
+								<label>...</label>
+								<align>right</align>
 								<font>Tile</font>
-								<textcolor>$VAR[FocusedColor]</textcolor>
+								<textcolor>$VAR[TextColor]</textcolor>
 							</control>
 						</control>
 					</focusedlayout>
 					<content>
-						<item id="6">
+						<item id="7">
 							<label>$LOCALIZE[31044]</label>
+							<label2>Retroarch</label2>
 							<onclick>Skin.Setstring(DashboardToggle, Retroarch)</onclick>
-						</item>
-						<item id="5">
-							<label>$LOCALIZE[31014]</label>
-							<onclick>Skin.Setstring(DashboardToggle, Horizontal)</onclick>
+							<onclick>SetFocus(31)</onclick>
 						</item>
 						<item id="1">
+							<label>$LOCALIZE[31014]</label>
+							<label2>Horizontal</label2>
+							<onclick>Skin.Setstring(DashboardToggle, Horizontal)</onclick>
+							<onclick>SetFocus(31)</onclick>
+						</item>
+						<item id="3">
 							<label>$LOCALIZE[31010]</label>
+							<label2>TV</label2>
 							<onclick>Skin.Setstring(DashboardToggle, TV)</onclick>
 						</item>
 						<item id="2">
 							<label>$LOCALIZE[31011]</label>
+							<label2>Game</label2>
 							<onclick>Skin.Setstring(DashboardToggle, Game)</onclick>
-						</item>
-						<item id="3">
-							<label>$LOCALIZE[31012]</label>
-							<onclick>Skin.Setstring(DashboardToggle, Android)</onclick>
+							<onclick>SetFocus(31)</onclick>
 						</item>
 						<item id="4">
+							<label>$LOCALIZE[31012]</label>
+							<label2>Android</label2>
+							<onclick>Skin.Setstring(DashboardToggle, Android)</onclick>
+							<onclick>SetFocus(31)</onclick>
+						</item>
+						<item id="5">
 							<label>$LOCALIZE[31013]</label>
+							<label2>Netflix</label2>
 							<onclick>Skin.Setstring(DashboardToggle, Netflix)</onclick>
-						</item>
-						<item id="7">
-							<label>$LOCALIZE[31007]</label>
-							<onclick>Control.SetFocus(40,0)</onclick>
-							<onclick>Control.Move(1,1)</onclick>
-							<visible>![String.Contains(Skin.String(DashboardToggle), Blank)|String.IsEmpty(Skin.String(DashboardToggle))]</visible>
-						</item>
-						<item id="8">
-							<label>$LOCALIZE[31016]</label>
-							<onclick>Control.SetFocus(20,0)</onclick>
-							<onclick>Control.Move(1,-1)</onclick>
+							<onclick>SetFocus(31)</onclick>
 						</item>
 					</content>
 				</control>
-			</control>
-
-			<control type="group">
-				<left>700</left>
-				<top>250</top>
-				
-				<control type="image">
-					<width>1070</width>
-					<height>600</height>
-					<texture colordiffuse="$VAR[BackgroundColor]">color_white.png</texture>
+				<control type="button" id="31">
+					<onup>30</onup>
+					<ondown>31</ondown>
+					<width>1244</width>
+					<height>60</height>
+					<top>60</top>
+					<label>$LOCALIZE[31007]</label>
+					<include>DialogButton</include>
+					<onclick>Control.SetFocus(40,0)</onclick>
+					<onclick>Control.Move(1,1)</onclick>
 				</control>
-				<control type="image">
-					<width>1070</width>
-					<height>600</height>
-					<texture colordiffuse="$VAR[BackgroundColor2]">$INFO[Skin.String(backgroundimage)]</texture>
-					<aspectratio>scale</aspectratio>
-				</control>
-				<control type="image">
-					<width>1070</width>
-					<height>600</height>
-					<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/TV.png</texture>
-					<visible>Container(30).HasFocus(1)</visible>
-				</control>
-				<control type="image">
-					<width>1070</width>
-					<height>600</height>
-					<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Game.png</texture>
-					<visible>Container(30).HasFocus(2)</visible>
-				</control>
-				<control type="image">
-					<width>1070</width>
-					<height>600</height>
-					<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Android.png</texture>
-					<visible>Container(30).HasFocus(3)</visible>
-				</control>
-				<control type="image">
-					<width>1070</width>
-					<height>600</height>
-					<texture colordiffuse="$VAR[MaterialColorDark]" background="true">views/darkvignette.png</texture>
-					<visible>Container(30).HasFocus(4)</visible>
-				</control>
-				<control type="image">
-					<width>1070</width>
-					<height>600</height>
-					<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Netflix.png</texture>
-					<visible>Container(30).HasFocus(4)</visible>
-				</control>
-				<control type="image">
-					<width>1070</width>
-					<height>600</height>
-					<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Horizontal.png</texture>
-					<visible>Container(30).HasFocus(5)</visible>
-				</control>
-				<control type="image">
-					<width>1070</width>
-					<height>600</height>
-					<texture colordiffuse="$VAR[SecondaryColor]" background="true">special://skin/extras/layouts/PS3.png</texture>
-					<visible>Container(30).HasFocus(6)</visible>
-				</control>
-
-				<control type="image">
-					<width>1070</width>
-					<height>600</height>
-					<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/TV.png</texture>
-					<visible>Skin.String(DashboardToggle, TV) + Container(30).HasFocus(7)</visible>
-				</control>						
-				<control type="image">
-					<width>1070</width>
-					<height>600</height>
-					<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Game.png</texture>
-					<visible>Skin.String(DashboardToggle, Game) + Container(30).HasFocus(7)</visible>
-				</control>
-				<control type="image">
-					<width>1070</width>
-					<height>600</height>
-					<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Android.png</texture>
-					<visible>Skin.String(DashboardToggle, Android) + Container(30).HasFocus(7)</visible>
-				</control>
-				<control type="image">
-					<width>1070</width>
-					<height>600</height>
-					<texture colordiffuse="$VAR[MaterialColorDark]" background="true">views/darkvignette.png</texture>
-					<visible>Skin.String(DashboardToggle, Netflix) + Container(30).HasFocus(7)</visible>
-				</control>
-				<control type="image">
-					<width>1070</width>
-					<height>600</height>
-					<texture colordiffuse="$VAR[SecondaryColor]" background="true">special://skin/extras/layouts/PS3.png</texture>
-					<visible>Skin.String(DashboardToggle, Retroarch) + Container(30).HasFocus(7)</visible>
-				</control>
-				<control type="image">
-					<width>1070</width>
-					<height>600</height>
-					<texture colordiffuse="$VAR[SecondaryColor]" background="true">special://skin/extras/layouts/Horizontal.png</texture>
-					<visible>Skin.String(DashboardToggle, Horizontal) + Container(30).HasFocus(7)</visible>
-				</control>
-				<control type="image">
-					<width>1070</width>
-					<height>600</height>
-					<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Netflix.png</texture>
-					<visible>Skin.String(DashboardToggle, Netflix) + Container(30).HasFocus(7)</visible>
-				</control>
-
-				<control type="image">
-					<width>1070</width>
-					<height>600</height>
-					<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border2.png</texture>
-				</control>
-
 			</control>
 		</control>
 
@@ -756,6 +784,5 @@
 				<visible>Control.HasFocus(41)</visible>
 			</control>
 		</control>
-
 	</controls>
 </window>

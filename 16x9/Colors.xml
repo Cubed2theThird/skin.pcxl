@@ -2,11 +2,11 @@
 <includes>
 	<!--> Custom <!-->
 	<variable name="BackgroundColor2">
-		<value condition="String.IsEmpty(Skin.String(BackgroundColor2))">$VAR[SecondaryColor]</value>
+		<value condition="String.IsEmpty(Skin.String(BackgroundColor2))">ffB71C1C</value>
 		<value>FF$INFO[Skin.String(BackgroundColor2)]</value>
 	</variable>
 	<variable name="SecondaryColor">
-		<value condition="String.IsEmpty(Skin.String(SecondaryColor))">ff127812</value>
+		<value condition="String.IsEmpty(Skin.String(SecondaryColor))">ffB71C1C</value>
 		<value>ff$INFO[Skin.String(SecondaryColor)]</value>
 	</variable>
 	<variable name="DiffuseColor">
