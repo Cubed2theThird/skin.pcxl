@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.pcxl" version="1.5.5.11" name="PCX L" provider-name="Cubed3">
+<addon id="skin.pcxl" version="1.5.5" name="PCX L" provider-name="Cubed3">
 	<requires>
 		<import addon="xbmc.gui" version="5.13.0"/>
         <import addon="script.globalsearch" version="4.0.2" />
@@ -15,7 +15,7 @@
 			<fanart>fanart.jpg</fanart>
 		</assets>
 		<summary lang="en">For Leia</summary>
-		<disclaimer lang="en">Beta</disclaimer>
-		<description lang="en">-</description>
+		<disclaimer lang="en">Beta</disclaimer>		
+		<description lang="en">A Skin for Kodi Leia featuring UI from both concepts and other apps</description>
 	</extension>
 </addon>

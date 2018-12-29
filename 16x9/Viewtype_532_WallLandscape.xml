@@ -47,6 +47,7 @@
 							<align>left</align>
 							<textcolor>$VAR[TextColor]</textcolor>
 							<label>$INFO[ListItem.Label]</label>
+							<visible>Skin.HasSetting(showlandLabels)</visible>
 						</control>
 						<control type="image">
 							<width>460</width>
@@ -57,6 +58,14 @@
 					<focusedlayout height="300" width="460">
 						<control type="group">
 							<animation center="auto" condition="Control.HasFocus(532)" easing="inout" effect="zoom" end="105" start="100" time="300" tween="sine">Focus</animation>
+							<control type="image">
+								<top>-30</top>	
+								<left>-29</left>
+								<width>518</width>
+								<height>362</height>
+								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
+								<visible>Control.HasFocus(533)</visible>
+							</control>
 							<control type="image">
 								<width>460</width>
 								<height>300</height>
@@ -81,6 +90,7 @@
 								<textoffsety>75</textoffsety>
 								<wrapmultiline>true</wrapmultiline>
 								<label>$INFO[ListItem.Label]</label>
+								<visible>Skin.HasSetting(showlandLabels)</visible>
 							</control>
 						</control>
 					</focusedlayout>

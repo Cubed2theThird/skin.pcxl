@@ -14,7 +14,7 @@
 				<control type="panel" id="533">
 					<centerleft>50%</centerleft>
 					<top>20</top>
-					<width>1880</width>
+					<width>1840</width>
 					<height>100%</height>				
 					<onup>noop</onup>
 					<ondown condition="Player.HasAudio">9051</ondown>
@@ -26,8 +26,8 @@
 					<orientation>horizontial</orientation>
 					<viewtype>list</viewtype>
 					<scrolltime tween="cubic" easing="out">360</scrolltime>
-					<visible>[String.Contains(Container.Content,movies) | String.Contains(Container.Content,videos) | String.Contains(Container.FolderPath,plugin://plugin.video.twitch)] + ![String.Contains(Container.FolderPath,plugin://plugin.video.youtube)] + !Skin.ToggleSetting(disable533)</visible>
-					<itemlayout width="470" height="310">
+					<visible>[String.Contains(Container.Content,movies) | String.Contains(Container.Content,videos) | String.Contains(Container.FolderPath,plugin://plugin.video.twitch)] + ![String.Contains(Container.FolderPath,plugin://plugin.video.youtube)] + !Skin.ToggleSetting(disable533)</visible>					
+					<itemlayout height="300" width="460">
 						<control type="image">
 							<width>460</width>
 							<height>300</height>
@@ -45,8 +45,9 @@
 							<height>30</height>
 							<font>tile</font>
 							<align>left</align>
-							<textcolor>$VAR[White]</textcolor>
+							<textcolor>$VAR[TextColor]</textcolor>
 							<label>$INFO[ListItem.Label]</label>
+							<visible>Skin.HasSetting(showlandLabels)</visible>
 						</control>
 						<control type="image">
 							<width>460</width>
@@ -54,8 +55,17 @@
 							<texture colordiffuse="$VAR[DiffuseColor]">views/white_100.png</texture>
 						</control>
 					</itemlayout>
-					<focusedlayout width="470" height="310">
+					<focusedlayout height="300" width="460">
 						<control type="group">
+							<animation center="auto" condition="Control.HasFocus(533)" easing="inout" effect="zoom" end="105" start="100" time="300" tween="sine">Focus</animation>
+							<control type="image">
+								<top>-30</top>	
+								<left>-29</left>
+								<width>518</width>
+								<height>362</height>
+								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
+								<visible>Control.HasFocus(533)</visible>
+							</control>
 							<control type="image">
 								<width>460</width>
 								<height>300</height>
@@ -67,24 +77,20 @@
 								<include>WatchedIndicator</include>
 							</control>
 							<control type="button">
-								<bottom>10</bottom>
+								<bottom>0</bottom>
 								<width>460</width>
 								<height>70</height>
 								<font>tile</font>
 								<align>left</align>
-								<textcolor>$VAR[White]</textcolor>
-								<focusedcolor>$VAR[White]</focusedcolor>
+								<textcolor>$VAR[TextColor]</textcolor>
+								<focusedcolor>$VAR[TextColor]</focusedcolor>
 								<disabledcolor>FF484848</disabledcolor>
 								<texturefocus colordiffuse="$VAR[SecondaryColor]">color_white.png</texturefocus>
 								<textoffsetx>15</textoffsetx>
 								<textoffsety>75</textoffsety>
 								<wrapmultiline>true</wrapmultiline>
 								<label>$INFO[ListItem.Label]</label>
-							</control>
-							<control type="image">
-								<width>460</width>
-								<height>300</height>
-								<texture colordiffuse="$VAR[TextColor]" border="11,43,43,11">$VAR[BorderImage]</texture>
+								<visible>Skin.HasSetting(showlandLabels)</visible>
 							</control>
 						</control>
 					</focusedlayout>
