@@ -2,10 +2,36 @@
 <window>
 	<!-- script-skinshortcuts -->
 	<backgroundcolor>$VAR[BackgroundColor]</backgroundcolor>
-	<defaultcontrol always="true">304</defaultcontrol>
+	<defaultcontrol always="true">301</defaultcontrol>
 	<include>DialogZoomAnimation</include>
 	<onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu|horizontal)</onunload>
 	<controls>
+		<!-- Add item -->
+		<control type="button" id="301">
+			<left>-10</left>
+			<top>-10</top>
+			<width>1</width>
+			<height>1</height>
+			<font>-</font>
+			<onleft>noop</onleft>
+			<onright>302</onright>
+			<onup>Control.Move(211,-1)</onup>
+			<ondown>Control.Move(211,1)</ondown>
+		</control>
+
+		<!-- Remove -->
+		<control type="button" id="302">
+			<left>-10</left>
+			<top>-10</top>
+			<width>1</width>
+			<height>1</height>
+			<font>-</font>
+			<onleft>301</onleft>
+			<onright>304</onright>
+			<onup>Control.Move(211,-1)</onup>
+			<ondown>Control.Move(211,1)</ondown>
+		</control>
+
 		<!-- Move down -->
 		<control type="button" id="304">
 			<left>-10</left>
@@ -13,7 +39,7 @@
 			<width>1</width>
 			<height>1</height>
 			<font>-</font>
-			<onleft>noop</onleft>
+			<onleft>302</onleft>
 			<onright>303</onright>
 			<onup>Control.Move(211,-1)</onup>
 			<ondown>Control.Move(211,1)</ondown>
@@ -90,17 +116,7 @@
 					<height>66</height>
 					<font>Tile</font>
 					<textcolor>$VAR[UnFocusedColor]</textcolor>
-					<label>$INFO[ListItem.Property(widgetName)]</label>
-					<visible>String.Contains(Window.Property(groupname),mainmenu)</visible>
-				</control>
-				<control type="label">
-					<left>25</left>
-					<width>260</width>
-					<height>66</height>
-					<font>Tile</font>
-					<textcolor>$VAR[UnFocusedColor]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
-					<visible>!String.Contains(Window.Property(groupname),mainmenu)</visible>
 				</control>
 			</itemlayout>
 			<focusedlayout width="360" height="66">
@@ -115,19 +131,8 @@
 					<height>66</height>
 					<scroll>true</scroll>
 					<font>Tile</font>
-					<label>$INFO[ListItem.Property(widgetName)]</label>
-					<animation effect="fade" start="100" end="75" time="0" condition="!Control.HasFocus(211)">Conditional</animation>
-					<visible>String.Contains(Window.Property(groupname),mainmenu)</visible>
-				</control>
-				<control type="label">
-					<left>25</left>
-					<width>260</width>
-					<height>66</height>
-					<scroll>true</scroll>
-					<font>Tile</font>
 					<label>$INFO[ListItem.Label]</label>
 					<animation effect="fade" start="100" end="75" time="0" condition="!Control.HasFocus(211)">Conditional</animation>
-					<visible>!String.Contains(Window.Property(groupname),mainmenu)</visible>
 				</control>
 				<control type="image">
 					<left>290</left>
@@ -135,13 +140,6 @@
 					<height>66</height>
 					<texture>common/ArrowDownNF.png</texture>
 					<visible>!Control.HasFocus(304)</visible>
-				</control>
-				<control type="image">
-					<left>325</left>
-					<width>35</width>
-					<height>66</height>
-					<texture>common/ArrowUpNF.png</texture>
-					<visible>!Control.HasFocus(303)</visible>
 				</control>
 				<control type="image">
 					<left>290</left>
@@ -154,8 +152,43 @@
 					<left>325</left>
 					<width>35</width>
 					<height>66</height>
+					<texture>common/ArrowUpNF.png</texture>
+					<visible>!Control.HasFocus(303)</visible>
+				</control>
+				<control type="image">
+					<left>325</left>
+					<width>35</width>
+					<height>66</height>
 					<texture>common/ArrowUpFO.png</texture>
 					<visible>Control.HasFocus(303)</visible>
+				</control>
+				<control type="image">
+					<left>220</left>
+					<width>66</width>
+					<height>66</height>
+					<texture colordiffuse="$VAR[UnFocusedColor]">dialogs/add.png</texture>
+					<visible>!Control.HasFocus(301)</visible>
+				</control>
+				<control type="image">
+					<left>220</left>
+					<width>66</width>
+					<height>66</height>
+					<texture colordiffuse="$VAR[FocusedColor]">dialogs/add.png</texture>
+					<visible>Control.HasFocus(301)</visible>
+				</control>
+				<control type="image">
+					<left>250</left>
+					<width>66</width>
+					<height>66</height>
+					<texture colordiffuse="$VAR[UnFocusedColor]">dialogs/delete.png</texture>
+					<visible>!Control.HasFocus(302)</visible>
+				</control>
+				<control type="image">
+					<left>250</left>
+					<width>66</width>
+					<height>66</height>
+					<texture colordiffuse="$VAR[FocusedColor]">dialogs/delete.png</texture>
+					<visible>Control.HasFocus(302)</visible>
 				</control>
 			</focusedlayout>
 		</control>
@@ -175,6 +208,16 @@
 			<usecontrolcoords>true</usecontrolcoords>
 			<scrolltime tween="sine" easing="out">240</scrolltime>
 
+			<!-- Change label -->
+			<control type="button" id="305">
+				<width>1150</width>
+				<height>80</height>
+				<include>DialogButton</include>
+				<label>$ADDON[script.skinshortcuts 32025]</label>
+				<label2>$INFO[Container(211).ListItem.Label]</label2>
+				<!--><visible>!String.Contains(Window.Property(groupname),mainmenu)</visible><!-->
+			</control>
+
 			<!-- Change shortcut -->
 			<control type="button" id="401">
 				<width>1150</width>
@@ -184,16 +227,6 @@
 				<label2>$INFO[Container(211).ListItem.Property(displaypath)]</label2>
 			</control>
 
-
-			<!-- Change label -->
-			<control type="button" id="305">
-				<width>1150</width>
-				<height>80</height>
-				<include>DialogButton</include>
-				<label>$ADDON[script.skinshortcuts 32025]</label>
-				<label2>$INFO[Container(211).ListItem.Label]</label2>
-				<visible>!String.Contains(Window.Property(groupname),mainmenu)</visible>
-			</control>
 
 			<!-- Change thumb -->
 			<control type="button" id="306">
@@ -250,22 +283,6 @@
 				<label2>$VAR[WidgetArt]</label2>
 				<include>DialogButton</include>
 				<visible>String.Contains(Window.Property(groupname),mainmenu)</visible>
-			</control>
-
-			<!-- Remove -->
-			<control type="button" id="302">
-				<width>1150</width>
-				<height>80</height>
-				<label>Remove</label>
-				<include>DialogButton</include>
-			</control>
-
-			<!-- Add item -->
-			<control type="button" id="301">
-				<width>1150</width>
-				<height>80</height>
-				<include>DialogButton</include>
-				<label>$ADDON[script.skinshortcuts 32000]</label>
 			</control>
 		</control>
 

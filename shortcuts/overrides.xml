@@ -4,9 +4,14 @@
 	<!-- Don't share additional submenu levels
 	<doNotShareLevels /> -->
 	<!-- Save any shortcut with a widgetPath property -->
+	<saveWithProperty>widgetName</saveWithProperty>
 	<saveWithProperty>widgetPath</saveWithProperty>
+	<saveWithProperty>widgetTarget</saveWithProperty>
+	<widgetRename>False</widgetRename>
 
 	<!-- Default Widgets -->
+	<propertyfallback property="path" attribute="path" value="">noop</propertyfallback>
+
     <!-- Movies -->
     <widgetdefaultnode labelID="movies" label="342" path="videodb://movies/titles/" target="videos">Movies</widgetdefaultnode>
     <propertydefault labelID="movies" property="widgetLayout">Landscape</propertydefault>
@@ -37,5 +42,4 @@
 	<propertyfallback property="widgetArt" label="Thumb">thumb</propertyfallback>	
 	<property property="widgetArt" label="Fanart">fanart</property>
 	<property property="widgetArt" label="Thumb">thumb</property>
-
 </overrides>

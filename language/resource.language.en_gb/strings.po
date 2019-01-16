@@ -28,7 +28,7 @@ msgstr ""
 #All labels
 
 msgctxt "#31999"
-msgid "Version 1.5.5.11 Leia Beta"
+msgid "Version 1.5.5.2 Leia Beta"
 
 #Custom_Setup.xml
 msgctxt "#31000"
@@ -87,11 +87,9 @@ msgid "Test Layout"
 #"Retroarch/PS3 Layout"
 msgctxt "#31044"
 msgid "XMB Layout"
-msgstr ""
 
 msgctxt "#31045"
 msgid "Kiosk Layout"
-msgstr ""
 
 msgctxt "#31016"
 msgid "Back"
@@ -120,7 +118,6 @@ msgid "Now Playing"
 
 msgctxt "#31027"
 msgid "Addons"
-msgstr ""
 
 #Game/Xbox layout
 msgctxt "#31019"
@@ -166,11 +163,9 @@ msgid "My Albums"
 #Color_Picker.xml
 msgctxt "#31034"
 msgid "My colors & background"
-msgstr ""
 
 msgctxt "#31035"
 msgid "Home Screen"
-msgstr ""
 
 #Options
 msgctxt "#31089"
@@ -184,302 +179,244 @@ msgid "Enable favourites"
 
 msgctxt "#31036"
 msgid "My Color"
-msgstr ""
 
 msgctxt "#31092"
 msgid "Background Color"
 
 msgctxt "#31037"
 msgid "Diffuse Color"
-msgstr ""
 
 msgctxt "#31038"
 msgid "Text Color"
-msgstr ""
 
 msgctxt "#31039"
 msgid "Music Layout"
-msgstr ""
 
 msgctxt "#31041"
 msgid "Toggle Light mode"
-msgstr ""
 
 msgctxt "#31043"
 msgid "Background & layouts"
-msgstr ""
 
 #Music Options
 msgctxt "#31046"
 msgid "Music Layout"
-msgstr ""
 
 msgctxt "#31047"
 msgid "Music Background"
-msgstr ""
 
 msgctxt "#31040"
 msgid "COTW Layout"
-msgstr ""
 
 msgctxt "#31048"
 msgid "FM Layout"
-msgstr ""
 
 msgctxt "#31049"
 msgid "Art Layout"
-msgstr ""
 
 msgctxt "#31050"
 msgid "Playlist Layout"
-msgstr ""
 
 msgctxt "#31051"
 msgid "Cover art"
-msgstr ""
 
 msgctxt "#31052"
 msgid "Wallpaper"
-msgstr ""
 
 msgctxt "#31112"
 msgid "Hide progress bar"
-msgstr ""
 
 msgctxt "#31113"
 msgid "Bottom progress bar"
-msgstr ""
 
 msgctxt "#31114"
 msgid "Bottom progress bar with duration"
-msgstr ""
 
 msgctxt "#31115"
 msgid "Lifted progress bar"
-msgstr ""
 
 msgctxt "#31116"
 msgid "Lifted progress bar with duration"
-msgstr ""
 
 msgctxt "#31094"
 #msgid "Experimental Options"
 msgid "Toggle Views Options"
-msgstr ""
+
+#Lyrics
+msgctxt "#31119"
+msgid "No lyrics"
+
+msgctxt "#31120"
+msgid "Left lyrics"
+
+msgctxt "#31121"
+msgid "Center lyrics"
+
+msgctxt "#31122"
+msgid "Right lyrics"
 
 #Options
 msgctxt "#31095"
 msgid "Enable background colors"
-msgstr ""
 
 msgctxt "#31096"
 msgid "Enable video in background"
-msgstr ""
 
 msgctxt "#31097"
 msgid "Enable art animation"
-msgstr ""
 
 msgctxt "#31098"
 msgid "Select Slideshow folder"
-msgstr ""
 
 msgctxt "#31099"
 msgid "Enable showcase"
-msgstr ""
 
 msgctxt "#31100"
 msgid "Enable flags"
-msgstr ""
 
 msgctxt "#31101"
 msgid "Show fanart"
-msgstr ""
 
 msgctxt "#31102"
 msgid "Show movies and tv group"
-msgstr ""
 
 msgctxt "#31103"
 msgid "Show music group"
-msgstr ""
 
 msgctxt "#31104"
 msgid "Smaller icons"
-msgstr ""
 
 msgctxt "#31105"
 msgid "Show apps in list"
-msgstr ""
 
 msgctxt "#31106"
 msgid "Maximize now playing bar"
-msgstr ""
 
 msgctxt "#31107"
 msgid "Customize buttons"
-msgstr ""
 
 msgctxt "#31108"
 msgid "Toggle game UI"
-msgstr ""
 
 msgctxt "#31109"
 msgid "Seperate shutdown menu"
-msgstr ""
 
 msgctxt "#31110"
 msgid "Show sidebar icons"
-msgstr ""
 
 msgctxt "#31111"
 msgid "Hide last app"
-msgstr ""
 
 msgctxt "#31117"
 msgid "Show video info on pause"
-msgstr ""
 
 #Settings
 msgctxt "#31042"
 msgid "Reset all"
-msgstr ""
 
 msgctxt "#31053"
 msgid "Preferences"
-msgstr ""
 
 msgctxt "#31054"
 msgid "Accounts"
-msgstr ""
 
 msgctxt "#31055"
 msgid "Widgets"
-msgstr ""
 
 msgctxt "#31056"
 msgid "Device"
-msgstr ""
 
 msgctxt "#31057"
 msgid "Display & audio"
-msgstr ""
 
 #PlayerControls.xml
 msgctxt "#31058"
 msgid "Last in:"
-msgstr ""
 
 msgctxt "#31059"
 msgid "Play / Pause"
-msgstr ""
 
 msgctxt "#31060"
 msgid "Stop"
-msgstr ""
 
 #SkinSettings.xml
 msgctxt "#31061"
 msgid "Optional addons"
-msgstr ""
 
 msgctxt "#31062"
 msgid "Customise Home Menu"
-msgstr ""
 
 msgctxt "#31063"
 msgid "Display artist art"
-msgstr ""
 
 msgctxt "#31064"
 msgid "Skin Shortcuts script"
-msgstr ""
 
 msgctxt "#31065"
 msgid "Artwork Downloader script"
-msgstr ""
 
 msgctxt "#31066"
 msgid "Artist Slideshow script"
-msgstr ""
 
 msgctxt "#31067"
 msgid "Global Search script"
-msgstr ""
 
 msgctxt "#31068"
 msgid "Random Movies"
-msgstr ""
 
 msgctxt "#31069"
 msgid "Enable debug grid"
-msgstr ""
 
 msgctxt "#31070"
 msgid "Enable debug info"
-msgstr ""
 
 msgctxt "#31071"
 msgid "Kiosk mode"
-msgstr ""
 
 msgctxt "#31072"
 msgid "Hidden Options"
-msgstr ""
 
 msgctxt "#31088"
 msgid "Hide Labels"
-msgstr ""
 
 #Game Views
 msgctxt "#31073"
 msgid "Switch Theme"
-msgstr ""
 
 msgctxt "#31074"
 #"Retroarch Theme"
 msgid "XMB Theme"
-msgstr ""
 
 #Custom_Apps
 #Netflix
 msgctxt "#31075"
 msgid "Who's Watching?"
-msgstr ""
 
 #Youtube
 msgctxt "#31076"
 msgid "Trending"
-msgstr ""
 
 msgctxt "#31077"
 msgid "Live"
-msgstr ""
 
 msgctxt "#31078"
 msgid "Subscriptions"
-msgstr ""
 
 msgctxt "#31079"
 msgid "Recommended"
-msgstr ""
 
 msgctxt "#31080"
 msgid "History"
-msgstr ""
 
 #Twitch
 msgctxt "#31081"
 msgid "Featured Streams"
-msgstr ""
 
 msgctxt "#31082"
 msgid "Live game stream"
-msgstr ""
 
 msgctxt "#31083"
 msgid "Clips"
-msgstr ""
 
 #Info.xml
 #Video
@@ -495,7 +432,6 @@ msgid "Director(s)"
 #View Options
 msgctxt "#31118"
 msgid "Show labels"
-msgstr ""
 
 #Views
 msgctxt "#31510"
