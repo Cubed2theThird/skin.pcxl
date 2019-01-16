@@ -164,6 +164,8 @@
 		<value condition="String.Contains(Skin.String(MusicBackgroundToggle), Background)">Background</value>
 	</variable>
 
+
+
 	<!-- Games -->
 	<variable name="GameToggle">
 		<value condition="String.IsEmpty(Skin.String(GameToggle))">Switch</value>

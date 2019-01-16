@@ -1,5 +1,4 @@
 <includes>
-
 	<include name="COTWBack">
 		<!-- Visualisation -->
 		<control type="image">
@@ -28,9 +27,13 @@
 			<include>FullscreenDimensions</include>
 			<visible>Player.HasAudio</visible>
 		</control>
-	</include>	
+	</include>
 
 	<include name="FMBack">
+		<control type="image">
+			<include>FullscreenDimensions</include>
+			<texture colordiffuse="$VAR[BackgroundColor]">views/white_70.png</texture>
+		</control>
 		<!-- Visualisation -->
 		<control type="multiimage">
 			<description>My first slideshow control</description>
@@ -154,8 +157,8 @@
 			</control>
 		</control>
 		<control type="group">	
-			<animation effect="slide" start="0,1500" end="0,0" tween="sine" easing="inout" time="800">WindowOpen</animation>
-			<animation effect="slide" start="0,0" end="0,1500" tween="sine" easing="inout" time="800">WindowClose</animation>
+			<animation effect="slide" start="1500,0" end="0,0" tween="sine" easing="inout" time="500">WindowOpen</animation>
+			<animation effect="slide" start="0,0" end="1500,0" tween="sine" easing="inout" time="500">WindowClose</animation>
 			
 			<control type="label">
 				<top>50</top>
@@ -186,9 +189,7 @@
 				<height>500</height>
 				<movement>4</movement>
 				<focusposition>0</focusposition>
-				<scrolltime tween="sine" easing="inout">400</scrolltime>			
-				<animation effect="slide" start="0,1500" end="0,0" tween="sine" easing="inout" time="800">WindowOpen</animation>
-				<animation effect="slide" start="0,0" end="0,1500" tween="sine" easing="inout" time="800">WindowClose</animation>
+				<scrolltime tween="sine" easing="inout">400</scrolltime>
 				<itemlayout width="800" height="30">
 					<control type="group">
 						<top>0</top>
@@ -430,11 +431,6 @@
 	</include>
 
 	<include name="FM">
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture colordiffuse="$VAR[BackgroundColor]">views/white_70.png</texture>
-		</control>
-
 		<control type="group">
 			<left>40</left>
 			<top>850</top>
@@ -577,4 +573,177 @@
 		</control>
 	</include>
 
+	<include name="Lyrics">
+		<control type="group">
+			<visible>!Skin.String(MusicLyricsToggle, no)</visible>
+
+			<!-- Left Lyrics -->
+			<control type="group">
+				<visible>Skin.String(MusicLyricsToggle, left)</visible>
+				<!--> Vignette <!-->
+				<control type="image">
+					<visible>!String.IsEmpty(MusicPlayer.Lyrics)</visible>
+					<left>0</left>
+					<width>101%</width>
+					<height>100%</height>
+					<aspectratio>stretch</aspectratio>
+					<texture colordiffuse="$VAR[DarkFade2]">views/fanart_gradient.png</texture>
+				</control>
+				<control type="group">
+					<visible>Skin.String(MusicToggle, COTW)|Skin.String(MusicToggle, FM)</visible>
+					<control type="textbox">
+						<animation type="WindowOpen">
+							<effect type="slide" start="-1050" end="0" center="auto" tween="sine" easing="inout" time="300"/>
+							<!--><effect type="fade" start="0" end="100" time="200"/><!-->
+						</animation>
+						<animation type="WindowClose">
+							<effect type="slide" start="0" end="-1050,0" center="auto" tween="sine" easing="inout" time="300"/>
+							<!--><effect type="fade" start="0" end="100" time="200"/><!-->
+						</animation>
+						<left>10</left>
+						<top>100</top>
+						<width>1000</width>
+						<height>750</height>
+						<font>light30</font>
+						<align>left</align>
+						<textcolor>$VAR[TextColor]</textcolor>
+						<label>$INFO[MusicPlayer.Lyrics]</label>
+					</control>
+				</control>
+				<control type="group">
+					<visible>![Skin.String(MusicToggle, COTW)|Skin.String(MusicToggle, FM)]</visible>
+					<control type="textbox">
+						<animation type="WindowOpen">
+							<effect type="slide" start="-1050" end="0" center="auto" tween="sine" easing="inout" time="300"/>
+							<!--><effect type="fade" start="0" end="100" time="200"/><!-->
+						</animation>
+						<animation type="WindowClose">
+							<effect type="slide" start="0" end="-1050,0" center="auto" tween="sine" easing="inout" time="300"/>
+							<!--><effect type="fade" start="0" end="100" time="200"/><!-->
+						</animation>
+						<left>10</left>
+						<centertop>50%</centertop>
+						<width>500</width>
+						<height>80%</height>
+						<font>light30</font>
+						<align>left</align>
+						<textcolor>$VAR[TextColor]</textcolor>
+						<label>$INFO[MusicPlayer.Lyrics]</label>
+					</control>
+				</control>
+			</control>
+
+			<!-- Center Lyrics -->
+			<control type="group">
+				<visible>Skin.String(MusicLyricsToggle, center)</visible>
+				<control type="image">
+					<visible>!String.IsEmpty(MusicPlayer.Lyrics)</visible>
+					<width>101%</width>
+					<height>100%</height>
+					<aspectratio>stretch</aspectratio>
+					<texture colordiffuse="$VAR[DarkFade2]">views/white_50.png</texture>
+				</control>
+				<control type="group">
+					<visible>Skin.String(MusicToggle, COTW)|Skin.String(MusicToggle, FM)</visible>
+					<control type="textbox">
+						<animation type="WindowOpen">
+							<effect type="slide" start="0,1050" end="0" center="auto" tween="sine" easing="inout" time="300"/>
+							<effect type="fade" start="0" end="100" time="100"/>
+						</animation>
+						<animation type="WindowClose">
+							<effect type="slide" start="0" end="0,1050" center="auto" tween="sine" easing="inout" time="300"/>
+							<effect type="fade" start="100" end="0" time="100"/>
+						</animation>
+						<centerleft>50%</centerleft>					
+						<top>100</top>
+						<width>1000</width>
+						<height>750</height>
+						<font>light30</font>
+						<align>center</align>
+						<textcolor>$VAR[TextColor]</textcolor>
+						<label>$INFO[MusicPlayer.Lyrics]</label>
+					</control>
+				</control>
+				<control type="group">
+					<visible>![Skin.String(MusicToggle, COTW)|Skin.String(MusicToggle, FM)]</visible>
+					<control type="textbox">
+						<animation type="WindowOpen">
+							<effect type="slide" start="0,1050" end="0" center="auto" tween="sine" easing="inout" time="300"/>
+							<effect type="fade" start="0" end="100" time="100"/>
+						</animation>
+						<animation type="WindowClose">
+							<effect type="slide" start="0" end="0,1050" center="auto" tween="sine" easing="inout" time="300"/>
+							<effect type="fade" start="100" end="0" time="100"/>
+						</animation>
+						<centerleft>50%</centerleft>
+						<centertop>50%</centertop>
+						<width>1000</width>
+						<height>80%</height>
+						<font>light30</font>
+						<align>center</align>
+						<textcolor>$VAR[TextColor]</textcolor>
+						<label>$INFO[MusicPlayer.Lyrics]</label>
+					</control>
+				</control>
+			</control>
+
+			<!-- Right Lyrics -->
+			<control type="group">
+				<visible>Skin.String(MusicLyricsToggle, right)</visible>
+				<!--> Vignette <!-->
+				<control type="image">
+					<visible>!String.IsEmpty(MusicPlayer.Lyrics)</visible>
+					<right>0</right>
+					<width>101%</width>
+					<height>100%</height>
+					<aspectratio>stretch</aspectratio>
+					<colordiffuse>50ffffff</colordiffuse>
+					<texture flipx="true" colordiffuse="$VAR[DarkFade2]">views/fanart_gradient.png</texture>
+				</control>
+				<control type="group">
+					<visible>Skin.String(MusicToggle, COTW)|Skin.String(MusicToggle, FM)</visible>
+					<control type="textbox">
+						<animation type="WindowOpen">
+							<effect type="slide" start="1050" end="0" center="auto" tween="sine" easing="inout" time="300"/>
+							<!--><effect type="fade" start="0" end="100" time="200"/><!-->
+						</animation>
+						<animation type="WindowClose">
+							<effect type="slide" start="0" end="1050,0" center="auto" tween="sine" easing="inout" time="300"/>
+							<!--><effect type="fade" start="0" end="100" time="200"/><!-->
+						</animation>
+						<right>10</right>
+						<top>100</top>
+						<width>1000</width>
+						<height>750</height>
+						<font>light30</font>
+						<align>right</align>
+						<textcolor>$VAR[TextColor]</textcolor>
+						<label>$INFO[MusicPlayer.Lyrics]</label>
+					</control>
+				</control>
+				<control type="group">
+					<visible>![Skin.String(MusicToggle, COTW)|Skin.String(MusicToggle, FM)]</visible>
+					<control type="textbox">
+						<animation type="WindowOpen">
+							<effect type="slide" start="1050" end="0" center="auto" tween="sine" easing="inout" time="300"/>
+							<!--><effect type="fade" start="0" end="100" time="200"/><!-->
+						</animation>
+						<animation type="WindowClose">
+							<effect type="slide" start="0" end="1050,0" center="auto" tween="sine" easing="inout" time="300"/>
+							<!--><effect type="fade" start="0" end="100" time="200"/><!-->
+						</animation>
+						<right>10</right>
+						<centertop>50%</centertop>
+						<width>500</width>
+						<height>80%</height>
+						<font>light30</font>
+						<align>right</align>
+						<textcolor>$VAR[TextColor]</textcolor>
+						<label>$INFO[MusicPlayer.Lyrics]</label>
+					</control>
+				</control>
+			</control>
+
+		</control>
+	</include>
 </includes>

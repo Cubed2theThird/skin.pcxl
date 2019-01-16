@@ -2170,6 +2170,23 @@
 					<content>favourites://</content>
 				</control>
 
+				<control type="grouplist" id="2">
+					<onup>9002</onup>
+					<top>600</top>
+					<ondown>noop</ondown>
+					<onleft>noop</onleft>
+					<onright>noop</onright>
+					<itemgap>10</itemgap>
+					<height>98%</height>
+					<!--> Widget 1-0 <!-->
+					<include content="WidgetTV">
+						<param name="listid" value="9001"/>
+						<param name="widgetid" value="0"/>
+						<param name="upid" value="9000"/>
+						<param name="downid" value="11"/>
+					</include>
+				</control>
+
 				<!--> Movies & TV 
 				<control type="group">
 					<top>315</top>
@@ -2498,18 +2515,18 @@
 					<onright>noop</onright>
 					<itemgap>10</itemgap>
 					<height>98%</height>
-					<!--> Widget 1-0 <!-->
+					<!--> Widget 1-0
 					<include content="WidgetTV">
 						<param name="listid" value="10"/>
 						<param name="widgetid" value="0"/>
 						<param name="upid" value="9001"/>
 						<param name="downid" value="11"/>
-					</include>
+					</include> <!-->
 					<!--> Widget 2-1 <!-->
 					<include content="WidgetTV">
 						<param name="listid" value="11"/>
 						<param name="widgetid" value="1"/>
-						<param name="upid" value="10"/>
+						<param name="upid" value="9001"/>
 						<param name="downid" value="12"/>
 					</include>
 					<!--> Widget 3-2 <!-->

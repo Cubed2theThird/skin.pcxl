@@ -1,5 +1,5 @@
 <includes>
-	<!--> 100% <!-->
+	<!--> 98% <!-->
 	<include name="WidgetGame">
 		<param name="listid"/>
 		<param name="widgetid"/>
@@ -15,7 +15,7 @@
 					<left>20</left>
 					<width>466</width>
 					<height>30</height>
-					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Label]</label>
 					<align>left</align>
 					<aligny>left</aligny>
 					<font>Tile</font>
@@ -111,7 +111,7 @@
 					<left>20</left>
 					<width>405</width>
 					<height>30</height>
-					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Label]</label>
 					<align>left</align>
 					<aligny>left</aligny>
 					<font>Tile</font>
@@ -292,7 +292,7 @@
 					<left>20</left>
 					<width>405</width>
 					<height>30</height>
-					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Label]</label>
 					<align>left</align>
 					<aligny>left</aligny>
 					<font>Tile</font>
@@ -474,7 +474,7 @@
 					<width>476</width>
 					<left>20</left>
 					<height>30</height>
-					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Label]</label>
 					<align>left</align>
 					<aligny>left</aligny>
 					<font>Tile</font>
@@ -552,7 +552,7 @@
 		</definition>
 	</include>
 
-	<!--> 100% <!-->
+	<!--> 50% <!-->
 	<include name="WidgetTV">
 		<param name="listid"/>
 		<param name="widgetid"/>
@@ -567,7 +567,7 @@
 				<control type="label">
 					<left>20</left>
 					<width>500</width>
-					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Label]</label>
 					<font>Reg25</font>
 					<textcolor>$VAR[FocusedColor]</textcolor>
 					<visible>!Skin.HasSetting(ShowLabels) + Control.HasFocus($PARAM[listid])</visible>
@@ -575,7 +575,7 @@
 				<control type="label">
 					<left>20</left>
 					<width>500</width>
-					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Label]</label>
 					<font>Reg25</font>
 					<textcolor>$VAR[UnFocusedColor]</textcolor>
 					<visible>!Skin.HasSetting(ShowLabels) + !Control.HasFocus($PARAM[listid])</visible>
@@ -673,7 +673,7 @@
 				<control type="label">
 					<left>20</left>
 					<width>500</width>
-					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Label]</label>
 					<font>Reg25</font>
 					<textcolor>$VAR[FocusedColor]</textcolor>
 					<visible>!Skin.HasSetting(ShowLabels) + Control.HasFocus($PARAM[listid])</visible>
@@ -681,7 +681,7 @@
 				<control type="label">
 					<left>20</left>
 					<width>500</width>
-					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Label]</label>
 					<font>Reg25</font>
 					<textcolor>$VAR[UnFocusedColor]</textcolor>
 					<visible>!Skin.HasSetting(ShowLabels) + !Control.HasFocus($PARAM[listid])</visible>
@@ -861,7 +861,7 @@
 				<control type="label">
 					<left>20</left>
 					<width>500</width>
-					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Label]</label>
 					<font>Reg25</font>
 					<textcolor>$VAR[FocusedColor]</textcolor>
 					<visible>!Skin.HasSetting(ShowLabels) + Control.HasFocus($PARAM[listid])</visible>
@@ -869,7 +869,7 @@
 				<control type="label">
 					<left>20</left>
 					<width>500</width>
-					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Label]</label>
 					<font>Reg25</font>
 					<textcolor>$VAR[UnFocusedColor]</textcolor>
 					<visible>!Skin.HasSetting(ShowLabels) + !Control.HasFocus($PARAM[listid])</visible>
@@ -1049,7 +1049,7 @@
 				<control type="label">
 					<left>20</left>
 					<width>500</width>
-					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Label]</label>
 					<font>Reg25</font>
 					<textcolor>$VAR[FocusedColor]</textcolor>
 					<visible>!Skin.HasSetting(ShowLabels) + Control.HasFocus($PARAM[listid])</visible>
@@ -1057,7 +1057,7 @@
 				<control type="label">
 					<left>20</left>
 					<width>500</width>
-					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Label]</label>
 					<font>Reg25</font>
 					<textcolor>$VAR[UnFocusedColor]</textcolor>
 					<visible>!Skin.HasSetting(ShowLabels) + !Control.HasFocus($PARAM[listid])</visible>
@@ -1197,14 +1197,14 @@
 				<height>40</height>
 				<control type="label">
 					<width>500</width>
-					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Label]</label>
 					<font>Reg25</font>
 					<textcolor>$VAR[FocusedColor2]</textcolor>
 					<visible>Control.HasFocus($PARAM[listid])</visible>
 				</control>
 				<control type="label">
 					<width>500</width>
-					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Label]</label>
 					<font>Reg25</font>
 					<textcolor>$VAR[UnFocusedColor2]</textcolor>
 					<visible>!Control.HasFocus($PARAM[listid])</visible>
@@ -2452,14 +2452,14 @@
 				<height>60</height>
 				<control type="label">
 					<width>500</width>
-					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Label]</label>
 					<font>Reg25</font>
 					<textcolor>$VAR[FocusedColor]</textcolor>
 					<visible>Control.HasFocus($PARAM[listid])</visible>
 				</control>
 				<control type="label">
 					<width>500</width>
-					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetName)]</label>
+					<label>$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Label]</label>
 					<font>Reg25</font>
 					<textcolor>$VAR[UnFocusedColor]</textcolor>
 					<visible>!Control.HasFocus($PARAM[listid])</visible>
@@ -3264,7 +3264,7 @@
 			<!--> Square <!-->
 			<control type="group">
 				<visible>!String.IsEmpty(Container(9000).ListItemNoWrap(0).Property(widgetPath)) + String.Contains(Container(9000).ListItemNoWrap(0).Property(widgetLayout),Square)</visible>
-				<height>400</height>
+				<height>330</height>
 				<left>0</left>
 				<control type="fixedlist" id="$PARAM[listid]">
 					<top>10</top>
@@ -3276,30 +3276,30 @@
 					<orientation>horizontal</orientation>
 					<viewtype>list</viewtype>
 					<scrolltime tween="sine" easing="inout">240</scrolltime>
-					<itemlayout height="370" width="380">
+					<itemlayout height="300" width="310">
 						<control type="group">
 							<left>20</left>
 							<top>20</top>
 							<control type="image">
-								<width>370</width>
-								<height>370</height>
+								<width>300</width>
+								<height>300</height>
 								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
 							</control>
 							<control type="image">
-								<width>370</width>
-								<height>370</height>
+								<width>300</width>
+								<height>300</height>
 								<texture>$INFO[ListItem.Icon]</texture>
 								<aspectratio>scale</aspectratio>
 							</control>
 							<control type="image">
-								<width>370</width>
-								<height>370</height>
+								<width>300</width>
+								<height>300</height>
 								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
 								<visible>!Control.HasFocus($PARAM[listid])</visible>
 							</control>
 						</control>
 					</itemlayout>
-					<focusedlayout height="370" width="380">
+					<focusedlayout height="300" width="310">
 						<control type="group">
 							<left>20</left>
 							<top>20</top>
@@ -3310,25 +3310,25 @@
 								<effect type="zoom" center="auto" start="105" end="100" time="200"/>
 							</animation>
 							<control type="image">
-								<width>370</width>
-								<height>370</height>
+								<width>300</width>
+								<height>300</height>
 								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
 							</control>
 							<control type="image">
-								<width>370</width>
-								<height>370</height>
+								<width>300</width>
+								<height>300</height>
 								<texture>$INFO[ListItem.Icon]</texture>
 								<aspectratio>scale</aspectratio>
 							</control>
 							<control type="image">
-								<width>370</width>
-								<height>370</height>
+								<width>300</width>
+								<height>300</height>
 								<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
 								<visible>!Control.HasFocus($PARAM[listid])</visible>
 							</control>
 							<control type="image">
-								<width>370</width>
-								<height>370</height>
+								<width>300</width>
+								<height>300</height>
 								<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border.png</texture>
 								<visible>Control.HasFocus($PARAM[listid])</visible>
 							</control>

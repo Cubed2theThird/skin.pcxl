@@ -48,6 +48,9 @@
 		
 		<include condition="Skin.String(MusicToggle, 1)">1</include>
 		<include condition="Skin.String(MusicToggle, 2)">2</include>
+
+		<include>Lyrics</include>
+		
 		<include condition="Skin.String(MusicToggle, COTW)">COTW</include>
 		<include condition="Skin.String(MusicToggle, FM)">FM</include>
 

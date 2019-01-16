@@ -28,25 +28,25 @@
 			</control>
 			<control type="label">
 				<centerleft>25%</centerleft>
-				<centertop>60%</centertop>
+				<centertop>55%</centertop>
 				<width>1000</width>
 				<height>80</height>
-				<font>Reg20</font>
+				<font>Reg25</font>
 				<align>center</align>
 				<textcolor>$VAR[TextColor]</textcolor>
-				<label>$INFO[MusicPlayer.Artist]</label>
+				<label>$INFO[MusicPlayer.Artist,, - ]$INFO[Player.Title]</label>
 			</control>
-			<control type="label">
+			
+			<control type="textbox">
 				<centerleft>25%</centerleft>
-				<centertop>63%</centertop>
+				<bottom>0</bottom>
 				<width>1000</width>
-				<height>80</height>
-				<font>Reg30</font>
+				<height>450</height>
+				<font>light30</font>
 				<align>center</align>
 				<textcolor>$VAR[TextColor]</textcolor>
-				<label>$INFO[Player.Title]</label>
+				<label>$INFO[MusicPlayer.Lyrics]</label>
 			</control>
-
 
 			<!-- List -->
 			<control type="fixedlist" id="600">
@@ -109,7 +109,7 @@
 					<control type="image">
 						<left>0</left>
 						<height>80</height>
-						<texture colordiffuse="10ffffff">color_white.png</texture>
+						<texture colordiffuse="$VAR[MaterialColor]">color_white.png</texture>
 					</control>
 					<control type="label">
 						<left>20</left>
@@ -151,6 +151,7 @@
 			</control>
 		</control>
 	</include>
+
 	<include name="Viewtype_601_Full">
 		<control type="group">
 			<visible>Control.IsVisible(601)</visible>
@@ -173,7 +174,7 @@
 				<control type="label">
 					<left>500</left>
 					<top>150</top>
-					<width>1600</width>
+					<width>1450</width>
 					<height>80</height>
 					<font>LargeLogoBold</font>
 					<align>left</align>
@@ -182,7 +183,17 @@
 				</control>
 				<control type="label">
 					<left>500</left>
-					<top>210</top>
+					<top>200</top>
+					<width>800</width>
+					<height>80</height>
+					<font>Reg30</font>
+					<align>left</align>
+					<textcolor>$VAR[UnFocusedColor2]</textcolor>
+					<label>$INFO[MusicPlayer.Artist]</label>
+				</control>
+				<control type="label">
+					<left>500</left>
+					<top>230</top>
 					<width>800</width>
 					<height>80</height>
 					<font>Reg20</font>
@@ -192,7 +203,7 @@
 				</control>
 				<control type="label">
 					<left>500</left>
-					<top>240</top>
+					<top>260</top>
 					<width>800</width>
 					<height>80</height>
 					<font>Reg20</font>
@@ -202,7 +213,7 @@
 				</control>
 				<control type="label">
 					<left>500</left>
-					<top>270</top>
+					<top>290</top>
 					<width>800</width>
 					<height>80</height>
 					<font>Reg20</font>
@@ -330,4 +341,5 @@
 			</control>
 		</control>
 	</include>
+
 </includes>

@@ -40,12 +40,21 @@
 	<onunload condition="String.Contains(Skin.String(musicprogtoggle),liftedno)">Control.Move(3117,-3)</onunload>
 	<onunload condition="String.Contains(Skin.String(musicprogtoggle),liftedyes)">Control.Move(3117,-4)</onunload>
 
-	<onload condition="String.IsEqual(Skin.String(MusicBackgroundToggle),COTW)">Control.Move(3118,0)</onload>
-	<onload condition="String.Contains(Skin.String(MusicBackgroundToggle),FM)">Control.Move(3118,1)</onload>
-	<onload condition="String.Contains(Skin.String(MusicBackgroundToggle),Background)">Control.Move(3118,2)</onload>
-	<onunload condition="String.IsEqual(Skin.String(MusicBackgroundToggle),COTW)">Control.Move(3118,0)</onunload>
-	<onunload condition="String.Contains(Skin.String(MusicBackgroundToggle),FM)">Control.Move(3118,-1)</onunload>
-	<onunload condition="String.Contains(Skin.String(MusicBackgroundToggle),Background)">Control.Move(3118,-2)</onunload>
+	<onload condition="String.IsEqual(Skin.String(MusicLyricsToggle),no)">Control.Move(3118,0)</onload>
+	<onload condition="String.Contains(Skin.String(MusicLyricsToggle),left)">Control.Move(3118,1)</onload>
+	<onload condition="String.Contains(Skin.String(MusicLyricsToggle),center)">Control.Move(3118,2)</onload>
+	<onload condition="String.Contains(Skin.String(MusicLyricsToggle),right)">Control.Move(3118,3)</onload>
+	<onunload condition="String.IsEqual(Skin.String(MusicLyricsToggle),no)">Control.Move(3118,0)</onunload>
+	<onunload condition="String.Contains(Skin.String(MusicLyricsToggle),left)">Control.Move(3118,-1)</onunload>
+	<onunload condition="String.Contains(Skin.String(MusicLyricsToggle),center)">Control.Move(3118,-2)</onunload>
+	<onunload condition="String.Contains(Skin.String(MusicLyricsToggle),right)">Control.Move(3118,-3)</onunload>
+
+	<onload condition="String.IsEqual(Skin.String(MusicBackgroundToggle),COTW)">Control.Move(211,0)</onload>
+	<onload condition="String.Contains(Skin.String(MusicBackgroundToggle),FM)">Control.Move(211,1)</onload>
+	<onload condition="String.Contains(Skin.String(MusicBackgroundToggle),Background)">Control.Move(211,2)</onload>
+	<onunload condition="String.IsEqual(Skin.String(MusicBackgroundToggle),COTW)">Control.Move(211,0)</onunload>
+	<onunload condition="String.Contains(Skin.String(MusicBackgroundToggle),FM)">Control.Move(211,-1)</onunload>
+	<onunload condition="String.Contains(Skin.String(MusicBackgroundToggle),Background)">Control.Move(211,-2)</onunload>
 
 	<controls>
 		<control type="image">
@@ -539,11 +548,30 @@
 							<texture background="true">special://skin/extras/layouts/music/duration2.png</texture>
 							<visible>Skin.String(MusicProgToggle, liftedyes)</visible>
 						</control>
+						<control type="image">
+							<width>1320</width>
+							<height>743</height>
+							<texture background="true">special://skin/extras/layouts/music/leftlyrics.png</texture>
+							<visible>Skin.String(MusicLyricsToggle, left)</visible>
+						</control>
+						<control type="image">
+							<width>1320</width>
+							<height>743</height>
+							<texture background="true">special://skin/extras/layouts/music/rightlyrics.png</texture>
+							<visible>Skin.String(MusicLyricsToggle, right)</visible>
+						</control>
+						<control type="image">
+							<width>1320</width>
+							<height>743</height>
+							<texture background="true">special://skin/extras/layouts/music/centerlyrics.png</texture>
+							<visible>Skin.String(MusicLyricsToggle, center)</visible>
+						</control>
 					</control>
 					<control type="grouplist" id="13116">
 						<top>750</top>
 						<height>170</height>
 						<itemgap>0</itemgap>
+						<!-- Artist & Title -->
 						<control type="group">
 							<height>60</height>
 							<control type="image">
@@ -665,6 +693,7 @@
 								</content>
 							</control>
 						</control>
+						<!-- Progress Bar -->
 						<control type="group">
 							<height>60</height>
 							<control type="image">
@@ -792,6 +821,7 @@
 								</content>
 							</control>
 						</control>
+						<!-- Lyrics -->
 						<control type="group">
 							<height>60</height>
 							<control type="image">
@@ -852,7 +882,7 @@
 								<focusedlayout height="150">
 									<control type="button">
 										<include>HiddenControl</include>
-										<onfocus>Skin.SetString(MusicBackgroundToggle,$INFO[Container(3118).ListItem.Label2])</onfocus>
+										<onfocus>Skin.SetString(MusicLyricsToggle,$INFO[Container(3118).ListItem.Label2])</onfocus>
 									</control>
 									<control type="group">
 										<control type="label">
@@ -891,21 +921,27 @@
 								</focusedlayout>
 								<content>
 									<item id="1">
-										<label>$LOCALIZE[31051]</label>
-										<label2>COTW</label2>
-										<onclick>Skin.Setstring(MusicBackgroundToggle, COTW)</onclick>
+										<label>$LOCALIZE[31119]</label>
+										<label2>No</label2>
+										<onclick>Skin.Setstring(MusicLyricsToggle, no)</onclick>
 										<onclick>Control.SetFocus(1)</onclick>
 									</item>
 									<item id="2">
-										<label>$LOCALIZE[108]</label>
-										<label2>FM</label2>
-										<onclick>Skin.Setstring(MusicBackgroundToggle, FM)</onclick>
+										<label>$LOCALIZE[31120]</label>
+										<label2>Left</label2>
+										<onclick>Skin.Setstring(MusicLyricsToggle, left)</onclick>
 										<onclick>Control.SetFocus(1)</onclick>
 									</item>
 									<item id="3">
-										<label>$LOCALIZE[31052]</label>
-										<label2>Background</label2>
-										<onclick>Skin.Setstring(MusicBackgroundToggle, Background)</onclick>
+										<label>$LOCALIZE[31121]</label>
+										<label2>Center</label2>
+										<onclick>Skin.Setstring(MusicLyricsToggle, center)</onclick>
+										<onclick>Control.SetFocus(1)</onclick>
+									</item>
+									<item id="4">
+										<label>$LOCALIZE[31122]</label>
+										<label2>Right</label2>
+										<onclick>Skin.Setstring(MusicLyricsToggle, right)</onclick>
 										<onclick>Control.SetFocus(1)</onclick>
 									</item>
 								</content>
@@ -1057,7 +1093,7 @@
 							<label>$LOCALIZE[31039]</label>
 						</control>
 						<control type="group">
-							<height>120</height>
+							<height>180</height>
 							<control type="grouplist" id="23110">
 								<itemgap>0</itemgap>
 								<onleft>1</onleft>
@@ -1080,8 +1116,128 @@
 									<selected>Skin.HasSetting(enableAnimation)</selected>
 									<include>DialogButton</include>
 								</control>
+								<!-- Select Background -->
+								<control type="group" id="222">
+									<height>60</height>
+									<control type="image">
+										<width>1200</width>
+										<height>60</height>
+										<texture colordiffuse="$VAR[MaterialColorDark]" border="9">views/Card_bg_white.png</texture>
+										<aspectratio>stretch</aspectratio>
+										<visible>!Control.HasFocus(211)</visible>
+									</control>
+									<control type="image">
+										<width>1200</width>
+										<height>60</height>
+										<texture colordiffuse="$VAR[SecondaryColor]" border="9">views/Card_bg_white.png</texture>
+										<aspectratio>stretch</aspectratio>
+										<visible>Control.HasFocus(211)</visible>
+									</control>
+									<control type="list" id="211">
+									<viewtype>icons</viewtype>
+									<width>1200</width>
+									<height>170</height>
+									<top>-40</top>
+									<orientation>horizontal</orientation>
+									<onleft>211</onleft>
+									<onright>211</onright>
+									<onup>210</onup>
+									<ondown>212</ondown>
+									<preloaditems>4</preloaditems>
+									<pagecontrol>60</pagecontrol>
+									<focusposition>-1</focusposition>
+									<movement>6</movement>
+									<itemlayout height="150">
+										<control type="group">
+											<control type="label">
+												<left>20</left>
+												<height>140</height>
+												<label>...</label>
+												<align>left</align>
+												<font>Tile</font>
+												<textcolor>$VAR[White]</textcolor>
+											</control>
+											<control type="label">
+												<height>140</height>
+												<label>$INFO[Listitem.label]</label>
+												<align>center</align>
+												<font>Tile</font>
+												<textcolor>$VAR[White]</textcolor>
+											</control>
+											<control type="label">
+												<right>20</right>
+												<height>140</height>
+												<label>...</label>
+												<align>right</align>
+												<font>Tile</font>
+												<textcolor>$VAR[White]</textcolor>
+											</control>
+										</control>
+									</itemlayout>
+									<focusedlayout height="150">
+										<control type="button">
+											<include>HiddenControl</include>
+											<onfocus>Skin.SetString(MusicBackgroundToggle,$INFO[Container(211).ListItem.Label2])</onfocus>
+										</control>
+										<control type="group">
+											<control type="label">
+												<left>20</left>
+												<height>140</height>
+												<label>...</label>
+												<align>left</align>
+												<font>Tile</font>
+												<textcolor>$VAR[TextColor]</textcolor>
+											</control>
+											<control type="label">
+												<height>140</height>
+												<label>$INFO[Listitem.label]</label>
+												<align>center</align>
+												<font>Tile</font>
+												<textcolor>$VAR[White]</textcolor>
+												<visible>!Control.HasFocus(211)</visible>
+											</control>
+											<control type="label">
+												<height>140</height>
+												<label>$INFO[Listitem.label]</label>
+												<align>center</align>
+												<font>Tile</font>
+												<textcolor>$VAR[TextColor]</textcolor>
+												<visible>Control.HasFocus(211)</visible>
+											</control>
+											<control type="label">
+												<right>20</right>
+												<height>140</height>
+												<label>...</label>
+												<align>right</align>
+												<font>Tile</font>
+												<textcolor>$VAR[TextColor]</textcolor>
+											</control>
+										</control>
+									</focusedlayout>
+									<content>
+										<item id="1">
+											<label>$LOCALIZE[31051]</label>
+											<label2>COTW</label2>
+											<onclick>Skin.Setstring(MusicBackgroundToggle, COTW)</onclick>
+											<onclick>Control.SetFocus(1)</onclick>
+										</item>
+										<item id="2">
+											<label>$LOCALIZE[108]</label>
+											<label2>FM</label2>
+											<onclick>Skin.Setstring(MusicBackgroundToggle, FM)</onclick>
+											<onclick>Control.SetFocus(1)</onclick>
+										</item>
+										<item id="3">
+											<label>$LOCALIZE[31052]</label>
+											<label2>Background</label2>
+											<onclick>Skin.Setstring(MusicBackgroundToggle, Background)</onclick>
+											<onclick>Control.SetFocus(1)</onclick>
+										</item>
+									</content>
+									</control>
+								</control>
 								<!-- Select Background Folder -->
-								<control type="button" id="211">
+								<control type="button" id="212">
 									<width>1200</width>
 									<height>60</height>
 									<textwidth>1120</textwidth>
@@ -1109,7 +1265,7 @@
 								<onleft>1</onleft>
 								<width>1240</width>
 								<onright>noop</onright>
-								<onup>211</onup>
+								<onup>212</onup>
 								<ondown>noop</ondown>
 								<orientation>vertical</orientation>
 								<usecontrolcoords>true</usecontrolcoords>

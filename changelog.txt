@@ -1,6 +1,11 @@
 # skin.pcxl
 
-### **1.5.5**
+### **1.5.5.2**
+- New Lyric Options
+- Fix Widgets
+- Updated TV Layout
+
+## 1.5.5
 - **_Theme Overhaul_**
 - New Horizontial Layout
 - New Option Menu (Look & Feel)

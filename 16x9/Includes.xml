@@ -442,8 +442,9 @@
 			<right>0</right>
 			<width>10</width>
 			<height>100%</height>
+			<onleft condition="Control.IsVisible(600)">600</onleft>
+			<onleft condition="Control.IsVisible(601)">601</onleft>
 			<onleft>50</onleft>
-			<onleft>600</onleft>
 			<onright>3000</onright>
 			<showonepage>false</showonepage>
 			<orientation>vertical</orientation>
