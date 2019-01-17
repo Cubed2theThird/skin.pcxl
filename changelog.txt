@@ -1,9 +1,11 @@
 # skin.pcxl
 
-### **1.5.5.2**
+### **1.5.5.3**
+- Updated Layouts (TV, Kiosk)
+
+#### **1.5.5.2**
 - New Lyric Options
 - Fix Widgets
-- Updated TV Layout
 
 ## 1.5.5
 - **_Theme Overhaul_**
