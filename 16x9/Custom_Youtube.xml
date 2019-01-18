@@ -142,10 +142,10 @@
 								<visible>!Control.HasFocus(11)</visible>
 							</control>
 							<control type="image">
-								<left>-30</left>
-								<top>-35</top>
-								<width>610</width>
-								<height>450</height>
+								<left>-10</left>
+								<top>-10</top>
+								<width>570</width>
+								<height>400</height>
 								<texture colordiffuse="$VAR[SecondaryColor]" border="40">fo.png</texture>
 								<visible>Control.HasFocus(11)</visible>
 							</control>
@@ -257,10 +257,10 @@
 								<visible>!Control.HasFocus(22)</visible>
 							</control>
 							<control type="image">
-								<left>-30</left>
-								<top>-35</top>
-								<width>610</width>
-								<height>450</height>
+								<left>-10</left>
+								<top>-10</top>
+								<width>570</width>
+								<height>400</height>
 								<texture colordiffuse="$VAR[SecondaryColor]" border="40">fo.png</texture>
 								<visible>Control.HasFocus(22)</visible>
 							</control>
@@ -372,10 +372,10 @@
 								<visible>!Control.HasFocus(33)</visible>
 							</control>
 							<control type="image">
-								<left>-30</left>
-								<top>-35</top>
-								<width>380</width>
-								<height>450</height>
+								<left>-10</left>
+								<top>-10</top>
+								<width>340</width>
+								<height>400</height>
 								<texture colordiffuse="$VAR[SecondaryColor]" border="40">fo.png</texture>
 								<visible>Control.HasFocus(33)</visible>
 							</control>
@@ -487,10 +487,10 @@
 								<visible>!Control.HasFocus(44)</visible>
 							</control>
 							<control type="image">
-								<left>-30</left>
-								<top>-35</top>
-								<width>610</width>
-								<height>450</height>
+								<left>-10</left>
+								<top>-10</top>
+								<width>570</width>
+								<height>400</height>
 								<texture colordiffuse="$VAR[SecondaryColor]" border="40">fo.png</texture>
 								<visible>Control.HasFocus(44)</visible>
 							</control>
@@ -602,10 +602,10 @@
 								<visible>!Control.HasFocus(55)</visible>
 							</control>
 							<control type="image">
-								<left>-30</left>
-								<top>-35</top>
-								<width>610</width>
-								<height>450</height>
+								<left>-10</left>
+								<top>-10</top>
+								<width>570</width>
+								<height>400</height>
 								<texture colordiffuse="$VAR[SecondaryColor]" border="40">fo.png</texture>
 								<visible>Control.HasFocus(55)</visible>
 							</control>

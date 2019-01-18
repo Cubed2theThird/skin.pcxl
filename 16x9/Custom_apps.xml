@@ -29,7 +29,8 @@
 			<posy>175</posy>
 			<height>0</height>
 			<width>0</width>
-			<onup>1001</onup>
+			<onup>noop</onup>
+			<ondown>noop</ondown>
 			<onright condition="Container(1).HasFocus(1)">111</onright>
 			<onright condition="Container(1).HasFocus(2)">222</onright>
 			<onright condition="Container(1).HasFocus(3)">333</onright>
@@ -97,7 +98,7 @@
 				</item>
 				<item id="4">
 					<label>$LOCALIZE[1036]</label>
-					<onclick>-</onclick>
+					<onclick>ReplaceWindow(favourites)</onclick>
 					<visible>!String.IsEmpty(Window(Home).Property(favourite.1.Path))</visible>
 				</item>
 			</content>

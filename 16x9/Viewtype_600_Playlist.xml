@@ -88,8 +88,8 @@
 						<label>$INFO[ListItem.TrackNumber]</label>
 					</control>
 					<control type="label">
-						<right>20</right>
-						<width>500</width>
+						<right>50</right>
+						<width>180</width>
 						<height>80</height>
 						<font>Reg20</font>
 						<align>right</align>
@@ -97,10 +97,10 @@
 						<label>$INFO[ListItem.Duration]</label>
 					</control>
 					<control type="image">
-						<right>50</right>
-						<top>45</top>
-						<width>36</width>
-						<height>30</height>
+						<right>10</right>
+						<width>30</width>
+						<height>80</height>
+						<aspectratio>keep</aspectratio>
 						<texture colordiffuse="$VAR[White]">views/watched_tick_nf.png</texture>
 						<visible>String.Contains(ListItem.Overlay,OverlayWatched.png)</visible>
 					</control>
@@ -109,7 +109,7 @@
 					<control type="image">
 						<left>0</left>
 						<height>80</height>
-						<texture colordiffuse="$VAR[MaterialColor]">color_white.png</texture>
+						<texture colordiffuse="$VAR[MaterialColor]" border="9">views/Card_bg_white.png</texture>
 					</control>
 					<control type="label">
 						<left>20</left>
@@ -131,7 +131,7 @@
 						<label>$VAR[ListLabelNF]</label>
 					</control>
 					<control type="label">
-						<right>20</right>
+						<right>50</right>
 						<width>180</width>
 						<height>80</height>
 						<font>Reg20</font>
@@ -140,10 +140,10 @@
 						<label>$INFO[ListItem.Duration]</label>
 					</control>
 					<control type="image">
-						<right>50</right>
-						<top>45</top>
-						<width>36</width>
-						<height>30</height>
+						<right>10</right>
+						<width>30</width>
+						<height>80</height>
+						<aspectratio>keep</aspectratio>
 						<texture colordiffuse="$VAR[White]">views/watched_tick_fo.png</texture>
 						<visible>String.Contains(ListItem.Overlay,OverlayWatched.png)</visible>
 					</control>
@@ -173,7 +173,7 @@
 				</control>
 				<control type="label">
 					<left>500</left>
-					<top>150</top>
+					<top>130</top>
 					<width>1450</width>
 					<height>80</height>
 					<font>LargeLogoBold</font>
@@ -287,10 +287,10 @@
 						<label>$INFO[ListItem.Duration]</label>
 					</control>
 					<control type="image">
-						<right>50</right>
-						<top>45</top>
-						<width>36</width>
-						<height>30</height>
+						<right>20</right>
+						<width>30</width>
+						<height>80</height>
+						<aspectratio>keep</aspectratio>
 						<texture colordiffuse="$VAR[White]">views/watched_tick_nf.png</texture>
 						<visible>String.Contains(ListItem.Overlay,OverlayWatched.png)</visible>
 					</control>
@@ -299,7 +299,7 @@
 					<control type="image">
 						<left>0</left>
 						<height>80</height>
-						<texture colordiffuse="$VAR[MaterialColor]">color_white.png</texture>
+						<texture colordiffuse="$VAR[MaterialColor]" border="9">views/Card_bg_white.png</texture>
 					</control>
 					<control type="label">
 						<left>20</left>
@@ -330,10 +330,10 @@
 						<label>$INFO[ListItem.Duration]</label>
 					</control>
 					<control type="image">
-						<right>50</right>
-						<top>45</top>
-						<width>36</width>
-						<height>30</height>
+						<right>20</right>
+						<width>30</width>
+						<height>80</height>
+						<aspectratio>keep</aspectratio>
 						<texture colordiffuse="$VAR[White]">views/watched_tick_fo.png</texture>
 						<visible>String.Contains(ListItem.Overlay,OverlayWatched.png)</visible>
 					</control>

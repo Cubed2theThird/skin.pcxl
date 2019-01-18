@@ -17,7 +17,7 @@
 			</animation>
 			
 			<control type="button" id="1">
-				<posx>190</posx>
+				<posx>290</posx>
 				<posy>62</posy>
 				<width>1430</width>
 				<height>75</height>
@@ -89,10 +89,10 @@
 									<aspectratio>keep</aspectratio>
 								</control>
 								<control type="image">
-									<left>-30</left>
-									<top>-35</top>
-									<width>350</width>
-									<height>500</height>
+									<left>-10</left>
+									<top>-10</top>
+									<width>305</width>
+									<height>450</height>
 									<texture colordiffuse="$VAR[SecondaryColor]" border="40">fo.png</texture>
 									<visible>Control.HasFocus(11)</visible>
 								</control>
@@ -162,10 +162,10 @@
 									<aspectratio>keep</aspectratio>
 								</control>
 								<control type="image">
-									<left>-30</left>
-									<top>-35</top>
-									<width>350</width>
-									<height>500</height>
+									<left>-10</left>
+									<top>-10</top>
+									<width>305</width>
+									<height>450</height>
 									<texture colordiffuse="$VAR[SecondaryColor]" border="40">fo.png</texture>
 									<visible>Control.HasFocus(22)</visible>
 								</control>
@@ -235,10 +235,10 @@
 									<aspectratio>keep</aspectratio>
 								</control>
 								<control type="image">
-									<left>-30</left>
-									<top>-35</top>
-									<width>350</width>
-									<height>500</height>
+									<left>-10</left>
+									<top>-10</top>
+									<width>305</width>
+									<height>450</height>
 									<texture colordiffuse="$VAR[SecondaryColor]" border="40">fo.png</texture>
 									<visible>Control.HasFocus(33)</visible>
 								</control>
@@ -308,10 +308,10 @@
 									<aspectratio>keep</aspectratio>
 								</control>
 								<control type="image">
-									<left>-30</left>
-									<top>-35</top>
-									<width>350</width>
-									<height>500</height>
+									<left>-10</left>
+									<top>-10</top>
+									<width>305</width>
+									<height>450</height>
 									<texture colordiffuse="$VAR[SecondaryColor]" border="40">fo.png</texture>
 									<visible>Control.HasFocus(44)</visible>
 								</control>
@@ -381,10 +381,10 @@
 									<aspectratio>keep</aspectratio>
 								</control>
 								<control type="image">
-									<left>-30</left>
-									<top>-35</top>
-									<width>350</width>
-									<height>500</height>
+									<left>-10</left>
+									<top>-10</top>
+									<width>305</width>
+									<height>450</height>
 									<texture colordiffuse="$VAR[SecondaryColor]" border="40">fo.png</texture>
 									<visible>Control.HasFocus(55)</visible>
 								</control>
@@ -454,10 +454,10 @@
 									<aspectratio>keep</aspectratio>
 								</control>
 								<control type="image">
-									<left>-30</left>
-									<top>-35</top>
-									<width>350</width>
-									<height>500</height>
+									<left>-10</left>
+									<top>-10</top>
+									<width>305</width>
+									<height>450</height>
 									<texture colordiffuse="$VAR[SecondaryColor]" border="40">fo.png</texture>
 									<visible>Control.HasFocus(66)</visible>
 								</control>
@@ -477,7 +477,7 @@
 			</control>
 			<control type="image">
 				<include>FullscreenDimensions</include>
-				<texture colordiffuse="$VAR[YoutubeBackground]">custom/youtube.png</texture>
+				<texture>custom/amazon.png</texture>
 			</control>
 			<control type="image">
 				<animation type="WindowOpen" reversible="true">
@@ -486,7 +486,7 @@
 				<animation type="WindowClose" reversible="true">
 					<effect type="fade" start="100" end="100" tween="cubic" easing="out" time="50" />
 				</animation>
-				<posx>190</posx>
+				<posx>290</posx>
 				<posy>62</posy>
 				<width>1430</width>
 				<height>75</height>
@@ -499,7 +499,7 @@
 				<animation type="WindowClose" reversible="true">
 					<effect type="fade" start="100" end="100" tween="cubic" easing="out" time="50" />
 				</animation>
-				<posx>190</posx>
+				<posx>290</posx>
 				<posy>62</posy>
 				<width>1430</width>
 				<height>75</height>

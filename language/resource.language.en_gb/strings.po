@@ -28,7 +28,7 @@ msgstr ""
 #All labels
 
 msgctxt "#31999"
-msgid "Version 1.5.5.2 Leia Beta"
+msgid "Version 1.5.5.4 Leia Beta"
 
 #Custom_Setup.xml
 msgctxt "#31000"

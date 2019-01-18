@@ -100,10 +100,10 @@
 						<scroll>false</scroll>
 					</control>
 					<control type="image">
-						<left>-30</left>
-						<top>-35</top>
-						<width>290</width>
-						<height>400</height>
+						<left>-10</left>
+						<top>-10</top>
+						<width>250</width>
+						<height>350</height>
 						<texture colordiffuse="$VAR[SecondaryColor]" border="40">fo.png</texture>
 					</control>
 				</control>

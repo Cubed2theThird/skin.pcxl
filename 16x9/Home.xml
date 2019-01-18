@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<!--> home <!-->
-	<backgroundcolor>FF000000</backgroundcolor>
+	<backgroundcolor>FF500000</backgroundcolor>
 	<onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;levels=0&amp;group=mainmenu|horizontal)</onload>
 	<onload>XBMC.RunScript(script.favourites)</onload>
 	<onload condition="!Skin.HasSetting(installed)|Skin.String(DashboardToggle,Blank)">ReplaceWindow(9085)</onload>

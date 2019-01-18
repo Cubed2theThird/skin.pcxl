@@ -552,7 +552,7 @@
 		</definition>
 	</include>
 
-	<!--> 80% <!-->
+	<!--> 90% <!-->
 	<include name="WidgetTV">
 		<param name="listid"/>
 		<param name="widgetid"/>
@@ -647,17 +647,10 @@
 								<include>WatchedIndicator2</include>
 							</control>
 							<control type="image">
-								<top>0</top>
+								<top>-10</top>
 								<left>-10</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
 								<width>267</width>
-								<height>370</height>
+								<height>390</height>
 								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 								<visible>Control.HasFocus($PARAM[listid])</visible>
 							</control>
@@ -760,15 +753,8 @@
 							</control>
 							<control type="image">
 								<top>-10</top>
-								<left>15</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
-								<width>510</width>
+								<left>-10</left>
+								<width>560</width>
 								<height>270</height>
 								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 								<visible>Control.HasFocus($PARAM[listid])</visible>
@@ -837,15 +823,8 @@
 							</control>
 							<control type="image">
 								<top>-10</top>
-								<left>15</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
-								<width>510</width>
+								<left>-10</left>
+								<width>560</width>
 								<height>270</height>
 								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 								<visible>Control.HasFocus($PARAM[listid])</visible>
@@ -949,15 +928,8 @@
 							</control>
 							<control type="image">
 								<top>-10</top>
-								<left>0</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
-								<width>360</width>
+								<left>-10</left>
+								<width>380</width>
 								<height>270</height>
 								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 								<visible>Control.HasFocus($PARAM[listid])</visible>
@@ -1026,15 +998,8 @@
 							</control>
 							<control type="image">
 								<top>-10</top>
-								<left>0</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
-								<width>360</width>
+								<left>-10</left>
+								<width>380</width>
 								<height>270</height>
 								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 								<visible>Control.HasFocus($PARAM[listid])</visible>
@@ -1139,13 +1104,6 @@
 							<control type="image">
 								<top>-10</top>
 								<left>-10</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
 								<width>270</width>
 								<height>270</height>
 								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
@@ -1159,7 +1117,7 @@
 		</definition>
 	</include>
 
-	<!--> 80% <!-->
+	<!--> 90% <!-->
 	<include name="WidgetDemo">
 		<param name="listid"/>
 		<param name="widgetid"/>
@@ -1254,16 +1212,9 @@
 								<include>WatchedIndicator2</include>
 							</control>
 							<control type="image">
-								<top>0</top>
+								<top>-10</top>
 								<left>-10</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
-								<width>267</width>
+								<width>247</width>
 								<height>370</height>
 								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 								<visible>Control.HasFocus($PARAM[listid])</visible>
@@ -1366,15 +1317,8 @@
 							</control>
 							<control type="image">
 								<top>-10</top>
-								<left>15</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
-								<width>510</width>
+								<left>-10</left>
+								<width>560</width>
 								<height>270</height>
 								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 								<visible>Control.HasFocus($PARAM[listid])</visible>
@@ -1443,15 +1387,8 @@
 							</control>
 							<control type="image">
 								<top>-10</top>
-								<left>15</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
-								<width>510</width>
+								<left>-10</left>
+								<width>560</width>
 								<height>270</height>
 								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 								<visible>Control.HasFocus($PARAM[listid])</visible>
@@ -1554,15 +1491,8 @@
 							</control>
 							<control type="image">
 								<top>-10</top>
-								<left>0</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
-								<width>360</width>
+								<left>-10</left>
+								<width>380</width>
 								<height>270</height>
 								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 								<visible>Control.HasFocus($PARAM[listid])</visible>
@@ -1631,15 +1561,8 @@
 							</control>
 							<control type="image">
 								<top>-10</top>
-								<left>0</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
-								<width>360</width>
+								<left>-10</left>
+								<width>380</width>
 								<height>270</height>
 								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 								<visible>Control.HasFocus($PARAM[listid])</visible>
@@ -1743,13 +1666,6 @@
 							<control type="image">
 								<top>-10</top>
 								<left>-10</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
 								<width>270</width>
 								<height>270</height>
 								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
@@ -1922,17 +1838,10 @@
 								<effect type="zoom" center="auto" start="105" end="100" time="0"/>
 							</animation>
 							<control type="image">
-								<top>-15</top>
-								<left>0</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
-								<width>320</width>
-								<height>210</height>
+								<top>-10</top>
+								<left>-10</left>
+								<width>340</width>
+								<height>200</height>
 								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
 							</control>
 							<control type="image">
@@ -2039,17 +1948,10 @@
 								<effect type="zoom" center="auto" start="105" end="100" time="0"/>
 							</animation>
 							<control type="image">
-								<top>-15</top>
-								<left>0</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
-								<width>320</width>
-								<height>210</height>
+								<top>-10</top>
+								<left>-10</left>
+								<width>340</width>
+								<height>200</height>
 								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
 							</control>
 							<control type="image">
@@ -2136,17 +2038,10 @@
 								<effect type="zoom" center="auto" start="105" end="100" time="200"/>
 							</animation>
 							<control type="image">
-								<top>-14</top>
-								<left>10</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
-								<width>364</width>
-								<height>210</height>
+								<top>-10</top>
+								<left>-10</left>
+								<width>405</width>
+								<height>200</height>
 								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
 								<visible>Control.HasFocus($PARAM[listid])</visible>
 							</control>
@@ -2203,17 +2098,10 @@
 								<effect type="zoom" center="auto" start="105" end="100" time="200"/>
 							</animation>
 							<control type="image">
-								<top>-14</top>
-								<left>10</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
-								<width>365</width>
-								<height>210</height>
+								<top>-10</top>
+								<left>-10</left>
+								<width>405</width>
+								<height>200</height>
 								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
 								<visible>Control.HasFocus($PARAM[listid])</visible>
 							</control>
@@ -2305,17 +2193,10 @@
 								<effect type="zoom" center="auto" start="105" end="100" time="200"/>
 							</animation>
 							<control type="image">
-								<top>10</top>
-								<left>20</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
-								<width>490</width>
-								<height>360</height>
+								<top>-10</top>
+								<left>-10</left>
+								<width>550</width>
+								<height>320</height>
 								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
 								<visible>Control.HasFocus($PARAM[listid])</visible>
 							</control>
@@ -2426,17 +2307,10 @@
 								<effect type="zoom" center="auto" start="105" end="100" time="200"/>
 							</animation>
 							<control type="image">
-								<top>10</top>
-								<left>20</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
-								<width>490</width>
-								<height>360</height>
+								<top>-10</top>
+								<left>-10</left>
+								<width>550</width>
+								<height>320</height>
 								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
 								<visible>Control.HasFocus($PARAM[listid])</visible>
 							</control>
@@ -2565,17 +2439,10 @@
 								<effect type="zoom" center="auto" start="105" end="100" time="200"/>
 							</animation>
 							<control type="image">
-								<top>3</top>
-								<left>-8</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
-								<width>265</width>
-								<height>365</height>
+								<top>-10</top>
+								<left>-10</left>
+								<width>270</width>
+								<height>390</height>
 								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
 								<visible>Control.HasFocus($PARAM[listid])</visible>
 							</control>
@@ -2683,17 +2550,10 @@
 								<effect type="zoom" center="auto" start="105" end="100" time="200"/>
 							</animation>
 							<control type="image">
-								<top>0</top>
-								<left>0</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
-								<width>300</width>
-								<height>310</height>
+								<top>-10</top>
+								<left>-10</left>
+								<width>320</width>
+								<height>320</height>
 								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
 								<visible>Control.HasFocus($PARAM[listid])</visible>
 							</control>
@@ -2803,17 +2663,10 @@
 								<effect type="zoom" center="auto" start="105" end="100" time="200"/>
 							</animation>
 							<control type="image">
-								<top>0</top>
-								<left>0</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
-								<width>360</width>
-								<height>370</height>
+								<top>-10</top>
+								<left>-10</left>
+								<width>380</width>
+								<height>380</height>
 								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
 								<visible>Control.HasFocus($PARAM[listid])</visible>
 							</control>
@@ -2934,17 +2787,10 @@
 								<effect type="zoom" center="auto" start="105" end="100" time="0"/>
 							</animation>
 							<control type="image">
-								<top>-15</top>
-								<left>0</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
-								<width>320</width>
-								<height>210</height>
+								<top>-10</top>
+								<left>-10</left>
+								<width>340</width>
+								<height>200</height>
 								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
 							</control>
 							<control type="image">

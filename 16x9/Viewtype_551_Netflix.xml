@@ -203,11 +203,11 @@
 							<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">$VAR[BorderImage]</texture>
 						</control>
 						<control type="image">
-							<left>-30</left>
-							<top>-35</top>
-							<width>610</width>
-							<height>450</height>
-							<texture colordiffuse="$VAR[SecondaryColor]" border="40">fo.png</texture>
+							<left>-10</left>
+							<top>-10</top>
+							<width>570</width>
+							<height>330</height>
+							<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 							<visible>Control.HasFocus(551)</visible>
 						</control>
 					</control>

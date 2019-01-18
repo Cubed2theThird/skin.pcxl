@@ -57,10 +57,10 @@
 							<animation condition="ListItem.IsPlaying" effect="fade" center="auto" start="100" end="90" time="500" pulse="true">Conditional</animation>
 							<animation center="auto" condition="Control.HasFocus(522)" easing="inout" effect="zoom" end="105" start="100" time="300" tween="sine">Focus</animation>
 							<control type="image">
-								<top>-30</top>	
-								<left>-29</left>
-								<width>438</width>
-								<height>442</height>
+								<top>-10</top>	
+								<left>-10</left>
+								<width>400</width>
+								<height>400</height>
 								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
 								<visible>Control.HasFocus(522)</visible>
 							</control>

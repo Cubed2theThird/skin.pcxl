@@ -65,10 +65,10 @@
 						<top>20</top>
 						<left>85</left>
 						<control type="image">
-							<top>-32</top>
-							<left>-30</left>
-							<width>410</width>
-							<height>590</height>
+							<top>-10</top>
+							<left>-10</left>
+							<width>370</width>
+							<height>545</height>
 							<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
 							<visible>Control.HasFocus(535)</visible>
 						</control>

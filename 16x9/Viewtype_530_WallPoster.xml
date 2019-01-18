@@ -54,10 +54,10 @@
 						<top>20</top>
 						<animation center="auto" condition="Control.HasFocus(530)" easing="inout" effect="zoom" end="105" start="100" time="300" tween="sine">Focus</animation>
 						<control type="image">
-							<top>-30</top>
-							<left>-28</left>
-							<width>326</width>
-							<height>465</height>
+							<top>-10</top>
+							<left>-10</left>
+							<width>290</width>
+							<height>425</height>
 							<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
 							<visible>Control.HasFocus(530)</visible>
 						</control>

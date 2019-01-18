@@ -165,7 +165,7 @@
 							<item id="6">
 								<label>$LOCALIZE[31092]</label>
 								<onclick>Control.SetFocus(3114)</onclick>
-								<visible>Skin.HasSetting(backgroundcolor) + !Skin.HasSetting(KioskMode)</visible>
+								<visible>!Skin.HasSetting(KioskMode)</visible>
 							</item>
 							<item id="4">
 								<label>$LOCALIZE[31037]</label>
@@ -334,10 +334,10 @@
 							<visible>Control.HasFocus(3115)</visible>
 						</control>
 						<control type="image">
-							<left>-30</left>
-							<top>-30</top>
-							<width>1380</width>
-							<height>160</height>
+							<left>-10</left>
+							<top>-10</top>
+							<width>1340</width>
+							<height>120</height>
 							<texture colordiffuse="$VAR[SecondaryColor]" border="40">fo.png</texture>
 							<visible>Control.HasFocus(3115)</visible>
 						</control>
@@ -995,7 +995,7 @@
 						<scrolltime tween="sine" easing="out">240</scrolltime>
 						<!-- System -->
 						<control type="grouplist" id="13110">
-							<height min="310" max="480">auto</height>
+							<height min="60" max="480">auto</height>
 							<width>1240</width>
 							<itemgap>0</itemgap>
 							<onleft>1</onleft>
@@ -1005,17 +1005,6 @@
 							<orientation>vertical</orientation>
 							<usecontrolcoords>true</usecontrolcoords>
 							<scrolltime tween="sine" easing="out">240</scrolltime>
-							<!-- Toggle Darkmode -->
-							<control type="radiobutton" id="114">
-								<width>1200</width>
-								<height>60</height>
-								<textwidth>1120</textwidth>
-								<label>$LOCALIZE[31041]</label>
-								<focusedcolor>$VAR[TextColor]</focusedcolor>
-								<include>DialogButton</include>
-								<onclick>Skin.ToggleSetting(darkmode)</onclick>
-								<selected>Skin.HasSetting(darkmode)</selected>
-							</control>
 							<!-- Enable Background Color -->
 							<control type="radiobutton" id="110">
 								<width>1200</width>
@@ -1050,7 +1039,7 @@
 								<selected>Skin.HasSetting(artistslideshow)</selected>
 							</control>
 							<!-- Enable Info on Pause -->
-							<control type="radiobutton" id="115">
+							<control type="radiobutton" id="113">
 								<width>1200</width>
 								<height>60</height>
 								<textwidth>1120</textwidth>
@@ -1060,8 +1049,20 @@
 								<onclick>Skin.ToggleSetting(Delayedinfo)</onclick>
 								<selected>Skin.HasSetting(Delayedinfo)</selected>
 							</control>
-							<!-- Minimal Bar -->
+							<!-- Toggle Darkmode -->
 							<control type="radiobutton" id="120">
+								<width>1200</width>
+								<height>60</height>
+								<textwidth>1120</textwidth>
+								<label>$LOCALIZE[31041]</label>
+								<focusedcolor>$VAR[TextColor]</focusedcolor>
+								<include>DialogButton</include>
+								<onclick>Skin.ToggleSetting(darkmode)</onclick>
+								<selected>Skin.HasSetting(darkmode)</selected>
+								<visible>Skin.HasSetting(hiddenoptions)</visible>
+							</control>
+							<!-- Minimal Bar -->
+							<control type="radiobutton" id="121">
 								<width>1200</width>
 								<height>60</height>
 								<textwidth>1120</textwidth>
@@ -1073,7 +1074,7 @@
 								<visible>Skin.HasSetting(hiddenoptions)</visible>
 							</control>
 							<!-- Toggle Game UI -->
-							<control type="radiobutton" id="121">
+							<control type="radiobutton" id="122">
 								<width>1200</width>
 								<height>60</height>
 								<textwidth>1120</textwidth>
@@ -1085,7 +1086,7 @@
 								<visible>Skin.HasSetting(hiddenoptions)</visible>
 							</control>
 							<!-- Toggle Shutdownmenu -->
-							<control type="radiobutton" id="122">
+							<control type="radiobutton" id="123">
 								<width>1200</width>
 								<height>60</height>
 								<ondown>210</ondown>
@@ -1112,7 +1113,7 @@
 								<onleft>1</onleft>
 								<width>1240</width>
 								<onright>noop</onright>
-								<onup>122</onup>
+								<onup>123</onup>
 								<ondown>319</ondown>
 								<orientation>vertical</orientation>
 								<usecontrolcoords>true</usecontrolcoords>
@@ -1272,9 +1273,8 @@
 						</control>
 						<control type="group">
 							<visible>!Skin.HasSetting(KioskMode)</visible>
-							<height min="310" max="480">480</height>
+								<height min="60" max="480">auto</height>
 							<control type="grouplist" id="33110">
-								<height min="310" max="480">auto</height>
 								<itemgap>0</itemgap>
 								<onleft>1</onleft>
 								<width>1240</width>

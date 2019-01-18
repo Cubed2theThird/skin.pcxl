@@ -93,7 +93,7 @@
 					<centerleft>50%</centerleft>
 					<width>100%</width>
 					<height>70</height>
-					<font>Reg30</font>
+					<font>tile2</font>
 					<align>center</align>
 					<textcolor>$VAR[White]</textcolor>
 					<label>$INFO[Container(521).ListItemNoWrap(0).Label]</label>
@@ -102,22 +102,13 @@
 					</animation>
 				</control>
 
-				<control type="image2">
-					<centertop>50%</centertop>
-					<centerleft>50%</centerleft>
-					<width>545</width>
-					<height>545</height>
-					<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
-				</control>
-
 				<control type="image">
 					<centertop>50%</centertop>
 					<centerleft>50%</centerleft>
-					<width>480</width>
-					<height>480</height>
-					<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">$VAR[BorderImage]</texture>
+					<width>500</width>
+					<height>500</height>
+					<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 				</control>
-
 			</control>
 		</control>
 	</include>

@@ -1885,12 +1885,107 @@
 			</control>
 
 			<control type="image">
-				<top>0</top>
+				<top>-50%</top>
 				<left>0</left>
 				<width>50%</width>
-				<height>100%</height>
+				<height>500%</height>
 				<texture colordiffuse="$VAR[MaterialColorDark]">color_white.png</texture>
 				<aspectratio>stretch</aspectratio>
+			</control>
+
+			<!--> Widgets <!-->
+			<control type="group">
+				<left>50%</left>
+				<width>100%</width>
+				<height>100%</height>
+				<!--><control type="image">
+					<top>-30</top>
+					<left>-500</left>
+					<width>500%</width>
+					<height>500%</height>
+					<texture colordiffuse="$VAR[Black]">common/white.png</texture>
+					<aspectratio>stretch</aspectratio>
+					<visible>!String.IsEmpty(Container(100).ListItemNoWrap(0).Property(path))</visible>
+				</control><!-->
+				<control type="grouplist" id="1">
+					<onup>9001</onup>
+					<ondown>noop</ondown>
+					<onleft>noop</onleft>
+					<onright>noop</onright>
+					<itemgap>0</itemgap>
+					<height>100%</height>
+					<orientation>horizontal</orientation>
+					<!--> Widget 1-0 <!-->
+					<include content="WidgetTV">
+						<param name="listid" value="10"/>
+						<param name="widgetid" value="0"/>
+						<param name="leftid" value="1001"/>
+						<param name="rightid" value="11"/>
+					</include>
+					<!--> Widget 2-1 <!-->
+					<include content="WidgetTV">
+						<param name="listid" value="11"/>
+						<param name="widgetid" value="1"/>
+						<param name="leftid" value="10"/>
+						<param name="rightid" value="12"/>
+					</include>
+					<!--> Widget 3-2 <!-->
+					<include content="WidgetTV">
+						<param name="listid" value="12"/>
+						<param name="widgetid" value="2"/>
+						<param name="leftid" value="11"/>
+						<param name="rightid" value="13"/>
+					</include>
+					<!--> Widget 4-3 <!-->
+					<include content="WidgetTV">
+						<param name="listid" value="13"/>
+						<param name="widgetid" value="3"/>
+						<param name="leftid" value="12"/>
+						<param name="rightid" value="14"/>
+					</include>
+					<!--> Widget 5-4 <!-->
+					<include content="WidgetTV">
+						<param name="listid" value="14"/>
+						<param name="widgetid" value="4"/>
+						<param name="leftid" value="13"/>
+						<param name="rightid" value="15"/>
+					</include>
+					<!--> Widget 6-5 <!-->
+					<include content="WidgetTV">
+						<param name="listid" value="15"/>
+						<param name="widgetid" value="5"/>
+						<param name="leftid" value="14"/>
+						<param name="rightid" value="16"/>
+					</include>
+					<!--> Widget 7-6 <!-->
+					<include content="WidgetTV">
+						<param name="listid" value="16"/>
+						<param name="widgetid" value="6"/>
+						<param name="leftid" value="15"/>
+						<param name="rightid" value="17"/>
+					</include>
+					<!--> Widget 8-7 <!-->
+					<include content="WidgetTV">
+						<param name="listid" value="17"/>
+						<param name="widgetid" value="7"/>
+						<param name="leftid" value="16"/>
+						<param name="rightid" value="18"/>
+					</include>
+					<!--> Widget 9-8 <!-->
+					<include content="WidgetTV">
+						<param name="listid" value="18"/>
+						<param name="widgetid" value="8"/>
+						<param name="leftid" value="17"/>
+						<param name="rightid" value="19"/>
+					</include>
+					<!--> Widget 10-9 <!-->
+					<include content="WidgetTV">
+						<param name="listid" value="19"/>
+						<param name="widgetid" value="9"/>
+						<param name="leftid" value="18"/>
+						<param name="rightid" value="-"/>
+					</include>
+				</control>
 			</control>
 
 			<!--> Home <!-->
@@ -1912,7 +2007,7 @@
 						<top>100</top>
 						<height>495</height>
 						<animation type="Conditional" condition="Window.Previous(fullscreenvideo) | Window.IsNext(fullscreenvideo)">
-							<effect type="zoom" center="72,90" end="195,195" delay="600"  time="500" tween="cubic" easing="inout" />
+							<effect type="zoom" center="195,180" end="228,227" delay="600"  time="500" tween="cubic" easing="inout" />
 							<effect type="fade" start="100" end="0" time="300" />
 						</animation>
 						<control type="button" id="9000">
@@ -1928,7 +2023,6 @@
 							<onclick>Fullscreen</onclick>							
 							<onclick condition="!Player.HasMedia">ActivateWindow($INFO[Skin.String(snapwindow)])</onclick>
 							<onclick condition="!Player.HasMedia">$INFO[Skin.String(snapwindow)]</onclick>
-							<onclick>Fullscreen</onclick>
 						</control>
 						<control type="image">
 							<left>0</left>
@@ -2016,6 +2110,9 @@
 
 					<!--> Bottom Apps <!-->
 					<control type="group" id="111">
+						<animation type="Conditional" condition="Window.Previous(fullscreenvideo) | Window.IsNext(fullscreenvideo)">
+							<effect type="slide" start="0" end="0,500" delay="100" time="500" tween="cubic" easing="inout" />
+						</animation>
 						<control type="list" id="9002">
 							<left>100</left>
 							<top>-20</top>
@@ -2101,12 +2198,15 @@
 
 				<!--> Left Apps <!-->
 				<control type="group">
+					<animation type="Conditional" condition="Window.Previous(fullscreenvideo) | Window.IsNext(fullscreenvideo)">
+						<effect type="slide" start="0" end="-200" delay="100" time="500" tween="cubic" easing="inout" />
+					</animation>
 					<!--> Mobile List <!-->
 					<control type="image">
-						<top>0</top>
-						<left>0</left>
-						<width>100</width>
-						<height>100%</height>
+						<top>-50%</top>
+						<left>-700</left>
+						<width>800</width>
+						<height>500%</height>
 						<texture colordiffuse="$VAR[BackgroundColor2]">color_white.png</texture>
 						<aspectratio>stretch</aspectratio>
 					</control>
@@ -2250,120 +2350,6 @@
 							<include>SystemApps2</include>
 						</content>
 					</control>
-				</control>
-
-				<!-->
-				<control type="grouplist" id="2">
-					<onup>9002</onup>
-					<top>600</top>
-					<ondown>noop</ondown>
-					<onleft>noop</onleft>
-					<onright>noop</onright>
-					<itemgap>10</itemgap>
-					<height>98%</height>
-					<!--> Widget 1-0 <!-->
-					<include content="WidgetTV">
-						<param name="listid" value="9001"/>
-						<param name="widgetid" value="0"/>
-						<param name="upid" value="9000"/>
-						<param name="downid" value="11"/>
-					</include>
-				</control> <!-->
-			</control>
-
-			<!--> Widgets <!-->
-			<control type="group">
-				<left>50%</left>
-				<width>100%</width>
-				<height>100%</height>
-				<!--><control type="image">
-					<top>-30</top>
-					<left>-500</left>
-					<width>500%</width>
-					<height>500%</height>
-					<texture colordiffuse="$VAR[Black]">common/white.png</texture>
-					<aspectratio>stretch</aspectratio>
-					<visible>!String.IsEmpty(Container(100).ListItemNoWrap(0).Property(path))</visible>
-				</control><!-->
-				<control type="grouplist" id="1">
-					<onup>9001</onup>
-					<ondown>noop</ondown>
-					<onleft>noop</onleft>
-					<onright>noop</onright>
-					<itemgap>0</itemgap>
-					<height>100%</height>
-					<orientation>horizontal</orientation>
-
-					<!--> Widget 1-0 <!-->
-					<include content="WidgetTV">
-						<param name="listid" value="10"/>
-						<param name="widgetid" value="0"/>
-						<param name="leftid" value="1001"/>
-						<param name="rightid" value="11"/>
-					</include>
-					<!--> Widget 2-1 <!-->
-					<include content="WidgetTV">
-						<param name="listid" value="11"/>
-						<param name="widgetid" value="1"/>
-						<param name="leftid" value="10"/>
-						<param name="rightid" value="12"/>
-					</include>
-					<!--> Widget 3-2 <!-->
-					<include content="WidgetTV">
-						<param name="listid" value="12"/>
-						<param name="widgetid" value="2"/>
-						<param name="leftid" value="11"/>
-						<param name="rightid" value="13"/>
-					</include>
-					<!--> Widget 4-3 <!-->
-					<include content="WidgetTV">
-						<param name="listid" value="13"/>
-						<param name="widgetid" value="3"/>
-						<param name="leftid" value="12"/>
-						<param name="rightid" value="14"/>
-					</include>
-					<!--> Widget 5-4 <!-->
-					<include content="WidgetTV">
-						<param name="listid" value="14"/>
-						<param name="widgetid" value="4"/>
-						<param name="leftid" value="13"/>
-						<param name="rightid" value="15"/>
-					</include>
-					<!--> Widget 6-5 <!-->
-					<include content="WidgetTV">
-						<param name="listid" value="15"/>
-						<param name="widgetid" value="5"/>
-						<param name="leftid" value="14"/>
-						<param name="rightid" value="16"/>
-					</include>
-					<!--> Widget 7-6 <!-->
-					<include content="WidgetTV">
-						<param name="listid" value="16"/>
-						<param name="widgetid" value="6"/>
-						<param name="leftid" value="15"/>
-						<param name="rightid" value="17"/>
-					</include>
-					<!--> Widget 8-7 <!-->
-					<include content="WidgetTV">
-						<param name="listid" value="17"/>
-						<param name="widgetid" value="7"/>
-						<param name="leftid" value="16"/>
-						<param name="rightid" value="18"/>
-					</include>
-					<!--> Widget 9-8 <!-->
-					<include content="WidgetTV">
-						<param name="listid" value="18"/>
-						<param name="widgetid" value="8"/>
-						<param name="leftid" value="17"/>
-						<param name="rightid" value="19"/>
-					</include>
-					<!--> Widget 10-9 <!-->
-					<include content="WidgetTV">
-						<param name="listid" value="19"/>
-						<param name="widgetid" value="9"/>
-						<param name="leftid" value="18"/>
-						<param name="rightid" value="-"/>
-					</include>
 				</control>
 			</control>
 		</control>
@@ -2554,10 +2540,10 @@
 							</control>
 						</control>
 						<control type="image">
-							<top>-15</top>
-							<left>-10</left>
-							<width>1060</width>
-							<height>630</height>
+							<top>10</top>
+							<left>10</left>
+							<width>1020</width>
+							<height>583</height>
 							<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 							<visible>[Control.HasFocus(90000) | Control.HasFocus(9000)]</visible>
 						</control>
@@ -2648,17 +2634,10 @@
 								</control>
 							</control>
 							<control type="image">
-								<top>-20</top>
-								<left>-20</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
-								<width>190</width>
-								<height>190</height>
+								<top>-10</top>
+								<left>-10</left>
+								<width>170</width>
+								<height>170</height>
 								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 							</control>
 						</control>
@@ -2761,17 +2740,10 @@
 									</control>
 									<control type="image">
 										<top>-10</top>
-										<left>-20</left>
-										<animation type="Focus">
-											<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-										</animation>
-										<animation type="UnFocus">
-											<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-											<effect type="fade" start="100" end="0" time="200"/>
-										</animation>
-										<width>200</width>
+										<left>-10</left>
+										<width>187</width>
 										<height>270</height>
-										<texture colordiffuse="$VAR[SecondaryColor]" border="80">fo.png</texture>
+										<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 									</control>
 								</control>
 							</focusedlayout>
@@ -2851,17 +2823,10 @@
 									</control>
 									<control type="image">
 										<top>-10</top>
-										<left>-20</left>
-										<animation type="Focus">
-											<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-										</animation>
-										<animation type="UnFocus">
-											<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-											<effect type="fade" start="100" end="0" time="200"/>
-										</animation>
-										<width>200</width>
+										<left>-10</left>
+										<width>187</width>
 										<height>270</height>
-										<texture colordiffuse="$VAR[SecondaryColor]" border="80">fo.png</texture>
+										<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 									</control>
 								</control>
 							</focusedlayout>
@@ -2953,17 +2918,11 @@
 								<scroll>true</scroll>
 							</control>
 							<control type="image">
-								<top>-20</top>
-								<left>-20</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="110" end="120" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="120" end="110" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
-								<width>220</width>
-								<height>220</height>
+								<top>0</top>
+								<left>0</left>
+								<include>GlowSelectionAnimation</include>
+								<width>180</width>
+								<height>180</height>
 								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo2.png</texture>
 							</control>
 						</control>
@@ -3326,17 +3285,11 @@
 								<scroll>true</scroll>
 							</control>
 							<control type="image">
-								<top>-20</top>
-								<left>-20</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
-								<width>220</width>
-								<height>220</height>
+								<top>0</top>
+								<left>0</left>
+								<include>GlowSelectionAnimation</include>
+								<width>180</width>
+								<height>180</height>
 								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo2.png</texture>
 							</control>
 						</control>
@@ -3438,17 +3391,10 @@
 								</control>
 							</control>
 							<control type="image">
-								<top>-20</top>
-								<left>-20</left>
-								<animation type="Focus">
-									<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-								</animation>
-								<animation type="UnFocus">
-									<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-									<effect type="fade" start="100" end="0" time="200"/>
-								</animation>
-								<width>190</width>
-								<height>190</height>
+								<top>-10</top>
+								<left>-10</left>
+								<width>170</width>
+								<height>170</height>
 								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 							</control>
 						</control>
@@ -3839,10 +3785,10 @@
 											<visible>Player.HasVideo + Control.HasFocus(90000) + !Player.HasGame</visible>
 										</control>
 										<control type="image">
-											<top>-10</top>
-											<left>-10</left>
-											<width>440</width>
-											<height>440</height>
+											<top>10</top>
+											<left>10</left>
+											<width>400</width>
+											<height>400</height>
 											<texture colordiffuse="$VAR[Black]" border="90">fo.png</texture>
 											<visible>Control.HasFocus(90000)</visible>
 										</control>

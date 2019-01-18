@@ -7,9 +7,28 @@
 			<effect type="fade" start="0" end="100" delay="800" time="600" />
 		</animation>
 	</include>
+	<include name="GlowSelectionAnimation">
+		<animation type="Focus">
+			<effect type="zoom" center="auto" start="100" end="120" time="200"/>
+		</animation>
+		<animation type="UnFocus">
+			<effect type="zoom" center="auto" start="120" end="100" time="200"/>
+			<effect type="fade" start="100" end="0" time="200"/>
+		</animation>
+	</include>
 	<include name="DialogToastAnimation">
 		<animation effect="slide" start="0,150" end="0,0" time="400" tween="cubic" easing="out">WindowOpen</animation>
 		<animation effect="slide" start="0" end="0,150" time="200">WindowClose</animation>
+	</include>
+	<include name="NotificationToastAnimation">
+		<animation type="WindowOpen">
+			<effect type="fade" start="0" end="100" time="200" tween="cubic" easing="out"/>
+			<effect type="slide" start="500" end="0" time="400" tween="cubic" easing="out"/>
+		</animation>
+		<animation type="WindowClose">
+			<effect type="fade" start="100" end="0" time="200" tween="cubic" easing="out"/>
+			<effect type="slide" start="0" end="500" time="400" tween="cubic" easing="out"/>
+		</animation>
 	</include>
 	<include name="ScrollBarAnimation">
 		<animation effect="fade" start="100" end="0" time="200" condition="![Container.Scrolling | Control.HasFocus(60)]">Conditional</animation>

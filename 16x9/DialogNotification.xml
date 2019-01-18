@@ -3,44 +3,51 @@
 	<!-- notification -->
 	<controls>
 		<control type="group">
-			<centerleft>50%</centerleft>
-			<bottom>0</bottom>
-			<width>100%</width>
+			<right>10</right>
+			<top>120</top>
+			<width>600</width>
 			<height>150</height>
-			<include>DialogToastAnimation</include>
+			<include>NotificationToastAnimation</include>
 			<animation effect="fade" start="100" end="0" time="0" condition="Window.IsActive(fullscreenvideo)">Conditional</animation>
 			<!-- Background image -->
 			<control type="image">
-				<width>100%</width>
+				<right>20</right>
+				<width>120%</width>
 				<height>150</height>
-				<texture colordiffuse="$VAR[Black]">views/white_100.png</texture>
+				<texture colordiffuse="$VAR[MaterialColorDark]" border="9">views/Card_bg_white.png</texture>
 			</control>
 			<!-- Heading -->
 			<control type="label" id="401">
 				<left>20</left>
-				<top>35</top>
+				<top>15</top>
 				<width>90%</width>
-				<height>40</height>
+				<height>50</height>
 				<scroll>true</scroll>
-				<font>Light33Upper</font>
+				<font>Reg30-Notification</font>
+        		<align>left</align>
+        		<label>Test Text Test Text Test Text Test Text </label>
 				<textcolor>$VAR[White]</textcolor>
+				<wrapmultiline>true</wrapmultiline>
 			</control>
 			<!-- Details -->
-			<control type="label" id="402">
+			<control type="textbox" id="402">
 				<left>20</left>
 				<top>77</top>
 				<width>90%</width>
-				<height>37</height>
+				<height>45%</height>
 				<scroll>true</scroll>
-				<font>Light27</font>
+				<font>light27</font>
+				<autoscroll delay="1000" time="5000" repeat="2000">true</autoscroll>
+				<label>Random words Random words Random words Random words Random words Random words Random words Random words Random words Random words Random words Random words Random words Random words Random words Random words Random words Random words Random words Random words Random words </label>
 				<textcolor>$VAR[White]</textcolor>
 			</control>
 			<!-- Default image -->
 			<control type="image" id="400">
-				<right>0</right>
-				<top>0</top>
-				<width>150</width>
-				<height>150</height>
+				<right>100%</right>
+				<centertop>50%</centertop>
+				<width>130</width>
+				<height>130</height>
+				<texture>color_white.png</texture>
 				<colordiffuse>$VAR[White]</colordiffuse>
 			</control>
 		</control>
