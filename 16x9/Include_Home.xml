@@ -1912,13 +1912,14 @@
 					<ondown>noop</ondown>
 					<onleft>noop</onleft>
 					<onright>noop</onright>
-					<itemgap>0</itemgap>
+					<itemgap>10</itemgap>
 					<height>100%</height>
 					<orientation>horizontal</orientation>
 					<!--> Widget 1-0 <!-->
 					<include content="WidgetTV">
 						<param name="listid" value="10"/>
 						<param name="widgetid" value="0"/>
+						<param name="nextwidget" value="1"/>
 						<param name="leftid" value="1001"/>
 						<param name="rightid" value="11"/>
 					</include>
@@ -1926,6 +1927,7 @@
 					<include content="WidgetTV">
 						<param name="listid" value="11"/>
 						<param name="widgetid" value="1"/>
+						<param name="nextwidget" value="2"/>
 						<param name="leftid" value="10"/>
 						<param name="rightid" value="12"/>
 					</include>
@@ -1933,6 +1935,7 @@
 					<include content="WidgetTV">
 						<param name="listid" value="12"/>
 						<param name="widgetid" value="2"/>
+						<param name="nextwidget" value="3"/>
 						<param name="leftid" value="11"/>
 						<param name="rightid" value="13"/>
 					</include>
@@ -1940,6 +1943,7 @@
 					<include content="WidgetTV">
 						<param name="listid" value="13"/>
 						<param name="widgetid" value="3"/>
+						<param name="nextwidget" value="4"/>
 						<param name="leftid" value="12"/>
 						<param name="rightid" value="14"/>
 					</include>
@@ -1947,6 +1951,7 @@
 					<include content="WidgetTV">
 						<param name="listid" value="14"/>
 						<param name="widgetid" value="4"/>
+						<param name="nextwidget" value="5"/>
 						<param name="leftid" value="13"/>
 						<param name="rightid" value="15"/>
 					</include>
@@ -1954,6 +1959,7 @@
 					<include content="WidgetTV">
 						<param name="listid" value="15"/>
 						<param name="widgetid" value="5"/>
+						<param name="nextwidget" value="6"/>
 						<param name="leftid" value="14"/>
 						<param name="rightid" value="16"/>
 					</include>
@@ -1961,6 +1967,7 @@
 					<include content="WidgetTV">
 						<param name="listid" value="16"/>
 						<param name="widgetid" value="6"/>
+						<param name="nextwidget" value="7"/>
 						<param name="leftid" value="15"/>
 						<param name="rightid" value="17"/>
 					</include>
@@ -1968,6 +1975,7 @@
 					<include content="WidgetTV">
 						<param name="listid" value="17"/>
 						<param name="widgetid" value="7"/>
+						<param name="nextwidget" value="8"/>
 						<param name="leftid" value="16"/>
 						<param name="rightid" value="18"/>
 					</include>
@@ -1975,6 +1983,7 @@
 					<include content="WidgetTV">
 						<param name="listid" value="18"/>
 						<param name="widgetid" value="8"/>
+						<param name="nextwidget" value="9"/>
 						<param name="leftid" value="17"/>
 						<param name="rightid" value="19"/>
 					</include>
@@ -1982,6 +1991,7 @@
 					<include content="WidgetTV">
 						<param name="listid" value="19"/>
 						<param name="widgetid" value="9"/>
+						<param name="nextwidget" value="-"/>
 						<param name="leftid" value="18"/>
 						<param name="rightid" value="-"/>
 					</include>
@@ -2191,6 +2201,7 @@
 									</control>
 								</control>
 							</focusedlayout>
+							<!--><content>pvr://channels/tv/All channels/</content><!-->
 							<content>favourites://</content>
 						</control>
 					</control>

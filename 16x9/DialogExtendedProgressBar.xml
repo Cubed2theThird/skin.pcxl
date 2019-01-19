@@ -3,23 +3,16 @@
 	<!-- extendedprogressdialog -->
 	<controls>
 		<control type="group">
-			<centerleft>50%</centerleft>
-			<bottom>50</bottom>
-			<width>750</width>
-			<height>10</height>
-			<include>DialogToastAnimation</include>
-			<animation effect="fade" start="100" end="0" time="0" condition="Window.IsActive(fullscreenvideo)|Window.IsActive(1108)|Window.IsActive(1109)">Conditional</animation>
-			<animation effect="fade" start="100" end="50" time="0" condition="Window.IsActive(home)">Conditional</animation>
-			<!-- Background image -->
-			<control type="image">
-				<width>750</width>
-				<height>10</height>
-				<texture colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texture>
-			</control>
+			<top>35</top>
+			<animation effect="fade" start="100" end="0" time="0" condition="Window.IsActive(fullscreenvideo)|Window.IsActive(startup)">Conditional</animation>
+			<animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 			<!-- Progress -->
 			<control type="progress" id="32">
-				<width>750</width>
-				<height>10</height>
+				<top>65</top>
+				<right>170</right>
+				<width>500</width>
+				<height>5</height>
 				<texturebg colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texturebg>
 				<lefttexture>-</lefttexture>
 				<midtexture colordiffuse="$VAR[SecondaryColor]">views/white_100.png</midtexture>
@@ -28,22 +21,23 @@
 			</control>
 			<!-- Heading -->
 			<control type="label" id="30">
-				<left>0</left>
-				<top>-77</top>
-				<width>750</width>
-				<height>40</height>
-				<scroll>true</scroll>
-				<font>Light33Upper</font>
+				<top>-5</top>
+				<right>170</right>
+				<width>1000</width>
+				<height>60</height>
+				<font>Reg25</font>
+				<align>right</align>
 				<textcolor>$VAR[White]</textcolor>
 			</control>
 			<!-- Details -->
 			<control type="label" id="31">
-				<left>0</left>
-				<top>-35</top>
-				<width>750</width>
-				<height>37</height>
-				<scroll>true</scroll>
-				<font>Thin27</font>
+				<right>170</right>
+				<top>20</top>
+				<width>1000</width>
+				<height>60</height>
+				<font>Reg20</font>
+				<align>right</align>
+				<alignx>right</alignx>
 				<textcolor>$VAR[White]</textcolor>
 			</control>
 		</control>

@@ -112,40 +112,42 @@
 	<!-- Logo -->
 	<include name="Logo">
 		<control type="group">
-		<top>35</top>
-		<control type="button">
-			<right>80</right>
-			<width>70</width>
-			<height>70</height>
-			<label> </label>
-			<onclick>Dialog.Close(contextmenu)</onclick>
-			<onclick>Dialog.Close(all,true)</onclick>
-			<onclick>ActivateWindow(PlayerControls)</onclick>
-			<texturefocus colordiffuse="$VAR[FocusedColor]">logo.png</texturefocus>
-			<texturenofocus colordiffuse="$VAR[FocusedColor]">logo.png</texturenofocus>
+			<top>35</top>
+			<control type="button">
+				<right>80</right>
+				<width>70</width>
+				<height>70</height>
+				<label> </label>
+				<onclick>Dialog.Close(contextmenu)</onclick>
+				<onclick>Dialog.Close(all,true)</onclick>
+				<onclick>ActivateWindow(PlayerControls)</onclick>
+				<texturefocus colordiffuse="$VAR[FocusedColor]">logo.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[FocusedColor]">logo.png</texturenofocus>
+			</control>
+			<control type="label">
+				<top>-5</top>
+				<right>170</right>
+				<width>1000</width>
+				<height>60</height>
+				<font>Reg25</font>
+				<align>right</align>
+				<textcolor>$VAR[UnFocusedColor]</textcolor>
+				<label>$INFO[System.Time(hh:mm)]</label>
+				<animation effect="fade" start="100" end="0" time="200" condition="Window.IsActive(extendedprogressdialog)">Conditional</animation>
+			</control>
+			<control type="label">
+				<right>170</right>
+				<top>20</top>
+				<width>1000</width>
+				<height>60</height>
+				<font>Reg20</font>
+				<align>right</align>
+				<alignx>right</alignx>
+				<textcolor>$VAR[UnFocusedColor]</textcolor>
+				<label>$INFO[System.Date]</label>
+				<animation effect="fade" start="100" end="0" time="200" condition="Window.IsActive(extendedprogressdialog)">Conditional</animation>
+			</control>
 		</control>
-		<control type="label">
-			<top>-5</top>
-			<right>170</right>
-			<width>1000</width>
-			<height>60</height>
-			<font>Reg25</font>
-			<align>right</align>
-			<textcolor>$VAR[UnFocusedColor]</textcolor>
-			<label>$INFO[System.Time(hh:mm)]</label>
-		</control>
-		<control type="label">
-			<right>170</right>
-			<top>20</top>
-			<width>1000</width>
-			<height>60</height>
-			<font>Reg20</font>
-			<align>right</align>
-			<alignx>right</alignx>
-			<textcolor>$VAR[UnFocusedColor]</textcolor>
-			<label>$INFO[System.Date]</label>
-		</control>
-	</control>
 	</include>
 	<!-- Menu fade background image -->
 	<include name="MenuFadeBackgroundImage">
@@ -817,7 +819,7 @@
 		</item>
 		<item>
 			<label>$LOCALIZE[14204]</label>
-			<onclick>ActivateWindow(tvchannels)</onclick>
+			<onclick>ActivateWindow(tvguide)</onclick>
 			<thumb>home/pvr.png</thumb>
 			<visible>Pvr.HasTVChannels + Container(9000).HasFocus(90)</visible>
 		</item>
@@ -954,7 +956,7 @@
 		</item>
 		<item>					
 			<label>$LOCALIZE[14204]</label>
-			<onclick>ActivateWindow(tvchannels)</onclick>
+			<onclick>ActivateWindow(tvguide)</onclick>
 			<thumb>home/pvr.png</thumb>
 			<visible>Pvr.HasTVChannels</visible>
 		</item>

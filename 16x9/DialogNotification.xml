@@ -3,8 +3,8 @@
 	<!-- notification -->
 	<controls>
 		<control type="group">
-			<right>10</right>
-			<top>120</top>
+			<right>0</right>
+			<bottom>10</bottom>
 			<width>600</width>
 			<height>150</height>
 			<include>NotificationToastAnimation</include>

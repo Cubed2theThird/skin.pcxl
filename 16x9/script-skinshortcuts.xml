@@ -59,21 +59,13 @@
 		</control>
 
 		<!-- Image -->
-		<control type="image">
-			<centerleft>50%</centerleft>
-			<centertop>50%</centertop>
-			<width>88.5%</width>
-			<height>86%</height>
-			<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo2.png</texture>		
-		</control>
-
 		<!-- Seperator -->
 		<control type="image">
 			<centerleft>50%</centerleft>
 			<centertop>50%</centertop>
 			<width>85%</width>
 			<height>80%</height>
-			<texture colordiffuse="$VAR[BackgroundColor]">views/white_100.png</texture>		
+			<texture colordiffuse="$VAR[BackgroundColor]" border="9">views/Card_bg_white.png</texture>		
 		</control>
 
 		<control type="image">

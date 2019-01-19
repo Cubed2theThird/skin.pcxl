@@ -556,6 +556,7 @@
 	<include name="WidgetTV">
 		<param name="listid"/>
 		<param name="widgetid"/>
+		<param name="nextwidget"/>
 		<param name="leftid"/>
 		<param name="rightid"/>
 		<definition>
@@ -581,7 +582,7 @@
 					<textcolor>$VAR[UnFocusedColor2]</textcolor>
 					<visible>!Control.HasFocus($PARAM[listid])</visible>
 				</control>
-				<control type="list" id="$PARAM[listid]">					
+				<control type="list" id="$PARAM[listid]">
 					<height>100%</height>
 					<top>40</top>
 					<onleft>$PARAM[leftid]</onleft>
@@ -657,6 +658,22 @@
 						</control>
 					</focusedlayout>
 					<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
+				</control>
+				<control type="image">
+					<left>-20</left>
+					<width>50</width>					
+					<height>100%</height>
+					<aspectratio>keep</aspectratio>
+					<texture>navigation/arrow_left.png</texture>
+					<visible>Control.HasFocus($PARAM[listid]) + [Control.IsVisible($PARAM[leftid]) + !Control.HasFocus(10)]</visible>
+				</control>
+				<control type="image">
+					<right>-40</right>
+					<width>50</width>					
+					<height>100%</height>
+					<aspectratio>keep</aspectratio>
+					<texture>navigation/arrow_right.png</texture>
+					<visible>Control.HasFocus($PARAM[listid]) + [!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[nextwidget]).Property(widgetPath))]</visible>
 				</control>
 			</control>
 			<!--> Banner <!-->
@@ -833,6 +850,22 @@
 					</focusedlayout>
 					<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
 				</control>
+				<control type="image">
+					<left>-20</left>
+					<width>50</width>					
+					<height>100%</height>
+					<aspectratio>keep</aspectratio>
+					<texture>navigation/arrow_left.png</texture>
+					<visible>Control.HasFocus($PARAM[listid]) + [Control.IsVisible($PARAM[leftid]) + !Control.HasFocus(10)]</visible>
+				</control>
+				<control type="image">
+					<right>-40</right>
+					<width>50</width>					
+					<height>100%</height>
+					<aspectratio>keep</aspectratio>
+					<texture>navigation/arrow_right.png</texture>
+					<visible>Control.HasFocus($PARAM[listid]) + [!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[nextwidget]).Property(widgetPath))]</visible>
+				</control>
 			</control>
 			<!--> Landscape <!-->
 			<control type="group">
@@ -1008,6 +1041,22 @@
 					</focusedlayout>
 					<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
 				</control>
+				<control type="image">
+					<left>-20</left>
+					<width>50</width>					
+					<height>100%</height>
+					<aspectratio>keep</aspectratio>
+					<texture>navigation/arrow_left.png</texture>
+					<visible>Control.HasFocus($PARAM[listid]) + [Control.IsVisible($PARAM[leftid]) + !Control.HasFocus(10)]</visible>
+				</control>
+				<control type="image">
+					<right>-40</right>
+					<width>50</width>					
+					<height>100%</height>
+					<aspectratio>keep</aspectratio>
+					<texture>navigation/arrow_right.png</texture>
+					<visible>Control.HasFocus($PARAM[listid]) + [!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[nextwidget]).Property(widgetPath))]</visible>
+				</control>
 			</control>
 			<!--> Square <!-->
 			<control type="group">
@@ -1112,6 +1161,22 @@
 						</control>
 					</focusedlayout>
 					<content target="$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetTarget)]">$INFO[Container(100).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
+				</control>
+				<control type="image">
+					<left>-20</left>
+					<width>50</width>					
+					<height>100%</height>
+					<aspectratio>keep</aspectratio>
+					<texture>navigation/arrow_left.png</texture>
+					<visible>Control.HasFocus($PARAM[listid]) + [Control.IsVisible($PARAM[leftid]) + !Control.HasFocus(10)]</visible>
+				</control>
+				<control type="image">
+					<right>-40</right>
+					<width>50</width>					
+					<height>100%</height>
+					<aspectratio>keep</aspectratio>
+					<texture>navigation/arrow_right.png</texture>
+					<visible>Control.HasFocus($PARAM[listid]) + [!String.IsEmpty(Container(100).ListItemNoWrap($PARAM[nextwidget]).Property(widgetPath))]</visible>
 				</control>
 			</control>
 		</definition>
