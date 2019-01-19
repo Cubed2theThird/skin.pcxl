@@ -28,7 +28,7 @@ msgstr ""
 #All labels
 
 msgctxt "#31999"
-msgid "Version 1.5.5.4 Leia Beta"
+msgid "Version 1.5.5.5 Leia Beta"
 
 #Custom_Setup.xml
 msgctxt "#31000"
@@ -475,3 +475,9 @@ msgid "Sidebar"
 
 msgctxt "#31601"
 msgid "Bottombar"
+
+msgctxt "#31750"
+msgid "Half Grid"
+
+msgctxt "#31751"
+msgid "Full Grid"
