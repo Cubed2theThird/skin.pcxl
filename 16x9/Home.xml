@@ -64,12 +64,13 @@
 		<include>WindowBackgroundImage</include>
 
 		<!--> Main <!-->
-		<include condition="!Skin.HasSetting(KioskMode) + Skin.HasSetting(installed) + Skin.String(DashboardToggle, TV)">TVLayout</include>
-		<include condition="!Skin.HasSetting(KioskMode) + Skin.HasSetting(installed) + Skin.String(DashboardToggle, Game)">GameLayout</include>
-		<include condition="!Skin.HasSetting(KioskMode) + Skin.HasSetting(installed) + Skin.String(DashboardToggle, Android)">AndroidLayout</include>
-		<include condition="!Skin.HasSetting(KioskMode) + Skin.HasSetting(installed) + Skin.String(DashboardToggle, Netflix)">NetflixLayout</include>
-		<include condition="!Skin.HasSetting(KioskMode) + Skin.HasSetting(installed) + Skin.String(DashboardToggle, Retroarch)">RetroarchLayout</include>	
-		<include condition="!Skin.HasSetting(KioskMode) + Skin.HasSetting(installed) + Skin.String(DashboardToggle, Horizontal)">HorizontalLayout</include>
+		<include condition="!Skin.HasSetting(KioskMode) + Skin.HasSetting(installed) + Skin.String(DashboardToggle,TV)">TVLayout</include>
+		<include condition="!Skin.HasSetting(KioskMode) + Skin.HasSetting(installed) + Skin.String(DashboardToggle,Game)">GameLayout</include>
+		<include condition="!Skin.HasSetting(KioskMode) + Skin.HasSetting(installed) + Skin.String(DashboardToggle,Android)">AndroidLayout</include>
+		<include condition="!Skin.HasSetting(KioskMode) + Skin.HasSetting(installed) + Skin.String(DashboardToggle,Netflix)">NetflixLayout</include>
+		<include condition="!Skin.HasSetting(KioskMode) + Skin.HasSetting(installed) + Skin.String(DashboardToggle,Retroarch)">RetroarchLayout</include>	
+		<include condition="!Skin.HasSetting(KioskMode) + Skin.HasSetting(installed) + Skin.String(DashboardToggle,Horizontal)">HorizontalLayout</include>
+		<include condition="!Skin.HasSetting(KioskMode) + Skin.HasSetting(installed) + Skin.String(DashboardToggle,Minimal)">MinimalLayout</include>
 
 		<!--> WIP
 		<include condition="!Skin.HasSetting(KioskMode) + Skin.HasSetting(installed) + Skin.String(DashboardToggle, Vertical)">VerticalLayout</include><!-->

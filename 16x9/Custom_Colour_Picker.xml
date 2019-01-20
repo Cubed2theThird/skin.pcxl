@@ -7,18 +7,20 @@
 	<onload>Skin.SetString(snapico, home/snap/settings.jpg,0)</onload>
 	<onload>Skin.SetString(snapname, $LOCALIZE[31002])</onload>
 
-	<onload condition="String.Contains(Skin.String(DashboardToggle),Retroarch)">Control.Move(3115,0)</onload>
-	<onload condition="String.Contains(Skin.String(DashboardToggle),Horizontal)">Control.Move(3115,1)</onload>
-	<onload condition="String.Contains(Skin.String(DashboardToggle),TV)">Control.Move(3115,2)</onload>
-	<onload condition="String.Contains(Skin.String(DashboardToggle),Game)">Control.Move(3115,3)</onload>
-	<onload condition="String.Contains(Skin.String(DashboardToggle),Android)">Control.Move(3115,4)</onload>
-	<onload condition="String.Contains(Skin.String(DashboardToggle),Netflix)">Control.Move(3115,5)</onload>
-	<onunload condition="String.Contains(Skin.String(DashboardToggle),Retroarch)">Control.Move(3115,0)</onunload>
-	<onunload condition="String.Contains(Skin.String(DashboardToggle),Horizontal)">Control.Move(3115,-1)</onunload>
-	<onunload condition="String.Contains(Skin.String(DashboardToggle),TV)">Control.Move(3115,-2)</onunload>
-	<onunload condition="String.Contains(Skin.String(DashboardToggle),Game)">Control.Move(3115,-3)</onunload>
-	<onunload condition="String.Contains(Skin.String(DashboardToggle),Android)">Control.Move(3115,-4)</onunload>
-	<onunload condition="String.Contains(Skin.String(DashboardToggle),Netflix)">Control.Move(3115,-5)</onunload>
+	<onload condition="String.Contains(Skin.String(DashboardToggle),Minimal)">Control.Move(3115,0)</onload>
+	<onload condition="String.Contains(Skin.String(DashboardToggle),Retroarch)">Control.Move(3115,1)</onload>
+	<onload condition="String.Contains(Skin.String(DashboardToggle),Horizontal)">Control.Move(3115,2)</onload>
+	<onload condition="String.Contains(Skin.String(DashboardToggle),TV)">Control.Move(3115,3)</onload>
+	<onload condition="String.Contains(Skin.String(DashboardToggle),Game)">Control.Move(3115,4)</onload>
+	<onload condition="String.Contains(Skin.String(DashboardToggle),Android)">Control.Move(3115,5)</onload>
+	<onload condition="String.Contains(Skin.String(DashboardToggle),Netflix)">Control.Move(3115,6)</onload>
+	<onunload condition="String.Contains(Skin.String(DashboardToggle),Minimal)">Control.Move(3115,0)</onunload>
+	<onunload condition="String.Contains(Skin.String(DashboardToggle),Retroarch)">Control.Move(3115,-1)</onunload>
+	<onunload condition="String.Contains(Skin.String(DashboardToggle),Horizontal)">Control.Move(3115,-2)</onunload>
+	<onunload condition="String.Contains(Skin.String(DashboardToggle),TV)">Control.Move(3115,-3)</onunload>
+	<onunload condition="String.Contains(Skin.String(DashboardToggle),Game)">Control.Move(3115,-4)</onunload>
+	<onunload condition="String.Contains(Skin.String(DashboardToggle),Android)">Control.Move(3115,-5)</onunload>
+	<onunload condition="String.Contains(Skin.String(DashboardToggle),Netflix)">Control.Move(3115,-6)</onunload>
 
 	<onload condition="String.Contains(Skin.String(musictoggle),1)">Control.Move(3116,0)</onload>
 	<onload condition="String.Contains(Skin.String(musictoggle),2)">Control.Move(3116,1)</onload>
@@ -263,49 +265,49 @@
 								<width>1320</width>
 								<height>743</height>
 								<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/TV.png</texture>
-								<visible>Skin.String(DashboardToggle, TV)</visible>
+								<visible>Skin.String(DashboardToggle,TV)</visible>
 							</control>
 							<control type="image">
 								<width>1320</width>
 								<height>743</height>
 								<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Game.png</texture>
-								<visible>Skin.String(DashboardToggle, Game)</visible>
+								<visible>Skin.String(DashboardToggle,Game)</visible>
 							</control>
 							<control type="image">
 								<width>1320</width>
 								<height>743</height>
 								<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Android.png</texture>
-								<visible>Skin.String(DashboardToggle, Android)</visible>
+								<visible>Skin.String(DashboardToggle,Android)</visible>
 							</control>
 							<control type="image">
 								<width>1320</width>
 								<height>743</height>
 								<texture colordiffuse="$VAR[MaterialColorDark]" background="true">views/darkvignette.png</texture>
-								<visible>Skin.String(DashboardToggle, Netflix)</visible>
+								<visible>Skin.String(DashboardToggle,Netflix)</visible>
 							</control>
 							<control type="image">
 								<width>1320</width>
 								<height>743</height>
 								<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Netflix.png</texture>
-								<visible>Skin.String(DashboardToggle, Netflix)</visible>
+								<visible>Skin.String(DashboardToggle,Netflix)</visible>
 							</control>
 							<control type="image">
 								<width>1320</width>
 								<height>743</height>
 								<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Horizontal.png</texture>
-								<visible>Skin.String(DashboardToggle, Horizontal)</visible>
+								<visible>Skin.String(DashboardToggle,Horizontal)</visible>
 							</control>
 							<control type="image">
 								<width>1320</width>
 								<height>743</height>
 								<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/PS3.png</texture>
-								<visible>Skin.String(DashboardToggle, Retroarch)</visible>
+								<visible>Skin.String(DashboardToggle,Retroarch)</visible>
 							</control>
 							<control type="image">
 								<width>1320</width>
 								<height>743</height>
-								<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Oreo.png</texture>
-								<visible>Skin.String(DashboardToggle, Oreo)</visible>
+								<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Minimal.png</texture>
+								<visible>Skin.String(DashboardToggle,Minimal)</visible>
 							</control>
 						</control>
 						<control type="image">
@@ -423,39 +425,45 @@
 								</control>
 							</focusedlayout>
 							<content>
+								<item id="6">
+									<label>$LOCALIZE[31015]</label>
+									<label2>Minimal</label2>
+									<onclick>Skin.Setstring(DashboardToggle,Minimal)</onclick>
+									<onclick>SetFocus(1)</onclick>
+								</item>
 								<item id="7">
 									<label>$LOCALIZE[31044]</label>
 									<label2>Retroarch</label2>
-									<onclick>Skin.Setstring(DashboardToggle, Retroarch)</onclick>
+									<onclick>Skin.Setstring(DashboardToggle,Retroarch)</onclick>
 									<onclick>SetFocus(1)</onclick>
 								</item>
 								<item id="1">
 									<label>$LOCALIZE[31014]</label>
 									<label2>Horizontal</label2>
-									<onclick>Skin.Setstring(DashboardToggle, Horizontal)</onclick>
+									<onclick>Skin.Setstring(DashboardToggle,Horizontal)</onclick>
 									<onclick>SetFocus(1)</onclick>
 								</item>
 								<item id="3">
 									<label>$LOCALIZE[31010]</label>
 									<label2>TV</label2>
-									<onclick>Skin.Setstring(DashboardToggle, TV)</onclick>
+									<onclick>Skin.Setstring(DashboardToggle,TV)</onclick>
 								</item>
 								<item id="2">
 									<label>$LOCALIZE[31011]</label>
 									<label2>Game</label2>
-									<onclick>Skin.Setstring(DashboardToggle, Game)</onclick>
+									<onclick>Skin.Setstring(DashboardToggle,Game)</onclick>
 									<onclick>SetFocus(1)</onclick>
 								</item>
 								<item id="4">
 									<label>$LOCALIZE[31012]</label>
 									<label2>Android</label2>
-									<onclick>Skin.Setstring(DashboardToggle, Android)</onclick>
+									<onclick>Skin.Setstring(DashboardToggle,Android)</onclick>
 									<onclick>SetFocus(1)</onclick>
 								</item>
 								<item id="5">
 									<label>$LOCALIZE[31013]</label>
 									<label2>Netflix</label2>
-									<onclick>Skin.Setstring(DashboardToggle, Netflix)</onclick>
+									<onclick>Skin.Setstring(DashboardToggle,Netflix)</onclick>
 									<onclick>SetFocus(1)</onclick>
 								</item>
 								<!--<item id="10">
@@ -1293,7 +1301,7 @@
 									<focusedcolor>$VAR[TextColor]</focusedcolor>
 									<include>DialogButton</include>
 									<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=horizontal)</onclick>
-									<visible>Skin.String(DashboardToggle, Horizontal)|Skin.String(DashboardToggle, Retroarch)|Skin.String(DashboardToggle, TV)</visible>
+									<visible>Skin.String(DashboardToggle, Horizontal)|Skin.String(DashboardToggle, Retroarch)|Skin.String(DashboardToggle, TV)|Skin.String(DashboardToggle, Minimal)</visible>
 								</control>
 								<!-- Enable Labels -->
 								<control type="radiobutton" id="310">
@@ -1305,7 +1313,7 @@
 									<include>DialogButton</include>
 									<onclick>Skin.ToggleSetting(ShowLabels)</onclick>
 									<selected>Skin.HasSetting(ShowLabels)</selected>
-									<visible>![Skin.String(DashboardToggle, Retroarch)|Skin.String(DashboardToggle, Game)|Skin.String(DashboardToggle, TV)]</visible>
+									<visible>![Skin.String(DashboardToggle, Retroarch)|Skin.String(DashboardToggle, Game)|Skin.String(DashboardToggle, TV)|Skin.String(DashboardToggle, Minimal)]</visible>
 								</control>
 								<!-- Enable Showcase -->
 								<control type="radiobutton" id="311">
@@ -1377,7 +1385,7 @@
 									<include>DialogButton</include>
 									<onclick>Skin.ToggleSetting(enableFavourites)</onclick>
 									<selected>Skin.HasSetting(enableFavourites)</selected>
-									<visible>Skin.String(DashboardToggle, Netflix)|Skin.String(DashboardToggle, Retroarch)|Skin.String(DashboardToggle, Android)|Skin.String(DashboardToggle, Horizontal)</visible>
+									<visible>Skin.String(DashboardToggle, Netflix)|Skin.String(DashboardToggle, Retroarch)|Skin.String(DashboardToggle, Android)|Skin.String(DashboardToggle, Horizontal)|Skin.String(DashboardToggle, TV)</visible>
 								</control>
 								<!-- Enable Small Icons -->
 								<control type="radiobutton" id="317">
@@ -1426,6 +1434,31 @@
 									<onclick>Skin.ToggleSetting(showLastapp)</onclick>
 									<selected>Skin.HasSetting(showLastapp)</selected>
 									<visible>Skin.String(DashboardToggle, Android)</visible>
+								</control>
+								<!-- Show PVR -->
+								<control type="radiobutton" id="322">
+									<width>1200</width>
+									<height>60</height>
+									<textwidth>1120</textwidth>
+									<label>$LOCALIZE[31123]</label>
+									<focusedcolor>$VAR[TextColor]</focusedcolor>
+									<include>DialogButton</include>
+									<onclick>Skin.ToggleSetting(showPVR)</onclick>
+									<selected>Skin.HasSetting(showPVR)</selected>
+									<visible>Skin.String(DashboardToggle, TV) + Pvr.HasTVChannels</visible>
+									<enable>!Skin.HasSetting(enableFavourites)</enable>
+								</control>
+								<!-- Show Icon -->
+								<control type="radiobutton" id="323">
+									<width>1200</width>
+									<height>60</height>
+									<textwidth>1120</textwidth>
+									<label>$LOCALIZE[31124]</label>
+									<focusedcolor>$VAR[TextColor]</focusedcolor>
+									<include>DialogButton</include>
+									<onclick>Skin.ToggleSetting(showselectedIcons)</onclick>
+									<selected>Skin.HasSetting(showselectedIcons)</selected>
+									<visible>Skin.String(DashboardToggle, Retroarch)|Skin.String(DashboardToggle, Minimal)</visible>
 								</control>
 							</control>
 						</control>

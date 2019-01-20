@@ -2123,86 +2123,171 @@
 						<animation type="Conditional" condition="Window.Previous(fullscreenvideo) | Window.IsNext(fullscreenvideo)">
 							<effect type="slide" start="0" end="0,500" delay="100" time="500" tween="cubic" easing="inout" />
 						</animation>
-						<control type="list" id="9002">
-							<left>100</left>
-							<top>-20</top>
-							<width>100%</width>
-							<height>500</height>
-							<onup>9000</onup>
-							<ondown>noop</ondown>
-							<onleft>9001</onleft>
-							<onright>10</onright>
-							<focusposition>-1</focusposition>
-							<movement>2</movement>
-							<include>HomeZoomAnimation3</include>
-							<viewtype>list</viewtype>
-							<scrolltime tween="sine" easing="inout">240</scrolltime>
-							<itemlayout height="150">
-								<control type="group">
-									<control type="image">
-										<left>10</left>
-										<width>150</width>
-										<height>150</height>
-										<texture>$INFO[ListItem.Icon]</texture>
-										<aspectratio>keep</aspectratio>
-									</control>
-									<control type="label">
-										<left>180</left>
-										<height>150</height>
-										<width>670</width>		
-										<label>$INFO[ListItem.Label]</label>
-										<align>left</align>
-										<aligny>center</aligny>
-										<font>Tile</font>
-										<textcolor>$VAR[UnFocusedColor]</textcolor>
-									</control>
-								</control>
-							</itemlayout>
-							<focusedlayout height="150">
-								<control type="group">
-									<control type="image">
-										<height>150</height>
-										<texture colordiffuse="$VAR[DarkFade]">color_white.png</texture>
-										<visible>Control.HasFocus(9002)</visible>
-									</control>
-									<control type="image">
-										<left>10</left>
-										<width>150</width>
-										<height>150</height>
-										<texture>$INFO[ListItem.Icon]</texture>
-										<aspectratio>keep</aspectratio>
-									</control>
-									<control type="label">
-										<left>180</left>
-										<height>150</height>
-										<width>670</width>		
-										<label>$INFO[ListItem.Label]</label>
-										<align>left</align>
-										<aligny>center</aligny>
-										<font>Tile</font>
-										<textcolor>$VAR[UnFocusedColor]</textcolor>
-										<scroll>true</scroll>
-										<visible>!Control.HasFocus(9002)</visible>
-									</control>
+						<control type="group">
+							<visible>Skin.HasSetting(enableFavourites)</visible>
+							<control type="list" id="9002">
+								<left>100</left>
+								<top>-20</top>
+								<width>100%</width>
+								<height>500</height>
+								<onup>9000</onup>
+								<ondown>noop</ondown>
+								<onleft>9001</onleft>
+								<onright>10</onright>
+								<focusposition>-1</focusposition>
+								<movement>2</movement>
+								<include>HomeZoomAnimation3</include>
+								<viewtype>list</viewtype>
+								<scrolltime tween="sine" easing="inout">240</scrolltime>
+								<itemlayout height="150">
 									<control type="group">
-										<visible>Control.HasFocus(9002)</visible>
-										<include>SelectionAnimation</include>
-										<control type="label">
-											<left>170</left>
+										<control type="image">
+											<left>10</left>
+											<width>150</width>
 											<height>150</height>
-											<width>680</width>		
+											<texture>$INFO[ListItem.Icon]</texture>
+											<aspectratio>keep</aspectratio>
+										</control>
+										<control type="label">
+											<left>180</left>
+											<height>150</height>
+											<width>670</width>		
 											<label>$INFO[ListItem.Label]</label>
 											<align>left</align>
 											<aligny>center</aligny>
 											<font>Tile</font>
-											<textcolor>$VAR[FocusedColor]</textcolor>
-											<scroll>true</scroll>
+											<textcolor>$VAR[UnFocusedColor]</textcolor>
 										</control>
 									</control>
-								</control>
-							</focusedlayout>
-							<!--><content>pvr://channels/tv/All channels/</content><!-->
-							<content>favourites://</content>
+								</itemlayout>
+								<focusedlayout height="150">
+									<control type="group">
+										<control type="image">
+											<height>150</height>
+											<texture colordiffuse="$VAR[DarkFade]">color_white.png</texture>
+											<visible>Control.HasFocus(9002)</visible>
+										</control>
+										<control type="image">
+											<left>10</left>
+											<width>150</width>
+											<height>150</height>
+											<texture>$INFO[ListItem.Icon]</texture>
+											<aspectratio>keep</aspectratio>
+										</control>
+										<control type="label">
+											<left>180</left>
+											<height>150</height>
+											<width>670</width>		
+											<label>$INFO[ListItem.Label]</label>
+											<align>left</align>
+											<aligny>center</aligny>
+											<font>Tile</font>
+											<textcolor>$VAR[UnFocusedColor]</textcolor>
+											<scroll>true</scroll>
+											<visible>!Control.HasFocus(9002)</visible>
+										</control>
+										<control type="group">
+											<visible>Control.HasFocus(9002)</visible>
+											<include>SelectionAnimation</include>
+											<control type="label">
+												<left>170</left>
+												<height>150</height>
+												<width>680</width>		
+												<label>$INFO[ListItem.Label]</label>
+												<align>left</align>
+												<aligny>center</aligny>
+												<font>Tile</font>
+												<textcolor>$VAR[FocusedColor]</textcolor>
+												<scroll>true</scroll>
+											</control>
+										</control>
+									</control>
+								</focusedlayout>
+								<content>favourites://</content>
+							</control>
+						</control>
+						<control type="group">
+							<visible>!Skin.HasSetting(enableFavourites) + Skin.HasSetting(showPVR)</visible>
+							<control type="list" id="9002">
+								<left>100</left>
+								<top>-20</top>
+								<width>100%</width>
+								<height>500</height>
+								<onup>9000</onup>
+								<ondown>noop</ondown>
+								<onleft>9001</onleft>
+								<onright>10</onright>
+								<focusposition>-1</focusposition>
+								<movement>2</movement>
+								<include>HomeZoomAnimation3</include>
+								<viewtype>list</viewtype>
+								<scrolltime tween="sine" easing="inout">240</scrolltime>
+								<itemlayout height="150">
+									<control type="group">
+										<control type="image">
+											<left>10</left>
+											<width>150</width>
+											<height>150</height>
+											<texture>$INFO[ListItem.Icon]</texture>
+											<aspectratio>keep</aspectratio>
+										</control>
+										<control type="label">
+											<left>180</left>
+											<height>150</height>
+											<width>670</width>		
+											<label>$INFO[ListItem.Label]</label>
+											<align>left</align>
+											<aligny>center</aligny>
+											<font>Tile</font>
+											<textcolor>$VAR[UnFocusedColor]</textcolor>
+										</control>
+									</control>
+								</itemlayout>
+								<focusedlayout height="150">
+									<control type="group">
+										<control type="image">
+											<height>150</height>
+											<texture colordiffuse="$VAR[DarkFade]">color_white.png</texture>
+											<visible>Control.HasFocus(9002)</visible>
+										</control>
+										<control type="image">
+											<left>10</left>
+											<width>150</width>
+											<height>150</height>
+											<texture>$INFO[ListItem.Icon]</texture>
+											<aspectratio>keep</aspectratio>
+										</control>
+										<control type="label">
+											<left>180</left>
+											<height>150</height>
+											<width>670</width>		
+											<label>$INFO[ListItem.Label]</label>
+											<align>left</align>
+											<aligny>center</aligny>
+											<font>Tile</font>
+											<textcolor>$VAR[UnFocusedColor]</textcolor>
+											<scroll>true</scroll>
+											<visible>!Control.HasFocus(9002)</visible>
+										</control>
+										<control type="group">
+											<visible>Control.HasFocus(9002)</visible>
+											<include>SelectionAnimation</include>
+											<control type="label">
+												<left>170</left>
+												<height>150</height>
+												<width>680</width>		
+												<label>$INFO[ListItem.Label]</label>
+												<align>left</align>
+												<aligny>center</aligny>
+												<font>Tile</font>
+												<textcolor>$VAR[FocusedColor]</textcolor>
+												<scroll>true</scroll>
+											</control>
+										</control>
+									</control>
+								</focusedlayout>
+								<content>pvr://channels/tv/All channels/</content>
+							</control>
 						</control>
 					</control>
 				</control>
@@ -2941,7 +3026,7 @@
 					<content>
 						<include>SystemApps1</include>
 						<include>SystemApps2</include>
-						<include condition="Skin.HasSetting(hiddenoptions)">skinshortcuts-group-horizontal</include>
+						<include>skinshortcuts-group-horizontal</include>
 						<item>
 							<label>Power</label>
 							<thumb>home/power.png</thumb>
@@ -4561,7 +4646,7 @@
 						<thumb>home/apps.png</thumb>
 						<visible>$EXP[HasApps]</visible>
 					</item>
-					<include condition="Skin.HasSetting(hiddenoptions)">skinshortcuts-group-horizontal</include>
+					<include>skinshortcuts-group-horizontal</include>
 					<item>
 						<label>$LOCALIZE[1036]</label>
 						<onclick>ReplaceWindow(favourites)</onclick>
@@ -4582,6 +4667,7 @@
 					<include>skinshortcuts-mainmenu</include>
 				</content>
 			</control>
+			<!-- Sub list -->
 			<control type="fixedlist" id="9001">
 				<centertop>69%</centertop>
 				<left>60</left>
@@ -4592,9 +4678,6 @@
 				<onleft>9000</onleft>
 				<onright>9000</onright>
 				<defaultcontrol>0</defaultcontrol>
-				<!--> Works but crashes
-				<onleft>Control.Move(9000,-1)</onleft>
-				<onright>Control.Move(9000,1)</onright><!-->
 				<focusposition>0</focusposition>
 				<movement>0</movement>
 				<orientation>vertical</orientation>
@@ -4695,6 +4778,15 @@
 				<animation type="Unfocus">
 					<effect type="fade" start="100" end="0" center="auto" tween="sine"  easing="inout" time="100"/>
 				</animation>
+			</control>
+			<control type="image">
+				<right>50</right>
+				<centertop>50%</centertop>
+				<width>420</width>
+				<height>420</height>
+				<aspectratio>keep</aspectratio>
+				<texture>$INFO[Container(9001).ListItemNoWrap(0).Icon]</texture>
+				<visible>Skin.HasSetting(showselectedIcons)</visible>
 			</control>
 		</control>
 	</include>
@@ -4835,7 +4927,7 @@
 								<visible>$EXP[HasApps] + !Skin.HasSetting(Showapps)</visible>
 							</item>
 							<include condition="Skin.HasSetting(Showapps)">AllApps</include>
-							<include condition="Skin.HasSetting(hiddenoptions)">skinshortcuts-group-horizontal</include>
+							<include>skinshortcuts-group-horizontal</include>
 							<item>
 								<label>$LOCALIZE[1036]</label>
 								<onclick>ReplaceWindow(favourites)</onclick>
@@ -5007,7 +5099,7 @@
 								<visible>$EXP[HasApps] + !Skin.HasSetting(Showapps)</visible>
 							</item>
 							<include condition="Skin.HasSetting(Showapps)">AllApps</include>
-							<include condition="Skin.HasSetting(hiddenoptions)">skinshortcuts-group-horizontal</include>
+							<include>skinshortcuts-group-horizontal</include>
 							<item>
 								<label>$LOCALIZE[1036]</label>
 								<onclick>ReplaceWindow(favourites)</onclick>
@@ -5056,5 +5148,278 @@
 				</control>
 			</control>
 		</control>
+	</include>
+
+	<!--> 98% <!-->
+	<include name="MinimalLayout">
+		<include>HomeZoomAnimation</include>
+		<include>WindowBackgroundVideo</include>
+
+		<!--> Vignette <!-->
+		<control type="image">
+			<left>0</left>
+			<width>101%</width>
+			<height>100%</height>
+			<aspectratio>stretch</aspectratio>
+			<texture colordiffuse="$VAR[Black]">views/fanart_gradient.png</texture>
+		</control>
+
+		<control type="list" id="9000">
+			<top>50</top>
+			<left>50</left>
+			<width>15%</width>
+			<height>90%</height>
+			<onup>noop</onup>
+			<ondown>noop</ondown>
+			<onleft>noop</onleft>
+			<onright>9001</onright>
+			<focusposition>1</focusposition>
+			<orientation>vertical</orientation>
+			<viewtype>list</viewtype>
+			<scrolltime tween="sine" easing="inout">240</scrolltime>
+			<animation type="WindowOpen">
+				<effect type="slide" start="-320,0" end="0,0" center="auto" tween="Cubic" easing="inout" time="200"/>
+				<effect type="fade" start="0" end="100" center="auto" tween="Cubic" easing="inout" time="100"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="-320,0" center="auto" tween="Cubic" easing="in" time="200"/>
+				<effect type="fade" start="100" end="0" center="auto" tween="Cubic" easing="inout" time="100"/>
+			</animation>
+			<itemlayout height="30">
+				<control type="group">
+					<control type="label">
+						<height>30</height>
+						<label>$INFO[ListItem.Label]</label>
+						<align>left</align>
+						<font>Tile</font>
+						<textcolor>$VAR[UnFocusedColor2]</textcolor>
+					</control>
+				</control>
+			</itemlayout>
+			<focusedlayout height="50">
+				<control type="group">
+					<control type="image">
+						<animation type="Focus" reversible="false">
+							<effect type="fade" start="0" end="100" center="auto" tween="Cubic" easing="inout" time="200"/>
+						</animation>
+						<width>5</width>
+						<height>50</height>
+						<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+					</control>
+					<control type="label">
+						<animation type="Focus" reversible="false">
+							<effect type="slide" start="-20" end="0" center="auto" tween="Cubic" easing="inout" time="200"/>
+						</animation>
+						<left>20</left>
+						<height>50</height>
+						<label>$INFO[ListItem.Label]</label>
+						<align>left</align>
+						<font>Tile2</font>
+						<textcolor>$VAR[TextColor]</textcolor>
+					</control>
+				</control>
+			</focusedlayout>
+			<content>
+				<item id="89">
+					<label>$LOCALIZE[13404]</label>
+					<onclick>Fullscreen</onclick>
+					<thumb>home/fullscreen.png</thumb>
+					<visible>[Player.HasMedia]</visible>
+				</item>
+				<item id="90">
+					<label>$LOCALIZE[13000]</label>
+					<onclick>noop</onclick>
+					<thumb>home/kodi.png</thumb>
+				</item>
+				<item id="91">
+					<label>$LOCALIZE[31022]</label>
+					<onclick>ActivateWindow(1107)</onclick>
+					<thumb>home/apps.png</thumb>
+					<visible>$EXP[HasApps] + !Skin.HasSetting(Showapps)</visible>
+				</item>
+				<include condition="Skin.HasSetting(Showapps)">AllApps</include>
+				<include>skinshortcuts-group-horizontal</include>
+				<item>
+					<label>$LOCALIZE[1036]</label>
+					<onclick>ReplaceWindow(favourites)</onclick>
+					<property name="widgetPath">favourites://</property>
+					<property name="widgetTarget">videos</property>
+					<property name="widgetLayout">Landscape</property>
+					<thumb>home/pin.png</thumb>
+					<visible>!String.IsEmpty(Window(Home).Property(favourite.1.Path)) + Skin.HasSetting(enableFavourites)</visible>
+				</item>
+				<item>
+					<label>Android Apps</label>
+					<property name="widgetPath">androidapp://sources/apps/</property>
+					<property name="widgetTarget">programs</property>
+					<property name="widgetLayout">Square</property>
+					<thumb>home/android.png</thumb>
+					<visible>System.Platform.Android</visible>
+				</item>
+			</content>
+			<content>
+				<include>skinshortcuts-mainmenu</include>
+			</content>
+			<content>
+				<item>
+					<label>$LOCALIZE[21417]</label>
+					<onclick>ActivateWindow(Settings)</onclick>
+					<thumb>home/settings.png</thumb>
+				</item>
+			</content>
+		</control>
+
+		<control type="list" id="9001">
+			<top>50</top>
+			<left>15%</left>
+			<width>100%</width>
+			<height>95%</height>
+			<onup>noop</onup>
+			<ondown>noop</ondown>
+			<onleft>9000</onleft>
+			<onright>noop</onright>
+			<focusposition>1</focusposition>
+			<orientation>vertical</orientation>
+			<viewtype>list</viewtype>
+			<scrolltime tween="sine" easing="inout">240</scrolltime>
+			<animation type="WindowOpen">
+				<effect type="slide" start="-320,0" end="0,0" center="auto" tween="Cubic" easing="inout" time="200"/>
+				<effect type="fade" start="0" end="100" center="auto" tween="Cubic" easing="inout" time="100"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="-320,0" center="auto" tween="Cubic" easing="in" time="200"/>
+				<effect type="fade" start="100" end="0" center="auto" tween="Cubic" easing="inout" time="100"/>
+			</animation>
+			<itemlayout height="30">
+				<control type="group">
+					<control type="label">
+						<height>30</height>
+						<label>$INFO[ListItem.Label]</label>
+						<align>left</align>
+						<font>Tile</font>
+						<textcolor>$VAR[UnFocusedColor2]</textcolor>
+					</control>
+				</control>
+			</itemlayout>
+			<focusedlayout height="30" condition="!Control.HasFocus(9001)">
+				<control type="group">
+					<control type="label">
+						<left>0</left>
+						<height>30</height>
+						<label>$INFO[ListItem.Label]</label>
+						<align>left</align>
+						<font>Tile</font>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+					</control>
+				</control>
+			</focusedlayout>
+			<focusedlayout height="50" condition="Control.HasFocus(9001)">
+				<control type="group">
+					<control type="image">
+						<animation type="Focus" reversible="false">
+							<effect type="fade" start="0" end="100" center="auto" tween="Cubic" easing="inout" time="200"/>
+						</animation>
+						<width>5</width>
+						<height>50</height>
+						<texture colordiffuse="$VAR[BackgroundColor2]">color_white.png</texture>
+					</control>
+					<control type="label">
+						<animation type="Focus" reversible="false">
+							<effect type="slide" start="-20" end="0" center="auto" tween="Cubic" easing="inout" time="200"/>
+						</animation>
+						<left>20</left>
+						<height>50</height>
+						<label>$INFO[ListItem.Label]</label>
+						<align>left</align>
+						<font>Tile2</font>
+						<textcolor>$VAR[TextColor]</textcolor>
+					</control>
+				</control>
+			</focusedlayout>
+			<content target="$INFO[Container(9000).ListItemNoWrap(0).Property(widgetTarget)]">$INFO[Container(9000).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
+			<content>
+				<include>RetroSystem</include>
+			</content>
+		</control>
+
+		<control type="image">
+			<right>50</right>
+			<centertop>50%</centertop>
+			<width>420</width>
+			<height>420</height>
+			<aspectratio>keep</aspectratio>
+			<texture>$INFO[Container(9001).ListItemNoWrap(0).Icon]</texture>
+			<visible>Skin.HasSetting(showselectedIcons)</visible>
+		</control>
+
+		<control type="label">
+			<right>10</right>
+			<bottom>10</bottom>
+			<height>20</height>
+			<label>$LOCALIZE[31026] - $INFO[Player.Title]</label>
+			<align>right</align>
+			<font>Tile</font>
+			<textcolor>$VAR[TextColor]</textcolor>
+			<visible>[Player.HasMedia]</visible>
+		</control>
+
+		<!--><control type="list" id="9001">
+			<top>120</top>
+			<right>50</right>
+			<width>100%</width>
+			<height>88%</height>
+			<onup>noop</onup>
+			<ondown>noop</ondown>
+			<onleft>9000</onleft>
+			<onright>noop</onright>
+			<focusposition>1</focusposition>
+			<orientation>vertical</orientation>
+			<viewtype>list</viewtype>
+			<scrolltime tween="sine" easing="inout">240</scrolltime>
+			<animation type="WindowOpen">
+				<effect type="slide" start="-320,0" end="0,0" center="auto" tween="Cubic" easing="inout" time="200"/>
+				<effect type="fade" start="0" end="100" center="auto" tween="Cubic" easing="inout" time="100"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="-320,0" center="auto" tween="Cubic" easing="in" time="200"/>
+				<effect type="fade" start="100" end="0" center="auto" tween="Cubic" easing="inout" time="100"/>
+			</animation>
+			<itemlayout height="30">
+				<control type="group">
+					<control type="label">
+						<height>30</height>
+						<label>$INFO[ListItem.Label]</label>
+						<align>right</align>
+						<font>Tile</font>
+						<textcolor>$VAR[UnFocusedColor2]</textcolor>
+					</control>
+				</control>
+			</itemlayout>
+			<focusedlayout height="50">
+				<control type="group">
+					<control type="image">
+						<animation type="Focus" reversible="false">
+							<effect type="fade" start="0" end="100" center="auto" tween="Cubic" easing="inout" time="200"/>
+						</animation>
+						<right>0</right>
+						<width>5</width>
+						<height>50</height>
+						<texture>color_white.png</texture>
+					</control>
+					<control type="label">
+						<animation type="Focus" reversible="false">
+							<effect type="slide" start="20" end="0" center="auto" tween="Cubic" easing="inout" time="200"/>
+						</animation>
+						<right>20</right>
+						<height>50</height>
+						<label>$INFO[ListItem.Label]</label>
+						<align>right</align>
+						<font>Tile2</font>
+						<textcolor>$VAR[TextColor]</textcolor>
+					</control>
+				</control>
+			</focusedlayout>
+			<content target="$INFO[Container(9000).ListItemNoWrap(0).Property(widgetTarget)]">$INFO[Container(9000).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
+		</control><!-->
 	</include>
 </includes>

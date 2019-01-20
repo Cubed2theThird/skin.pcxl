@@ -857,7 +857,7 @@
 			<label>$LOCALIZE[21417]</label>
 			<onclick>ActivateWindow(Settings)</onclick>
 			<thumb>home/settings.png</thumb>
-			<visible>Container(9000).HasFocus(90) + !Skin.String(DashboardToggle, Horizontal)</visible>
+			<visible>Container(9000).HasFocus(90) + ![Skin.String(DashboardToggle,Horizontal)|Skin.String(DashboardToggle,Minimal)]</visible>
 		</item>
 		<item>
 			<label>$LOCALIZE[33060]</label>
