@@ -4,7 +4,32 @@ Been working on this project for 3 months with no knowledge of how to code Kodi,
 
 [Donate for future projects](https://www.paypal.me/cubed2the3rd)
 
-### **1.5.5**
+### **1.5.5.61**
+- Patch xgui
+
+### **1.5.5.6**
+- New Minimalistic Layout
+- UI Fixes
+
+#### 1.5.5.5
+- New PVR
+- Fixed UI
+
+#### 1.5.5.4
+- Fix TV Layout
+- Fixed UI
+- Updated Notifications
+- Updated Favourites
+- Updated UI Elements
+
+#### 1.5.5.3
+- Updated Layouts (TV, Kiosk)
+
+#### 1.5.5.2
+- New Lyric Options
+- Fix Widgets
+
+## 1.5.5
 - **_Theme Overhaul_**
 - New Horizontial Layout
 - New Option Menu (Look & Feel)
