@@ -77,8 +77,8 @@
 
 			<!-- Player forwarding/rewinding -->
 			<control type="group">
-				<left>150</left>
-				<bottom>100</bottom>
+				<left>30</left>
+				<bottom>110</bottom>
 				<width>80</width>
 				<height>60</height>
 				<visible>player.forwarding | player.rewinding | player.paused</visible>
