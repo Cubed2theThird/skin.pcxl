@@ -6,6 +6,9 @@
 			<animation type="Visible">
 				<effect type="slide" start="0,1000" end="0" center="auto" tween="Cubic" easing="out" time="500"/>
 			</animation>
+			<animation type="WindowOpen">
+				<effect type="slide" start="0,1000" end="0" center="auto" tween="Cubic" easing="out" time="500"/>
+			</animation>
 			<animation type="WindowClose">
 				<effect type="slide" start="0" end="0,1000" center="auto" tween="Cubic" easing="in" time="500"/>
 			</animation>
@@ -30,7 +33,7 @@
 					<orientation>horizontal</orientation>
 					<viewtype label="31521">list</viewtype>
 					<scrolltime tween="sine" easing="inout">400</scrolltime>
-					<visible>String.Contains(Container.Content,songs) | String.Contains(Container.Content,albums) | String.Contains(Container.Content,artists) + !Skin.ToggleSetting(disable520)</visible>
+					<visible>String.Contains(Container.Content,songs) | String.Contains(Container.Content,albums) | String.Contains(Container.Content,artists) | String.Contains(Container.FolderPath,apps) + !Skin.ToggleSetting(disable520)</visible> 
 					<itemlayout width="400" height="450">
 						<control type="group">
 							<top>70</top>
@@ -61,10 +64,10 @@
 							<left>120</left>
 							<animation condition="ListItem.IsPlaying" effect="fade" center="auto" start="100" end="90" time="500" pulse="true">Conditional</animation>
 							<control type="image">
-								<top>-32</top>
-								<left>-30</left>
-								<width>540</width>
-								<height>545</height>
+								<top>-10</top>
+								<left>-10</left>
+								<width>500</width>
+								<height>500</height>
 								<texture colordiffuse="$VAR[DarkFade]" border="90">fo.png</texture>
 								<visible>Control.HasFocus(520)</visible>
 							</control>
@@ -89,7 +92,7 @@
 					<centertop>75%</centertop>
 					<width>100%</width>
 					<height>70</height>
-					<font>tile</font>
+					<font>tile2</font>
 					<align>center</align>
 					<texturefocus colordiffuse="$VAR[SecondaryColor]">color_white.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[SecondaryColor]">color_white.png</texturenofocus>

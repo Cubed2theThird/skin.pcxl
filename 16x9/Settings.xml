@@ -7,10 +7,6 @@
 	<onload>Skin.SetString(snapico, home/snap/settings.jpg,0)</onload>
 	<onload>Skin.SetString(snapname, Settings)</onload>
 	<controls>
-
-		
-		
-
 		<control type="group">
 			<left>50</left>
 			<animation type="WindowOpen">
@@ -122,10 +118,10 @@
 						</control>
 						<control type="image">
 							<include>SelectionAnimation2</include>
-							<top>-30</top>
-							<left>-30</left>
-							<width>310</width>
-							<height>310</height>
+							<top>-10</top>
+							<left>-10</left>
+							<width>270</width>
+							<height>270</height>
 							<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 							<visible>Control.HasFocus(9002)</visible>
 						</control>
@@ -262,10 +258,10 @@
 						</control>
 						<control type="image">
 							<include>SelectionAnimation2</include>
-							<top>-30</top>
-							<left>-30</left>
-							<width>310</width>
-							<height>310</height>
+							<top>-10</top>
+							<left>-10</left>
+							<width>270</width>
+							<height>270</height>
 							<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 							<visible>Control.HasFocus(9001)</visible>
 						</control>
@@ -398,10 +394,10 @@
 						</control>
 						<control type="image">
 							<include>SelectionAnimation2</include>
-							<top>-30</top>
-							<left>-30</left>
-							<width>310</width>
-							<height>310</height>
+							<top>-10</top>
+							<left>-10</left>
+							<width>270</width>
+							<height>270</height>
 							<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 							<visible>Control.HasFocus(9000)</visible>
 						</control>

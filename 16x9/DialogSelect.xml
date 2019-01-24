@@ -12,29 +12,11 @@
 			<control type="group">
 				<visible>!Control.HasFocus(11)</visible>
 				<control type="image">
-					<left>120</left>
-					<centertop>540</centertop>
-					<width>760</width>
-					<height>86%</height>
-					<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo2.png</texture>
-					<visible>!Control.IsVisible(6)</visible>
-				</control>
-
-				<control type="image">
-					<left>120</left>
-					<centertop>540</centertop>
-					<width>1310</width>
-					<height>86%</height>
-					<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo2.png</texture>
-					<visible>Control.IsVisible(6)</visible>
-				</control>
-
-				<control type="image">
 					<left>150</left>
 					<centertop>50%</centertop>
 					<width>700</width>
 					<height>80%</height>
-					<texture colordiffuse="$VAR[MaterialColorDark]">views/white_100.png</texture>
+					<texture colordiffuse="$VAR[MaterialColorDark]" border="9">views/Card_bg_white.png</texture>
 					<visible>!Control.IsVisible(6)</visible>
 				</control>
 
@@ -43,7 +25,7 @@
 					<centertop>50%</centertop>
 					<width>1250</width>
 					<height>80%</height>
-					<texture colordiffuse="$VAR[MaterialColorDark]">views/white_100.png</texture>
+					<texture colordiffuse="$VAR[MaterialColorDark]" border="9">views/Card_bg_white.png</texture>
 					<visible>Control.IsVisible(6)</visible>
 				</control>
 
@@ -188,70 +170,6 @@
 			</control>
 		</control>
 		
-		<!-- Game List
-		<control type="list" id="11">
-			<left>550</left>
-			<top>400</top>
-			<width>700</width>
-			<height>1000</height>
-			<onup>noop</onup>
-			<ondown>11</ondown>
-			<onleft>back</onleft>
-			<onright>11</onright>
-			<orientation>vertical</orientation>
-			<visible>Skin.HasSetting(gamemode)</visible>
-			<scrolltime tween="sine" easing="out">240</scrolltime>
-			<itemlayout height="150">
-				<control type="group">
-					<control type="image">
-						<width>100</width>
-						<height>100</height>
-						<aspectratio>scale</aspectratio>
-						<texture colordiffuse="$VAR[UnFocusedColor]">DefaultAddonService.png</texture>
-					</control>
-					<control type="label">
-						<left>110</left>
-						<width>540</width>
-						<height>100</height>
-						<label>$INFO[ListItem.Label]</label>
-						<font>Reg30</font>
-						<align>left</align>
-						<aligny>center</aligny>
-						<textcolor>$VAR[UnFocusedColor]</textcolor>
-					</control>
-				</control>
-			</itemlayout>
-			<focusedlayout height="150">
-				<control type="group">
-					<left>-100</left>
-					<control type="image">
-						<left>60</left>
-						<width>150</width>
-						<height>150</height>
-						<aspectratio>scale</aspectratio>
-						<texture colordiffuse="$VAR[FocusedColor]">DefaultAddonService.png</texture>
-					</control>
-					<control type="label">
-						<left>200</left>
-						<height>150</height>
-						<label>$INFO[ListItem.Label]</label>
-						<font>Reg30</font>
-						<align>left</align>
-						<aligny>center</aligny>
-						<textcolor>$VAR[FocusedColor]</textcolor>
-					</control>
-					<control type="label">
-						<left>300</left>
-						<height>230</height>
-						<label>$INFO[ListItem.Property(ButtonHint)]</label>
-						<font>Reg25</font>
-						<align>left</align>
-						<aligny>center</aligny>
-						<textcolor>$VAR[UnFocusedColor]</textcolor>
-					</control>
-				</control>
-			</focusedlayout>
-		</control> -->
 		<control type="group">
 			<control type="list" id="11">
 			<centertop>50%</centertop>

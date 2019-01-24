@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.pcxl" version="1.5.5" name="PCX L" provider-name="Cubed3">
+<addon id="skin.pcxl" version="1.5.5.61" name="PCX L" provider-name="Cubed3">
 	<requires>
-		<import addon="xbmc.gui" version="5.13.0"/>
+		<import addon="xbmc.gui" version="5.14.0"/>
         <import addon="script.globalsearch" version="4.0.2" />
         <import addon="script.favourites" version="6.0.1" />
 	</requires>

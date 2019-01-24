@@ -6,21 +6,21 @@
 			<width>100%</width>
 			<height>100%</height>
 			<animation type="WindowOpen">
+				<effect type="slide" start="0,100" end="0" time="500" tween="cubic" easing="inout"/>
 				<effect type="fade" start="0" end="100" time="500" tween="cubic" easing="inout"/>
 			</animation>
 			<animation type="WindowClose">
+				<effect type="slide" start="0" end="0,100" time="500" tween="cubic" easing="inout"/>
 				<effect type="fade" start="100" end="0" time="500" tween="cubic" easing="inout"/>
 			</animation>
-
-			<!-- <include>DialogToastAnimation</include>
 
 			<!-- Background image -->
 			<control type="image">
 				<centerleft>50%</centerleft>
-				<bottom>70</bottom>
-				<width>1060</width>
-				<height>120</height>
-				<texture colordiffuse="$VAR[Black]" border="50">fo.png</texture>
+				<bottom>90</bottom>
+				<width>1020</width>
+				<height>80</height>
+				<texture colordiffuse="$VAR[Black]" border="40">fo.png</texture>
 			</control>
 			<control type="image">
 				<centerleft>50%</centerleft>

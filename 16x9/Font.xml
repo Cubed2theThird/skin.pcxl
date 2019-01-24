@@ -158,6 +158,11 @@
 			<size>35</size>
 		</font>
 		<font>
+			<name>Reg30-Notification</name>
+			<filename>Roboto-Medium.ttf</filename>
+			<size>30</size>
+		</font>
+		<font>
 			<name>Reg30</name>
 			<filename>Roboto-Medium.ttf</filename>
 			<linespacing>1.3</linespacing>

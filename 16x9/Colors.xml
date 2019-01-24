@@ -80,6 +80,9 @@
 	<variable name="Fade">
 		<value>50000000</value>
 	</variable>
+	<variable name="DarkFade2">
+		<value>a0000000</value>
+	</variable>
 	<variable name="BlackOnly">
 		<value>ff000000</value>
 	</variable>

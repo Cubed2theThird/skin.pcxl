@@ -152,11 +152,11 @@
 								</control>
 								<control type="image">
 									<include>SelectionAnimation2</include>
-									<top>-35</top>
-									<left>-30</left>
-									<width>400</width>
-									<height>650</height>
-									<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
+									<top>-10</top>
+									<left>-10</left>
+									<width>360</width>
+									<height>600</height>
+									<texture colordiffuse="$VAR[SecondaryColor]" border="75">fo.png</texture>
 									<visible>Control.HasFocus(111)</visible>
 								</control>
 							</control>
@@ -243,10 +243,10 @@
 								</control>			
 								<control type="image">
 									<include>SelectionAnimation2</include>
-									<top>-35</top>
-									<left>-35</left>
-									<width>410</width>
-									<height>650</height>
+									<top>-10</top>
+									<left>-10</left>
+									<width>360</width>
+									<height>600</height>
 									<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 									<visible>Control.HasFocus(222)</visible>
 								</control>
@@ -353,17 +353,17 @@
 									<texture fallback="views/white_0.png" background="false">$INFO[ListItem.Art(thumb)]</texture>
 								</control>	
 								<control type="image">
-									<top>-35</top>
-									<left>-35</left>
-									<width>410</width>
-									<height>460</height>
+									<top>-10</top>
+									<left>-10</left>
+									<width>360</width>
+									<height>410</height>
 									<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo2.png</texture>
 									<visible>Control.HasFocus(333)</visible>
 								</control>
 								<control type="group">
 									<include>SelectionAnimation</include>
 									<control type="label">
-										<left>10</left>
+										<left>20</left>
 										<bottom>0</bottom>
 										<width>340</width>	
 										<height>40</height>
@@ -465,17 +465,17 @@
 									<visible>!Container(444).HasFocus(99)</visible>
 								</control>
 								<control type="image">
-									<top>-35</top>
-									<left>-35</left>
-									<width>410</width>
-									<height>460</height>
+									<top>-10</top>
+									<left>-10</left>
+									<width>360</width>
+									<height>410</height>
 									<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo2.png</texture>
 									<visible>Control.HasFocus(444)</visible>
 								</control>
 								<control type="group">
 									<include>SelectionAnimation</include>
 									<control type="label">
-										<left>10</left>
+										<left>20</left>
 										<bottom>0</bottom>
 										<width>340</width>	
 										<height>40</height>

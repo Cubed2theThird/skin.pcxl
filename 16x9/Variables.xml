@@ -137,15 +137,16 @@
 	<variable name="DashboardToggle">
 		<!--> Done <!-->
 		<value condition="String.IsEmpty(Skin.String(DashboardToggle))">Retroarch</value>
-		<value condition="String.Contains(Skin.String(DashboardToggle), TV)">TV</value>
-		<value condition="String.Contains(Skin.String(DashboardToggle), Game)">Game</value>
-		<value condition="String.Contains(Skin.String(DashboardToggle), Android)">Android</value>
-		<value condition="String.Contains(Skin.String(DashboardToggle), Netflix)">Netflix</value>
-		<value condition="String.Contains(Skin.String(DashboardToggle), Vertical)">Vertical</value>
-		<value condition="String.Contains(Skin.String(DashboardToggle), Horizontal)">Horizontal</value>
-		<value condition="String.Contains(Skin.String(DashboardToggle), Retroarch)">Retroarch</value>
+		<value condition="String.Contains(Skin.String(DashboardToggle),TV)">TV</value>
+		<value condition="String.Contains(Skin.String(DashboardToggle),Game)">Game</value>
+		<value condition="String.Contains(Skin.String(DashboardToggle),Android)">Android</value>
+		<value condition="String.Contains(Skin.String(DashboardToggle),Netflix)">Netflix</value>
+		<value condition="String.Contains(Skin.String(DashboardToggle),Vertical)">Vertical</value>
+		<value condition="String.Contains(Skin.String(DashboardToggle),Horizontal)">Horizontal</value>
+		<value condition="String.Contains(Skin.String(DashboardToggle),Retroarch)">Retroarch</value>
+		<value condition="String.Contains(Skin.String(DashboardToggle),Minimal)">Minimal</value>
 		<!--> Kiosk Mode <!-->
-		<value condition="String.Contains(Skin.String(DashboardToggle), Demo)">Demo</value>
+		<value condition="String.Contains(Skin.String(DashboardToggle),Demo)">Demo</value>
 	</variable>
 
 	<!-- Music -->
@@ -159,11 +160,11 @@
 
 	<variable name="MusicBackgroundToggle">
 		<value condition="String.IsEmpty(Skin.String(MusicBackgroundToggle))">COTW</value>
-		<value condition="String.Contains(Skin.String(MusicBackgroundToggle), COTW)">COTW</value>
-		<value condition="String.Contains(Skin.String(MusicBackgroundToggle), FM)">FM</value>
-		<value condition="String.Contains(Skin.String(MusicBackgroundToggle), Background)">Background</value>
+		<value condition="String.Contains(Skin.String(MusicBackgroundToggle),COTW)">COTW</value>
+		<value condition="String.Contains(Skin.String(MusicBackgroundToggle),FM)">FM</value>
+		<value condition="String.Contains(Skin.String(MusicBackgroundToggle),Background)">Background</value>
 	</variable>
-
+	
 	<!-- Games -->
 	<variable name="GameToggle">
 		<value condition="String.IsEmpty(Skin.String(GameToggle))">Switch</value>

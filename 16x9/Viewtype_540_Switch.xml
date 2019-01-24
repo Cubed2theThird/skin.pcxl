@@ -87,10 +87,10 @@
 							</control>
 
 							<control type="image">
-								<top>-40</top>
-								<left>-40</left>
-								<width>478</width>
-								<height>480</height>
+								<top>-20</top>
+								<left>-20</left>
+								<width>440</width>
+								<height>440</height>
 								<aspectratio>stretch</aspectratio>
 								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 							</control>

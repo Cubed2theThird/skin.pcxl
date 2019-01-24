@@ -28,7 +28,7 @@ msgstr ""
 #All labels
 
 msgctxt "#31999"
-msgid "Version 1.5.5.2 Leia Beta"
+msgid "Version 1.5.5.6 Leia Beta"
 
 #Custom_Setup.xml
 msgctxt "#31000"
@@ -82,7 +82,7 @@ msgid "Horizontal Layout"
 #msgid "Vertical Layout"
 
 msgctxt "#31015"
-msgid "Test Layout"
+msgid "Minimalistic Layout"
 
 #"Retroarch/PS3 Layout"
 msgctxt "#31044"
@@ -310,6 +310,12 @@ msgid "Hide last app"
 msgctxt "#31117"
 msgid "Show video info on pause"
 
+msgctxt "#31123"
+msgid "Show PVR"
+
+msgctxt "#31124"
+msgid "Show Icons"
+
 #Settings
 msgctxt "#31042"
 msgid "Reset all"
@@ -475,3 +481,9 @@ msgid "Sidebar"
 
 msgctxt "#31601"
 msgid "Bottombar"
+
+msgctxt "#31750"
+msgid "Half Grid"
+
+msgctxt "#31751"
+msgid "Full Grid"
