@@ -28,7 +28,7 @@ msgstr ""
 #All labels
 
 msgctxt "#31999"
-msgid "Version 1.5.5.6 Leia Beta"
+msgid "Version 1.5.5.7 Leia Beta"
 
 #Custom_Setup.xml
 msgctxt "#31000"
@@ -238,10 +238,6 @@ msgid "Lifted progress bar"
 msgctxt "#31116"
 msgid "Lifted progress bar with duration"
 
-msgctxt "#31094"
-#msgid "Experimental Options"
-msgid "Toggle Views Options"
-
 #Lyrics
 msgctxt "#31119"
 msgid "No lyrics"
@@ -315,6 +311,24 @@ msgid "Show PVR"
 
 msgctxt "#31124"
 msgid "Show Icons"
+
+#Experimental
+msgctxt "#31094"
+msgid "Experimental Options"
+
+msgctxt "#31125"
+msgid "Enable Netflix dashboard (WIP)"
+
+msgctxt "#31126"
+msgid "Enable User 1"
+
+msgctxt "#31127"
+msgid "Netflix Username 1"
+
+msgctxt "#31128"
+msgid "Netflix ID 1"
+
+
 
 #Settings
 msgctxt "#31042"
