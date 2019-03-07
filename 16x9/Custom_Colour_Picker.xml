@@ -58,6 +58,12 @@
 	<onunload condition="String.Contains(Skin.String(MusicBackgroundToggle),FM)">Control.Move(210,-1)</onunload>
 	<onunload condition="String.Contains(Skin.String(MusicBackgroundToggle),Background)">Control.Move(210,-2)</onunload>
 
+	<!--><onload>Skin.SetString(netflixuser1,$INFO[Control.GetLabel(900).index(1)])</onload>
+	<onload>Skin.SetString(netflixID1,$INFO[Control.GetLabel(901).index(1)])</onload><!-->
+	<!-->condition="!String.IsEmpty(Skin.SetString(netflixuser1))" condition="!String.IsEmpty(Skin.SetString(netflixID1))"<!-->
+	<onunload>Skin.SetString(netflixuser1,$INFO[Control.GetLabel(900).index(1)])</onunload>
+	<onunload>Skin.SetString(netflixID1,$INFO[Control.GetLabel(901).index(1)])</onunload>
+
 	<controls>
 		<control type="image">
 			<width>500</width>
@@ -180,9 +186,9 @@
 								<visible>Skin.HasSetting(hiddenoptions) + !Skin.HasSetting(KioskMode)</visible>
 							</item>
 							<item id="7">
-								<label>$LOCALIZE[31090]</label>
+								<label>$LOCALIZE[31094]</label>
 								<onclick>Control.SetFocus(3115)</onclick>
-								<visible>false</visible>
+								<visible>Skin.HasSetting(hiddenoptions)+false</visible>
 							</item>
 							<item id="99">
 								<label>$LOCALIZE[31042]</label>
@@ -1776,6 +1782,89 @@
 								<param name="type">TextColor</param>
 							</include>
 						</content>
+					</control>
+				</control>
+
+				<!-- Experiential Options (7) -->
+				<control type="group">
+					<left>550</left>
+					<height>150%</height>
+					<visible>Container(1).HasFocus(7)</visible>					
+					<animation type="Visible" reversible="false">
+						<effect type="fade" start="0" end="100" time="200"/>
+						<effect type="slide" start="500" end="0,0" time="500" tween="cubic" easing="out"/>
+					</animation>
+					<animation type="Hidden">
+						<effect type="fade" start="100" end="0" time="100"/>
+						<effect type="slide" start="0,0" end="0,150" time="200" tween="cubic" easing="out"/>
+					</animation>
+					<control type="label" id="-">
+						<top>-100</top>
+						<height>70</height>
+						<font>LargeLogo</font>
+						<textcolor>$VAR[UnFocusedColor]</textcolor>
+						<label>$LOCALIZE[31094]</label>
+					</control>
+
+					<control type="grouplist" id="3115">
+						<width>1240</width>
+						<height>80%</height>
+						<itemgap>0</itemgap>
+						<onleft>1</onleft>
+						<onright>noop</onright>
+						<onup>noop</onup>
+						<orientation>vertical</orientation>
+						<usecontrolcoords>true</usecontrolcoords>
+						<scrolltime tween="sine" easing="out">240</scrolltime>
+						<!-- Enable Netflix -->
+						<control type="radiobutton" id="910">
+							<ondown>900</ondown>
+							<width>1200</width>
+							<height>60</height>
+							<textwidth>1120</textwidth>
+							<label>$LOCALIZE[31125]</label>
+							<focusedcolor>$VAR[TextColor]</focusedcolor>
+							<include>DialogButton</include>
+							<onclick>Skin.ToggleSetting(specialnetflixenabled)</onclick>
+							<selected>Skin.HasSetting(specialnetflixenabled)</selected>
+						</control>
+						<!-- Enable User 1 -->
+						<control type="radiobutton" id="911">
+							<ondown>900</ondown>
+							<width>1200</width>
+							<height>60</height>
+							<textwidth>1120</textwidth>
+							<label>$LOCALIZE[31126]</label>
+							<focusedcolor>$VAR[TextColor]</focusedcolor>
+							<include>DialogButton</include>
+							<onclick>Skin.ToggleSetting(netflixuser1enabled)</onclick>
+							<selected>Skin.HasSetting(netflixuser1enabled)</selected>
+							<enable>Skin.HasSetting(specialnetflixenabled)</enable>
+						</control>
+						<!-- User 1 -->
+						<control type="edit" id="900">
+							<width>1200</width>
+							<height>60</height>
+							<textwidth>1120</textwidth>
+							<label>$LOCALIZE[31127]</label>
+							<focusedcolor>$VAR[TextColor]</focusedcolor>
+							<include>DialogButton</include>
+							<hinttext>$INFO[Skin.String(netflixuser1)]</hinttext>
+							<enable>Skin.HasSetting(specialnetflixenabled)+Skin.HasSetting(netflixuser1enabled)</enable>
+							<visible>Skin.HasSetting(specialnetflixenabled)+Skin.HasSetting(netflixuser1enabled)</visible>
+						</control>
+						<!-- User ID 1 -->
+						<control type="edit" id="901">
+							<width>1200</width>
+							<height>60</height>
+							<textwidth>1120</textwidth>
+							<label>$LOCALIZE[31128]</label>
+							<focusedcolor>$VAR[TextColor]</focusedcolor>
+							<include>DialogButton</include>
+							<hinttext>$INFO[Skin.String(netflixID1)]</hinttext>
+							<enable>Skin.HasSetting(specialnetflixenabled)+Skin.HasSetting(netflixuser1enabled)</enable>
+							<visible>Skin.HasSetting(specialnetflixenabled)+Skin.HasSetting(netflixuser1enabled)</visible>
+						</control>
 					</control>
 				</control>
 

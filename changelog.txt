@@ -1,9 +1,13 @@
 # skin.pcxl
 
-### **1.5.5.61**
+### **1.5.5.7**
+- New Experimental Options
+- UI Fixes
+
+#### 1.5.5.61
 - Patch xgui
 
-### **1.5.5.6**
+#### 1.5.5.6
 - New Minimalistic Layout
 - UI Fixes
 

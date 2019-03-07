@@ -78,6 +78,21 @@
 							<right>0</right>
 							<include>WatchedIndicator2</include>
 						</control>
+						<control type="button">
+							<left>-10</left>
+							<bottom>-90</bottom>
+							<width>290</width>
+							<height>70</height>
+							<font>tile</font>
+							<align>center</align>
+							<aligny>top</aligny>
+							<textcolor>$VAR[TextColor]</textcolor>
+							<focusedcolor>$VAR[TextColor]</focusedcolor>
+							<disabledcolor>FF484848</disabledcolor>
+							<texturefocus>view\white_0.png</texturefocus>
+							<wrapmultiline>true</wrapmultiline>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
 					</control>
 				</focusedlayout>
 			</control>

@@ -555,16 +555,6 @@
 										<height>424</height>
 										<texture>color_white.png</texture>
 									</control>
-									<control type="button" id="9999">
-										<left>70</left>
-										<top>40</top>
-										<width>856</width>
-										<height>424</height>
-										<label> </label>
-										<onfocus>SetFocus(9000)</onfocus>
-										<onclick>Fullscreen</onclick>
-										<texturenofocus>color_black.png</texturenofocus>
-									</control>
 									<control type="image">
 										<left>70</left>
 										<top>40</top>
@@ -606,7 +596,7 @@
 										<height>424</height>
 										<aspectratio>scale</aspectratio>
 										<texture>$INFO[MusicPlayer.Cover]</texture>
-										<visible>Player.HasAudio</visible>						
+										<visible>Player.HasAudio</visible>
 									</control>
 									<control type="group">
 										<left>70</left>
@@ -623,7 +613,7 @@
 											<font>Home</font>
 											<texturenofocus colordiffuse="$VAR[DiffuseColor]">common/white.png</texturenofocus>
 											<textcolor>$VAR[TextColor]</textcolor>
-											<visible>Control.HasFocus(9000) + !Player.HasMedia</visible>
+											<visible>[Control.HasFocus(9000)|Control.HasFocus(8997)] + !Player.HasMedia</visible>
 										</control>
 										<control type="button">
 											<top>360</top>
@@ -638,7 +628,7 @@
 											<texturenofocus colordiffuse="$VAR[DiffuseColor]">common/white.png</texturenofocus>
 											<textcolor>$VAR[TextColor]</textcolor>
 											<scroll>true</scroll>
-											<visible>Control.HasFocus(9000) + Player.HasMedia</visible>
+											<visible>[Control.HasFocus(9000)|Control.HasFocus(8997)] + Player.HasMedia</visible>
 										</control>
 									</control>
 									<control type="image">
@@ -647,7 +637,18 @@
 										<width>876</width>
 										<height>444</height>
 										<texture colordiffuse="$VAR[TextColor]" border="11,43,43,11">views/border3.png</texture>
-										<visible>Control.HasFocus(9000)</visible>
+										<visible>Control.HasFocus(9000)|Control.HasFocus(8997)</visible>
+									</control>
+									<control type="button" id="8997">
+										<left>70</left>
+										<top>40</top>
+										<width>856</width>
+										<height>424</height>
+										<label></label>
+										<texturefocus>views/white_0.png</texturefocus>
+										<onclick condition="!Player.HasMedia">ActivateWindow($INFO[Skin.String(snapwindow)])</onclick>
+										<onclick condition="!Player.HasMedia">$INFO[Skin.String(snapwindow)]</onclick>
+										<onclick>Fullscreen</onclick>
 									</control>
 								</control>
 							</control>
@@ -5157,6 +5158,9 @@
 
 		<!--> Vignette <!-->
 		<control type="image">
+			<animation type="WindowOpen">
+				<effect type="fade" start="0" end="100" center="auto" tween="Cubic" easing="inout" time="100"/>
+			</animation>
 			<left>0</left>
 			<width>101%</width>
 			<height>100%</height>
@@ -5361,6 +5365,14 @@
 			<font>Tile</font>
 			<textcolor>$VAR[TextColor]</textcolor>
 			<visible>[Player.HasMedia]</visible>
+			<animation type="WindowOpen">
+				<effect type="slide" start="0,320" end="0,0" center="auto" tween="Cubic" easing="inout" time="200"/>
+				<effect type="fade" start="0" end="100" center="auto" tween="Cubic" easing="inout" time="100"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="0,320" center="auto" tween="Cubic" easing="in" time="200"/>
+				<effect type="fade" start="100" end="0" center="auto" tween="Cubic" easing="inout" time="100"/>
+			</animation>
 		</control>
 
 		<!--><control type="list" id="9001">

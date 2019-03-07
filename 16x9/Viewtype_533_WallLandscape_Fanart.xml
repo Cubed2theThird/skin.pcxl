@@ -35,19 +35,8 @@
 							<texture>$INFO[ListItem.Art(fanart)]</texture>
 						</control>
 						<control type="group">
-							<right>10</right>
+							<right>0</right>
 							<include>WatchedIndicator</include>
-						</control>
-						<control type="label">
-							<left>15</left>
-							<bottom>25</bottom>
-							<width>440</width>
-							<height>30</height>
-							<font>tile</font>
-							<align>left</align>
-							<textcolor>$VAR[TextColor]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
-							<visible>Skin.HasSetting(showlandLabels)</visible>
 						</control>
 						<control type="image">
 							<width>460</width>
@@ -55,7 +44,7 @@
 							<texture colordiffuse="$VAR[DiffuseColor]">views/white_100.png</texture>
 						</control>
 					</itemlayout>
-					<focusedlayout height="300" width="460">
+					<focusedlayout height="320" width="460">
 						<control type="group">
 							<animation center="auto" condition="Control.HasFocus(533)" easing="inout" effect="zoom" end="105" start="100" time="300" tween="sine">Focus</animation>
 							<control type="image">
@@ -73,24 +62,22 @@
 								<texture>$INFO[ListItem.Art(fanart)]</texture>
 							</control>
 							<control type="group">
-								<right>10</right>
+								<right>0</right>
 								<include>WatchedIndicator</include>
 							</control>
 							<control type="button">
-								<bottom>0</bottom>
-								<width>460</width>
+								<bottom>-50</bottom>
+								<width>470</width>
 								<height>70</height>
 								<font>tile</font>
-								<align>left</align>
+								<align>center</align>
+								<aligny>top</aligny>
 								<textcolor>$VAR[TextColor]</textcolor>
 								<focusedcolor>$VAR[TextColor]</focusedcolor>
 								<disabledcolor>FF484848</disabledcolor>
-								<texturefocus colordiffuse="$VAR[SecondaryColor]">color_white.png</texturefocus>
-								<textoffsetx>15</textoffsetx>
-								<textoffsety>75</textoffsety>
+								<texturefocus>view\white_0.png</texturefocus>
 								<wrapmultiline>true</wrapmultiline>
 								<label>$INFO[ListItem.Label]</label>
-								<visible>Skin.HasSetting(showlandLabels)</visible>
 							</control>
 						</control>
 					</focusedlayout>

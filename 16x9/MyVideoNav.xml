@@ -191,23 +191,6 @@
 				</item>
 				<!-- Sort -->
 				<item>
-					<onclick>Container.NextViewMode</onclick>
-					<label>‹ $LOCALIZE[31118] ›</label>
-					<label2>$LOCALIZE[31118]</label2>
-					<property name="ActionLeft">Skin.ToggleSetting(showlandLabels)</property>
-					<property name="ActionRight">Skin.ToggleSetting(showlandLabels)</property>
-					<visible>[Control.IsVisible(533)|Control.IsVisible(532)] + Skin.HasSetting(showlandLabels)</visible>
-				</item>
-				<item>
-					<onclick>Container.NextViewMode</onclick>
-					<label>‹ $LOCALIZE[31088] ›</label>
-					<label2>$LOCALIZE[31088]</label2>
-					<property name="ActionLeft">Skin.ToggleSetting(showlandLabels)</property>
-					<property name="ActionRight">Skin.ToggleSetting(showlandLabels)</property>
-					<visible>[Control.IsVisible(533)|Control.IsVisible(532)] + !Skin.HasSetting(showlandLabels)</visible>
-				</item>
-				<!-- Sort -->
-				<item>
 					<onclick>Container.NextSortMethod</onclick>
 					<label>‹ $LOCALIZE[551] ›</label>
 					<label2>$LOCALIZE[551]</label2>

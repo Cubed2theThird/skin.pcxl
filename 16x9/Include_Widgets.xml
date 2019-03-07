@@ -3784,8 +3784,8 @@
 				<visible>!String.IsEmpty(Container(9000).ListItemNoWrap(0).Property(widgetPath)) + String.Contains(Container(9000).ListItemNoWrap(0).Property(widgetLayout),Square)</visible>
 				<height>330</height>
 				<left>0</left>
+				<top>80</top>
 				<control type="fixedlist" id="$PARAM[listid]">
-					<top>10</top>
 					<width>100%</width>
 					<onup>$PARAM[upid]</onup>
 					<ondown>$PARAM[downid]</ondown>
