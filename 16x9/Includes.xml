@@ -880,14 +880,14 @@
 			<thumb>home/apps/netflix.png</thumb>
 			<visible>System.HasAddon(plugin.video.netflix) + Container(9000).HasFocus(91)</visible>
 		</item>
-		<item>
+		<!--><item>
 			<label>Xfinity</label>
 			<onclick>Skin.SetString(gotoapp,xfinity)</onclick>
 			<onclick>ActivateWindow(1200)</onclick>
 			<icon>home/apps/thumb/xfinity.png</icon>
 			<thumb>home/apps/xfinity.png</thumb>
 			<visible>Container(9000).HasFocus(91)</visible>
-		</item>
+		</item><!-->
 		<item>
 			<label>Youtube</label>
 			<onclick>ActivateWindow(1110)</onclick>
@@ -1039,13 +1039,13 @@
 			<thumb>home/apps/youtube.png</thumb>
 			<visible>System.HasAddon(plugin.video.youtube)</visible>
 		</item>
-		<item>
+		<!--><item>
 			<label>Xfinity</label>
 			<onclick>Skin.SetString(gotoapp,xfinity)</onclick>
 			<onclick>ActivateWindow(1200)</onclick>
 			<icon>home/apps/thumb/xfinity.png</icon>
 			<thumb>home/apps/xfinity.png</thumb>
-		</item>
+		</item><!-->
 		<item>
 			<label>Twitch</label>
 			<onclick>ActivateWindow(1111)</onclick>
