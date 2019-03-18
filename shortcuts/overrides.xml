@@ -9,8 +9,10 @@
 	<saveWithProperty>widgetTarget</saveWithProperty>
 	<widgetRename>False</widgetRename>
 
+
 	<!-- Default Widgets -->
 	<propertyfallback property="path" attribute="path" value="">noop</propertyfallback>
+	<groupoverride group="apps" condition="true">Dialog.Close(all,true)</groupoverride>
 
     <!-- Movies -->
     <widgetdefaultnode labelID="movies" label="342" path="videodb://movies/titles/" target="videos">Movies</widgetdefaultnode>
