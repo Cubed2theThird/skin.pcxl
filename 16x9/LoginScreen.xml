@@ -5,116 +5,95 @@
 	<defaultcontrol always="true">52</defaultcontrol>
 	<controls>
 
-
-		
-		
+		<control type="image">
+			<width>100%</width>
+			<height>100%</height>
+			<aspectratio>scale</aspectratio>
+			<texture>special://skin/extras/wallpapers/Logo 1.png</texture>
+		</control>
 
 		<!-- Main group -->
 		<control type="group">
 			<include>WindowFadeAnimation</include>
 
-			<!-- Image
-			<control type="image">
-				<left>120</left>
-				<top>225</top>
-				<width>405</width>
-				<height>666</height>
-				<texture>$INFO[ListItem.Icon]</texture>
-				<aspectratio aligny="center">keep</aspectratio>
-				<bordertexture border="1,1,1,69">views/DropShadow.png</bordertexture>
-				<bordersize>0,0,0,66</bordersize>
-				<visible>!SubString(ListItem.Icon,unknown-user)</visible>
-			</control>
-			<control type="image">
-				<left>120</left>
-				<top>225</top>
-				<width>405</width>
-				<height>600</height>
-				<texture colordiffuse="00ffffff">$INFO[ListItem.Icon]</texture>
-				<aspectratio aligny="center">keep</aspectratio>
-				<bordertexture border="21,21,21,150">views/OverlayEffect.png</bordertexture>
-				<visible>!SubString(ListItem.Icon,unknown-user) + Skin.HasSetting(Overlays)</visible>
-			</control>
-			<control type="image">
-				<left>120</left>
-				<top>225</top>
-				<width>405</width>
-				<height>600</height>
-				<texture>DefaultActor.png</texture>
-				<colordiffuse>$VAR[UnFocusedColor]</colordiffuse>
-				<aspectratio aligny="center">keep</aspectratio>
-				<visible>SubString(ListItem.Icon,unknown-user)</visible>
-			</control> -->
-
 			<!-- View -->
 			<control type="list" id="52">
 				<centertop>50%</centertop>
 				<centerleft>50%</centerleft>
-				<width>50%</width>
-				<height>500</height>
+				<width>1000</width>
+				<height>50%</height>
 				<onup>52</onup>
 				<ondown>52</ondown>
 				<onleft>noop</onleft>
 				<onright>noop</onright>
 				<focusposition>3</focusposition>
-				<orientation>horizontal</orientation>
 				<viewtype label="535">list</viewtype>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<animation effect="slide" start="0,1000" end="0" time="1000" tween="sine" easing="inout">WindowOpen</animation>
-				<itemlayout width="410" height="460">
+				<itemlayout width="1000" height="210">
 					<control type="image">
-						<width>405</width>
-						<height>405</height>
+						<height>200</height>
+						<texture colordiffuse="$VAR[MaterialColor]" border="49">views/circle.png</texture>
+					</control>
+					<control type="image">
+						<width>200</width>
+						<height>200</height>
 						<colordiffuse>$VAR[FocusedColor]</colordiffuse>
 						<texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
 					</control>
 					<control type="label">
-						<bottom>0</bottom>
-						<width>405</width>
-						<height>20</height>
-						<align>center</align>
-						<font>tile</font>
+						<left>230</left>
+						<width>500</width>
+						<height>180</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>Reg35</font>
 						<label>$INFO[ListItem.Label]</label>
 						<textcolor>$VAR[UnFocusedColor]</textcolor>
 					</control>
 					<control type="label">
-						<bottom>-20</bottom>
-						<width>405</width>
-						<height>10</height>
-						<align>center</align>
+						<left>230</left>
+						<top>10</top>
+						<width>500</width>
+						<height>220</height>
+						<align>left</align>
+						<aligny>center</aligny>
 						<font>tile</font>
 						<label>$INFO[ListItem.Label2]</label>
 						<textcolor>$VAR[UnFocusedColor]</textcolor>
 					</control>
 				</itemlayout>
-				<focusedlayout width="410" height="460">
+				<focusedlayout width="1000" height="210">
 					<control type="image">
-						<width>405</width>
-						<height>405</height>
+						<height>200</height>
+						<texture colordiffuse="$VAR[SecondaryColor]" border="49">views/circle.png</texture>
+					</control>
+					<control type="image">
+						<width>200</width>
+						<height>200</height>
 						<colordiffuse>$VAR[FocusedColor]</colordiffuse>
 						<texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
 					</control>
 					<control type="label">
-						<bottom>0</bottom>
-						<width>405</width>
-						<height>20</height>
-						<align>center</align>
-						<font>tile</font>
+						<left>230</left>
+						<width>500</width>
+						<height>180</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>Reg35</font>
 						<label>$INFO[ListItem.Label]</label>
 						<textcolor>$VAR[FocusedColor]</textcolor>
-						<shadowcolor>ShadowColor</shadowcolor>
-						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(52)">Conditional</animation>
 					</control>
 					<control type="label">
-						<bottom>-20</bottom>
-						<width>405</width>
-						<height>10</height>
-						<align>center</align>
+						<left>230</left>
+						<top>10</top>
+						<width>500</width>
+						<height>220</height>
+						<align>left</align>
+						<aligny>center</aligny>
 						<font>tile</font>
 						<label>$INFO[ListItem.Label2]</label>
 						<textcolor>$VAR[UnFocusedColor]</textcolor>
-						<shadowcolor>ShadowColor</shadowcolor>
-						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(52)">Conditional</animation>
 					</control>
 				</focusedlayout>
 			</control>

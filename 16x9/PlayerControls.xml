@@ -3,7 +3,6 @@
 	<!-- playercontrols -->
 	<defaultcontrol always="true">1</defaultcontrol>
 	<onload condition="Window.IsActive(9085)">Dialog.Close(all,true)</onload>
-	<onload>AlarmClock(SetFocus,SetFocus(1),00:01,silent)</onload>
 	<controls>
 
 		<control type="image">
@@ -11,394 +10,395 @@
 			<texture colordiffuse="$VAR[BackgroundColor]">views/white_50.png</texture>
 		</control>
 
+		<control type="label">
+			<top>50</top>
+			<centerleft>50%</centerleft>
+			<width>1000</width>
+			<height>60</height>
+			<font>LargeLogoBold</font>
+			<align>center</align>
+			<textcolor>$VAR[TextColor]</textcolor>
+			<label>$INFO[System.Time(hh:mm)]</label>
+		</control>
+		<control type="label">
+			<top>100</top>
+			<centerleft>50%</centerleft>
+			<width>1000</width>
+			<height>60</height>
+			<font>Large</font>
+			<align>center</align>
+			<textcolor>$VAR[UnFocusedColor2]</textcolor>
+			<label>$INFO[System.Date]</label>
+		</control>
+		<control type="label">
+			<bottom>50</bottom>
+			<centerleft>50%</centerleft>
+			<width>100%</width>
+			<height>60</height>
+			<font>LargeLogo</font>
+			<align>center</align>
+			<textcolor>$VAR[TextColor]</textcolor>
+			<label>$INFO[MusicPlayer.Artist,, - ]$INFO[MusicPlayer.Title]</label>
+		</control>
+
+
+		<!--> Options <!-->
 		<control type="group">
-			<top>5</top>
-			<control type="group">
-				<visible>Container(1).HasFocus(1)</visible>
-				<animation type="visible">
-					<effect type="slide" start="0,-80" end="0" tween="Cubic" easing="out" time="200"/>
-				</animation>
+			<animation type="WindowClose">
+				<effect type="fade" start="100" end="0" tween="Cubic" easing="inout" time="400"/>
+			</animation>
+			<!--> Apps <!-->
+			<control type="fixedlist" id="2">
+				<centertop>50%</centertop>
+				<width>100%</width>
+				<height>200</height>
+				<ondown>1</ondown>
+				<focusposition>0</focusposition>
+				<movement>4</movement>
+				<orientation>horizontal</orientation>
 				<animation type="WindowOpen">
-					<effect type="slide" start="0,-80" end="0" delay="900" tween="Cubic" easing="out" time="200"/>
+					<effect type="slide" start="0,-100" end="0" tween="Cubic" easing="out" time="500"/>
+					<effect type="fade" start="0" end="100" tween="Cubic" easing="inout" time="400"/>
 				</animation>
-				<control type="image">
-					<left>50</left>
-					<top>100</top>
-					<width>500</width>
-					<height>340</height>
-					<texture colordiffuse="$VAR[BackgroundColor]" border="9">views/Card_bg_white.png</texture>
-				</control>
-
-				<control type="list" id="2">
-					<description>Control Area</description>
-					<left>50</left>
-					<top>100</top>
-					<width>500</width>
-					<height>350</height>
-					<onup>1</onup>
-					<onleft>Control.Move(1,-1)</onleft>
-					<onright>Control.Move(1,1)</onright>
-					<onleft>1</onleft>
-					<onright>1</onright>
-					<scrolltime tween="cubic" easing="out">500</scrolltime>
-					<orientation>vertical</orientation>
-					<itemlayout width="500" height="80">
-						<control type="label">
-							<left>40</left>
-							<height>100</height>
-							<font>Font-Condensed-S30-B</font>
-							<align>left</align>
-							<textcolor>$VAR[UnFocusedColor]</textcolor>
-							<label>$INFO[ListItem.Label]</label> 
-						</control>
-					</itemlayout>
-					<focusedlayout width="500" height="80">
+				<animation type="Conditional" condition="!Control.HasFocus(2)">
+					<effect type="slide" start="0" end="0,-200" tween="Cubic" easing="inout" time="300"/>
+					<effect type="zoom" start="100" end="50" center="auto" tween="Cubic" easing="inout" time="300"/>
+				</animation>
+				<animation type="Conditional" condition="Control.HasFocus(3)">
+					<effect type="slide" start="0" end="0,-200" tween="Cubic" easing="inout" time="300"/>
+				</animation>
+				<itemlayout width="200" height="200">
+					<control type="group">
+						<left>100</left>
 						<control type="image">
-							<height>100</height>
-							<texture colordiffuse="$VAR[SecondaryColor]" border="9">views/Card_bg_white.png</texture>
-							<visible>Control.HasFocus(2)</visible>
-						</control>
-						<control type="label">
-							<left>40</left>
-							<height>100</height>
-							<font>Font-Condensed-S30-B</font>
-							<align>left</align>
-							<textcolor>$VAR[UnFocusedColor]</textcolor>
-							<label>$INFO[ListItem.Label]</label> 
-							<visible>!Control.HasFocus(2)</visible>
-						</control>
-						<control type="label">
-							<left>40</left>
-							<height>100</height>
-							<font>Font-Condensed-S30-B</font>
-							<align>left</align>
-							<textcolor>$VAR[TextColor]</textcolor>
-							<label>$INFO[ListItem.Label]</label> 
-							<visible>Control.HasFocus(2)</visible>
-						</control>
-					</focusedlayout>
-					<content>
-						<item>
-							<label>$LOCALIZE[31058] $INFO[Skin.String(snapname)]</label>
-							<onclick>Dialog.Close(all,true)</onclick>
-							<onclick>ActivateWindow($INFO[Skin.String(snapwindow)])</onclick>
-							<onclick>$INFO[Skin.String(snapwindow)]</onclick>
-							<thumb>dialogs/charms/charm_home.png</thumb>
-						</item>
-						<item>
-							<label>$LOCALIZE[3]</label>
-							<onclick>Dialog.Close(all,true)</onclick>
-							<onclick>ActivateWindow(1109)</onclick>
-							<thumb>home/tv.png</thumb>
-						</item>
-						<item>
-							<label>$LOCALIZE[2]</label>
-							<onclick>Dialog.Close(all,true)</onclick>
-							<onclick>ActivateWindow(1108)</onclick>
-							<thumb>home/music.png</thumb>
-						</item>
-						<item>
-							<label>$LOCALIZE[5]</label>
-							<onclick>Dialog.Close(all,true)</onclick>
-							<onclick>ActivateWindow(Settings)</onclick>
-						</item>
-					</content>
-				</control>
-			</control>
-
-			<control type="group">
-				<visible>Container(1).HasFocus(2)</visible>
-				<animation type="visible">
-					<effect type="slide" start="0,-80" end="0" tween="Cubic" easing="out" time="200"/>
-				</animation>
-				<animation type="WindowOpen">
-					<effect type="slide" start="0,-80" end="0" delay="900" tween="Cubic" easing="out" time="200"/>
-				</animation>
-				<control type="image">
-					<left>260</left>
-					<top>100</top>
-					<width>500</width>
-					<height>420</height>
-					<texture colordiffuse="$VAR[BackgroundColor]" border="9">views/Card_bg_white.png</texture>
-				</control>
-
-				<control type="list" id="4">
-					<description>Control Area</description>
-					<left>260</left>
-					<top>100</top>
-					<width>500</width>
-					<height>420</height>
-					<onup>1</onup>
-					<onleft>Control.Move(1,-1)</onleft>
-					<onright>Control.Move(1,1)</onright>
-					<onleft>1</onleft>
-					<onright>1</onright>
-					<scrolltime tween="cubic" easing="out">500</scrolltime>
-					<orientation>vertical</orientation>
-					<itemlayout width="500" height="80">
-						<control type="label">
-							<left>40</left>
-							<height>100</height>
-							<font>Font-Condensed-S30-B</font>
-							<align>left</align>
-							<textcolor>$VAR[UnFocusedColor]</textcolor>
-							<label>$INFO[ListItem.Label]</label> 
-						</control>
-					</itemlayout>
-					<focusedlayout width="500" height="80">
-						<control type="image">
-							<height>100</height>
-							<texture colordiffuse="$VAR[SecondaryColor]" border="9">views/Card_bg_white.png</texture>
-							<visible>Control.HasFocus(4)</visible>
-						</control>
-						<control type="label">
-							<left>40</left>
-							<height>100</height>
-							<font>Font-Condensed-S30-B</font>
-							<align>left</align>
-							<textcolor>$VAR[UnFocusedColor]</textcolor>
-							<label>$INFO[ListItem.Label]</label> 
-							<visible>!Control.HasFocus(4)</visible>
-						</control>
-						<control type="label">
-							<left>40</left>
-							<height>100</height>
-							<font>Font-Condensed-S30-B</font>
-							<align>left</align>
-							<textcolor>$VAR[TextColor]</textcolor>
-							<label>$INFO[ListItem.Label]</label> 
-							<visible>Control.HasFocus(4)</visible>
-						</control>
-					</focusedlayout>
-					<content>
-						<item>
-							<label>$LOCALIZE[559]</label>
-							<onclick>Dialog.Close(all,true)</onclick>
-							<onclick>ActivateWindow(musicplaylist)</onclick>
-							<visible>[Player.HasAudio]</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[559]</label>
-							<onclick>Dialog.Close(all,true)</onclick>
-							<onclick>ActivateWindow(videoplaylist)</onclick>
-							<visible>[Player.HasVideo + !Player.HasGame]</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[31059]</label>
-							<onclick>PlayerControl(Play)</onclick>
-						</item>
-						<item>
-							<label>$LOCALIZE[209]</label>
-							<onclick>PlayerControl(Next)</onclick>
-						</item>
-						<item>
-							<label>$LOCALIZE[210]</label>
-							<onclick>PlayerControl(Previous)</onclick>
-						</item>
-						<item>
-							<label>$LOCALIZE[31060]</label>
-							<onclick>PlayerControl(Stop)</onclick>
-							<onclick>SetFocus(1)</onclick>
-						</item>
-					</content>
-				</control>
-			</control>
-
-			<control type="group">
-				<visible>Container(1).HasFocus(3) + !Skin.HasSetting(oldshutdownmenu)</visible>
-				<animation type="Visible">
-					<effect type="slide" start="0,-80" end="0" tween="Cubic" easing="out" time="200"/>
-				</animation>
-				<animation type="Conditional" condition="Player.HasMedia">
-					<effect type="slide" start="0" end="210" time="0"/>
-				</animation>
-				<animation type="WindowOpen">
-					<effect type="slide" start="0,-80" end="0" delay="900" tween="Cubic" easing="out" time="200"/>
-				</animation>
-				<control type="image">
-					<left>260</left>
-					<top>100</top>
-					<width>500</width>
-					<height>340</height>
-					<texture colordiffuse="$VAR[BackgroundColor]" border="9">views/Card_bg_white.png</texture>
-				</control>
-				<control type="list" id="6">
-					<left>260</left>
-					<top>100</top>
-					<width>500</width>
-					<height>350</height>
-					<onup>1</onup>
-					<onleft>Control.Move(1,-1)</onleft>
-					<onright>Control.Move(1,1)</onright>
-					<onleft>1</onleft>
-					<onright>1</onright>
-					<orientation>vertical</orientation>
-					<itemlayout width="500" height="80">
-						<control type="label">
-							<left>40</left>
-							<height>100</height>
-							<font>Font-Condensed-S30-B</font>
-							<align>left</align>
-							<textcolor>$VAR[UnFocusedColor]</textcolor>
-							<label>$INFO[ListItem.Label]</label> 
-						</control>
-					</itemlayout>
-					<focusedlayout width="500" height="80">
-						<control type="image">
-							<height>100</height>
-							<texture colordiffuse="$VAR[SecondaryColor]" border="9">views/Card_bg_white.png</texture>
-							<visible>Control.HasFocus(6)</visible>
-						</control>
-						<control type="label">
-							<left>40</left>
-							<height>100</height>
-							<font>Font-Condensed-S30-B</font>
-							<align>left</align>
-							<textcolor>$VAR[UnFocusedColor]</textcolor>
-							<label>$INFO[ListItem.Label]</label> 
-							<visible>!Control.HasFocus(6)</visible>
-						</control>
-						<control type="label">
-							<left>40</left>
-							<height>100</height>
-							<font>Font-Condensed-S30-B</font>
-							<align>left</align>
-							<textcolor>$VAR[TextColor]</textcolor>
-							<label>$INFO[ListItem.Label]</label> 
-							<visible>Control.HasFocus(6)</visible>
-						</control>
-					</focusedlayout>
-					<content>
-						<item>
-							<label>$LOCALIZE[13012]</label>
-							<onclick>Dialog.Close(all,true)</onclick>
-							<onclick>XBMC.Quit()</onclick>
-						</item>
-						<item>
-							<label>$LOCALIZE[13016]</label>
-							<onclick>Dialog.Close(all,true)</onclick>
-							<onclick>XBMC.Powerdown()</onclick>
-							<visible>System.CanPowerDown</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[13011]</label>
-							<onclick>Dialog.Close(all,true)</onclick>
-							<onclick>XBMC.Suspend()</onclick>
-							<visible>System.CanSuspend</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[13010]</label>
-							<onclick>Dialog.Close(all,true)</onclick>
-							<onclick>XBMC.Hibernate()</onclick>
-							<visible>System.CanHibernate</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[20183]</label>
-							<onclick>Dialog.Close(all,true)</onclick>
-							<onclick>XBMC.ReloadSkin()</onclick>
-						</item>
-					</content>
-				</control>
-			</control>
-
-			<control type="group">
-				<animation type="WindowOpen">
-					<effect type="slide" start="2000" end="0,0" center="100" tween="Cubic" easing="inout" time="1000"/>
-				</animation>
-				<control type="image">
-					<left>50</left>
-					<top>15</top>
-					<width>95%</width>
-					<height>100</height>
-					<texture colordiffuse="$VAR[BackgroundColor]" border="9">views/Card_bg_white.png</texture>
-				</control>
-
-				<control type="list" id="1">
-					<left>50</left>
-					<top>15</top>
-					<width>800</width>
-					<height>100</height>
-					<scrolltime>0</scrolltime>
-					<viewtype>list</viewtype>
-					<ondown condition="Container(1).HasFocus(1)">Control.SetFocus(2,0)</ondown>
-					<ondown condition="Container(1).HasFocus(2)">Control.SetFocus(4,0)</ondown>
-					<ondown condition="Container(1).HasFocus(3)">Control.SetFocus(6,0)</ondown>
-					<defaultcontrol>1</defaultcontrol>
-					<orientation>horizontal</orientation>
-					<animation type="WindowOpen">
-						<effect type="fade" start="0" end="100" delay="300" tween="Cubic" easing="inout" time="500"/>
-					</animation>	
-					<itemlayout width="210" height="100">
-						<control type="image">
-							<width>80</width>
-							<height>100</height>
-							<texture colordiffuse="$VAR[White]">$INFO[ListItem.Icon]</texture>
-							<aspectratio>keep</aspectratio>
-						</control>
-						<control type="label">
-							<left>90</left>
 							<width>200</width>
-							<height>100</height>
-							<font>Tile</font>
-							<align>left</align>
-							<textcolor>$VAR[White]</textcolor>
-							<label>$INFO[ListItem.Label]</label> 
-						</control>
-					</itemlayout>
-					<focusedlayout width="210" height="100">
-						<control type="image">
-							<width>210</width>
-							<height>100</height>
-							<animation type="Focus">
-								<effect type="zoom" center="auto" start="90" end="100" time="200" tween="cubic" easing="inout"/>
-								<effect type="fade" center="auto" start="0" end="200" time="200" tween="cubic" easing="inout"/>
-							</animation>
-							<texture colordiffuse="$VAR[SecondaryColor]" border="9">views/Card_bg_white.png</texture>
+							<height>200</height>
+							<texture colordiffuse="$VAR[MaterialColor]" border="49">views/circle.png</texture>
 						</control>
 						<control type="image">
-							<width>80</width>
-							<height>100</height>
+							<width>200</width>
+							<height>200</height>
+							<texture colordiffuse="$VAR[FocusedColor]">$INFO[ListItem.Icon]</texture>
+							<aspectratio>scale</aspectratio>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout width="200" height="200" condition="!Control.HasFocus(2)">
+					<control type="group">
+						<left>100</left>
+						<control type="image">
+							<width>200</width>
+							<height>200</height>
+							<texture colordiffuse="$VAR[MaterialColor]" border="49">views/circle.png</texture>
+						</control>
+						<control type="image">
+							<width>200</width>
+							<height>200</height>
+							<texture colordiffuse="$VAR[FocusedColor]">$INFO[ListItem.Icon]</texture>
+							<aspectratio>scale</aspectratio>
+						</control>
+					</control>
+				</focusedlayout>
+				<focusedlayout width="600" height="200" condition="Control.HasFocus(2)">
+					<control type="group">
+						<left>100</left>
+						<control type="image">
+							<width>600</width>
+							<height>200</height>
+							<texture colordiffuse="$VAR[SecondaryColor]" border="49">views/circle.png</texture>
+						</control>
+						<control type="image">
+							<width>200</width>
+							<height>200</height>
+							<aspectratio>scale</aspectratio>
 							<texture>$INFO[ListItem.Icon]</texture>
-							<aspectratio>keep</aspectratio>
 						</control>
 						<control type="label">
-							<left>90</left>
-							<width>200</width>
-							<height>100</height>
-							<font>Tile</font>
+							<left>210</left>
+							<width>550</width>
+							<height>200</height>
+							<font>Reg35</font>
 							<align>left</align>
 							<textcolor>$VAR[TextColor]</textcolor>
-							<label>$INFO[ListItem.Label]</label> 
+							<label>$INFO[ListItem.Label]</label>
 						</control>
-					</focusedlayout>
-					<content>
-						<item id="1">
-							<label>$LOCALIZE[10000]</label>
-							<onclick>Dialog.Close(all,true)</onclick>
-							<onclick>ActivateWindow(Home)</onclick>
-							<thumb>dialogs/charms/charm_home.png</thumb>
-						</item>
-						<item id="2">
-							<label>$LOCALIZE[35232]</label>
-							<thumb>dialogs/charms/charm_video.png</thumb>
-							<visible>Player.HasMedia</visible>
-							<onclick>Dialog.Close(all,true)</onclick>
-							<onclick>Fullscreen</onclick>
-						</item>
-						<item id="3">
-							<label>$LOCALIZE[33060]</label>
-							<thumb>dialogs/charms/charm_shutdown.png</thumb>
-							<visible>!Skin.HasSetting(oldshutdownmenu)</visible>
-						</item>
-						<item id="3">
-							<label>$LOCALIZE[33060]</label>
-							<thumb>dialogs/charms/charm_shutdown.png</thumb>
-							<onclick>Dialog.Close(all,true)</onclick>
-							<onclick>ActivateWindow(shutdownmenu)</onclick>
-							<visible>Skin.HasSetting(oldshutdownmenu)</visible>
-						</item>
-					</content>
-				</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<item>
+						<label>$LOCALIZE[31058] $INFO[Skin.String(snapname)]</label>
+						<onclick>Dialog.Close(all,true)</onclick>
+						<onclick>ActivateWindow($INFO[Skin.String(snapwindow)])</onclick>
+						<onclick>$INFO[Skin.String(snapwindow)]</onclick>
+						<thumb>dialogs/charms/charm_home.png</thumb>
+					</item>
+					<include>skinshortcuts-group-apps</include>
+				</content>
+			</control>
+
+			<!--> Power <!-->
+			<control type="fixedlist" id="1">
+				<centertop>50%</centertop>
+				<width>100%</width>
+				<height>200</height>
+				<onup>2</onup>
+				<ondown>3</ondown>
+				<focusposition>0</focusposition>
+				<movement>4</movement>
+				<orientation>horizontal</orientation>
+				<animation type="WindowOpen">
+					<effect type="slide" start="3000" end="0" tween="Cubic" easing="out" time="500"/>
+					<effect type="fade" start="0" end="100" tween="Cubic" easing="inout" time="400"/>
+				</animation>
+				<animation type="Conditional" condition="Control.HasFocus(2)">
+					<effect type="slide" start="0" end="0,200" tween="Cubic" easing="inout" time="300"/>
+					<effect type="zoom" start="100" end="50" center="auto" tween="Cubic" easing="inout" time="300"/>
+				</animation>
+				<animation type="Conditional" condition="Control.HasFocus(3)">
+					<effect type="slide" start="0" end="0,-200" tween="Cubic" easing="inout" time="300"/>
+					<effect type="zoom" start="100" end="50" center="auto" tween="Cubic" easing="inout" time="300"/>
+				</animation>
+				<itemlayout width="200" height="200">
+					<control type="group">
+						<left>100</left>
+						<control type="image">
+							<width>200</width>
+							<height>200</height>
+							<texture colordiffuse="$VAR[MaterialColor]" border="49">views/circle.png</texture>
+						</control>
+						<control type="image">
+							<width>200</width>
+							<height>200</height>
+							<texture colordiffuse="$VAR[FocusedColor]">$INFO[ListItem.Icon]</texture>
+							<aspectratio>scale</aspectratio>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout width="200" height="200" condition="!Control.HasFocus(1)">
+					<control type="group">
+						<left>100</left>
+						<control type="image">
+							<width>200</width>
+							<height>200</height>
+							<texture colordiffuse="$VAR[MaterialColor]" border="49">views/circle.png</texture>
+						</control>
+						<control type="image">
+							<width>200</width>
+							<height>200</height>
+							<texture colordiffuse="$VAR[FocusedColor]">$INFO[ListItem.Icon]</texture>
+							<aspectratio>scale</aspectratio>
+						</control>
+					</control>
+				</focusedlayout>
+				<focusedlayout width="600" height="200" condition="Control.HasFocus(1)">
+					<control type="group">
+						<left>100</left>
+						<control type="image">
+							<width>600</width>
+							<height>200</height>
+							<texture colordiffuse="$VAR[SecondaryColor]" border="49">views/circle.png</texture>
+						</control>
+						<control type="image">
+							<width>200</width>
+							<height>200</height>
+							<aspectratio>scale</aspectratio>
+							<texture>$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="label">
+							<left>210</left>
+							<width>550</width>
+							<height>200</height>
+							<font>Reg35</font>
+							<align>left</align>
+							<textcolor>$VAR[TextColor]</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<label>$LOCALIZE[10000]</label>
+						<onclick>Dialog.Close(all,true)</onclick>
+						<onclick>ActivateWindow(Home)</onclick>
+						<thumb>dialogs/charms/charm_home.png</thumb>
+					</item>
+					<item>
+						<label>$LOCALIZE[20126] $INFO[system.profilename]</label>
+						<onclick>Dialog.Close(all,true)</onclick>
+						<onclick>System.LogOff</onclick>
+						<visible>[System.HasLoginScreen + Integer.IsGreater(System.ProfileCount,1)] + System.Loggedon</visible>
+						<thumb>settings/shutdown/lock.png</thumb>
+					</item>
+					<item>
+						<label>$LOCALIZE[13012]</label>
+						<onclick>Dialog.Close(all,true)</onclick>
+						<onclick>XBMC.Quit()</onclick>
+						<thumb>settings/shutdown/close.png</thumb>
+					</item>
+					<item>
+						<label>$LOCALIZE[13016]</label>
+						<onclick>Dialog.Close(all,true)</onclick>
+						<onclick>XBMC.Powerdown()</onclick>
+						<visible>System.CanPowerDown</visible>
+						<thumb>settings/shutdown/power.png</thumb>
+					</item>
+					<item>
+						<label>$LOCALIZE[13013]</label>
+						<onclick>Dialog.Close(all,true)</onclick>
+						<onclick>XBMC.Reset()</onclick>
+						<visible>System.CanReboot</visible>
+						<thumb>settings/shutdown/restart.png</thumb>
+					</item>
+					<item>
+						<label>$LOCALIZE[13011]</label>
+						<onclick>Dialog.Close(all,true)</onclick>
+						<onclick>XBMC.Suspend()</onclick>
+						<visible>System.CanSuspend</visible>
+						<thumb>settings/shutdown/sleep.png</thumb>
+					</item>
+					<item>
+						<label>$LOCALIZE[13010]</label>
+						<onclick>Dialog.Close(all,true)</onclick>
+						<onclick>XBMC.Hibernate()</onclick>
+						<visible>System.CanHibernate</visible>
+						<thumb>settings/shutdown/hibernate.png</thumb>
+					</item>
+					<item>
+						<label>$LOCALIZE[20183]</label>
+						<onclick>Dialog.Close(all,true)</onclick>
+						<onclick>XBMC.ReloadSkin()</onclick>
+						<thumb>settings/shutdown/debug.png</thumb>
+					</item>
+				</content>
+			</control>
+
+			<!--> Fullscreen <!-->
+			<control type="fixedlist" id="3">
+				<centertop>50%</centertop>
+				<width>100%</width>
+				<height>200</height>
+				<onup>1</onup>
+				<focusposition>0</focusposition>
+				<movement>4</movement>
+				<orientation>horizontal</orientation>
+				<visible>Player.HasMedia</visible>
+				<animation type="WindowOpen">
+					<effect type="slide" start="0,100" end="0" tween="Cubic" easing="out" time="500"/>
+					<effect type="fade" start="0" end="100" tween="Cubic" easing="inout" time="400"/>
+				</animation>
+				<animation type="Conditional" condition="!Control.HasFocus(3)">
+					<effect type="slide" start="0" end="0,200" tween="Cubic" easing="inout" time="300"/>
+					<effect type="zoom" start="100" end="50" center="auto" tween="Cubic" easing="inout" time="300"/>
+				</animation>
+				<animation type="Conditional" condition="Control.HasFocus(2)">
+					<effect type="slide" start="0" end="0,200" tween="Cubic" easing="inout" time="300"/>
+				</animation>
+				<itemlayout width="200" height="200">
+					<control type="group">
+						<left>100</left>
+						<control type="image">
+							<width>200</width>
+							<height>200</height>
+							<texture colordiffuse="$VAR[MaterialColor]" border="49">views/circle.png</texture>
+						</control>
+						<control type="image">
+							<width>200</width>
+							<height>200</height>
+							<texture colordiffuse="$VAR[FocusedColor]">$INFO[ListItem.Icon]</texture>
+							<aspectratio>scale</aspectratio>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout width="200" height="200" condition="!Control.HasFocus(3)">
+					<control type="group">
+						<left>100</left>
+						<control type="image">
+							<width>200</width>
+							<height>200</height>
+							<texture colordiffuse="$VAR[MaterialColor]" border="49">views/circle.png</texture>
+						</control>
+						<control type="image">
+							<width>200</width>
+							<height>200</height>
+							<texture colordiffuse="$VAR[FocusedColor]">$INFO[ListItem.Icon]</texture>
+							<aspectratio>scale</aspectratio>
+						</control>
+					</control>
+				</focusedlayout>
+				<focusedlayout width="600" height="200" condition="Control.HasFocus(3)">
+					<control type="group">
+						<left>100</left>
+						<control type="image">
+							<width>600</width>
+							<height>200</height>
+							<texture colordiffuse="$VAR[SecondaryColor]" border="49">views/circle.png</texture>
+						</control>
+						<control type="image">
+							<width>200</width>
+							<height>200</height>
+							<aspectratio>scale</aspectratio>
+							<texture>$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="label">
+							<left>210</left>
+							<width>550</width>
+							<height>200</height>
+							<font>Reg35</font>
+							<align>left</align>
+							<textcolor>$VAR[TextColor]</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<item>
+						<label>$LOCALIZE[31059]</label>
+						<onclick>PlayerControl(Play)</onclick>
+						<thumb>osd/home/play.png</thumb>
+						<visible>Player.Paused</visible>
+					</item>
+					<item>
+						<label>$LOCALIZE[31059]</label>
+						<onclick>PlayerControl(Play)</onclick>
+						<thumb>osd/home/pause.png</thumb>
+						<visible>!Player.Paused</visible>
+					</item>
+					<item>
+						<label>$LOCALIZE[210]</label>
+						<onclick>PlayerControl(Previous)</onclick>
+						<thumb>osd/home/prev.png</thumb>
+					</item>
+					<item>
+						<label>$LOCALIZE[209]</label>
+						<onclick>PlayerControl(Next)</onclick>
+						<thumb>osd/home/next.png</thumb>
+					</item>
+					<item>
+						<label>$LOCALIZE[31060]</label>
+						<onclick>PlayerControl(Stop)</onclick>
+						<onclick>SetFocus(1)</onclick>
+						<thumb>osd/home/stop.png</thumb>
+					</item>
+					<item>
+						<label>$LOCALIZE[589]</label>
+						<onclick>PlayerControl(Partymode(music))</onclick>
+						<icon>DefaultAddonVisualization.png</icon>
+					</item>
+					<item>
+						<label>$LOCALIZE[559]</label>
+						<onclick>Dialog.Close(all,true)</onclick>
+						<onclick>ActivateWindow(musicplaylist)</onclick>
+						<visible>[Player.HasAudio]</visible>
+						<thumb>osd/home/playlist.png</thumb>
+					</item>
+					<item>
+						<label>$LOCALIZE[559]</label>
+						<onclick>Dialog.Close(all,true)</onclick>
+						<onclick>ActivateWindow(videoplaylist)</onclick>
+						<visible>[Player.HasVideo + !Player.HasGame]</visible>
+						<thumb>osd/home/playlist.png</thumb>
+					</item>
+				</content>
 			</control>
 		</control>
 

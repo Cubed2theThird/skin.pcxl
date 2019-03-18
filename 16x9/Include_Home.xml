@@ -602,7 +602,7 @@
 										<left>70</left>
 										<top>30</top>
 										<control type="button">
-											<top>350</top>
+											<top>360</top>
 											<width min="10" max="860">auto</width>
 											<textwidth>840</textwidth>
 											<height>74</height>

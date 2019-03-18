@@ -9,6 +9,10 @@
 	<onunload condition="String.IsEmpty(Skin.String(DashboardToggle))">Skin.SetString(DashboardToggle, Retroarch)</onunload>
 	<onload condition="String.IsEmpty(Skin.String(MusicToggle))">Skin.SetString(MusicToggle, 1)</onload>
 	<onload condition="String.IsEmpty(Skin.String(MusicBackgroundToggle))">Skin.SetString(MusicBackgroundToggle, FM)</onload>
+
+	<onload condition="System.HasAddon(script.colorbox)">RunScript(script.colorbox,daemon=True)</onload>
+    <onload>SetProperty(cha_daemon_set,True,home)</onload>
+    
 	<controls>
 
 		<include>WindowBackgroundImage</include>
@@ -26,6 +30,21 @@
 			<height>100%</height>
 			<aspectratio>scale</aspectratio>
 			<texture colordiffuse="$VAR[Black]">Splash.png</texture>
+		</control>
+
+		<control type="group">
+			<animation type="WindowClose">
+				<effect type="slide" start="0" end="0,500" time="500" tween="sine"/>
+				<effect type="fade" center="auto" start="100" end="0" time="500" tween="sine"/>
+			</animation>
+			<control type="image">
+				<centerleft>50%</centerleft>
+				<bottom>100</bottom>
+				<width>100</width>
+				<height>100</height>
+				<texture>dialogs/loading.png</texture>
+				<animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" condition="true">Conditional</animation>
+			</control>
 		</control>
 
 	</controls>

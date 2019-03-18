@@ -28,7 +28,7 @@ msgstr ""
 #All labels
 
 msgctxt "#31999"
-msgid "Version 1.5.5.7 Leia Beta"
+msgid "Version 1.5.5.8 Leia Beta"
 
 #Custom_Setup.xml
 msgctxt "#31000"
@@ -316,17 +316,26 @@ msgid "Show Icons"
 msgctxt "#31094"
 msgid "Experimental Options"
 
-msgctxt "#31125"
-msgid "Enable Netflix dashboard (WIP)"
+#msgctxt "#31125"
+#msgid "Enable Netflix dashboard (WIP)"
 
-msgctxt "#31126"
-msgid "Enable User 1"
+#msgctxt "#31126"
+#msgid "Enable User 1"
 
-msgctxt "#31127"
-msgid "Netflix Username 1"
+#msgctxt "#31127"
+#msgid "Netflix Username 1"
 
-msgctxt "#31128"
-msgid "Netflix ID 1"
+#msgctxt "#31128"
+#msgid "Netflix ID 1"
+
+#msgctxt "#31129"
+#msgid "Enable User 2"
+
+#msgctxt "#31130"
+#msgid "Netflix Username 2"
+
+#msgctxt "#31131"
+#msgid "Netflix ID 2"
 
 
 

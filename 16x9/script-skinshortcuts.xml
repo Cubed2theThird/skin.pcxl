@@ -4,7 +4,7 @@
 	<backgroundcolor>$VAR[BackgroundColor]</backgroundcolor>
 	<defaultcontrol always="true">301</defaultcontrol>
 	<include>DialogZoomAnimation</include>
-	<onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu|horizontal)</onunload>
+	<onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu|horizontal|apps)</onunload>
 	<controls>
 		<!-- Add item -->
 		<control type="button" id="301">
@@ -296,7 +296,7 @@
 				<height>80</height>
 				<label>186</label>
 				<include>DialogButton</include>
-				<onclick>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu|horizontal)</onclick>
+				<onclick>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu|horizontal|apps)</onclick>
 				<onclick>Close</onclick>
 			</control>
 

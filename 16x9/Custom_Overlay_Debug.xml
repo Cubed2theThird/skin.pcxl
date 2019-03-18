@@ -940,7 +940,7 @@
 		<!-- Info -->
 		<control type="group">
 			<height>screen_Height</height>
-			<visible>Skin.HasSetting(DebugInfo1)</visible>
+			<visible>true2</visible>
 			<control type="image">
 				<texture colordiffuse="FF000000">views/white_50.png</texture>
 			</control>

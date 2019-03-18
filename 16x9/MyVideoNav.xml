@@ -8,7 +8,7 @@
 	
 	<onload condition="![String.Contains(Container.FolderPath,plugin://plugin.video.pluto)|String.Contains(Container.FolderPath,plugin://plugin.video.netflix)|String.Contains(Container.FolderPath,plugin://plugin.video.amazon-test)|String.Contains(Container.FolderPath,plugin://plugin.video.twitch)|String.Contains(Container.FolderPath,plugin://plugin.video.youtube)]">Skin.SetString(snapwindow, videos)</onload>
 	<onload condition="![String.Contains(Container.FolderPath,plugin://plugin.video.pluto)|String.Contains(Container.FolderPath,plugin://plugin.video.netflix)|String.Contains(Container.FolderPath,plugin://plugin.video.amazon-test)|String.Contains(Container.FolderPath,plugin://plugin.video.twitch)|String.Contains(Container.FolderPath,plugin://plugin.video.youtube)]">Skin.SetString(snapico, home/snap/tv.jpg,0)</onload>
-	<onload condition="![String.Contains(Container.FolderPath,plugin://plugin.video.pluto)|String.Contains(Container.FolderPath,plugin://plugin.video.netflix)|String.Contains(Container.FolderPath,plugin://plugin.video.amazon-test)|String.Contains(Container.FolderPath,plugin://plugin.video.twitch)|String.Contains(Container.FolderPath,plugin://plugin.video.youtube)]">Skin.SetString(snapname, Movies & TV Shows)</onload>
+	<onunload condition="![String.Contains(Container.FolderPath,plugin://plugin.video.pluto)|String.Contains(Container.FolderPath,plugin://plugin.video.netflix)|String.Contains(Container.FolderPath,plugin://plugin.video.amazon-test)|String.Contains(Container.FolderPath,plugin://plugin.video.twitch)|String.Contains(Container.FolderPath,plugin://plugin.video.youtube)]">Skin.SetString(snapname, Movies & TV Shows)</onunload>
 
 	<views>50,530,531,532,533,534,535,550,551,552</views>
 	<controls>

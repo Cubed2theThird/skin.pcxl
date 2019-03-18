@@ -5,27 +5,41 @@
 			<visible>Control.IsVisible(50)</visible>
 
 			<control type="image">
-				<centerleft>50%</centerleft>
-				<bottom>0</bottom>
-				<width>80%</width>
-				<height>50%</height>
+				<right>-10</right>
+				<centertop>50%</centertop>
+				<width>60.5%</width>
+				<height>100%</height>
 				<aspectratio>scale</aspectratio>
 				<texture colordiffuse="$VAR[MaterialColorDark]" border="9">views/Card_bg_white.png</texture>
 				<animation type="WindowOpen">
-					<effect type="slide" start="0,1000" end="0" center="auto" tween="Cubic" easing="inout" time="600"/>
+					<effect type="slide" start="1000,0" end="0" center="auto" tween="Cubic" easing="inout" time="600"/>
 				</animation>
 				<animation type="WindowClose">
-					<effect type="slide" start="0" end="0,1000" center="auto" tween="Cubic" easing="inout" time="600"/>
+					<effect type="slide" start="0" end="1000,0" center="auto" tween="Cubic" easing="inout" time="600"/>
+				</animation>
+			</control>
+
+			<control type="image">
+				<left>50</left>
+				<width>35%</width>
+				<height>100%</height>
+				<aspectratio>keep</aspectratio>
+				<texture>$INFO[Container(50).ListItem(0).Icon]</texture>
+				<animation type="WindowOpen">
+					<effect type="slide" start="-1000,0" end="0" center="auto" tween="Cubic" easing="inout" time="600"/>
+				</animation>
+				<animation type="WindowClose">
+					<effect type="slide" start="0" end="-1000,0" center="auto" tween="Cubic" easing="inout" time="600"/>
 				</animation>
 			</control>
 
 			<!-- List -->
 			<control type="group">
 				<control type="list" id="50">
-					<centerleft>50%</centerleft>
-					<bottom>0</bottom>
-					<width>80%</width>
-					<height>50%</height>
+					<right>0</right>
+					<centertop>50%</centertop>
+					<width>60%</width>
+					<height>80%</height>
 					<onup>601</onup>
 					<ondown>601</ondown>
 					<onleft condition="Player.HasAudio">9051</onleft>
@@ -35,13 +49,13 @@
 					<movement>5</movement>
 					<orientation>vertical</orientation>
 					<viewtype>list</viewtype>
-					<visible>![String.Contains(Container.Content,songs) | String.Contains(Container.Content,videos) | String.Contains(Container.Content,episodes) | String.Contains(Container.Content,albums) | String.Contains(Container.Content,movies) | String.Contains(Container.Content,tvshows) | String.Contains(Container.Content,seasons) | String.Contains(Container.FolderPath,plugin://plugin.video.youtube) | String.Contains(Container.FolderPath,plugin://plugin.video.netflix) | String.Contains(Container.FolderPath,plugin://plugin.video.twitch/?mode=games) | String.Contains(Container.Content,images)]</visible>
+					<visible>![String.Contains(Container.FolderPath,plugin://plugin.video.youtube) | String.Contains(Container.FolderPath,plugin://plugin.video.netflix) | String.Contains(Container.FolderPath,plugin://plugin.video.twitch/?mode=games) | String.Contains(Container.Content,images)]</visible>
 					<scrolltime tween="Cubic" easing="inout">200</scrolltime>
 					<animation type="WindowOpen">
-						<effect type="slide" start="0,1000" end="0" center="auto" tween="Cubic" easing="inout" time="600"/>
+						<effect type="slide" start="1000,0" end="0" center="auto" tween="Cubic" easing="inout" time="600"/>
 					</animation>
 					<animation type="WindowClose">
-						<effect type="slide" start="0" end="0,1000" center="auto" tween="Cubic" easing="inout" time="600"/>
+						<effect type="slide" start="0" end="1000,0" center="auto" tween="Cubic" easing="inout" time="600"/>
 					</animation>
 					<itemlayout height="80">
 						<control type="label">
@@ -61,6 +75,33 @@
 							<align>right</align>
 							<textcolor>$VAR[UnFocusedColor]</textcolor>
 							<label>$INFO[ListItem.AddonVersion]</label>
+						</control>
+						<control type="label">
+							<right>150</right>
+							<width>100</width>
+							<height>80</height>
+							<font>Reg20</font>
+							<align>right</align>
+							<textcolor>$VAR[UnFocusedColor]</textcolor>
+							<label>$INFO[ListItem.Year]</label>
+							<visible>!String.Contains(Container.Content,years)</visible>
+						</control>
+						<control type="label">
+							<right>50</right>
+							<width>100</width>
+							<height>80</height>
+							<font>Reg20</font>
+							<align>right</align>
+							<textcolor>$VAR[UnFocusedColor]</textcolor>
+							<label>$INFO[ListItem.Duration(mins),, mins.]</label>
+						</control>
+						<control type="image">
+							<right>10</right>
+							<width>30</width>
+							<height>80</height>
+							<aspectratio>keep</aspectratio>
+							<texture colordiffuse="$VAR[UnFocusedColor]">views/watched_tick_nf.png</texture>
+							<visible>String.Contains(ListItem.Overlay,OverlayWatched.png)</visible>
 						</control>
 					</itemlayout>
 					<focusedlayout height="80">
@@ -87,6 +128,33 @@
 							<align>right</align>
 							<textcolor>$VAR[White]</textcolor>
 							<label>$INFO[ListItem.AddonVersion]</label>
+						</control>
+						<control type="label">
+							<right>150</right>
+							<width>100</width>
+							<height>80</height>
+							<font>Reg20</font>
+							<align>right</align>
+							<textcolor>$VAR[UnFocusedColor]</textcolor>
+							<label>$INFO[ListItem.Year]</label>
+							<visible>!String.Contains(Container.Content,years)</visible>
+						</control>
+						<control type="label">
+							<right>50</right>
+							<width>100</width>
+							<height>80</height>
+							<font>Reg20</font>
+							<align>right</align>
+							<textcolor>$VAR[UnFocusedColor]</textcolor>
+							<label>$INFO[ListItem.Duration(mins),, mins.]</label>
+						</control>
+						<control type="image">
+							<right>10</right>
+							<width>30</width>
+							<height>80</height>
+							<aspectratio>keep</aspectratio>
+							<texture colordiffuse="$VAR[White]">views/watched_tick_nf.png</texture>
+							<visible>String.Contains(ListItem.Overlay,OverlayWatched.png)</visible>
 						</control>
 					</focusedlayout>
 				</control>

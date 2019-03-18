@@ -77,8 +77,8 @@
 
 			<!-- Player forwarding/rewinding -->
 			<control type="group">
-				<left>150</left>
-				<bottom>100</bottom>
+				<left>50</left>
+				<bottom>110</bottom>
 				<width>80</width>
 				<height>60</height>
 				<visible>player.forwarding | player.rewinding | player.paused</visible>
@@ -88,14 +88,14 @@
 					<width>80</width>
 					<height>60</height>
 					<font>Font36</font>
-					<align>center</align>
+					<align>left</align>
 					<label>$VAR[PlayerStatus]</label>
 					<textcolor>$VAR[UnFocusedColor]</textcolor>
 				</control>
 
 				<!-- Pause -->
 				<control type="image">
-					<left>-110</left>
+					<left>20</left>
 					<bottom>15</bottom>
 					<width>60</width>
 					<height>60</height>

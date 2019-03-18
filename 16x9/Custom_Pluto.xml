@@ -2,9 +2,9 @@
 <window id="1120">
 	<backgroundcolor>$VAR[BackgroundColor]</backgroundcolor>
 	<defaultcontrol always="true">11</defaultcontrol>
-	<onload>Skin.SetString(snapwindow, 1120)</onload>
-	<onload>Skin.SetString(snapico, home/snap/pluto.png,0)</onload>
-	<onload>Skin.SetString(snapname,Pluto TV)</onload>
+	<onunload>Skin.SetString(snapwindow, 1120)</onunload>
+	<onunload>Skin.SetString(snapico, home/snap/pluto.png,0)</onunload>
+	<onunload>Skin.SetString(snapname,Pluto TV)</onunload>
 	<controls>
 		<control type="group">
 			<animation type="WindowOpen">

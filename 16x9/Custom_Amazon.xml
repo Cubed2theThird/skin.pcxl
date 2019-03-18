@@ -2,9 +2,9 @@
 <window id="1112">
 	<backgroundcolor>$VAR[YoutubeBackground]</backgroundcolor>
 	<defaultcontrol always="true">111</defaultcontrol>
-	<onload>Skin.SetString(snapwindow, 1112)</onload>
-	<onload>Skin.SetString(snapico, home/snap/amazon.jpg,0)</onload>
-	<onload>Skin.SetString(snapname,Amazon)</onload>
+	<onunload>Skin.SetString(snapwindow, 1112)</onunload>
+	<onunload>Skin.SetString(snapico, home/snap/amazon.jpg,0)</onunload>
+	<onunload>Skin.SetString(snapname,Amazon)</onunload>
 	<controls>
 		<control type="group">
 			<animation type="WindowOpen">

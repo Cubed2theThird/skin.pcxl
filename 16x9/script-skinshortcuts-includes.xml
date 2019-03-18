@@ -383,6 +383,81 @@
 		</item>
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
+			<property name="mainmenuid">5</property>
+			<label>Movies</label>
+			<label2>Custom item</label2>
+			<icon>DefaultFolder.png</icon>
+			<thumb>special://skin/media/DefaultAddonMusicVideoInfo.png</thumb>
+			<property name="labelID">movies</property>
+			<property name="defaultID">titles</property>
+			<property name="translatedPath">ActivateWindow(Videos,library://video/movies/titles.xml/,return)</property>
+			<visible>[Library.HasContent(Movies)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),apps)</visible>
+			<onclick condition="true">Dialog.Close(all,true)</onclick>
+			<onclick>ActivateWindow(Videos,library://video/movies/titles.xml/,return)</onclick>
+			<property name="path">ActivateWindow(Videos,library://video/movies/titles.xml/,return)</property>
+			<property name="list">library://video/movies/titles.xml/</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">apps</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">5</property>
+			<label>TV Shows</label>
+			<label2>Custom item</label2>
+			<icon>DefaultFolder.png</icon>
+			<thumb>special://skin/media/DefaultAddonPVRClient.png</thumb>
+			<property name="labelID">tvshows</property>
+			<property name="defaultID">titles</property>
+			<property name="translatedPath">ActivateWindow(Videos,library://video/tvshows/titles.xml/,return)</property>
+			<visible>[Library.HasContent(TVShows)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),apps)</visible>
+			<onclick condition="true">Dialog.Close(all,true)</onclick>
+			<onclick>ActivateWindow(Videos,library://video/tvshows/titles.xml/,return)</onclick>
+			<property name="path">ActivateWindow(Videos,library://video/tvshows/titles.xml/,return)</property>
+			<property name="list">library://video/tvshows/titles.xml/</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">apps</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">5</property>
+			<label>$LOCALIZE[132]</label>
+			<label2>item</label2>
+			<icon>DefaultMusicAlbums.png</icon>
+			<thumb />
+			<property name="labelID">132</property>
+			<property name="defaultID">132</property>
+			<property name="translatedPath">ActivateWindow(music,library://music/albums.xml/,return)</property>
+			<visible>[Library.HasContent(Music)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),apps)</visible>
+			<onclick condition="true">Dialog.Close(all,true)</onclick>
+			<onclick>ActivateWindow(music,library://music/albums.xml/,return)</onclick>
+			<property name="path">ActivateWindow(music,library://music/albums.xml/,return)</property>
+			<property name="list">library://music/albums.xml/</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">apps</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
+			<property name="mainmenuid">5</property>
+			<label>$LOCALIZE[10004]</label>
+			<label2>Common menu item</label2>
+			<icon>DefaultShortcut.png</icon>
+			<thumb>special://skin/media/home/settings.png</thumb>
+			<property name="labelID">settings</property>
+			<property name="defaultID">settings</property>
+			<property name="translatedPath">ActivateWindow(Settings)</property>
+			<onclick condition="true">Dialog.Close(all,true)</onclick>
+			<onclick>ActivateWindow(Settings)</onclick>
+			<property name="path">ActivateWindow(Settings)</property>
+			<property name="list">Settings</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),apps)</visible>
+			<property name="group">apps</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="1">
+			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">1</property>
 			<label>$LOCALIZE[20386]</label>
 			<label2>$ADDON[script.skinshortcuts 32014]</label2>
@@ -1565,6 +1640,162 @@
 	</include>
 	<include name="skinshortcuts-group-alt-horizontal">
 		<description>No items</description>
+		<description>No items</description>
+	</include>
+	<include name="skinshortcuts-group-apps">
+		<item id="1">
+			<property name="id">$NUMBER[1]</property>
+			<property name="mainmenuid">5</property>
+			<label>Movies</label>
+			<label2>Custom item</label2>
+			<icon>DefaultFolder.png</icon>
+			<thumb>special://skin/media/DefaultAddonMusicVideoInfo.png</thumb>
+			<property name="labelID">movies</property>
+			<property name="defaultID">titles</property>
+			<property name="translatedPath">ActivateWindow(Videos,library://video/movies/titles.xml/,return)</property>
+			<visible>Library.HasContent(Movies)</visible>
+			<onclick condition="true">Dialog.Close(all,true)</onclick>
+			<onclick>ActivateWindow(Videos,library://video/movies/titles.xml/,return)</onclick>
+			<property name="path">ActivateWindow(Videos,library://video/movies/titles.xml/,return)</property>
+			<property name="list">library://video/movies/titles.xml/</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">apps</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">5</property>
+			<label>TV Shows</label>
+			<label2>Custom item</label2>
+			<icon>DefaultFolder.png</icon>
+			<thumb>special://skin/media/DefaultAddonPVRClient.png</thumb>
+			<property name="labelID">tvshows</property>
+			<property name="defaultID">titles</property>
+			<property name="translatedPath">ActivateWindow(Videos,library://video/tvshows/titles.xml/,return)</property>
+			<visible>Library.HasContent(TVShows)</visible>
+			<onclick condition="true">Dialog.Close(all,true)</onclick>
+			<onclick>ActivateWindow(Videos,library://video/tvshows/titles.xml/,return)</onclick>
+			<property name="path">ActivateWindow(Videos,library://video/tvshows/titles.xml/,return)</property>
+			<property name="list">library://video/tvshows/titles.xml/</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">apps</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">5</property>
+			<label>$LOCALIZE[132]</label>
+			<label2>item</label2>
+			<icon>DefaultMusicAlbums.png</icon>
+			<thumb />
+			<property name="labelID">132</property>
+			<property name="defaultID">132</property>
+			<property name="translatedPath">ActivateWindow(music,library://music/albums.xml/,return)</property>
+			<visible>Library.HasContent(Music)</visible>
+			<onclick condition="true">Dialog.Close(all,true)</onclick>
+			<onclick>ActivateWindow(music,library://music/albums.xml/,return)</onclick>
+			<property name="path">ActivateWindow(music,library://music/albums.xml/,return)</property>
+			<property name="list">library://music/albums.xml/</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">apps</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
+			<property name="mainmenuid">5</property>
+			<label>$LOCALIZE[10004]</label>
+			<label2>Common menu item</label2>
+			<icon>DefaultShortcut.png</icon>
+			<thumb>special://skin/media/home/settings.png</thumb>
+			<property name="labelID">settings</property>
+			<property name="defaultID">settings</property>
+			<property name="translatedPath">ActivateWindow(Settings)</property>
+			<onclick condition="true">Dialog.Close(all,true)</onclick>
+			<onclick>ActivateWindow(Settings)</onclick>
+			<property name="path">ActivateWindow(Settings)</property>
+			<property name="list">Settings</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">apps</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<description>No items</description>
+	</include>
+	<include name="skinshortcuts-group-alt-apps">
+		<item id="1">
+			<property name="id">$NUMBER[1]</property>
+			<property name="mainmenuid">5</property>
+			<label>Movies</label>
+			<label2>Custom item</label2>
+			<icon>DefaultFolder.png</icon>
+			<thumb>special://skin/media/DefaultAddonMusicVideoInfo.png</thumb>
+			<property name="labelID">movies</property>
+			<property name="defaultID">titles</property>
+			<property name="translatedPath">ActivateWindow(Videos,library://video/movies/titles.xml/,return)</property>
+			<visible>[Library.HasContent(Movies)] + String.IsEqual(Window(10000).Property(submenuVisibility),apps)</visible>
+			<onclick condition="true">Dialog.Close(all,true)</onclick>
+			<onclick>ActivateWindow(Videos,library://video/movies/titles.xml/,return)</onclick>
+			<property name="path">ActivateWindow(Videos,library://video/movies/titles.xml/,return)</property>
+			<property name="list">library://video/movies/titles.xml/</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">apps</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">5</property>
+			<label>TV Shows</label>
+			<label2>Custom item</label2>
+			<icon>DefaultFolder.png</icon>
+			<thumb>special://skin/media/DefaultAddonPVRClient.png</thumb>
+			<property name="labelID">tvshows</property>
+			<property name="defaultID">titles</property>
+			<property name="translatedPath">ActivateWindow(Videos,library://video/tvshows/titles.xml/,return)</property>
+			<visible>[Library.HasContent(TVShows)] + String.IsEqual(Window(10000).Property(submenuVisibility),apps)</visible>
+			<onclick condition="true">Dialog.Close(all,true)</onclick>
+			<onclick>ActivateWindow(Videos,library://video/tvshows/titles.xml/,return)</onclick>
+			<property name="path">ActivateWindow(Videos,library://video/tvshows/titles.xml/,return)</property>
+			<property name="list">library://video/tvshows/titles.xml/</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">apps</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">5</property>
+			<label>$LOCALIZE[132]</label>
+			<label2>item</label2>
+			<icon>DefaultMusicAlbums.png</icon>
+			<thumb />
+			<property name="labelID">132</property>
+			<property name="defaultID">132</property>
+			<property name="translatedPath">ActivateWindow(music,library://music/albums.xml/,return)</property>
+			<visible>[Library.HasContent(Music)] + String.IsEqual(Window(10000).Property(submenuVisibility),apps)</visible>
+			<onclick condition="true">Dialog.Close(all,true)</onclick>
+			<onclick>ActivateWindow(music,library://music/albums.xml/,return)</onclick>
+			<property name="path">ActivateWindow(music,library://music/albums.xml/,return)</property>
+			<property name="list">library://music/albums.xml/</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="group">apps</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
+			<property name="mainmenuid">5</property>
+			<label>$LOCALIZE[10004]</label>
+			<label2>Common menu item</label2>
+			<icon>DefaultShortcut.png</icon>
+			<thumb>special://skin/media/home/settings.png</thumb>
+			<property name="labelID">settings</property>
+			<property name="defaultID">settings</property>
+			<property name="translatedPath">ActivateWindow(Settings)</property>
+			<onclick condition="true">Dialog.Close(all,true)</onclick>
+			<onclick>ActivateWindow(Settings)</onclick>
+			<property name="path">ActivateWindow(Settings)</property>
+			<property name="list">Settings</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),apps)</visible>
+			<property name="group">apps</property>
+			<property name="isSubmenu">True</property>
+		</item>
 		<description>No items</description>
 	</include>
 </includes>

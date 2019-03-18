@@ -3,9 +3,9 @@
 	<!-- smartplaylisteditor -->
 	<backgroundcolor>$VAR[BackgroundColor]</backgroundcolor>
 	<defaultcontrol always="true">100</defaultcontrol>
-	<onload>Skin.SetString(snapwindow, 1103)</onload>
-	<onload>Skin.SetString(snapico, home/snap/settings.jpg,0)</onload>
-	<onload>Skin.SetString(snapname, $LOCALIZE[31002])</onload>
+	<onunload>Skin.SetString(snapwindow, 1103)</onunload>
+	<onunload>Skin.SetString(snapico, home/snap/settings.jpg,0)</onunload>
+	<onunload>Skin.SetString(snapname, $LOCALIZE[31002])</onunload>
 
 	<onload condition="String.Contains(Skin.String(DashboardToggle),Minimal)">Control.Move(3115,0)</onload>
 	<onload condition="String.Contains(Skin.String(DashboardToggle),Retroarch)">Control.Move(3115,1)</onload>
@@ -57,12 +57,6 @@
 	<onunload condition="String.IsEqual(Skin.String(MusicBackgroundToggle),COTW)">Control.Move(210,0)</onunload>
 	<onunload condition="String.Contains(Skin.String(MusicBackgroundToggle),FM)">Control.Move(210,-1)</onunload>
 	<onunload condition="String.Contains(Skin.String(MusicBackgroundToggle),Background)">Control.Move(210,-2)</onunload>
-
-	<!--><onload>Skin.SetString(netflixuser1,$INFO[Control.GetLabel(900).index(1)])</onload>
-	<onload>Skin.SetString(netflixID1,$INFO[Control.GetLabel(901).index(1)])</onload><!-->
-	<!-->condition="!String.IsEmpty(Skin.SetString(netflixuser1))" condition="!String.IsEmpty(Skin.SetString(netflixID1))"<!-->
-	<onunload>Skin.SetString(netflixuser1,$INFO[Control.GetLabel(900).index(1)])</onunload>
-	<onunload>Skin.SetString(netflixID1,$INFO[Control.GetLabel(901).index(1)])</onunload>
 
 	<controls>
 		<control type="image">
@@ -188,7 +182,7 @@
 							<item id="7">
 								<label>$LOCALIZE[31094]</label>
 								<onclick>Control.SetFocus(3115)</onclick>
-								<visible>Skin.HasSetting(hiddenoptions)+false</visible>
+								<visible>Skin.HasSetting(hiddenoptions)</visible>
 							</item>
 							<item id="99">
 								<label>$LOCALIZE[31042]</label>
@@ -1075,42 +1069,14 @@
 								<selected>Skin.HasSetting(darkmode)</selected>
 								<visible>Skin.HasSetting(hiddenoptions)</visible>
 							</control>
-							<!-- Minimal Bar -->
-							<control type="radiobutton" id="121">
+							<control type="button" id="121">
 								<width>1200</width>
 								<height>60</height>
 								<textwidth>1120</textwidth>
-								<label>$LOCALIZE[31106]</label>
+								<label>Quick apps</label>
 								<focusedcolor>$VAR[TextColor]</focusedcolor>
 								<include>DialogButton</include>
-								<onclick>Skin.ToggleSetting(showminimalbar)</onclick>
-								<selected>Skin.HasSetting(showminimalbar)</selected>
-								<visible>Skin.HasSetting(hiddenoptions)</visible>
-							</control>
-							<!-- Toggle Game UI -->
-							<control type="radiobutton" id="122">
-								<width>1200</width>
-								<height>60</height>
-								<textwidth>1120</textwidth>
-								<label>$LOCALIZE[31108]</label>
-								<focusedcolor>$VAR[TextColor]</focusedcolor>
-								<include>DialogButton</include>
-								<onclick>Skin.ToggleSetting(gamemode)</onclick>
-								<selected>Skin.HasSetting(gamemode)</selected>
-								<visible>Skin.HasSetting(hiddenoptions)</visible>
-							</control>
-							<!-- Toggle Shutdownmenu -->
-							<control type="radiobutton" id="123">
-								<width>1200</width>
-								<height>60</height>
-								<ondown>210</ondown>
-								<textwidth>1120</textwidth>
-								<label>$LOCALIZE[31109]</label>
-								<focusedcolor>$VAR[TextColor]</focusedcolor>
-								<include>DialogButton</include>
-								<onclick>Skin.ToggleSetting(oldshutdownmenu)</onclick>
-								<selected>Skin.HasSetting(oldshutdownmenu)</selected>
-								<visible>Skin.HasSetting(hiddenoptions)</visible>
+								<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=apps)</onclick>
 							</control>
 						</control>
 						<!-- Music -->
@@ -1127,7 +1093,7 @@
 								<onleft>1</onleft>
 								<width>1240</width>
 								<onright>noop</onright>
-								<onup>123</onup>
+								<onup>121</onup>
 								<ondown>319</ondown>
 								<orientation>vertical</orientation>
 								<usecontrolcoords>true</usecontrolcoords>
@@ -1150,106 +1116,106 @@
 										<visible>Control.HasFocus(210)</visible>
 									</control>
 									<control type="list" id="210">
-									<viewtype>icons</viewtype>
-									<width>1200</width>
-									<height>170</height>
-									<top>-40</top>
-									<orientation>horizontal</orientation>
-									<onleft>210</onleft>
-									<onright>210</onright>
-									<onup>122</onup>
-									<ondown>211</ondown>
-									<preloaditems>4</preloaditems>
-									<pagecontrol>60</pagecontrol>
-									<focusposition>-1</focusposition>
-									<movement>6</movement>
-									<itemlayout height="150">
-										<control type="group">
-											<control type="label">
-												<left>20</left>
-												<height>140</height>
-												<label>...</label>
-												<align>left</align>
-												<font>Tile</font>
-												<textcolor>$VAR[White]</textcolor>
+										<viewtype>icons</viewtype>
+										<width>1200</width>
+										<height>170</height>
+										<top>-40</top>
+										<orientation>horizontal</orientation>
+										<onleft>210</onleft>
+										<onright>210</onright>
+										<onup>122</onup>
+										<ondown>211</ondown>
+										<preloaditems>4</preloaditems>
+										<pagecontrol>60</pagecontrol>
+										<focusposition>-1</focusposition>
+										<movement>6</movement>
+										<itemlayout height="150">
+											<control type="group">
+												<control type="label">
+													<left>20</left>
+													<height>140</height>
+													<label>...</label>
+													<align>left</align>
+													<font>Tile</font>
+													<textcolor>$VAR[White]</textcolor>
+												</control>
+												<control type="label">
+													<height>140</height>
+													<label>$INFO[Listitem.label]</label>
+													<align>center</align>
+													<font>Tile</font>
+													<textcolor>$VAR[White]</textcolor>
+												</control>
+												<control type="label">
+													<right>20</right>
+													<height>140</height>
+													<label>...</label>
+													<align>right</align>
+													<font>Tile</font>
+													<textcolor>$VAR[White]</textcolor>
+												</control>
 											</control>
-											<control type="label">
-												<height>140</height>
-												<label>$INFO[Listitem.label]</label>
-												<align>center</align>
-												<font>Tile</font>
-												<textcolor>$VAR[White]</textcolor>
+										</itemlayout>
+										<focusedlayout height="150">
+											<control type="button">
+												<include>HiddenControl</include>
+												<onfocus>Skin.SetString(MusicBackgroundToggle,$INFO[Container(211).ListItem.Label2])</onfocus>
 											</control>
-											<control type="label">
-												<right>20</right>
-												<height>140</height>
-												<label>...</label>
-												<align>right</align>
-												<font>Tile</font>
-												<textcolor>$VAR[White]</textcolor>
+											<control type="group">
+												<control type="label">
+													<left>20</left>
+													<height>140</height>
+													<label>...</label>
+													<align>left</align>
+													<font>Tile</font>
+													<textcolor>$VAR[TextColor]</textcolor>
+												</control>
+												<control type="label">
+													<height>140</height>
+													<label>$INFO[Listitem.label]</label>
+													<align>center</align>
+													<font>Tile</font>
+													<textcolor>$VAR[White]</textcolor>
+													<visible>!Control.HasFocus(211)</visible>
+												</control>
+												<control type="label">
+													<height>140</height>
+													<label>$INFO[Listitem.label]</label>
+													<align>center</align>
+													<font>Tile</font>
+													<textcolor>$VAR[TextColor]</textcolor>
+													<visible>Control.HasFocus(211)</visible>
+												</control>
+												<control type="label">
+													<right>20</right>
+													<height>140</height>
+													<label>...</label>
+													<align>right</align>
+													<font>Tile</font>
+													<textcolor>$VAR[TextColor]</textcolor>
+												</control>
 											</control>
-										</control>
-									</itemlayout>
-									<focusedlayout height="150">
-										<control type="button">
-											<include>HiddenControl</include>
-											<onfocus>Skin.SetString(MusicBackgroundToggle,$INFO[Container(211).ListItem.Label2])</onfocus>
-										</control>
-										<control type="group">
-											<control type="label">
-												<left>20</left>
-												<height>140</height>
-												<label>...</label>
-												<align>left</align>
-												<font>Tile</font>
-												<textcolor>$VAR[TextColor]</textcolor>
-											</control>
-											<control type="label">
-												<height>140</height>
-												<label>$INFO[Listitem.label]</label>
-												<align>center</align>
-												<font>Tile</font>
-												<textcolor>$VAR[White]</textcolor>
-												<visible>!Control.HasFocus(211)</visible>
-											</control>
-											<control type="label">
-												<height>140</height>
-												<label>$INFO[Listitem.label]</label>
-												<align>center</align>
-												<font>Tile</font>
-												<textcolor>$VAR[TextColor]</textcolor>
-												<visible>Control.HasFocus(211)</visible>
-											</control>
-											<control type="label">
-												<right>20</right>
-												<height>140</height>
-												<label>...</label>
-												<align>right</align>
-												<font>Tile</font>
-												<textcolor>$VAR[TextColor]</textcolor>
-											</control>
-										</control>
-									</focusedlayout>
-									<content>
-										<item id="1">
-											<label>$LOCALIZE[31051]</label>
-											<label2>COTW</label2>
-											<onclick>Skin.Setstring(MusicBackgroundToggle, COTW)</onclick>
-											<onclick>Control.SetFocus(1)</onclick>
-										</item>
-										<item id="2">
-											<label>$LOCALIZE[108]</label>
-											<label2>FM</label2>
-											<onclick>Skin.Setstring(MusicBackgroundToggle, FM)</onclick>
-											<onclick>Control.SetFocus(1)</onclick>
-										</item>
-										<item id="3">
-											<label>$LOCALIZE[31052]</label>
-											<label2>Background</label2>
-											<onclick>Skin.Setstring(MusicBackgroundToggle, Background)</onclick>
-											<onclick>Control.SetFocus(1)</onclick>
-										</item>
-									</content>
+										</focusedlayout>
+										<content>
+											<item id="1">
+												<label>$LOCALIZE[31051]</label>
+												<label2>COTW</label2>
+												<onclick>Skin.Setstring(MusicBackgroundToggle, COTW)</onclick>
+												<onclick>Control.SetFocus(1)</onclick>
+											</item>
+											<item id="2">
+												<label>$LOCALIZE[108]</label>
+												<label2>FM</label2>
+												<onclick>Skin.Setstring(MusicBackgroundToggle, FM)</onclick>
+												<onclick>Control.SetFocus(1)</onclick>
+											</item>
+											<item id="3">
+												<label>$LOCALIZE[31052]</label>
+												<label2>Background</label2>
+												<onclick>Skin.Setstring(MusicBackgroundToggle, Background)</onclick>
+												<onclick>Control.SetFocus(1)</onclick>
+											</item>
+										</content>
 									</control>
 								</control>
 								<!-- Select Background Folder -->
@@ -1287,7 +1253,7 @@
 						</control>
 						<control type="group">
 							<visible>!Skin.HasSetting(KioskMode)</visible>
-								<height min="60" max="480">auto</height>
+							<height min="60" max="480">auto</height>
 							<control type="grouplist" id="33110">
 								<itemgap>0</itemgap>
 								<onleft>1</onleft>
@@ -1816,54 +1782,42 @@
 						<orientation>vertical</orientation>
 						<usecontrolcoords>true</usecontrolcoords>
 						<scrolltime tween="sine" easing="out">240</scrolltime>
-						<!-- Enable Netflix -->
-						<control type="radiobutton" id="910">
-							<ondown>900</ondown>
+						<!-- Minimal Bar -->
+						<control type="radiobutton" id="121">
 							<width>1200</width>
 							<height>60</height>
 							<textwidth>1120</textwidth>
-							<label>$LOCALIZE[31125]</label>
+							<label>$LOCALIZE[31106]</label>
 							<focusedcolor>$VAR[TextColor]</focusedcolor>
 							<include>DialogButton</include>
-							<onclick>Skin.ToggleSetting(specialnetflixenabled)</onclick>
-							<selected>Skin.HasSetting(specialnetflixenabled)</selected>
+							<onclick>Skin.ToggleSetting(showminimalbar)</onclick>
+							<selected>Skin.HasSetting(showminimalbar)</selected>
+							<visible>Skin.HasSetting(hiddenoptions)</visible>
 						</control>
-						<!-- Enable User 1 -->
-						<control type="radiobutton" id="911">
-							<ondown>900</ondown>
+						<!-- Toggle Game UI -->
+						<control type="radiobutton" id="122">
 							<width>1200</width>
 							<height>60</height>
 							<textwidth>1120</textwidth>
-							<label>$LOCALIZE[31126]</label>
+							<label>$LOCALIZE[31108]</label>
 							<focusedcolor>$VAR[TextColor]</focusedcolor>
 							<include>DialogButton</include>
-							<onclick>Skin.ToggleSetting(netflixuser1enabled)</onclick>
-							<selected>Skin.HasSetting(netflixuser1enabled)</selected>
-							<enable>Skin.HasSetting(specialnetflixenabled)</enable>
+							<onclick>Skin.ToggleSetting(gamemode)</onclick>
+							<selected>Skin.HasSetting(gamemode)</selected>
+							<visible>Skin.HasSetting(hiddenoptions)</visible>
 						</control>
-						<!-- User 1 -->
-						<control type="edit" id="900">
+						<!-- Toggle Shutdownmenu -->
+						<control type="radiobutton" id="123">
 							<width>1200</width>
 							<height>60</height>
+							<ondown>210</ondown>
 							<textwidth>1120</textwidth>
-							<label>$LOCALIZE[31127]</label>
+							<label>$LOCALIZE[31109]</label>
 							<focusedcolor>$VAR[TextColor]</focusedcolor>
 							<include>DialogButton</include>
-							<hinttext>$INFO[Skin.String(netflixuser1)]</hinttext>
-							<enable>Skin.HasSetting(specialnetflixenabled)+Skin.HasSetting(netflixuser1enabled)</enable>
-							<visible>Skin.HasSetting(specialnetflixenabled)+Skin.HasSetting(netflixuser1enabled)</visible>
-						</control>
-						<!-- User ID 1 -->
-						<control type="edit" id="901">
-							<width>1200</width>
-							<height>60</height>
-							<textwidth>1120</textwidth>
-							<label>$LOCALIZE[31128]</label>
-							<focusedcolor>$VAR[TextColor]</focusedcolor>
-							<include>DialogButton</include>
-							<hinttext>$INFO[Skin.String(netflixID1)]</hinttext>
-							<enable>Skin.HasSetting(specialnetflixenabled)+Skin.HasSetting(netflixuser1enabled)</enable>
-							<visible>Skin.HasSetting(specialnetflixenabled)+Skin.HasSetting(netflixuser1enabled)</visible>
+							<onclick>Skin.ToggleSetting(oldshutdownmenu)</onclick>
+							<selected>Skin.HasSetting(oldshutdownmenu)</selected>
+							<visible>Skin.HasSetting(hiddenoptions)</visible>
 						</control>
 					</control>
 				</control>

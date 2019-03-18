@@ -2,10 +2,10 @@
 <window id="1107">
 	<backgroundcolor>$VAR[BackgroundColor]</backgroundcolor>
 	<defaultcontrol always="true">1</defaultcontrol>
-	<onload>Skin.SetString(snapwindow, 1107)</onload>
-	<onload>Skin.SetString(snapico, home/snap/store.jpg,0)</onload>
-	<onload>Skin.SetString(snapname,My apps)</onload>
-	<onload>XBMC.RunScript(script.favourites)</onload>	
+	<onunload>Skin.SetString(snapwindow, 1107)</onunload>
+	<onunload>Skin.SetString(snapico, home/snap/store.jpg,0)</onunload>
+	<onunload>Skin.SetString(snapname,My apps)</onunload>
+	<onunload>XBMC.RunScript(script.favourites)</onunload>	
 	<controls>
 
 		<control type="image">

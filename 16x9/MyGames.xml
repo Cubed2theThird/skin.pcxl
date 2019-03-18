@@ -4,9 +4,9 @@
 	<backgroundcolor>$VAR[BackgroundColor]</backgroundcolor>
 	<defaultcontrol always="true">540</defaultcontrol>
 	<menucontrol>3000</menucontrol>
-	<onload>Skin.SetString(snapwindow, games)</onload>
-	<onload>Skin.SetString(snapico, home/snap/games.jpg,0)</onload>
-	<onload>Skin.SetString(snapname,Games)</onload>
+	<onunload>Skin.SetString(snapwindow, games)</onunload>
+	<onunload>Skin.SetString(snapico, home/snap/games.jpg,0)</onunload>
+	<onunload>Skin.SetString(snapname,Games)</onunload>
 	<views>540,541</views>
 	<controls>
 

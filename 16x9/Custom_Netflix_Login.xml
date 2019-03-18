@@ -3,9 +3,9 @@
 	<backgroundcolor>FF000000</backgroundcolor>
 	<defaultcontrol always="true">9000</defaultcontrol>
 	<onload>AlarmClock(focus,Control.SetFocus(9000),00:01,silent)</onload>
-	<onload>Skin.SetString(snapwindow, 9500)</onload>
-	<onload>Skin.SetString(snapico, home/snap/netflix.jpg,0)</onload>
-	<onload>Skin.SetString(snapname,Netflix)</onload>
+	<onunload>Skin.SetString(snapwindow, 9500)</onunload>
+	<onunload>Skin.SetString(snapico, home/snap/netflix.jpg,0)</onunload>
+	<onunload>Skin.SetString(snapname,Netflix)</onunload>
 	<controls>
 
 		<control type="label">

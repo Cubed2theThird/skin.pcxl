@@ -2,9 +2,9 @@
 <window id="1109">
 	<backgroundcolor>$VAR[Black]</backgroundcolor>
 	<defaultcontrol always="false">111</defaultcontrol>
-	<onload>Skin.SetString(snapwindow, 1109)</onload>
-	<onload>Skin.SetString(snapico, home/snap/tv.jpg,0)</onload>
-	<onload>Skin.SetString(snapname,$LOCALIZE[31028])</onload>
+	<onunload>Skin.SetString(snapwindow, 1109)</onunload>
+	<onunload>Skin.SetString(snapico, home/snap/tv.jpg,0)</onunload>
+	<onunload>Skin.SetString(snapname,$LOCALIZE[31028])</onunload>
 	<onload>UpdateLibrary(video)</onload>
 	<controls>
 		<include>WindowBackgroundImage</include>

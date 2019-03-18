@@ -4,7 +4,7 @@
 	<controls>
 		<control type="group">
 			<top>35</top>
-			<animation effect="fade" start="100" end="0" time="0" condition="Window.IsActive(fullscreenvideo)|Window.IsActive(startup)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="0" condition="Window.IsActive(fullscreenvideo)|Window.IsActive(startup)|Window.IsActive(tvguide)">Conditional</animation>
 			<animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>
 			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 			<!-- Progress -->

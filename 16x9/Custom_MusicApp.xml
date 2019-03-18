@@ -2,9 +2,9 @@
 <window id="1108">
 	<backgroundcolor>$VAR[Black]</backgroundcolor>
 	<defaultcontrol always="false">111</defaultcontrol>
-	<onload>Skin.SetString(snapwindow, 1108)</onload>
-	<onload>Skin.SetString(snapico, home/snap/music.jpg,0)</onload>
-	<onload>Skin.SetString(snapname,My Music)</onload>
+	<onunload>Skin.SetString(snapwindow, 1108)</onunload>
+	<onunload>Skin.SetString(snapico, home/snap/music.jpg,0)</onunload>
+	<onunload>Skin.SetString(snapname,My Music)</onunload>
 	<onload>UpdateLibrary(music)</onload>
 	<controls>
 		<include>WindowBackgroundImage</include>

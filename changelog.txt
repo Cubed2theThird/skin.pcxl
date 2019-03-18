@@ -1,8 +1,16 @@
 # skin.pcxl
 
-### **1.5.5.7**
-- New Experimental Options
+### **1.5.5.8**
+- New List View
+- New Player Controls/Shutdown
+- Update Last Apps
+- Update Login Screen
+- Update Wallpapers
+- Updated UI Elements
+
+#### 1.5.5.7
 - UI Fixes
+- Updated UI Elements
 
 #### 1.5.5.61
 - Patch xgui

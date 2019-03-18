@@ -2,9 +2,9 @@
 <window id="1111">
 	<backgroundcolor>$VAR[MaterialColorDark]</backgroundcolor>
 	<defaultcontrol always="true">11</defaultcontrol>
-	<onload>Skin.SetString(snapwindow, 1111)</onload>
-	<onload>Skin.SetString(snapico, home/snap/twitch.jpg,0)</onload>
-	<onload>Skin.SetString(snapname, Twitch)</onload>
+	<onunload>Skin.SetString(snapwindow, 1111)</onunload>
+	<onunload>Skin.SetString(snapico, home/snap/twitch.jpg,0)</onunload>
+	<onunload>Skin.SetString(snapname, Twitch)</onunload>
 	<controls>
 		<control type="group">
 			<animation type="WindowOpen">

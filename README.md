@@ -4,10 +4,22 @@ Been working on this project for 3 months with no knowledge of how to code Kodi,
 
 [Donate for future projects](https://www.paypal.me/cubed2the3rd)
 
-### **1.5.5.61**
+### **1.5.5.8**
+- New List View
+- New Player Controls/Shutdown
+- Update Last Apps
+- Update Login Screen
+- Update Wallpapers
+- Updated UI Elements
+
+#### 1.5.5.7
+- UI Fixes
+- Updated UI Elements
+
+#### 1.5.5.61
 - Patch xgui
 
-### **1.5.5.6**
+#### 1.5.5.6
 - New Minimalistic Layout
 - UI Fixes
 

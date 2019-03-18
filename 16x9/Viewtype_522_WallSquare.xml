@@ -30,7 +30,7 @@
 					<visible>String.Contains(Container.Content,songs) | String.Contains(Container.Content,albums) | String.Contains(Container.Content,artists) + !Skin.ToggleSetting(disable522)</visible>
 					<itemlayout width="380" height="380">
 						<control type="group">
-					<top>20</top>
+							<top>20</top>
 							<control type="image">
 								<width>380</width>
 								<height>380</height>
@@ -83,6 +83,7 @@
 								<height>70</height>
 								<font>tile</font>
 								<align>center</align>
+								<scroll>true</scroll>
 								<texturefocus colordiffuse="$VAR[SecondaryColor]">color_white.png</texturefocus>
 								<texturenofocus colordiffuse="$VAR[SecondaryColor]">color_white.png</texturenofocus>
 								<textcolor>$VAR[TextColor]</textcolor>

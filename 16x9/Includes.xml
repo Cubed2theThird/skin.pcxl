@@ -113,6 +113,13 @@
 	<include name="Logo">
 		<control type="group">
 			<top>35</top>
+			<animation type="Conditional" condition="Window.Previous(fullscreenvideo)">
+				<effect type="slide" start="0,0" end="320,0" center="auto" tween="sine" easing="inout" time="200"/>
+				<effect type="fade" start="100" end="0" time="300" />
+			</animation>
+			<animation type="Conditional" condition="Window.IsActive(PlayerControls)">
+				<effect type="fade" start="100" end="0" time="300" />
+			</animation>
 			<control type="button">
 				<right>80</right>
 				<width>70</width>
@@ -873,14 +880,14 @@
 			<thumb>home/apps/netflix.png</thumb>
 			<visible>System.HasAddon(plugin.video.netflix) + Container(9000).HasFocus(91)</visible>
 		</item>
-		<!--><item>
+		<item>
 			<label>Xfinity</label>
 			<onclick>Skin.SetString(gotoapp,xfinity)</onclick>
 			<onclick>ActivateWindow(1200)</onclick>
 			<icon>home/apps/thumb/xfinity.png</icon>
 			<thumb>home/apps/xfinity.png</thumb>
 			<visible>Container(9000).HasFocus(91)</visible>
-		</item><!-->
+		</item>
 		<item>
 			<label>Youtube</label>
 			<onclick>ActivateWindow(1110)</onclick>
@@ -1032,13 +1039,13 @@
 			<thumb>home/apps/youtube.png</thumb>
 			<visible>System.HasAddon(plugin.video.youtube)</visible>
 		</item>
-		<!--><item>
+		<item>
 			<label>Xfinity</label>
 			<onclick>Skin.SetString(gotoapp,xfinity)</onclick>
 			<onclick>ActivateWindow(1200)</onclick>
 			<icon>home/apps/thumb/xfinity.png</icon>
 			<thumb>home/apps/xfinity.png</thumb>
-		</item><!-->
+		</item>
 		<item>
 			<label>Twitch</label>
 			<onclick>ActivateWindow(1111)</onclick>
@@ -1059,6 +1066,13 @@
 			<icon>home/apps/thumb/amazon.png</icon>
 			<thumb>home/apps/amazon.png</thumb>
 			<visible>System.HasAddon(plugin.video.amazon-test)</visible>
+		</item>
+		<item>
+			<label>Steam</label>
+			<onclick>RunAddon(script.steam.launcher)</onclick>
+			<icon>home/apps/thumb/steam.jpg</icon>
+			<thumb>home/apps/steam.png</thumb>
+			<visible>System.HasAddon(script.steam.launcher)</visible>
 		</item>
 	</include>
 	<include name="MusicApps">

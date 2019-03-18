@@ -3,9 +3,9 @@
 	<!-- settings -->
 	<backgroundcolor>$VAR[BackgroundColor]</backgroundcolor>
 	<defaultcontrol always="false">9000</defaultcontrol>
-	<onload>Skin.SetString(snapwindow, settings)</onload>
-	<onload>Skin.SetString(snapico, home/snap/settings.jpg,0)</onload>
-	<onload>Skin.SetString(snapname, Settings)</onload>
+	<onunload>Skin.SetString(snapwindow, settings)</onunload>
+	<onunload>Skin.SetString(snapico, home/snap/settings.jpg,0)</onunload>
+	<onunload>Skin.SetString(snapname, Settings)</onunload>
 	<controls>
 		<control type="group">
 			<left>50</left>
