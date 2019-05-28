@@ -974,7 +974,7 @@
 			<label>$LOCALIZE[31025]</label>
 			<onclick>ActivateWindow(programs,androidapp://sources/apps/,return)</onclick>
 			<thumb>DefaultAddonHelper.png</thumb>
-			<visible><!--System.Platform.Android + --> ![Skin.String(DashboardToggle, TV)|Skin.String(DashboardToggle, Netflix)]</visible>
+			<visible>System.Platform.Android + ![Skin.String(DashboardToggle, TV)|Skin.String(DashboardToggle, Netflix)]</visible>
 		</item>
 		<item>
 			<label>$LOCALIZE[31027]</label>

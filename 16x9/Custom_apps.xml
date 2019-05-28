@@ -175,8 +175,8 @@
 				</focusedlayout>
 				<content>
 					<include>AllApps</include>
-					<include>Android</include>
 				</content>
+				<include>Android</include>
 			</control>
 
 			<!--> Video Apps <!-->
