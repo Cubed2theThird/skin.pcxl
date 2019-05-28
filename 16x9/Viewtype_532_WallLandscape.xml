@@ -24,7 +24,7 @@
 					<preloaditems>2</preloaditems>
 					<focusposition>2</focusposition>
 					<orientation>horizontial</orientation>
-					<viewtype>list</viewtype>
+					<viewtype label="31532">biglist</viewtype>
 					<scrolltime tween="cubic" easing="out">360</scrolltime>
 					<visible>[String.Contains(Container.Content,movies) | String.Contains(Container.Content,videos) | String.Contains(Container.FolderPath,plugin://plugin.video.twitch)] + ![String.Contains(Container.FolderPath,plugin://plugin.video.youtube)] + !Skin.ToggleSetting(disable532)</visible>
 					<itemlayout height="300" width="460">

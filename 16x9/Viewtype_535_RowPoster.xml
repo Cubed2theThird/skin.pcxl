@@ -29,7 +29,7 @@
 				<focusposition>3</focusposition>
 				<movement>-1</movement>
 				<orientation>horizontal</orientation>
-				<viewtype label="31521">list</viewtype>
+				<viewtype label="31535">wrap</viewtype>
 				<scrolltime tween="sine" easing="inout">400</scrolltime>
 				<visible>[String.Contains(Container.Content,movies) | String.Contains(Container.Content,tvshows) | String.Contains(Container.Content,seasons) | String.Contains(Container.Content,actors) | String.Contains(Container.Content,directors)] + !String.Contains(Container.FolderPath,plugin://plugin.video.netflix) + !Skin.ToggleSetting(disable535)</visible>
 				<itemlayout width="300" height="450">

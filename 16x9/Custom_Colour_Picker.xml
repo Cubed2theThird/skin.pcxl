@@ -10,17 +10,19 @@
 	<onload condition="String.Contains(Skin.String(DashboardToggle),Minimal)">Control.Move(3115,0)</onload>
 	<onload condition="String.Contains(Skin.String(DashboardToggle),Retroarch)">Control.Move(3115,1)</onload>
 	<onload condition="String.Contains(Skin.String(DashboardToggle),Horizontal)">Control.Move(3115,2)</onload>
-	<onload condition="String.Contains(Skin.String(DashboardToggle),TV)">Control.Move(3115,3)</onload>
-	<onload condition="String.Contains(Skin.String(DashboardToggle),Game)">Control.Move(3115,4)</onload>
-	<onload condition="String.Contains(Skin.String(DashboardToggle),Android)">Control.Move(3115,5)</onload>
-	<onload condition="String.Contains(Skin.String(DashboardToggle),Netflix)">Control.Move(3115,6)</onload>
+	<onload condition="String.Contains(Skin.String(DashboardToggle),Dashboard)">Control.Move(3115,3)</onload>
+	<onload condition="String.Contains(Skin.String(DashboardToggle),TV)">Control.Move(3115,4)</onload>
+	<onload condition="String.Contains(Skin.String(DashboardToggle),Game)">Control.Move(3115,5)</onload>
+	<onload condition="String.Contains(Skin.String(DashboardToggle),Android)">Control.Move(3115,6)</onload>
+	<onload condition="String.Contains(Skin.String(DashboardToggle),Netflix)">Control.Move(3115,7)</onload>
 	<onunload condition="String.Contains(Skin.String(DashboardToggle),Minimal)">Control.Move(3115,0)</onunload>
 	<onunload condition="String.Contains(Skin.String(DashboardToggle),Retroarch)">Control.Move(3115,-1)</onunload>
 	<onunload condition="String.Contains(Skin.String(DashboardToggle),Horizontal)">Control.Move(3115,-2)</onunload>
-	<onunload condition="String.Contains(Skin.String(DashboardToggle),TV)">Control.Move(3115,-3)</onunload>
-	<onunload condition="String.Contains(Skin.String(DashboardToggle),Game)">Control.Move(3115,-4)</onunload>
-	<onunload condition="String.Contains(Skin.String(DashboardToggle),Android)">Control.Move(3115,-5)</onunload>
-	<onunload condition="String.Contains(Skin.String(DashboardToggle),Netflix)">Control.Move(3115,-6)</onunload>
+	<onunload condition="String.Contains(Skin.String(DashboardToggle),Dashboard)">Control.Move(3115,-3)</onunload>
+	<onunload condition="String.Contains(Skin.String(DashboardToggle),TV)">Control.Move(3115,-4)</onunload>
+	<onunload condition="String.Contains(Skin.String(DashboardToggle),Game)">Control.Move(3115,-5)</onunload>
+	<onunload condition="String.Contains(Skin.String(DashboardToggle),Android)">Control.Move(3115,-6)</onunload>
+	<onunload condition="String.Contains(Skin.String(DashboardToggle),Netflix)">Control.Move(3115,-7)</onunload>
 
 	<onload condition="String.Contains(Skin.String(musictoggle),1)">Control.Move(3116,0)</onload>
 	<onload condition="String.Contains(Skin.String(musictoggle),2)">Control.Move(3116,1)</onload>
@@ -270,6 +272,12 @@
 							<control type="image">
 								<width>1320</width>
 								<height>743</height>
+								<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Dashboard.png</texture>
+								<visible>Skin.String(DashboardToggle,Dashboard)</visible>
+							</control>
+							<control type="image">
+								<width>1320</width>
+								<height>743</height>
 								<texture background="true" colordiffuse="$VAR[SecondaryColor]">special://skin/extras/layouts/Game.png</texture>
 								<visible>Skin.String(DashboardToggle,Game)</visible>
 							</control>
@@ -426,42 +434,47 @@
 							</focusedlayout>
 							<content>
 								<item id="6">
-									<label>$LOCALIZE[31015]</label>
+									<label>$LOCALIZE[31407]</label>
 									<label2>Minimal</label2>
 									<onclick>Skin.Setstring(DashboardToggle,Minimal)</onclick>
 									<onclick>SetFocus(1)</onclick>
 								</item>
 								<item id="7">
-									<label>$LOCALIZE[31044]</label>
+									<label>$LOCALIZE[31408]</label>
 									<label2>Retroarch</label2>
 									<onclick>Skin.Setstring(DashboardToggle,Retroarch)</onclick>
 									<onclick>SetFocus(1)</onclick>
 								</item>
 								<item id="1">
-									<label>$LOCALIZE[31014]</label>
+									<label>$LOCALIZE[31406]</label>
 									<label2>Horizontal</label2>
 									<onclick>Skin.Setstring(DashboardToggle,Horizontal)</onclick>
 									<onclick>SetFocus(1)</onclick>
 								</item>
 								<item id="3">
-									<label>$LOCALIZE[31010]</label>
+									<label>$LOCALIZE[31401]</label>
+									<label2>Dashboard</label2>
+									<onclick>Skin.Setstring(DashboardToggle,Dashboard)</onclick>
+								</item>
+								<item id="8">
+									<label>$LOCALIZE[31402]</label>
 									<label2>TV</label2>
 									<onclick>Skin.Setstring(DashboardToggle,TV)</onclick>
 								</item>
 								<item id="2">
-									<label>$LOCALIZE[31011]</label>
+									<label>$LOCALIZE[31403]</label>
 									<label2>Game</label2>
 									<onclick>Skin.Setstring(DashboardToggle,Game)</onclick>
 									<onclick>SetFocus(1)</onclick>
 								</item>
 								<item id="4">
-									<label>$LOCALIZE[31012]</label>
+									<label>$LOCALIZE[31404]</label>
 									<label2>Android</label2>
 									<onclick>Skin.Setstring(DashboardToggle,Android)</onclick>
 									<onclick>SetFocus(1)</onclick>
 								</item>
 								<item id="5">
-									<label>$LOCALIZE[31013]</label>
+									<label>$LOCALIZE[31405]</label>
 									<label2>Netflix</label2>
 									<onclick>Skin.Setstring(DashboardToggle,Netflix)</onclick>
 									<onclick>SetFocus(1)</onclick>
@@ -1273,7 +1286,7 @@
 									<focusedcolor>$VAR[TextColor]</focusedcolor>
 									<include>DialogButton</include>
 									<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=horizontal)</onclick>
-									<visible>Skin.String(DashboardToggle, Horizontal)|Skin.String(DashboardToggle, Retroarch)|Skin.String(DashboardToggle, TV)|Skin.String(DashboardToggle, Minimal)</visible>
+									<visible>![Skin.String(DashboardToggle, Game)|Skin.String(DashboardToggle, Netflix)]</visible>
 								</control>
 								<!-- Enable Labels -->
 								<control type="radiobutton" id="310">

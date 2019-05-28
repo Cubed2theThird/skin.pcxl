@@ -63,32 +63,35 @@ msgctxt "#31009"
 msgid "Colors"
 
 #Custom_Setup 2.xml
-msgctxt "#31010"
+msgctxt "#31401"
+msgid "Dashboard Layout"
+
+msgctxt "#31402"
 msgid "TV Layout"
 
-msgctxt "#31011"
+msgctxt "#31403"
 msgid "Game Layout"
 
-msgctxt "#31012"
+msgctxt "#31404"
 msgid "Android Layout"
 
-msgctxt "#31013"
+msgctxt "#31405"
 msgid "Netflix Layout"
 
-msgctxt "#31014"
+msgctxt "#31406"
 msgid "Horizontal Layout"
 
 #msgctxt "#31014"
 #msgid "Vertical Layout"
 
-msgctxt "#31015"
+msgctxt "#31407"
 msgid "Minimalistic Layout"
 
 #"Retroarch/PS3 Layout"
-msgctxt "#31044"
+msgctxt "#31408"
 msgid "XMB Layout"
 
-msgctxt "#31045"
+msgctxt "#31409"
 msgid "Kiosk Layout"
 
 msgctxt "#31016"

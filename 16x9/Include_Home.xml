@@ -1,5 +1,5 @@
 <includes>
-	<!--> Order of creation <!-->
+	<!--> Order of creation (8 Total) <!-->
 
 	<!--> 10% VerticalLayout Removed <!-->
 
@@ -1867,586 +1867,570 @@
 		</control>
 	</include>
 
-	<!--> 90% <!-->
-	<include name="TVLayout">
+	<!--> 100% Old Kiosk Mode <!-->
+	<include name="DemoLayout/">
 		<!--> Main controls <!-->
 		<control type="group">
 			<include>HomeZoomAnimation</include>
-			<animation type="Conditional" condition="![Control.HasFocus(9000)|Control.HasFocus(9001)|Control.HasFocus(9002)|Control.HasFocus(10)]">
-				<effect type="slide" start="0" end="-970,0" time="500" tween="cubic" easing="inout"/>
-			</animation>
-
-			<control type="image">
-				<top>0</top>
-				<left>0</left>
-				<width>500%</width>
-				<height>100%</height>
-				<texture colordiffuse="$VAR[MaterialColor]">views/white_40.png</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
-
-			<control type="image">
-				<top>-50%</top>
-				<left>0</left>
-				<width>50%</width>
-				<height>500%</height>
-				<texture colordiffuse="$VAR[MaterialColorDark]">color_white.png</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
-
-			<!--> Widgets <!-->
-			<control type="group">
-				<left>50%</left>
-				<width>100%</width>
-				<height>100%</height>
-				<!--><control type="image">
-					<top>-30</top>
-					<left>-500</left>
-					<width>500%</width>
-					<height>500%</height>
-					<texture colordiffuse="$VAR[Black]">common/white.png</texture>
-					<aspectratio>stretch</aspectratio>
-					<visible>!String.IsEmpty(Container(100).ListItemNoWrap(0).Property(path))</visible>
-				</control><!-->
-				<control type="grouplist" id="1">
-					<onup>9001</onup>
-					<ondown>noop</ondown>
-					<onleft>noop</onleft>
-					<onright>noop</onright>
-					<itemgap>10</itemgap>
-					<height>100%</height>
-					<orientation>horizontal</orientation>
-					<!--> Widget 1-0 <!-->
-					<include content="WidgetTV">
-						<param name="listid" value="10"/>
-						<param name="widgetid" value="0"/>
-						<param name="nextwidget" value="1"/>
-						<param name="leftid" value="1001"/>
-						<param name="rightid" value="11"/>
-					</include>
-					<!--> Widget 2-1 <!-->
-					<include content="WidgetTV">
-						<param name="listid" value="11"/>
-						<param name="widgetid" value="1"/>
-						<param name="nextwidget" value="2"/>
-						<param name="leftid" value="10"/>
-						<param name="rightid" value="12"/>
-					</include>
-					<!--> Widget 3-2 <!-->
-					<include content="WidgetTV">
-						<param name="listid" value="12"/>
-						<param name="widgetid" value="2"/>
-						<param name="nextwidget" value="3"/>
-						<param name="leftid" value="11"/>
-						<param name="rightid" value="13"/>
-					</include>
-					<!--> Widget 4-3 <!-->
-					<include content="WidgetTV">
-						<param name="listid" value="13"/>
-						<param name="widgetid" value="3"/>
-						<param name="nextwidget" value="4"/>
-						<param name="leftid" value="12"/>
-						<param name="rightid" value="14"/>
-					</include>
-					<!--> Widget 5-4 <!-->
-					<include content="WidgetTV">
-						<param name="listid" value="14"/>
-						<param name="widgetid" value="4"/>
-						<param name="nextwidget" value="5"/>
-						<param name="leftid" value="13"/>
-						<param name="rightid" value="15"/>
-					</include>
-					<!--> Widget 6-5 <!-->
-					<include content="WidgetTV">
-						<param name="listid" value="15"/>
-						<param name="widgetid" value="5"/>
-						<param name="nextwidget" value="6"/>
-						<param name="leftid" value="14"/>
-						<param name="rightid" value="16"/>
-					</include>
-					<!--> Widget 7-6 <!-->
-					<include content="WidgetTV">
-						<param name="listid" value="16"/>
-						<param name="widgetid" value="6"/>
-						<param name="nextwidget" value="7"/>
-						<param name="leftid" value="15"/>
-						<param name="rightid" value="17"/>
-					</include>
-					<!--> Widget 8-7 <!-->
-					<include content="WidgetTV">
-						<param name="listid" value="17"/>
-						<param name="widgetid" value="7"/>
-						<param name="nextwidget" value="8"/>
-						<param name="leftid" value="16"/>
-						<param name="rightid" value="18"/>
-					</include>
-					<!--> Widget 9-8 <!-->
-					<include content="WidgetTV">
-						<param name="listid" value="18"/>
-						<param name="widgetid" value="8"/>
-						<param name="nextwidget" value="9"/>
-						<param name="leftid" value="17"/>
-						<param name="rightid" value="19"/>
-					</include>
-					<!--> Widget 10-9 <!-->
-					<include content="WidgetTV">
-						<param name="listid" value="19"/>
-						<param name="widgetid" value="9"/>
-						<param name="nextwidget" value="-"/>
-						<param name="leftid" value="18"/>
-						<param name="rightid" value="-"/>
-					</include>
-				</control>
-			</control>
 
 			<!--> Home <!-->
 			<control type="group">
-				<top>0</top>
-				<left>0</left>
+				<top>50</top>
+				<left>50</left>
 				<animation type="Hidden">
 					<effect type="fade" start="100" end="0" time="500" tween="cubic" easing="inout"/>
 				</animation>
 
-				<!--> Main <!-->
-				<control type="grouplist" id="1001">
-					<width>50%</width>
-					<usecontrolcoords>true</usecontrolcoords>
-
-					<!--> Fullscreen <!-->
-					<control type="group" id="110">
-						<left>105</left>
-						<top>100</top>
-						<height>495</height>
-						<animation type="Conditional" condition="Window.Previous(fullscreenvideo) | Window.IsNext(fullscreenvideo)">
-							<effect type="zoom" center="195,180" end="228,227" delay="600"  time="500" tween="cubic" easing="inout" />
-							<effect type="fade" start="100" end="0" time="300" />
-						</animation>
-						<control type="button" id="9000">
-							<left>0</left>
-							<top>0</top>
-							<onup>noop</onup>
-							<ondown>9002</ondown>
-							<onleft>9001</onleft>
-							<onright>10</onright>
-							<label>$LOCALIZE[35232]</label>
-							<width>850</width>
-							<height>478</height>
-							<onclick>Fullscreen</onclick>							
+				<control type="list" id="9000">
+					<description>Control list</description>
+					<height>2</height>
+					<width>2</width>
+					<onup>noop</onup>
+					<ondown>9001</ondown>
+					<onright>Control.SetFocus(9002,0)</onright>
+					<orientation>vertical</orientation>
+					<scrolltime>0</scrolltime>
+					<pagecontrol>2</pagecontrol>
+					<viewtype>list</viewtype>
+					<defaultcontrol>1</defaultcontrol>
+					<include>HomeZoomAnimation2</include>
+					<content>
+						<item id="1">
+							<label>$LOCALIZE[35232]</label>							
 							<onclick condition="!Player.HasMedia">ActivateWindow($INFO[Skin.String(snapwindow)])</onclick>
 							<onclick condition="!Player.HasMedia">$INFO[Skin.String(snapwindow)]</onclick>
+							<onclick>Fullscreen</onclick>
+						</item>
+					</content>
+				</control>
+
+				<control type="list" id="90000">
+					<description>Control list</description>
+					<height>2</height>
+					<width>2</width>
+					<onup>noop</onup>
+					<ondown>9001</ondown>
+					<onright>Control.SetFocus(9004,0)</onright>
+					<orientation>vertical</orientation>
+					<scrolltime>0</scrolltime>
+					<pagecontrol>2</pagecontrol>
+					<viewtype>list</viewtype>
+					<defaultcontrol>1</defaultcontrol>
+					<include>HomeZoomAnimation2</include>
+					<content>
+						<item id="1">
+							<label>$LOCALIZE[35232]</label>							
+							<onclick condition="!Player.HasMedia">ActivateWindow($INFO[Skin.String(snapwindow)])</onclick>
+							<onclick condition="!Player.HasMedia">$INFO[Skin.String(snapwindow)]</onclick>
+							<onclick>Fullscreen</onclick>
+						</item>
+					</content>
+				</control>
+
+				<!--> Fullscreen <!-->
+				<control type="grouplist">
+					<left>-20</left>
+					<top>-20</top>
+					<width>1400</width>
+					<height>675</height>
+					<control type="group">
+						<animation type="Conditional" condition="Window.Previous(fullscreenvideo)">
+							<effect type="zoom" center="70,70" end="195,195" delay="600"  time="500" tween="cubic" easing="inout" />
+							<effect type="fade" start="100" end="0" time="300" />
+						</animation>
+						<control type="button" id="9999">
+							<left>20</left>
+							<top>20</top>							
+							<label> </label>
+							<width>1000</width>
+							<height>563</height>
+							<onfocus>SetFocus(9000)</onfocus>
+							<onclick>Fullscreen</onclick>
 						</control>
 						<control type="image">
-							<left>0</left>
-							<top>0</top>
-							<width>850</width>
-							<height>478</height>
-							<texture colordiffuse="$VAR[BlackOnly]">common/white.png</texture>
+							<left>20</left>
+							<top>20</top>
+							<width>1000</width>
+							<height>563</height>
+							<texture colordiffuse="ff000000">common/white.png</texture>
 							<aspectratio>stretch</aspectratio>
 						</control>
 						<control type="image">
-							<left>0</left>
-							<top>0</top>
-							<width>850</width>
-							<height>478</height>
+							<left>20</left>
+							<top>20</top>
+							<width>1000</width>
+							<height>563</height>
 							<texture>$INFO[Skin.String(snapico)]</texture>
 							<aspectratio>stretch</aspectratio>
 							<visible>!Player.HasMedia</visible>
 						</control>
 						<control type="videowindow">
-							<left>0</left>
-							<top>0</top>
-							<width>850</width>
-							<height>478</height>
+							<left>20</left>
+							<top>20</top>
+							<width>1000</width>
+							<height>563</height>
 							<aspectratio>stretch</aspectratio>
 							<visible>Player.HasVideo</visible>
 						</control>
-						<control type="gamewindow">
-							<left>0</left>
-							<top>0</top>
-							<width>850</width>
-							<height>478</height>
-							<videofilter>$INFO[ListItem.Property(game.videofilter)]</videofilter>
-							<stretchmode>$INFO[ListItem.Property(game.stretchmode)]</stretchmode>
-							<rotation>$INFO[ListItem.Property(game.videorotation)]</rotation>
-							<visible>Player.HasGame</visible>
-						</control>
 						<control type="image">
-							<left>0</left>
-							<top>0</top>
-							<width>850</width>
-							<height>478</height>
+							<left>20</left>
+							<top>20</top>
+							<width>1000</width>
+							<height>563</height>
 							<aspectratio>scale</aspectratio>
 							<texture>$INFO[MusicPlayer.Cover]</texture>
 							<visible>Player.HasAudio</visible>						
 						</control>
 						<control type="group">
-							<left>10</left>
-							<top>0</top>
+							<left>20</left>
+							<top>20</top>
+							<control type="image" description="Background">
+								<top>465</top>
+								<width>1000</width>
+								<height>100</height>
+								<include>SelectionAnimation</include>
+								<texture colordiffuse="$VAR[SecondaryColor]">common/white.png</texture>
+								<onclick>Fullscreen</onclick>
+								<visible>[Control.HasFocus(90000) | Control.HasFocus(9000)]</visible>
+							</control>
 							<control type="label">
-								<top>-100</top>
-								<width min="10" max="840">auto</width>
+								<left>20</left>
+								<top>465</top>
+								<width>960</width>
 								<height>100</height>
 								<include>SelectionAnimation</include>
 								<label>$INFO[Skin.String(snapname)]</label>
 								<align>left</align>
 								<aligny>center</aligny>
 								<font>Home</font>
-								<texturenofocus>-</texturenofocus>
-								<textcolor>$VAR[UnFocusedColor]</textcolor>
-								<wrapmultiline>true</wrapmultiline>
-								<visible>!Player.HasMedia</visible>
+								<textcolor>$VAR[TextColor]</textcolor>
+								<scroll>true</scroll>
+								<visible>[Control.HasFocus(90000) | Control.HasFocus(9000)] + !Player.HasMedia</visible>
 							</control>
 							<control type="label">
-								<top>-100</top>
-								<width min="10" max="840">auto</width>
+								<left>20</left>
+								<top>465</top>
+								<width>960</width>
 								<height>100</height>
 								<include>SelectionAnimation</include>
-								<label>$INFO[Player.Title,Now Playing: ]</label>
+								<label>$INFO[Player.Title]</label>
 								<align>left</align>
 								<aligny>center</aligny>
 								<font>Home</font>
-								<texturenofocus>-</texturenofocus>
-								<textcolor>$VAR[UnFocusedColor]</textcolor>
-								<wrapmultiline>true</wrapmultiline>
-								<visible>Player.HasMedia</visible>
+								<textcolor>$VAR[TextColor]</textcolor>
+								<scroll>true</scroll>
+								<visible>[Control.HasFocus(90000) | Control.HasFocus(9000)] + Player.HasMedia</visible>
 							</control>
 						</control>
 						<control type="image">
-							<width>850</width>
-							<height>478</height>
-							<texture colordiffuse="$VAR[SecondaryColor]" border="11">views/border3.png</texture>
+							<top>-15</top>
+							<left>-10</left>
+							<width>1060</width>
+							<height>635</height>
+							<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
 							<visible>[Control.HasFocus(90000) | Control.HasFocus(9000)]</visible>
-						</control>
-					</control>
-
-					<!--> Bottom Apps <!-->
-					<control type="group" id="111">
-						<animation type="Conditional" condition="Window.Previous(fullscreenvideo) | Window.IsNext(fullscreenvideo)">
-							<effect type="slide" start="0" end="0,500" delay="100" time="500" tween="cubic" easing="inout" />
-						</animation>
-						<control type="group">
-							<visible>Skin.HasSetting(enableFavourites)</visible>
-							<control type="list" id="9002">
-								<left>100</left>
-								<top>-20</top>
-								<width>100%</width>
-								<height>500</height>
-								<onup>9000</onup>
-								<ondown>noop</ondown>
-								<onleft>9001</onleft>
-								<onright>10</onright>
-								<focusposition>-1</focusposition>
-								<movement>2</movement>
-								<include>HomeZoomAnimation3</include>
-								<viewtype>list</viewtype>
-								<scrolltime tween="sine" easing="inout">240</scrolltime>
-								<itemlayout height="150">
-									<control type="group">
-										<control type="image">
-											<left>10</left>
-											<width>150</width>
-											<height>150</height>
-											<texture>$INFO[ListItem.Icon]</texture>
-											<aspectratio>keep</aspectratio>
-										</control>
-										<control type="label">
-											<left>180</left>
-											<height>150</height>
-											<width>670</width>		
-											<label>$INFO[ListItem.Label]</label>
-											<align>left</align>
-											<aligny>center</aligny>
-											<font>Tile</font>
-											<textcolor>$VAR[UnFocusedColor]</textcolor>
-										</control>
-									</control>
-								</itemlayout>
-								<focusedlayout height="150">
-									<control type="group">
-										<control type="image">
-											<height>150</height>
-											<texture colordiffuse="$VAR[DarkFade]">color_white.png</texture>
-											<visible>Control.HasFocus(9002)</visible>
-										</control>
-										<control type="image">
-											<left>10</left>
-											<width>150</width>
-											<height>150</height>
-											<texture>$INFO[ListItem.Icon]</texture>
-											<aspectratio>keep</aspectratio>
-										</control>
-										<control type="label">
-											<left>180</left>
-											<height>150</height>
-											<width>670</width>		
-											<label>$INFO[ListItem.Label]</label>
-											<align>left</align>
-											<aligny>center</aligny>
-											<font>Tile</font>
-											<textcolor>$VAR[UnFocusedColor]</textcolor>
-											<scroll>true</scroll>
-											<visible>!Control.HasFocus(9002)</visible>
-										</control>
-										<control type="group">
-											<visible>Control.HasFocus(9002)</visible>
-											<include>SelectionAnimation</include>
-											<control type="label">
-												<left>170</left>
-												<height>150</height>
-												<width>680</width>		
-												<label>$INFO[ListItem.Label]</label>
-												<align>left</align>
-												<aligny>center</aligny>
-												<font>Tile</font>
-												<textcolor>$VAR[FocusedColor]</textcolor>
-												<scroll>true</scroll>
-											</control>
-										</control>
-									</control>
-								</focusedlayout>
-								<content>favourites://</content>
-							</control>
-						</control>
-						<control type="group">
-							<visible>!Skin.HasSetting(enableFavourites) + Skin.HasSetting(showPVR)</visible>
-							<control type="list" id="9002">
-								<left>100</left>
-								<top>-20</top>
-								<width>100%</width>
-								<height>500</height>
-								<onup>9000</onup>
-								<ondown>noop</ondown>
-								<onleft>9001</onleft>
-								<onright>10</onright>
-								<focusposition>-1</focusposition>
-								<movement>2</movement>
-								<include>HomeZoomAnimation3</include>
-								<viewtype>list</viewtype>
-								<scrolltime tween="sine" easing="inout">240</scrolltime>
-								<itemlayout height="150">
-									<control type="group">
-										<control type="image">
-											<left>10</left>
-											<width>150</width>
-											<height>150</height>
-											<texture>$INFO[ListItem.Icon]</texture>
-											<aspectratio>keep</aspectratio>
-										</control>
-										<control type="label">
-											<left>180</left>
-											<height>150</height>
-											<width>670</width>		
-											<label>$INFO[ListItem.Label]</label>
-											<align>left</align>
-											<aligny>center</aligny>
-											<font>Tile</font>
-											<textcolor>$VAR[UnFocusedColor]</textcolor>
-										</control>
-									</control>
-								</itemlayout>
-								<focusedlayout height="150">
-									<control type="group">
-										<control type="image">
-											<height>150</height>
-											<texture colordiffuse="$VAR[DarkFade]">color_white.png</texture>
-											<visible>Control.HasFocus(9002)</visible>
-										</control>
-										<control type="image">
-											<left>10</left>
-											<width>150</width>
-											<height>150</height>
-											<texture>$INFO[ListItem.Icon]</texture>
-											<aspectratio>keep</aspectratio>
-										</control>
-										<control type="label">
-											<left>180</left>
-											<height>150</height>
-											<width>670</width>		
-											<label>$INFO[ListItem.Label]</label>
-											<align>left</align>
-											<aligny>center</aligny>
-											<font>Tile</font>
-											<textcolor>$VAR[UnFocusedColor]</textcolor>
-											<scroll>true</scroll>
-											<visible>!Control.HasFocus(9002)</visible>
-										</control>
-										<control type="group">
-											<visible>Control.HasFocus(9002)</visible>
-											<include>SelectionAnimation</include>
-											<control type="label">
-												<left>170</left>
-												<height>150</height>
-												<width>680</width>		
-												<label>$INFO[ListItem.Label]</label>
-												<align>left</align>
-												<aligny>center</aligny>
-												<font>Tile</font>
-												<textcolor>$VAR[FocusedColor]</textcolor>
-												<scroll>true</scroll>
-											</control>
-										</control>
-									</control>
-								</focusedlayout>
-								<content>pvr://channels/tv/All channels/</content>
-							</control>
 						</control>
 					</control>
 				</control>
 
-				<!--> Left Apps <!-->
-				<control type="group">
-					<animation type="Conditional" condition="Window.Previous(fullscreenvideo) | Window.IsNext(fullscreenvideo)">
-						<effect type="slide" start="0" end="-200" delay="100" time="500" tween="cubic" easing="inout" />
-					</animation>
-					<!--> Mobile List <!-->
-					<control type="image">
-						<top>-50%</top>
-						<left>-700</left>
-						<width>800</width>
-						<height>500%</height>
-						<texture colordiffuse="$VAR[BackgroundColor2]">color_white.png</texture>
-						<aspectratio>stretch</aspectratio>
-					</control>
-					<control type="list">
-						<left>0</left>
-						<top>0</top>
-						<width>100</width>
-						<height>100%</height>
-						<onup>noop</onup>
-						<ondown>noop</ondown>
-						<onleft>noop</onleft>
-						<onright>1001</onright>
-						<focusposition>-1</focusposition>
-						<movement>2</movement>
-						<orientation>-</orientation>
-						<include>HomeZoomAnimation3</include>
-						<viewtype>list</viewtype>
-						<scrolltime tween="sine" easing="inout">240</scrolltime>
-						<itemlayout height="100" width="100">
+				<!--> Bottom Apps <!-->
+				<control type="panel" id="9001">
+					<left>-20</left>
+					<top>562</top>
+					<width>1100</width>
+					<height>400</height>
+					<onright>Control.SetFocus(9005,0)</onright>
+					<onup>9000</onup>
+					<focusposition>-1</focusposition>
+					<movement>4</movement>
+					<orientation>vertical</orientation>
+					<include>HomeZoomAnimation3</include>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="185" width="185">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>180</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>180</width>
+								<height>180</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>keep</aspectratio>
+							</control>
+							<control type="label">
+								<left>20</left>
+								<bottom>0</bottom>
+								<height>30</height>
+								<width>160</width>
+								<label>$INFO[ListItem.Label]</label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Tile</font>
+								<textcolor>$VAR[TextColor]</textcolor>
+								<scroll>true</scroll>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="185" width="185">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<animation effect="zoom" center="auto" start="100" end="100" time="200">Focus</animation>
+							<animation effect="zoom" center="auto" start="100" end="100" time="200">UnFocus</animation>
+							<control type="image">
+								<width>180</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>180</width>
+								<height>180</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>keep</aspectratio>
+							</control>
 							<control type="group">
+								<visible>Control.HasFocus(9001)</visible>
+								<include>SelectionAnimation</include>
 								<control type="image">
-									<width>100</width>
-									<height>100</height>
-									<texture colordiffuse="$VAR[BackgroundColor2]">color_white.png</texture>
-								</control>
-								<control type="image">
-									<width>100</width>
-									<height>100</height>
-									<texture>$INFO[ListItem.Icon]</texture>
-									<aspectratio>scale</aspectratio>
+									<bottom>-20</bottom>
+									<width>180</width>
+									<height>60</height>
+									<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
 								</control>
 							</control>
-						</itemlayout>
-						<focusedlayout height="100" width="100">
-							<control type="group">
-								<control type="image">
-									<width>100</width>
-									<texture colordiffuse="$VAR[BackgroundColor2]">color_white.png</texture>
-								</control>
-								<control type="image">
-									<width>100</width>
-									<texture>$INFO[ListItem.Icon]</texture>
-									<aspectratio>scale</aspectratio>
-								</control>
+							<control type="label">
+								<left>20</left>
+								<bottom>0</bottom>
+								<height>30</height>
+								<width>160</width>
+								<label>$INFO[ListItem.Label]</label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Tile</font>
+								<textcolor>$VAR[TextColor]</textcolor>
+								<scroll>true</scroll>
 							</control>
-						</focusedlayout>
-						<content>
-							<item id="1">						
-								<label>$LOCALIZE[31022]</label>
-								<onclick>ActivateWindow(1107)</onclick>
-								<thumb>home/gapps.png</thumb>
-							</item>
-							<include>skinshortcuts-group-horizontal</include>
-							<include>SystemApps1</include>
-							<include>SystemApps2</include>
-						</content>
-					</control>
+							<control type="image">
+								<top>0</top>
+								<left>0</left>
+								<include>GlowSelectionAnimation</include>
+								<width>180</width>
+								<height>180</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo2.png</texture>
+							</control>
+						</control>
+					</focusedlayout>
+					<content>
+						<item id="99">
+							<label>$INFO[Skin.String(snapname)]</label>		
+							<onclick condition="Player.HasMedia">ActivateWindow($INFO[Skin.String(snapwindow)])</onclick>
+							<onclick condition="Player.HasMedia">$INFO[Skin.String(snapwindow)]</onclick>
+							<thumb>DefaultAddon.png</thumb>
+							<visible>Player.HasMedia</visible>
+						</item>
+						<include>SystemApps1</include>
+						<include>SystemApps2</include>
+					</content>
+				</control>
 
-					<control type="image">
-						<animation effect="slide" start="-700" end="0" time="100" condition="Control.HasFocus(9001)">Conditional</animation>
-						<top>0</top>
-						<left>0</left>
-						<width>400</width>
-						<height>100%</height>
-						<texture colordiffuse="$VAR[BackgroundColor2]">color_white.png</texture>
-						<aspectratio>stretch</aspectratio>
-						<visible>Control.HasFocus(9001)</visible>
-					</control>
-
-					<control type="list" id="9001">
-						<left>0</left>
-						<top>0</top>
-						<width>400</width>
-						<height>100%</height>
-						<onup>noop</onup>
-						<ondown>noop</ondown>
-						<onleft>noop</onleft>
-						<onright>9000</onright>
-						<focusposition>-1</focusposition>
-						<movement>2</movement>
-						<orientation>-</orientation>
-						<include>HomeZoomAnimation3</include>
-						<viewtype>list</viewtype>
-						<visible allowhiddenfocus="true">Control.HasFocus(9001)</visible>
-						<scrolltime tween="sine" easing="inout">240</scrolltime>
-						<itemlayout height="100">
+				<!--> Right Apps <!-->
+				<control type="panel" id="9002">
+					<left>1000</left>
+					<top>-20</top>
+					<width>700</width>
+					<height>350</height>
+					<onup>noop</onup>
+					<ondown>9004</ondown>
+					<onleft>9000</onleft>
+					<onright>noop</onright>
+					<focusposition>-1</focusposition>
+					<movement>2</movement>
+					<orientation>horizontal</orientation>
+					<include>HomeZoomAnimation3</include>
+					<viewtype>list</viewtype>
+					<scrolltime tween="sine" easing="inout">240</scrolltime>
+					<itemlayout height="155" width="155">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<control type="image">
+								<width>150</width>
+								<height>150</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>150</width>
+								<height>150</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
+							<control type="label">
+								<left>20</left>
+								<bottom>0</bottom>
+								<height>30</height>
+								<width>110</width>		
+								<label>$INFO[ListItem.Label]</label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Tile</font>
+								<textcolor>$VAR[TextColor]</textcolor>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="155" width="155">
+						<control type="group">
+							<left>20</left>
+							<top>20</top>
+							<animation effect="zoom" center="auto" start="100" end="100" time="200">Focus</animation>
+							<animation effect="zoom" center="auto" start="100" end="100" time="200">UnFocus</animation>
+							<control type="image">
+								<width>150</width>
+								<height>150</height>
+								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+							</control>
+							<control type="image">
+								<width>150</width>
+								<height>150</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+								<aspectratio>scale</aspectratio>
+							</control>
 							<control type="group">
+								<visible>Control.HasFocus(9002)</visible>
+								<include>SelectionAnimation</include>
 								<control type="image">
-									<width>100</width>
-									<texture>$INFO[ListItem.Icon]</texture>
-									<aspectratio>scale</aspectratio>
+									<bottom>-15</bottom>
+									<width>150</width>
+									<height>60</height>
+									<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
 								</control>
 								<control type="label">
-									<left>120</left>
-									<height>100</height>
-									<width>280</width>
+									<left>20</left>
+									<bottom>5</bottom>
+									<height>30</height>
+									<width>110</width>		
 									<label>$INFO[ListItem.Label]</label>
 									<align>left</align>
 									<aligny>center</aligny>
 									<font>Tile</font>
 									<textcolor>$VAR[TextColor]</textcolor>
+									<scroll>true</scroll>
 								</control>
 							</control>
-						</itemlayout>
-						<focusedlayout height="100">
-							<control type="group">
-								<control type="image">
-									<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-								</control>
-								<control type="image">
-									<width>100</width>
-									<texture>$INFO[ListItem.Icon]</texture>
-									<aspectratio>scale</aspectratio>
-								</control>
+							<control type="image">
+								<top>-10</top>
+								<left>-10</left>
+								<width>170</width>
+								<height>170</height>
+								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
+							</control>
+						</control>
+					</focusedlayout>				
+					<content>
+						<include>AllApps</include>
+						<include>Favourites</include>
+					</content>
+				</control> 
+
+				<!--> Movies & TV <!-->
+				<control type="group">
+					<top>315</top>
+					<visible>Library.HasContent(Movies) | Library.HasContent(TVShows)</visible>
+					<control type="grouplist">
+						<top>-20</top>
+						<left>1000</left>
+						<width>100%</width>
+						<height>100%</height>
+						<orientation>vertical</orientation>
+						<itemgap>-5</itemgap>
+						<onup>9002</onup>
+						<onright>noop</onright>
+						<onleft>90000</onleft>
+
+						<control type="panel" id="9004">
+							<description>Panel 1</description>
+							<width>700</width>
+							<height>270</height>
+							<focusposition>1</focusposition>
+							<movement>6</movement>
+							<orientation>horizontal</orientation>
+							<visible>Library.HasContent(Movies)</visible>
+							<viewtype>list</viewtype>
+							<scrolltime tween="sine" easing="inout">240</scrolltime>
+							<include>HomeZoomAnimation3</include>
+							<itemlayout height="250" width="172">
 								<control type="group">
-									<visible>Control.HasFocus(9001)</visible>
-									<include>SelectionAnimation</include>
-									<control type="label">
-										<left>120</left>
-										<bottom>5</bottom>
-										<height>100</height>
-										<width>280</width>
-										<label>$INFO[ListItem.Label]</label>
-										<align>left</align>
-										<aligny>center</aligny>
-										<font>Tile</font>
-										<textcolor>$VAR[TextColor]</textcolor>
-										<scroll>true</scroll>
+									<top>20</top>
+									<left>20</left>
+									<control type="image">
+										<width>167</width>
+										<height>250</height>
+										<aspectratio>scale</aspectratio>
+										<texture>$INFO[ListItem.Icon]</texture>
+									</control>
+									<control type="group">
+										<top>0</top>
+										<right>-15</right>
+										<include>WatchedIndicator</include>
 									</control>
 								</control>
-							</control>
-						</focusedlayout>
-						<content>
-							<item id="1">						
-								<label>$LOCALIZE[31022]</label>
-								<onclick>ActivateWindow(1107)</onclick>
-								<thumb>home/gapps.png</thumb>
-							</item>
-							<include>skinshortcuts-group-horizontal</include>
-							<include>SystemApps1</include>
-							<include>SystemApps2</include>
-						</content>
+							</itemlayout>
+							<focusedlayout height="270" width="172">
+								<control type="group">
+									<top>20</top>
+									<left>20</left>
+									<control type="image">
+										<width>167</width>
+										<height>250</height>
+										<aspectratio>scale</aspectratio>
+										<texture>$INFO[ListItem.Icon]</texture>
+									</control>
+									<control type="group">
+										<include>SelectionAnimation</include>
+										<control type="image">
+											<bottom>0</bottom>
+											<width>167</width>
+											<height>60</height>
+											<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+										</control>
+										<control type="label">
+											<left>10</left>
+											<bottom>20</bottom>
+											<height>30</height>
+											<width>140</width>		
+											<label>$INFO[ListItem.Label]</label>
+											<align>left</align>
+											<aligny>center</aligny>
+											<font>Tile</font>
+											<textcolor>$VAR[TextColor]</textcolor>
+											<scroll>true</scroll>
+										</control>
+									</control>
+									<control type="group">
+										<top>0</top>
+										<right>-15</right>
+										<include>WatchedIndicator</include>
+									</control>
+									<control type="group">
+										<visible>Control.HasFocus(9004)</visible>
+										<top>0</top>
+										<right>-15</right>
+										<include>WatchedIndicator2</include>
+									</control>
+									<control type="image">
+										<top>-10</top>
+										<left>-20</left>
+										<animation type="Focus">
+											<effect type="zoom" center="auto" start="120" end="122" time="200"/>
+										</animation>
+										<animation type="UnFocus">
+											<effect type="zoom" center="auto" start="122" end="120" time="200"/>
+											<effect type="fade" start="100" end="0" time="200"/>
+										</animation>
+										<width>200</width>
+										<height>270</height>
+										<texture colordiffuse="$VAR[SecondaryColor]" border="80">fo.png</texture>
+									</control>
+								</control>
+							</focusedlayout>
+							<content target="videos">library://video/movies/titles.xml</content>
+						</control>
+
+						<control type="panel" id="9005">
+							<description>Panel 2</description>
+							<width>700</width>
+							<height>300</height>
+							<focusposition>1</focusposition>
+							<movement>6</movement>
+							<orientation>horizontal</orientation>
+							<onleft>Control.SetFocus(9001,4)</onleft>
+							<visible>Library.HasContent(TVShows)</visible>
+							<include>HomeZoomAnimation3</include>
+							<viewtype>list</viewtype>
+							<scrolltime tween="sine" easing="inout">240</scrolltime>
+							<itemlayout height="270" width="172">
+								<control type="group">
+									<top>20</top>
+									<left>20</left>
+									<control type="image">
+										<width>167</width>
+										<height>250</height>
+										<aspectratio>scale</aspectratio>
+										<texture>$INFO[ListItem.Icon]</texture>
+									</control>
+									<control type="group">
+										<top>0</top>
+										<right>-15</right>
+										<include>WatchedIndicator</include>
+									</control>
+								</control>
+							</itemlayout>
+							<focusedlayout height="270" width="172">
+								<control type="group">
+									<top>20</top>
+									<left>20</left>
+									<control type="image">
+										<width>167</width>
+										<height>250</height>
+										<aspectratio>scale</aspectratio>
+										<texture>$INFO[ListItem.Icon]</texture>
+									</control>
+									<control type="group">
+										<include>SelectionAnimation</include>
+										<control type="image">
+											<bottom>0</bottom>
+											<width>167</width>
+											<height>60</height>
+											<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+										</control>
+										<control type="label">
+											<left>10</left>
+											<bottom>20</bottom>
+											<height>30</height>
+											<width>140</width>		
+											<label>$INFO[ListItem.Label]</label>
+											<align>left</align>
+											<aligny>center</aligny>
+											<font>Tile</font>
+											<textcolor>$VAR[TextColor]</textcolor>
+											<scroll>true</scroll>
+										</control>
+									</control>
+									<control type="group">
+										<top>0</top>
+										<right>-15</right>
+										<include>WatchedIndicator</include>
+									</control>
+									<control type="group">
+										<visible>Control.HasFocus(9005)</visible>
+										<top>0</top>
+										<right>-15</right>
+										<include>WatchedIndicator2</include>
+									</control>
+									<control type="image">
+										<top>-10</top>
+										<left>-20</left>
+										<animation type="Focus">
+											<effect type="zoom" center="auto" start="120" end="122" time="200"/>
+										</animation>
+										<animation type="UnFocus">
+											<effect type="zoom" center="auto" start="122" end="120" time="200"/>
+											<effect type="fade" start="100" end="0" time="200"/>
+										</animation>
+										<width>200</width>
+										<height>270</height>
+										<texture colordiffuse="$VAR[SecondaryColor]" border="80">fo.png</texture>
+									</control>
+								</control>
+							</focusedlayout>
+							<content target="videos">library://video/tvshows/titles.xml</content>
+						</control>
 					</control>
+
 				</control>
 			</control>
 		</control>
@@ -3130,575 +3114,6 @@
 				</control>
 			</control>
 
-		</control>
-	</include>
-
-	<!--> 100% Old Kiosk Mode <!-->
-	<include name="TVLayout/">
-		<!--> Main controls <!-->
-		<control type="group">
-			<include>HomeZoomAnimation</include>
-
-			<!--> Home <!-->
-			<control type="group">
-				<top>50</top>
-				<left>50</left>
-				<animation type="Hidden">
-					<effect type="fade" start="100" end="0" time="500" tween="cubic" easing="inout"/>
-				</animation>
-
-				<control type="list" id="9000">
-					<description>Control list</description>
-					<height>2</height>
-					<width>2</width>
-					<onup>noop</onup>
-					<ondown>9001</ondown>
-					<onright>Control.SetFocus(9002,0)</onright>
-					<orientation>vertical</orientation>
-					<scrolltime>0</scrolltime>
-					<pagecontrol>2</pagecontrol>
-					<viewtype>list</viewtype>
-					<defaultcontrol>1</defaultcontrol>
-					<include>HomeZoomAnimation2</include>
-					<content>
-						<item id="1">
-							<label>$LOCALIZE[35232]</label>							
-							<onclick condition="!Player.HasMedia">ActivateWindow($INFO[Skin.String(snapwindow)])</onclick>
-							<onclick condition="!Player.HasMedia">$INFO[Skin.String(snapwindow)]</onclick>
-							<onclick>Fullscreen</onclick>
-						</item>
-					</content>
-				</control>
-
-				<control type="list" id="90000">
-					<description>Control list</description>
-					<height>2</height>
-					<width>2</width>
-					<onup>noop</onup>
-					<ondown>9001</ondown>
-					<onright>Control.SetFocus(9004,0)</onright>
-					<orientation>vertical</orientation>
-					<scrolltime>0</scrolltime>
-					<pagecontrol>2</pagecontrol>
-					<viewtype>list</viewtype>
-					<defaultcontrol>1</defaultcontrol>
-					<include>HomeZoomAnimation2</include>
-					<content>
-						<item id="1">
-							<label>$LOCALIZE[35232]</label>							
-							<onclick condition="!Player.HasMedia">ActivateWindow($INFO[Skin.String(snapwindow)])</onclick>
-							<onclick condition="!Player.HasMedia">$INFO[Skin.String(snapwindow)]</onclick>
-							<onclick>Fullscreen</onclick>
-						</item>
-					</content>
-				</control>
-
-				<!--> Fullscreen <!-->
-				<control type="grouplist">
-					<left>-20</left>
-					<top>-20</top>
-					<width>1400</width>
-					<height>675</height>
-					<control type="group">
-						<animation type="Conditional" condition="Window.Previous(fullscreenvideo)">
-							<effect type="zoom" center="70,70" end="195,195" delay="600"  time="500" tween="cubic" easing="inout" />
-							<effect type="fade" start="100" end="0" time="300" />
-						</animation>
-						<control type="button" id="9999">
-							<left>20</left>
-							<top>20</top>							
-							<label> </label>
-							<width>1000</width>
-							<height>563</height>
-							<onfocus>SetFocus(9000)</onfocus>
-							<onclick>Fullscreen</onclick>
-						</control>
-						<control type="image">
-							<left>20</left>
-							<top>20</top>
-							<width>1000</width>
-							<height>563</height>
-							<texture colordiffuse="ff000000">common/white.png</texture>
-							<aspectratio>stretch</aspectratio>
-						</control>
-						<control type="image">
-							<left>20</left>
-							<top>20</top>
-							<width>1000</width>
-							<height>563</height>
-							<texture>$INFO[Skin.String(snapico)]</texture>
-							<aspectratio>stretch</aspectratio>
-							<visible>!Player.HasMedia</visible>
-						</control>
-						<control type="videowindow">
-							<left>20</left>
-							<top>20</top>
-							<width>1000</width>
-							<height>563</height>
-							<aspectratio>stretch</aspectratio>
-							<visible>Player.HasVideo</visible>
-						</control>
-						<control type="image">
-							<left>20</left>
-							<top>20</top>
-							<width>1000</width>
-							<height>563</height>
-							<aspectratio>scale</aspectratio>
-							<texture>$INFO[MusicPlayer.Cover]</texture>
-							<visible>Player.HasAudio</visible>						
-						</control>
-						<control type="group">
-							<left>20</left>
-							<top>20</top>
-							<control type="image" description="Background">
-								<top>465</top>
-								<width>1000</width>
-								<height>100</height>
-								<include>SelectionAnimation</include>
-								<texture colordiffuse="$VAR[SecondaryColor]">common/white.png</texture>
-								<onclick>Fullscreen</onclick>
-								<visible>[Control.HasFocus(90000) | Control.HasFocus(9000)]</visible>
-							</control>
-							<control type="label">
-								<left>20</left>
-								<top>465</top>
-								<width>960</width>
-								<height>100</height>
-								<include>SelectionAnimation</include>
-								<label>$INFO[Skin.String(snapname)]</label>
-								<align>left</align>
-								<aligny>center</aligny>
-								<font>Home</font>
-								<textcolor>$VAR[TextColor]</textcolor>
-								<scroll>true</scroll>
-								<visible>[Control.HasFocus(90000) | Control.HasFocus(9000)] + !Player.HasMedia</visible>
-							</control>
-							<control type="label">
-								<left>20</left>
-								<top>465</top>
-								<width>960</width>
-								<height>100</height>
-								<include>SelectionAnimation</include>
-								<label>$INFO[Player.Title]</label>
-								<align>left</align>
-								<aligny>center</aligny>
-								<font>Home</font>
-								<textcolor>$VAR[TextColor]</textcolor>
-								<scroll>true</scroll>
-								<visible>[Control.HasFocus(90000) | Control.HasFocus(9000)] + Player.HasMedia</visible>
-							</control>
-						</control>
-						<control type="image">
-							<top>-15</top>
-							<left>-10</left>
-							<width>1060</width>
-							<height>635</height>
-							<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
-							<visible>[Control.HasFocus(90000) | Control.HasFocus(9000)]</visible>
-						</control>
-					</control>
-				</control>
-
-				<!--> Bottom Apps <!-->
-				<control type="panel" id="9001">
-					<left>-20</left>
-					<top>562</top>
-					<width>1100</width>
-					<height>400</height>
-					<onright>Control.SetFocus(9005,0)</onright>
-					<onup>9000</onup>
-					<focusposition>-1</focusposition>
-					<movement>4</movement>
-					<orientation>vertical</orientation>
-					<include>HomeZoomAnimation3</include>
-					<viewtype>list</viewtype>
-					<scrolltime tween="sine" easing="inout">240</scrolltime>
-					<itemlayout height="185" width="185">
-						<control type="group">
-							<left>20</left>
-							<top>20</top>
-							<control type="image">
-								<width>180</width>
-								<height>180</height>
-								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-							</control>
-							<control type="image">
-								<width>180</width>
-								<height>180</height>
-								<texture>$INFO[ListItem.Icon]</texture>
-								<aspectratio>keep</aspectratio>
-							</control>
-							<control type="label">
-								<left>20</left>
-								<bottom>0</bottom>
-								<height>30</height>
-								<width>160</width>
-								<label>$INFO[ListItem.Label]</label>
-								<align>left</align>
-								<aligny>center</aligny>
-								<font>Tile</font>
-								<textcolor>$VAR[TextColor]</textcolor>
-								<scroll>true</scroll>
-							</control>
-						</control>
-					</itemlayout>
-					<focusedlayout height="185" width="185">
-						<control type="group">
-							<left>20</left>
-							<top>20</top>
-							<animation effect="zoom" center="auto" start="100" end="100" time="200">Focus</animation>
-							<animation effect="zoom" center="auto" start="100" end="100" time="200">UnFocus</animation>
-							<control type="image">
-								<width>180</width>
-								<height>180</height>
-								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-							</control>
-							<control type="image">
-								<width>180</width>
-								<height>180</height>
-								<texture>$INFO[ListItem.Icon]</texture>
-								<aspectratio>keep</aspectratio>
-							</control>
-							<control type="group">
-								<visible>Control.HasFocus(9001)</visible>
-								<include>SelectionAnimation</include>
-								<control type="image">
-									<bottom>-20</bottom>
-									<width>180</width>
-									<height>60</height>
-									<texture colordiffuse="$VAR[DiffuseColor]">color_white.png</texture>
-								</control>
-							</control>
-							<control type="label">
-								<left>20</left>
-								<bottom>0</bottom>
-								<height>30</height>
-								<width>160</width>
-								<label>$INFO[ListItem.Label]</label>
-								<align>left</align>
-								<aligny>center</aligny>
-								<font>Tile</font>
-								<textcolor>$VAR[TextColor]</textcolor>
-								<scroll>true</scroll>
-							</control>
-							<control type="image">
-								<top>0</top>
-								<left>0</left>
-								<include>GlowSelectionAnimation</include>
-								<width>180</width>
-								<height>180</height>
-								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo2.png</texture>
-							</control>
-						</control>
-					</focusedlayout>
-					<content>
-						<item id="99">
-							<label>$INFO[Skin.String(snapname)]</label>		
-							<onclick condition="Player.HasMedia">ActivateWindow($INFO[Skin.String(snapwindow)])</onclick>
-							<onclick condition="Player.HasMedia">$INFO[Skin.String(snapwindow)]</onclick>
-							<thumb>DefaultAddon.png</thumb>
-							<visible>Player.HasMedia</visible>
-						</item>
-						<include>SystemApps1</include>
-						<include>SystemApps2</include>
-					</content>
-				</control>
-
-				<!--> Right Apps <!-->
-				<control type="panel" id="9002">
-					<left>1000</left>
-					<top>-20</top>
-					<width>700</width>
-					<height>350</height>
-					<onup>noop</onup>
-					<ondown>9004</ondown>
-					<onleft>9000</onleft>
-					<onright>noop</onright>
-					<focusposition>-1</focusposition>
-					<movement>2</movement>
-					<orientation>horizontal</orientation>
-					<include>HomeZoomAnimation3</include>
-					<viewtype>list</viewtype>
-					<scrolltime tween="sine" easing="inout">240</scrolltime>
-					<itemlayout height="155" width="155">
-						<control type="group">
-							<left>20</left>
-							<top>20</top>
-							<control type="image">
-								<width>150</width>
-								<height>150</height>
-								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-							</control>
-							<control type="image">
-								<width>150</width>
-								<height>150</height>
-								<texture>$INFO[ListItem.Icon]</texture>
-								<aspectratio>scale</aspectratio>
-							</control>
-							<control type="label">
-								<left>20</left>
-								<bottom>0</bottom>
-								<height>30</height>
-								<width>110</width>		
-								<label>$INFO[ListItem.Label]</label>
-								<align>left</align>
-								<aligny>center</aligny>
-								<font>Tile</font>
-								<textcolor>$VAR[TextColor]</textcolor>
-							</control>
-						</control>
-					</itemlayout>
-					<focusedlayout height="155" width="155">
-						<control type="group">
-							<left>20</left>
-							<top>20</top>
-							<animation effect="zoom" center="auto" start="100" end="100" time="200">Focus</animation>
-							<animation effect="zoom" center="auto" start="100" end="100" time="200">UnFocus</animation>
-							<control type="image">
-								<width>150</width>
-								<height>150</height>
-								<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-							</control>
-							<control type="image">
-								<width>150</width>
-								<height>150</height>
-								<texture>$INFO[ListItem.Icon]</texture>
-								<aspectratio>scale</aspectratio>
-							</control>
-							<control type="group">
-								<visible>Control.HasFocus(9002)</visible>
-								<include>SelectionAnimation</include>
-								<control type="image">
-									<bottom>-15</bottom>
-									<width>150</width>
-									<height>60</height>
-									<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-								</control>
-								<control type="label">
-									<left>20</left>
-									<bottom>5</bottom>
-									<height>30</height>
-									<width>110</width>		
-									<label>$INFO[ListItem.Label]</label>
-									<align>left</align>
-									<aligny>center</aligny>
-									<font>Tile</font>
-									<textcolor>$VAR[TextColor]</textcolor>
-									<scroll>true</scroll>
-								</control>
-							</control>
-							<control type="image">
-								<top>-10</top>
-								<left>-10</left>
-								<width>170</width>
-								<height>170</height>
-								<texture colordiffuse="$VAR[SecondaryColor]" border="90">fo.png</texture>
-							</control>
-						</control>
-					</focusedlayout>				
-					<content>
-						<include>AllApps</include>
-						<include>Favourites</include>
-					</content>
-				</control> 
-
-				<!--> Movies & TV <!-->
-				<control type="group">
-					<top>315</top>
-					<visible>Library.HasContent(Movies) | Library.HasContent(TVShows)</visible>
-					<control type="grouplist">
-						<top>-20</top>
-						<left>1000</left>
-						<width>100%</width>
-						<height>100%</height>
-						<orientation>vertical</orientation>
-						<itemgap>-5</itemgap>
-						<onup>9002</onup>
-						<onright>noop</onright>
-						<onleft>90000</onleft>
-
-						<control type="panel" id="9004">
-							<description>Panel 1</description>
-							<width>700</width>
-							<height>270</height>
-							<focusposition>1</focusposition>
-							<movement>6</movement>
-							<orientation>horizontal</orientation>
-							<visible>Library.HasContent(Movies)</visible>
-							<viewtype>list</viewtype>
-							<scrolltime tween="sine" easing="inout">240</scrolltime>
-							<include>HomeZoomAnimation3</include>
-							<itemlayout height="250" width="172">
-								<control type="group">
-									<top>20</top>
-									<left>20</left>
-									<control type="image">
-										<width>167</width>
-										<height>250</height>
-										<aspectratio>scale</aspectratio>
-										<texture>$INFO[ListItem.Icon]</texture>
-									</control>
-									<control type="group">
-										<top>0</top>
-										<right>-15</right>
-										<include>WatchedIndicator</include>
-									</control>
-								</control>
-							</itemlayout>
-							<focusedlayout height="270" width="172">
-								<control type="group">
-									<top>20</top>
-									<left>20</left>
-									<control type="image">
-										<width>167</width>
-										<height>250</height>
-										<aspectratio>scale</aspectratio>
-										<texture>$INFO[ListItem.Icon]</texture>
-									</control>
-									<control type="group">
-										<include>SelectionAnimation</include>
-										<control type="image">
-											<bottom>0</bottom>
-											<width>167</width>
-											<height>60</height>
-											<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-										</control>
-										<control type="label">
-											<left>10</left>
-											<bottom>20</bottom>
-											<height>30</height>
-											<width>140</width>		
-											<label>$INFO[ListItem.Label]</label>
-											<align>left</align>
-											<aligny>center</aligny>
-											<font>Tile</font>
-											<textcolor>$VAR[TextColor]</textcolor>
-											<scroll>true</scroll>
-										</control>
-									</control>
-									<control type="group">
-										<top>0</top>
-										<right>-15</right>
-										<include>WatchedIndicator</include>
-									</control>
-									<control type="group">
-										<visible>Control.HasFocus(9004)</visible>
-										<top>0</top>
-										<right>-15</right>
-										<include>WatchedIndicator2</include>
-									</control>
-									<control type="image">
-										<top>-10</top>
-										<left>-20</left>
-										<animation type="Focus">
-											<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-										</animation>
-										<animation type="UnFocus">
-											<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-											<effect type="fade" start="100" end="0" time="200"/>
-										</animation>
-										<width>200</width>
-										<height>270</height>
-										<texture colordiffuse="$VAR[SecondaryColor]" border="80">fo.png</texture>
-									</control>
-								</control>
-							</focusedlayout>
-							<content target="videos">library://video/movies/titles.xml</content>
-						</control>
-
-						<control type="panel" id="9005">
-							<description>Panel 2</description>
-							<width>700</width>
-							<height>300</height>
-							<focusposition>1</focusposition>
-							<movement>6</movement>
-							<orientation>horizontal</orientation>
-							<onleft>Control.SetFocus(9001,4)</onleft>
-							<visible>Library.HasContent(TVShows)</visible>
-							<include>HomeZoomAnimation3</include>
-							<viewtype>list</viewtype>
-							<scrolltime tween="sine" easing="inout">240</scrolltime>
-							<itemlayout height="270" width="172">
-								<control type="group">
-									<top>20</top>
-									<left>20</left>
-									<control type="image">
-										<width>167</width>
-										<height>250</height>
-										<aspectratio>scale</aspectratio>
-										<texture>$INFO[ListItem.Icon]</texture>
-									</control>
-									<control type="group">
-										<top>0</top>
-										<right>-15</right>
-										<include>WatchedIndicator</include>
-									</control>
-								</control>
-							</itemlayout>
-							<focusedlayout height="270" width="172">
-								<control type="group">
-									<top>20</top>
-									<left>20</left>
-									<control type="image">
-										<width>167</width>
-										<height>250</height>
-										<aspectratio>scale</aspectratio>
-										<texture>$INFO[ListItem.Icon]</texture>
-									</control>
-									<control type="group">
-										<include>SelectionAnimation</include>
-										<control type="image">
-											<bottom>0</bottom>
-											<width>167</width>
-											<height>60</height>
-											<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
-										</control>
-										<control type="label">
-											<left>10</left>
-											<bottom>20</bottom>
-											<height>30</height>
-											<width>140</width>		
-											<label>$INFO[ListItem.Label]</label>
-											<align>left</align>
-											<aligny>center</aligny>
-											<font>Tile</font>
-											<textcolor>$VAR[TextColor]</textcolor>
-											<scroll>true</scroll>
-										</control>
-									</control>
-									<control type="group">
-										<top>0</top>
-										<right>-15</right>
-										<include>WatchedIndicator</include>
-									</control>
-									<control type="group">
-										<visible>Control.HasFocus(9005)</visible>
-										<top>0</top>
-										<right>-15</right>
-										<include>WatchedIndicator2</include>
-									</control>
-									<control type="image">
-										<top>-10</top>
-										<left>-20</left>
-										<animation type="Focus">
-											<effect type="zoom" center="auto" start="120" end="122" time="200"/>
-										</animation>
-										<animation type="UnFocus">
-											<effect type="zoom" center="auto" start="122" end="120" time="200"/>
-											<effect type="fade" start="100" end="0" time="200"/>
-										</animation>
-										<width>200</width>
-										<height>270</height>
-										<texture colordiffuse="$VAR[SecondaryColor]" border="80">fo.png</texture>
-									</control>
-								</control>
-							</focusedlayout>
-							<content target="videos">library://video/tvshows/titles.xml</content>
-						</control>
-					</control>
-
-				</control>
-			</control>
 		</control>
 	</include>
 
@@ -4558,10 +3973,7 @@
 		<include>WindowBackgroundVideo</include>
 		<control type="group">
 			<visible>Player.HasGame | Player.HasVideo</visible>
-			<animation type="Conditional" condition="true">
-				<effect type="fade" end="50" time="0"/>
-			</animation>
-			<include>WindowBackgroundImage</include>
+			<include>DialogBackgroundImage</include>
 		</control>
 		<control type="group">
 			<animation type="Conditional" condition="Window.IsActive(contextmenu)">
@@ -5151,6 +4563,589 @@
 		</control>
 	</include>
 
+	<!--> 90% <!-->
+	<include name="DashboardLayout">
+		<!--> Main controls <!-->
+		<control type="group">
+			<include>HomeZoomAnimation</include>
+			<animation type="Conditional" condition="![Control.HasFocus(9000)|Control.HasFocus(9001)|Control.HasFocus(9002)|Control.HasFocus(10)]">
+				<effect type="slide" start="0" end="-970,0" time="500" tween="cubic" easing="inout"/>
+			</animation>
+
+			<control type="image">
+				<top>0</top>
+				<left>0</left>
+				<width>500%</width>
+				<height>100%</height>
+				<texture colordiffuse="$VAR[MaterialColor]">views/white_40.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+
+			<control type="image">
+				<top>-50%</top>
+				<left>0</left>
+				<width>50%</width>
+				<height>500%</height>
+				<texture colordiffuse="$VAR[MaterialColorDark]">color_white.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+
+			<!--> Widgets <!-->
+			<control type="group">
+				<left>50%</left>
+				<width>100%</width>
+				<height>100%</height>
+				<!--><control type="image">
+					<top>-30</top>
+					<left>-500</left>
+					<width>500%</width>
+					<height>500%</height>
+					<texture colordiffuse="$VAR[Black]">common/white.png</texture>
+					<aspectratio>stretch</aspectratio>
+					<visible>!String.IsEmpty(Container(100).ListItemNoWrap(0).Property(path))</visible>
+				</control><!-->
+				<control type="grouplist" id="1">
+					<onup>9001</onup>
+					<ondown>noop</ondown>
+					<onleft>noop</onleft>
+					<onright>noop</onright>
+					<itemgap>10</itemgap>
+					<height>100%</height>
+					<orientation>horizontal</orientation>
+					<!--> Widget 1-0 <!-->
+					<include content="WidgetTVOld">
+						<param name="listid" value="10"/>
+						<param name="widgetid" value="0"/>
+						<param name="nextwidget" value="1"/>
+						<param name="leftid" value="1001"/>
+						<param name="rightid" value="11"/>
+					</include>
+					<!--> Widget 2-1 <!-->
+					<include content="WidgetTVOld">
+						<param name="listid" value="11"/>
+						<param name="widgetid" value="1"/>
+						<param name="nextwidget" value="2"/>
+						<param name="leftid" value="10"/>
+						<param name="rightid" value="12"/>
+					</include>
+					<!--> Widget 3-2 <!-->
+					<include content="WidgetTVOld">
+						<param name="listid" value="12"/>
+						<param name="widgetid" value="2"/>
+						<param name="nextwidget" value="3"/>
+						<param name="leftid" value="11"/>
+						<param name="rightid" value="13"/>
+					</include>
+					<!--> Widget 4-3 <!-->
+					<include content="WidgetTVOld">
+						<param name="listid" value="13"/>
+						<param name="widgetid" value="3"/>
+						<param name="nextwidget" value="4"/>
+						<param name="leftid" value="12"/>
+						<param name="rightid" value="14"/>
+					</include>
+					<!--> Widget 5-4 <!-->
+					<include content="WidgetTVOld">
+						<param name="listid" value="14"/>
+						<param name="widgetid" value="4"/>
+						<param name="nextwidget" value="5"/>
+						<param name="leftid" value="13"/>
+						<param name="rightid" value="15"/>
+					</include>
+					<!--> Widget 6-5 <!-->
+					<include content="WidgetTVOld">
+						<param name="listid" value="15"/>
+						<param name="widgetid" value="5"/>
+						<param name="nextwidget" value="6"/>
+						<param name="leftid" value="14"/>
+						<param name="rightid" value="16"/>
+					</include>
+					<!--> Widget 7-6 <!-->
+					<include content="WidgetTVOld">
+						<param name="listid" value="16"/>
+						<param name="widgetid" value="6"/>
+						<param name="nextwidget" value="7"/>
+						<param name="leftid" value="15"/>
+						<param name="rightid" value="17"/>
+					</include>
+					<!--> Widget 8-7 <!-->
+					<include content="WidgetTVOld">
+						<param name="listid" value="17"/>
+						<param name="widgetid" value="7"/>
+						<param name="nextwidget" value="8"/>
+						<param name="leftid" value="16"/>
+						<param name="rightid" value="18"/>
+					</include>
+					<!--> Widget 9-8 <!-->
+					<include content="WidgetTVOld">
+						<param name="listid" value="18"/>
+						<param name="widgetid" value="8"/>
+						<param name="nextwidget" value="9"/>
+						<param name="leftid" value="17"/>
+						<param name="rightid" value="19"/>
+					</include>
+					<!--> Widget 10-9 <!-->
+					<include content="WidgetTVOld">
+						<param name="listid" value="19"/>
+						<param name="widgetid" value="9"/>
+						<param name="nextwidget" value="-"/>
+						<param name="leftid" value="18"/>
+						<param name="rightid" value="-"/>
+					</include>
+				</control>
+			</control>
+
+			<!--> Home <!-->
+			<control type="group">
+				<top>0</top>
+				<left>0</left>
+				<animation type="Hidden">
+					<effect type="fade" start="100" end="0" time="500" tween="cubic" easing="inout"/>
+				</animation>
+
+				<!--> Main <!-->
+				<control type="grouplist" id="1001">
+					<width>50%</width>
+					<usecontrolcoords>true</usecontrolcoords>
+
+					<!--> Fullscreen <!-->
+					<control type="group" id="110">
+						<left>105</left>
+						<top>100</top>
+						<height>495</height>
+						<animation type="Conditional" condition="Window.Previous(fullscreenvideo) | Window.IsNext(fullscreenvideo)">
+							<effect type="zoom" center="195,180" end="228,227" delay="600"  time="500" tween="cubic" easing="inout" />
+							<effect type="fade" start="100" end="0" time="300" />
+						</animation>
+						<control type="button" id="9000">
+							<left>0</left>
+							<top>0</top>
+							<onup>noop</onup>
+							<ondown>9002</ondown>
+							<onleft>9001</onleft>
+							<onright>10</onright>
+							<label>$LOCALIZE[35232]</label>
+							<width>850</width>
+							<height>478</height>
+							<onclick>Fullscreen</onclick>							
+							<onclick condition="!Player.HasMedia">ActivateWindow($INFO[Skin.String(snapwindow)])</onclick>
+							<onclick condition="!Player.HasMedia">$INFO[Skin.String(snapwindow)]</onclick>
+						</control>
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<width>850</width>
+							<height>478</height>
+							<texture colordiffuse="$VAR[BlackOnly]">common/white.png</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<width>850</width>
+							<height>478</height>
+							<texture>$INFO[Skin.String(snapico)]</texture>
+							<aspectratio>stretch</aspectratio>
+							<visible>!Player.HasMedia</visible>
+						</control>
+						<control type="videowindow">
+							<left>0</left>
+							<top>0</top>
+							<width>850</width>
+							<height>478</height>
+							<aspectratio>stretch</aspectratio>
+							<visible>Player.HasVideo</visible>
+						</control>
+						<control type="gamewindow">
+							<left>0</left>
+							<top>0</top>
+							<width>850</width>
+							<height>478</height>
+							<videofilter>$INFO[ListItem.Property(game.videofilter)]</videofilter>
+							<stretchmode>$INFO[ListItem.Property(game.stretchmode)]</stretchmode>
+							<rotation>$INFO[ListItem.Property(game.videorotation)]</rotation>
+							<visible>Player.HasGame</visible>
+						</control>
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<width>850</width>
+							<height>478</height>
+							<aspectratio>scale</aspectratio>
+							<texture>$INFO[MusicPlayer.Cover]</texture>
+							<visible>Player.HasAudio</visible>						
+						</control>
+						<control type="group">
+							<left>10</left>
+							<top>0</top>
+							<control type="label">
+								<top>-100</top>
+								<width min="10" max="840">auto</width>
+								<height>100</height>
+								<include>SelectionAnimation</include>
+								<label>$INFO[Skin.String(snapname)]</label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Home</font>
+								<texturenofocus>-</texturenofocus>
+								<textcolor>$VAR[UnFocusedColor]</textcolor>
+								<wrapmultiline>true</wrapmultiline>
+								<visible>!Player.HasMedia</visible>
+							</control>
+							<control type="label">
+								<top>-100</top>
+								<width min="10" max="840">auto</width>
+								<height>100</height>
+								<include>SelectionAnimation</include>
+								<label>$INFO[Player.Title,Now Playing: ]</label>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Home</font>
+								<texturenofocus>-</texturenofocus>
+								<textcolor>$VAR[UnFocusedColor]</textcolor>
+								<wrapmultiline>true</wrapmultiline>
+								<visible>Player.HasMedia</visible>
+							</control>
+						</control>
+						<control type="image">
+							<width>850</width>
+							<height>478</height>
+							<texture colordiffuse="$VAR[SecondaryColor]" border="11">views/border3.png</texture>
+							<visible>[Control.HasFocus(90000) | Control.HasFocus(9000)]</visible>
+						</control>
+					</control>
+
+					<!--> Bottom Apps <!-->
+					<control type="group" id="111">
+						<animation type="Conditional" condition="Window.Previous(fullscreenvideo) | Window.IsNext(fullscreenvideo)">
+							<effect type="slide" start="0" end="0,500" delay="100" time="500" tween="cubic" easing="inout" />
+						</animation>
+						<control type="group">
+							<visible>Skin.HasSetting(enableFavourites)</visible>
+							<control type="list" id="9002">
+								<left>100</left>
+								<top>-20</top>
+								<width>100%</width>
+								<height>500</height>
+								<onup>9000</onup>
+								<ondown>noop</ondown>
+								<onleft>9001</onleft>
+								<onright>10</onright>
+								<focusposition>-1</focusposition>
+								<movement>2</movement>
+								<include>HomeZoomAnimation3</include>
+								<viewtype>list</viewtype>
+								<scrolltime tween="sine" easing="inout">240</scrolltime>
+								<itemlayout height="150">
+									<control type="group">
+										<control type="image">
+											<left>10</left>
+											<width>150</width>
+											<height>150</height>
+											<texture>$INFO[ListItem.Icon]</texture>
+											<aspectratio>keep</aspectratio>
+										</control>
+										<control type="label">
+											<left>180</left>
+											<height>150</height>
+											<width>670</width>		
+											<label>$INFO[ListItem.Label]</label>
+											<align>left</align>
+											<aligny>center</aligny>
+											<font>Tile</font>
+											<textcolor>$VAR[UnFocusedColor]</textcolor>
+										</control>
+									</control>
+								</itemlayout>
+								<focusedlayout height="150">
+									<control type="group">
+										<control type="image">
+											<height>150</height>
+											<texture colordiffuse="$VAR[DarkFade]">color_white.png</texture>
+											<visible>Control.HasFocus(9002)</visible>
+										</control>
+										<control type="image">
+											<left>10</left>
+											<width>150</width>
+											<height>150</height>
+											<texture>$INFO[ListItem.Icon]</texture>
+											<aspectratio>keep</aspectratio>
+										</control>
+										<control type="label">
+											<left>180</left>
+											<height>150</height>
+											<width>670</width>		
+											<label>$INFO[ListItem.Label]</label>
+											<align>left</align>
+											<aligny>center</aligny>
+											<font>Tile</font>
+											<textcolor>$VAR[UnFocusedColor]</textcolor>
+											<scroll>true</scroll>
+											<visible>!Control.HasFocus(9002)</visible>
+										</control>
+										<control type="group">
+											<visible>Control.HasFocus(9002)</visible>
+											<include>SelectionAnimation</include>
+											<control type="label">
+												<left>170</left>
+												<height>150</height>
+												<width>680</width>		
+												<label>$INFO[ListItem.Label]</label>
+												<align>left</align>
+												<aligny>center</aligny>
+												<font>Tile</font>
+												<textcolor>$VAR[FocusedColor]</textcolor>
+												<scroll>true</scroll>
+											</control>
+										</control>
+									</control>
+								</focusedlayout>
+								<content>favourites://</content>
+							</control>
+						</control>
+						<control type="group">
+							<visible>!Skin.HasSetting(enableFavourites) + Skin.HasSetting(showPVR)</visible>
+							<control type="list" id="9002">
+								<left>100</left>
+								<top>-20</top>
+								<width>100%</width>
+								<height>500</height>
+								<onup>9000</onup>
+								<ondown>noop</ondown>
+								<onleft>9001</onleft>
+								<onright>10</onright>
+								<focusposition>-1</focusposition>
+								<movement>2</movement>
+								<include>HomeZoomAnimation3</include>
+								<viewtype>list</viewtype>
+								<scrolltime tween="sine" easing="inout">240</scrolltime>
+								<itemlayout height="150">
+									<control type="group">
+										<control type="image">
+											<left>10</left>
+											<width>150</width>
+											<height>150</height>
+											<texture>$INFO[ListItem.Icon]</texture>
+											<aspectratio>keep</aspectratio>
+										</control>
+										<control type="label">
+											<left>180</left>
+											<height>150</height>
+											<width>670</width>		
+											<label>$INFO[ListItem.Label]</label>
+											<align>left</align>
+											<aligny>center</aligny>
+											<font>Tile</font>
+											<textcolor>$VAR[UnFocusedColor]</textcolor>
+										</control>
+									</control>
+								</itemlayout>
+								<focusedlayout height="150">
+									<control type="group">
+										<control type="image">
+											<height>150</height>
+											<texture colordiffuse="$VAR[DarkFade]">color_white.png</texture>
+											<visible>Control.HasFocus(9002)</visible>
+										</control>
+										<control type="image">
+											<left>10</left>
+											<width>150</width>
+											<height>150</height>
+											<texture>$INFO[ListItem.Icon]</texture>
+											<aspectratio>keep</aspectratio>
+										</control>
+										<control type="label">
+											<left>180</left>
+											<height>150</height>
+											<width>670</width>		
+											<label>$INFO[ListItem.Label]</label>
+											<align>left</align>
+											<aligny>center</aligny>
+											<font>Tile</font>
+											<textcolor>$VAR[UnFocusedColor]</textcolor>
+											<scroll>true</scroll>
+											<visible>!Control.HasFocus(9002)</visible>
+										</control>
+										<control type="group">
+											<visible>Control.HasFocus(9002)</visible>
+											<include>SelectionAnimation</include>
+											<control type="label">
+												<left>170</left>
+												<height>150</height>
+												<width>680</width>		
+												<label>$INFO[ListItem.Label]</label>
+												<align>left</align>
+												<aligny>center</aligny>
+												<font>Tile</font>
+												<textcolor>$VAR[FocusedColor]</textcolor>
+												<scroll>true</scroll>
+											</control>
+										</control>
+									</control>
+								</focusedlayout>
+								<content>pvr://channels/tv/All channels/</content>
+							</control>
+						</control>
+					</control>
+				</control>
+
+				<!--> Left Apps <!-->
+				<control type="group">
+					<animation type="Conditional" condition="Window.Previous(fullscreenvideo) | Window.IsNext(fullscreenvideo)">
+						<effect type="slide" start="0" end="-200" delay="100" time="500" tween="cubic" easing="inout" />
+					</animation>
+					<!--> Mobile List <!-->
+					<control type="image">
+						<top>-50%</top>
+						<left>-700</left>
+						<width>800</width>
+						<height>500%</height>
+						<texture colordiffuse="$VAR[BackgroundColor2]">color_white.png</texture>
+						<aspectratio>stretch</aspectratio>
+					</control>
+					<control type="list" id="19001">
+						<left>0</left>
+						<top>0</top>
+						<width>100</width>
+						<height>100%</height>
+						<onup>noop</onup>
+						<ondown>noop</ondown>
+						<onleft>noop</onleft>
+						<onright>1001</onright>
+						<focusposition>-1</focusposition>
+						<movement>2</movement>
+						<orientation>-</orientation>
+						<include>HomeZoomAnimation3</include>
+						<scrolltime tween="sine" easing="inout">240</scrolltime>
+						<itemlayout height="100" width="100">
+							<control type="group">
+								<control type="image">
+									<width>100</width>
+									<height>100</height>
+									<texture colordiffuse="$VAR[BackgroundColor2]">color_white.png</texture>
+								</control>
+								<control type="image">
+									<width>100</width>
+									<height>100</height>
+									<texture>$INFO[ListItem.Icon]</texture>
+									<aspectratio>scale</aspectratio>
+								</control>
+							</control>
+						</itemlayout>
+						<focusedlayout height="100" width="100">
+							<control type="group">
+								<control type="image">
+									<width>100</width>
+									<texture colordiffuse="$VAR[BackgroundColor2]">color_white.png</texture>
+								</control>
+								<control type="image">
+									<width>100</width>
+									<texture>$INFO[ListItem.Icon]</texture>
+									<aspectratio>scale</aspectratio>
+								</control>
+							</control>
+						</focusedlayout>
+						<content>
+							<item id="1">
+								<label>$LOCALIZE[31022]</label>
+								<onclick>ActivateWindow(1107)</onclick>
+								<thumb>home/gapps.png</thumb>
+							</item>
+							<include>skinshortcuts-group-horizontal</include>
+							<include>SystemApps1</include>
+							<include>SystemApps2</include>
+						</content>
+					</control>
+
+					<control type="image">
+						<animation effect="slide" start="-700" end="0" time="100" condition="Control.HasFocus(9001)">Conditional</animation>
+						<top>0</top>
+						<left>0</left>
+						<width>400</width>
+						<height>100%</height>
+						<texture colordiffuse="$VAR[BackgroundColor2]">color_white.png</texture>
+						<aspectratio>stretch</aspectratio>
+						<visible>Control.HasFocus(9001)</visible>
+					</control>
+
+					<control type="list" id="9001">
+						<left>0</left>
+						<top>0</top>
+						<width>400</width>
+						<height>100%</height>
+						<onup>noop</onup>
+						<ondown>noop</ondown>
+						<onleft>noop</onleft>
+						<onright>9000</onright>
+						<focusposition>-1</focusposition>
+						<movement>2</movement>
+						<orientation>-</orientation>
+						<include>HomeZoomAnimation3</include>
+						<visible allowhiddenfocus="true">Control.HasFocus(9001)</visible>
+						<scrolltime tween="sine" easing="inout">240</scrolltime>
+						<itemlayout height="100">
+							<control type="group">
+								<control type="image">
+									<width>100</width>
+									<texture>$INFO[ListItem.Icon]</texture>
+									<aspectratio>scale</aspectratio>
+								</control>
+								<control type="label">
+									<left>120</left>
+									<height>100</height>
+									<width>280</width>
+									<label>$INFO[ListItem.Label]</label>
+									<align>left</align>
+									<aligny>center</aligny>
+									<font>Tile</font>
+									<textcolor>$VAR[TextColor]</textcolor>
+								</control>
+							</control>
+						</itemlayout>
+						<focusedlayout height="100">
+							<control type="group">
+								<control type="image">
+									<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+								</control>
+								<control type="image">
+									<width>100</width>
+									<texture>$INFO[ListItem.Icon]</texture>
+									<aspectratio>scale</aspectratio>
+								</control>
+								<control type="group">
+									<visible>Control.HasFocus(9001)</visible>
+									<include>SelectionAnimation</include>
+									<control type="label">
+										<left>120</left>
+										<bottom>5</bottom>
+										<height>100</height>
+										<width>280</width>
+										<label>$INFO[ListItem.Label]</label>
+										<align>left</align>
+										<aligny>center</aligny>
+										<font>Tile</font>
+										<textcolor>$VAR[TextColor]</textcolor>
+										<scroll>true</scroll>
+									</control>
+								</control>
+							</control>
+						</focusedlayout>
+						<content>
+							<item id="1">						
+								<label>$LOCALIZE[31022]</label>
+								<onclick>ActivateWindow(1107)</onclick>
+								<thumb>home/gapps.png</thumb>
+							</item>
+							<include>skinshortcuts-group-horizontal</include>
+							<include>SystemApps1</include>
+							<include>SystemApps2</include>
+						</content>
+					</control>
+				</control>
+			</control>
+		</control>
+	</include>
+
 	<!--> 98% <!-->
 	<include name="MinimalLayout">
 		<include>HomeZoomAnimation</include>
@@ -5434,4 +5429,383 @@
 			<content target="$INFO[Container(9000).ListItemNoWrap(0).Property(widgetTarget)]">$INFO[Container(9000).ListItemNoWrap($PARAM[widgetid]).Property(widgetPath)]</content>
 		</control><!-->
 	</include>
+
+	<!--> 0% SmartLayout? <!-->	
+	<include name="SmartLayout">
+		<include>HomeZoomAnimation</include>
+		<include>WindowBackgroundVideo</include>
+		<control type="group">
+			<visible>Player.HasGame | Player.HasVideo</visible>
+			<animation type="Conditional" condition="true">
+				<effect type="fade" end="50" time="0"/>
+			</animation>
+			<include>WindowBackgroundImage</include>
+		</control>		
+		<!--> Vignette <!-->
+		<control type="image">
+			<bottom>0</bottom>
+			<width>101%</width>
+			<height>50%</height>
+			<aspectratio>stretch</aspectratio>
+			<texture>views/vignette.png</texture>
+		</control>
+
+		<!--> Widgets <!-->
+		<control type="group">
+			<left>75</left>
+			<top>510</top>
+			<control type="grouplist" id="9000">
+				<left>-380</left>
+				<width>130%</width>
+				<height>560</height>
+				<itemgap>0</itemgap>
+				<onleft>9050</onleft>
+				<ondown>noop</ondown>
+				<orientation>vertical</orientation>
+				<usecontrolcoords>true</usecontrolcoords>				
+				<!--> Widget 1-0 <!-->
+				<include content="WidgetHybrid">
+					<param name="listid" value="9010"/>
+					<param name="widgetid" value="0"/>
+					<param name="upid" value="-"/>
+					<param name="downid" value="9011"/>
+					<param name="favourites" value="false"/>
+				</include>
+				<!--> Widget 2-1 <!-->
+				<include content="WidgetHybrid">
+					<param name="listid" value="9011"/>
+					<param name="widgetid" value="1"/>
+					<param name="upid" value="9010"/>
+					<param name="downid" value="9012"/>
+					<param name="favourites" value="false"/>
+				</include>
+				<!--> Widget 3-2 <!-->
+				<include content="WidgetHybrid">
+					<param name="listid" value="9012"/>
+					<param name="widgetid" value="2"/>
+					<param name="upid" value="9011"/>
+					<param name="downid" value="9013"/>
+					<param name="favourites" value="false"/>
+				</include>
+				<!--> Widget 4-3 <!-->
+				<include content="WidgetHybrid">
+					<param name="listid" value="9013"/>
+					<param name="widgetid" value="3"/>
+					<param name="upid" value="9012"/>
+					<param name="downid" value="9014"/>
+					<param name="favourites" value="false"/>
+				</include>
+				<!--> Widget 5-4 <!-->
+				<include content="WidgetHybrid">
+					<param name="listid" value="9014"/>
+					<param name="widgetid" value="4"/>
+					<param name="upid" value="9013"/>
+					<param name="downid" value="9015"/>
+					<param name="favourites" value="false"/>
+				</include>
+				<!--> Widget 6-5 <!-->
+				<include content="WidgetHybrid">
+					<param name="listid" value="9015"/>
+					<param name="widgetid" value="5"/>
+					<param name="upid" value="9014"/>
+					<param name="downid" value="9016"/>
+					<param name="favourites" value="false"/>
+				</include>
+				<!--> Widget 7-6 <!-->
+				<include content="WidgetHybrid">
+					<param name="listid" value="9016"/>
+					<param name="widgetid" value="6"/>
+					<param name="upid" value="9015"/>
+					<param name="downid" value="9017"/>
+					<param name="favourites" value="false"/>
+				</include>
+				<!--> Widget 8-7 <!-->
+				<include content="WidgetHybrid">
+					<param name="listid" value="9017"/>
+					<param name="widgetid" value="7"/>
+					<param name="upid" value="9016"/>
+					<param name="downid" value="9018"/>
+					<param name="favourites" value="false"/>
+				</include>
+				<!--> Widget 9-8 <!-->
+				<include content="WidgetHybrid">
+					<param name="listid" value="9018"/>
+					<param name="widgetid" value="8"/>
+					<param name="upid" value="9017"/>
+					<param name="downid" value="9019"/>
+					<param name="favourites" value="false"/>
+				</include>
+				<!--> Widget 10-9 <!-->
+				<include content="WidgetHybrid">
+					<param name="listid" value="9019"/>
+					<param name="widgetid" value="9"/>
+					<param name="upid" value="9018"/>
+					<param name="downid" value="9020"/>
+					<param name="favourites" value="false"/>
+				</include>
+				<!--> Favourites <!-->
+				<include content="WidgetHybrid">
+					<param name="listid" value="9020"/>
+					<param name="widgetid" value="-"/>
+					<param name="upid" value="9019"/>
+					<param name="downid" value="9020"/>
+					<param name="favourites" value="true"/>
+				</include>
+			</control>
+		</control>
+	</include>
+
+	<!--> 90% <!-->
+	<include name="TVLayout">
+		<!--> Main controls <!-->
+		<control type="group">
+			<include>HomeZoomAnimation</include>
+			<control type="group">
+				<control type="image">
+					<centerleft>50%</centerleft>
+					<top>-1000</top>
+					<width>200%</width>
+					<height>1130</height>
+					<texture colordiffuse="$VAR[Black]">color_white.png</texture>
+				</control>
+				<control type="list" id="1">
+					<top>50</top>
+					<left>20</left>
+					<width>65%</width>
+					<height>50</height>
+					<ondown>9</ondown>
+					<orientation>horizontal</orientation>
+					<itemlayout width="200" height="50">
+						<control type="group">
+							<control type="label">
+								<height>50</height>
+								<width>200</width>		
+								<label>$INFO[ListItem.Label]</label>
+								<align>center</align>
+								<aligny>center</aligny>
+								<font>Large</font>
+								<textcolor>$VAR[UnFocusedColor]</textcolor>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout width="200" height="50">
+						<control type="group">
+							<control type="label">
+								<height>50</height>
+								<width>200</width>		
+								<label>$INFO[ListItem.Label]</label>
+								<align>center</align>
+								<aligny>center</aligny>
+								<font>Large</font>
+								<textcolor>$VAR[UnFocusedColor]</textcolor>
+								<visible>!Control.HasFocus(1)</visible>
+							</control>
+							<control type="label">
+								<height>50</height>
+								<width>200</width>		
+								<label>$INFO[ListItem.Label]</label>
+								<align>center</align>
+								<aligny>center</aligny>
+								<font>LargeBold</font>
+								<textcolor>$VAR[FocusedColor]</textcolor>
+								<visible>Control.HasFocus(1)</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content>
+						<item id="1">
+							<label>$LOCALIZE[31022]</label>
+							<onclick>ActivateWindow(1107)</onclick>
+							<thumb>home/gapps.png</thumb>
+						</item>
+						<include>skinshortcuts-group-horizontal</include>
+						<include>SystemApps1</include>
+						<include>SystemApps2</include>
+					</content>
+				</control>
+			</control>
+			<control type="grouplist" id="9000">
+				<top>150</top>
+				<itemgap>0</itemgap>
+				<height>86%</height>
+				<usecontrolcoords>true</usecontrolcoords>				
+				<!--> Widgets <!-->
+				<control type="group">
+					<width>160%</width>
+					<height>500</height>
+					<control type="wraplist" id="9">
+						<left>-410</left>
+						<width>160%</width>
+						<height>500</height>
+						<onup>1</onup>
+						<ondown condition="!String.IsEmpty(Window(Home).Property(favourite.1.Path)) + Skin.HasSetting(enableFavourites)">101</ondown>
+						<ondown>10</ondown>
+						<focusposition>1</focusposition>
+						<include>HomeZoomAnimation3</include>
+						<viewtype>list</viewtype>
+						<orientation>horizontal</orientation>
+						<scrolltime tween="sine" easing="inout">240</scrolltime>
+						<itemlayout width="920" height="500">
+							<control type="group">
+								<control type="image">
+									<left>10</left>
+									<width>890</width>
+									<height>500</height>
+									<aspectratio>scale</aspectratio>
+									<texture>$INFO[ListItem.Art(fanart)]</texture>
+								</control>
+								<control type="image">
+									<left>10</left>
+									<width>890</width>
+									<height>500</height>
+									<texture colordiffuse="$VAR[DarkFade2]">color_white.png</texture>
+									<visible>!Control.HasFocus(9)</visible>
+								</control>
+							</control>
+						</itemlayout>
+						<focusedlayout width="920" height="500">
+							<control type="group">
+								<control type="image">
+									<left>10</left>
+									<width>890</width>
+									<height>500</height>
+									<aspectratio>scale</aspectratio>
+									<texture>$INFO[ListItem.Art(fanart)]</texture>
+								</control>
+								<control type="image">
+									<left>10</left>
+									<width>890</width>
+									<height>500</height>
+									<aspectratio>scale</aspectratio>
+									<texture colordiffuse="$VAR[BlackOnly]">views/fanart_gradient.png</texture>
+									<visible>Control.HasFocus(9)</visible>
+								</control>
+								<control type="textbox">
+									<left>40</left>
+									<bottom>0</bottom>
+									<height>500</height>
+									<width>550</width>		
+									<label>$INFO[ListItem.Label]</label>
+									<align>left</align>
+									<aligny>center</aligny>
+									<font>LargeLogo</font>
+									<textcolor>$VAR[FocusedColor2]</textcolor>
+									<visible>Control.HasFocus(9)</visible>
+								</control>
+								<control type="image">
+									<left>10</left>
+									<width>890</width>
+									<height>500</height>
+									<texture colordiffuse="$VAR[DarkFade2]">color_white.png</texture>
+									<visible>!Control.HasFocus(9)</visible>
+								</control>
+							</control>
+						</focusedlayout>
+						<content target="videos" limit="7">library://video/movies/recentlyaddedmovies.xml/</content>
+					</control>
+				</control>
+				<!--> Widget Favourites <!-->
+				<include content="WidgetTV">
+					<param name="listid" value="101"/>
+					<param name="upid" value="9"/>
+					<param name="downid" value="10"/>
+					<param name="favourites" value="true"/>
+				</include>
+				<!--> Widget 1-0 <!-->
+				<include content="WidgetTV">
+					<param name="listid" value="10"/>
+					<param name="widgetid" value="0"/>
+					<param name="upid" value="101"/>
+					<param name="upcondition" value="!String.IsEmpty(Window(Home).Property(favourite.1.Path)) + Skin.HasSetting(enableFavourites)"/>
+					<param name="upid2" value="9"/>
+					<param name="downid" value="11"/>
+				</include>
+				<!--> Widget 2-1 <!-->
+				<include content="WidgetTV">
+					<param name="listid" value="11"/>
+					<param name="widgetid" value="1"/>
+					<param name="upid" value="10"/>
+					<param name="downid" value="12"/>
+				</include>
+				<!--> Widget 3-2 <!-->
+				<include content="WidgetTV">
+					<param name="listid" value="12"/>
+					<param name="widgetid" value="2"/>
+					<param name="upid" value="11"/>
+					<param name="downid" value="13"/>
+				</include>
+				<!--> Widget 4-3 <!-->
+				<include content="WidgetTV">
+					<param name="listid" value="13"/>
+					<param name="widgetid" value="3"/>
+					<param name="upid" value="12"/>
+					<param name="downid" value="14"/>
+				</include>
+				<!--> Widget 5-4 <!-->
+				<include content="WidgetTV">
+					<param name="listid" value="14"/>
+					<param name="widgetid" value="4"/>
+					<param name="upid" value="13"/>
+					<param name="downid" value="15"/>
+				</include>
+				<!--> Widget 6-5 <!-->
+				<include content="WidgetTV">
+					<param name="listid" value="15"/>
+					<param name="widgetid" value="5"/>
+					<param name="upid" value="14"/>
+					<param name="downid" value="16"/>
+				</include>
+				<!--> Widget 7-6 <!-->
+				<include content="WidgetTV">
+					<param name="listid" value="16"/>
+					<param name="widgetid" value="6"/>
+					<param name="upid" value="15"/>
+					<param name="downid" value="17"/>
+				</include>
+				<!--> Widget 8-7 <!-->
+				<include content="WidgetTV">
+					<param name="listid" value="17"/>
+					<param name="widgetid" value="7"/>
+					<param name="upid" value="16"/>
+					<param name="downid" value="18"/>
+				</include>
+				<!--> Widget 9-8 <!-->
+				<include content="WidgetTV">
+					<param name="listid" value="18"/>
+					<param name="widgetid" value="8"/>
+					<param name="upid" value="17"/>
+					<param name="downid" value="19"/>
+				</include>
+				<!--> Widget 10-9 <!-->
+				<include content="WidgetTV">
+					<param name="listid" value="19"/>
+					<param name="widgetid" value="9"/>
+					<param name="upid" value="18"/>
+					<param name="downid" value="-"/>
+				</include>
+			</control>
+		</control>
+		<control type="group">
+			<visible>Player.HasVideo</visible>
+			<animation type="Conditional" condition="Window.Previous(fullscreenvideo) | Window.IsNext(fullscreenvideo)">
+				<effect type="slide" end="1000" start="0" time="500" tween="cubic" easing="inout" />
+				<effect type="fade" start="100" end="0" time="300" />
+			</animation>
+			<control type="image">
+				<right>50</right>
+				<bottom>50</bottom>
+				<width>533</width>
+				<height>300</height>
+				<texture colordiffuse="$VAR[BlackOnly]">color_white.png</texture>
+			</control>
+			<control type="videowindow">
+				<right>50</right>
+				<bottom>50</bottom>
+				<width>533</width>
+				<height>300</height>
+				<aspectratio>stretch</aspectratio>
+			</control>
+		</control>
+	</include>
+
 </includes>

@@ -4,7 +4,14 @@ Been working on this project for 3 months with no knowledge of how to code Kodi,
 
 [Donate for future projects](https://www.paypal.me/cubed2the3rd)
 
-### **1.5.5.8**
+### **1.5.5.9**
+- 27/5/19
+- UI Fixes
+- New TV Layout [Old TV Layout Renamed Dashboard]
+- Added Customizable Apps Button
+- Updated My Apps
+
+#### 1.5.5.8
 - New List View
 - New Player Controls/Shutdown
 - Update Last Apps

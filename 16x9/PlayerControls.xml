@@ -10,37 +10,44 @@
 			<texture colordiffuse="$VAR[BackgroundColor]">views/white_50.png</texture>
 		</control>
 
-		<control type="label">
-			<top>50</top>
-			<centerleft>50%</centerleft>
-			<width>1000</width>
-			<height>60</height>
-			<font>LargeLogoBold</font>
-			<align>center</align>
-			<textcolor>$VAR[TextColor]</textcolor>
-			<label>$INFO[System.Time(hh:mm)]</label>
+		<control type="group">
+			<animation type="WindowOpen">
+				<effect type="fade" start="0" end="100" tween="Cubic" easing="inout" time="400"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="fade" start="100" end="0" tween="Cubic" easing="inout" time="400"/>
+			</animation>
+			<control type="label">
+				<top>50</top>
+				<centerleft>50%</centerleft>
+				<width>1000</width>
+				<height>60</height>
+				<font>LargeLogoBold</font>
+				<align>center</align>
+				<textcolor>$VAR[TextColor]</textcolor>
+				<label>$INFO[System.Time(hh:mm)]</label>
+			</control>
+			<control type="label">
+				<top>100</top>
+				<centerleft>50%</centerleft>
+				<width>1000</width>
+				<height>60</height>
+				<font>Large</font>
+				<align>center</align>
+				<textcolor>$VAR[UnFocusedColor2]</textcolor>
+				<label>$INFO[System.Date]</label>
+			</control>
+			<control type="label">
+				<bottom>50</bottom>
+				<centerleft>50%</centerleft>
+				<width>100%</width>
+				<height>60</height>
+				<font>LargeLogo</font>
+				<align>center</align>
+				<textcolor>$VAR[TextColor]</textcolor>
+				<label>$INFO[MusicPlayer.Artist,, - ]$INFO[MusicPlayer.Title]</label>
+			</control>
 		</control>
-		<control type="label">
-			<top>100</top>
-			<centerleft>50%</centerleft>
-			<width>1000</width>
-			<height>60</height>
-			<font>Large</font>
-			<align>center</align>
-			<textcolor>$VAR[UnFocusedColor2]</textcolor>
-			<label>$INFO[System.Date]</label>
-		</control>
-		<control type="label">
-			<bottom>50</bottom>
-			<centerleft>50%</centerleft>
-			<width>100%</width>
-			<height>60</height>
-			<font>LargeLogo</font>
-			<align>center</align>
-			<textcolor>$VAR[TextColor]</textcolor>
-			<label>$INFO[MusicPlayer.Artist,, - ]$INFO[MusicPlayer.Title]</label>
-		</control>
-
 
 		<!--> Options <!-->
 		<control type="group">
@@ -351,6 +358,12 @@
 					</control>
 				</focusedlayout>
 				<content>
+					<item>
+						<label>$LOCALIZE[35232]</label>
+						<onclick>Dialog.Close(all,true)</onclick>
+						<onclick>Fullscreen</onclick>
+						<thumb>osd/home/fullscreen.png</thumb>
+					</item>
 					<item>
 						<label>$LOCALIZE[31059]</label>
 						<onclick>PlayerControl(Play)</onclick>

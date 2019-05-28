@@ -49,7 +49,7 @@
 					<focusposition>0</focusposition>
 					<movement>-1</movement>
 					<orientation>horizontal</orientation>
-					<viewtype label="31521">list</viewtype>
+					<viewtype label="31521">bigicon</viewtype>
 					<scrolltime tween="sine" easing="inout">400</scrolltime>
 					<visible>String.Contains(Container.Content,songs) | String.Contains(Container.Content,albums) + !Skin.ToggleSetting(disable521)</visible>
 					<itemlayout width="0" height="450">

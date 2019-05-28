@@ -61,6 +61,12 @@
 			<size>40</size>
 			<linespacing>0.65</linespacing>
 		</font>
+		<font>
+			<name>LargeBold</name>
+			<filename>SegoeWP-Bold.ttf</filename>
+			<size>40</size>
+			<linespacing>0.65</linespacing>
+		</font>
 
 		<font>
 			<name>LargeLogo</name>

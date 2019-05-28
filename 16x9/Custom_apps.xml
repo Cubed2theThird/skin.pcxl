@@ -135,7 +135,7 @@
 						<texture>$INFO[ListItem.Icon]</texture>
 					</control>
 				</itemlayout>
-				<focusedlayout height="230" width="230">
+				<focusedlayout height="270" width="230">
 					<control type="group">
 						<animation type="Focus">
 							<effect type="zoom" center="auto" start="100" end="110" time="200"/>
@@ -145,6 +145,16 @@
 						</animation>
 						<control type="image">
 							<width>220</width>
+							<height>270</height>
+							<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+						</control>
+						<control type="image">
+							<width>220</width>
+							<height>220</height>
+							<texture>$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<width>220</width>
 							<height>220</height>
 							<texture>$INFO[ListItem.Icon]</texture>
 						</control>
@@ -152,6 +162,14 @@
 							<width>220</width>
 							<height>220</height>
 							<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border.png</texture>
+						</control>
+						<control type="label">
+							<left>10</left>
+							<bottom>-10</bottom>
+							<width>220</width>
+        					<font>Tile</font>
+							<label>$INFO[ListItem.Label]</label>
+							<!--><label>$LOCALIZE[335]</label><!-->
 						</control>
 					</control>
 				</focusedlayout>
@@ -188,7 +206,7 @@
 						<texture>$INFO[ListItem.Icon]</texture>
 					</control>
 				</itemlayout>
-				<focusedlayout height="230" width="230">
+				<focusedlayout height="270" width="230">
 					<control type="group">
 						<animation type="Focus">
 							<effect type="zoom" center="auto" start="100" end="110" time="200"/>
@@ -198,6 +216,11 @@
 						</animation>
 						<control type="image">
 							<width>220</width>
+							<height>270</height>
+							<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+						</control>
+						<control type="image">
+							<width>220</width>
 							<height>220</height>
 							<texture>$INFO[ListItem.Icon]</texture>
 						</control>
@@ -205,6 +228,14 @@
 							<width>220</width>
 							<height>220</height>
 							<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border.png</texture>
+						</control>
+						<control type="label">
+							<left>10</left>
+							<bottom>-10</bottom>
+							<width>210</width>
+        					<font>Tile</font>
+							<label>$INFO[ListItem.Label]</label>
+							<!--><label>$LOCALIZE[335]</label><!-->
 						</control>
 					</control>
 				</focusedlayout>	
@@ -242,7 +273,7 @@
 						<texture>$INFO[ListItem.Icon]</texture>
 					</control>
 				</itemlayout>
-				<focusedlayout height="230" width="230">
+				<focusedlayout height="270" width="230">
 					<control type="group">
 						<animation type="Focus">
 							<effect type="zoom" center="auto" start="100" end="110" time="200"/>
@@ -252,6 +283,11 @@
 						</animation>
 						<control type="image">
 							<width>220</width>
+							<height>270</height>
+							<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+						</control>
+						<control type="image">
+							<width>220</width>
 							<height>220</height>
 							<texture>$INFO[ListItem.Icon]</texture>
 						</control>
@@ -259,6 +295,14 @@
 							<width>220</width>
 							<height>220</height>
 							<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border.png</texture>
+						</control>
+						<control type="label">
+							<left>10</left>
+							<bottom>-10</bottom>
+							<width>210</width>
+        					<font>Tile</font>
+							<label>$INFO[ListItem.Label]</label>
+							<!--><label>$LOCALIZE[335]</label><!-->
 						</control>
 					</control>
 				</focusedlayout>			
@@ -296,7 +340,7 @@
 						<texture>$INFO[ListItem.Icon]</texture>
 					</control>
 				</itemlayout>
-				<focusedlayout height="230" width="230">
+				<focusedlayout height="270" width="230">
 					<control type="group">
 						<animation type="Focus">
 							<effect type="zoom" center="auto" start="100" end="110" time="200"/>
@@ -306,6 +350,11 @@
 						</animation>
 						<control type="image">
 							<width>220</width>
+							<height>270</height>
+							<texture colordiffuse="$VAR[SecondaryColor]">color_white.png</texture>
+						</control>
+						<control type="image">
+							<width>220</width>
 							<height>220</height>
 							<texture>$INFO[ListItem.Icon]</texture>
 						</control>
@@ -313,6 +362,14 @@
 							<width>220</width>
 							<height>220</height>
 							<texture colordiffuse="$VAR[SecondaryColor]" border="11,43,43,11">views/border.png</texture>
+						</control>
+						<control type="label">
+							<left>10</left>
+							<bottom>-10</bottom>
+							<width>210</width>
+        					<font>Tile</font>
+							<label>$INFO[ListItem.Label]</label>
+							<!--><label>$LOCALIZE[335]</label><!-->
 						</control>
 					</control>
 				</focusedlayout>		

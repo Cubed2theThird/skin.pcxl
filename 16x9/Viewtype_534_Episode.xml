@@ -62,7 +62,7 @@
 					<focusposition>1</focusposition>
 					<orientation>vertical</orientation>
 					<scrolltime tween="sine" easing="inout">500</scrolltime>
-					<viewtype label="535">list</viewtype>
+					<viewtype label="31534">biginfo</viewtype>
 					<include>MediaInfoHideAnimation</include>
 					<visible>String.Contains(Container.Content, episodes) + !String.Contains(Container.FolderPath,plugin://plugin.video.netflix) + !Skin.ToggleSetting(disable534)</visible>
 					<animation type="WindowClose">

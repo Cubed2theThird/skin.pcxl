@@ -31,7 +31,7 @@
 					<focusposition>2</focusposition>
 					<movement>-1</movement>
 					<orientation>horizontal</orientation>
-					<viewtype label="31521">list</viewtype>
+					<viewtype label="31520">wrap</viewtype>
 					<scrolltime tween="sine" easing="inout">400</scrolltime>
 					<visible>String.Contains(Container.Content,songs) | String.Contains(Container.Content,albums) | String.Contains(Container.Content,artists) | String.Contains(Container.FolderPath,apps) + !Skin.ToggleSetting(disable520)</visible> 
 					<itemlayout width="400" height="450">

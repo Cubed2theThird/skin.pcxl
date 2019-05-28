@@ -153,7 +153,7 @@
 				<movement>-1</movement>
 				<preloaditems>2</preloaditems>
 				<orientation>horizontal</orientation>
-				<viewtype label="31530">list</viewtype>
+				<viewtype label="31531">info</viewtype>
 				<scrolltime tween="sine" easing="inout">360</scrolltime>
 				<visible>[String.Contains(Container.Content,movies) | String.Contains(Container.Content,tvshows) | String.Contains(Container.Content,seasons) | String.Contains(Container.Content,actors) | String.Contains(Container.Content,directors)] + !String.Contains(Container.FolderPath,plugin://plugin.video.netflix) + !Skin.ToggleSetting(disable531)</visible>
 				<itemlayout width="220" height="340">

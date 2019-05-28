@@ -138,6 +138,7 @@
 		<!--> Done <!-->
 		<value condition="String.IsEmpty(Skin.String(DashboardToggle))">Retroarch</value>
 		<value condition="String.Contains(Skin.String(DashboardToggle),TV)">TV</value>
+		<value condition="String.Contains(Skin.String(DashboardToggle),Dashboard)">Dashboard</value>
 		<value condition="String.Contains(Skin.String(DashboardToggle),Game)">Game</value>
 		<value condition="String.Contains(Skin.String(DashboardToggle),Android)">Android</value>
 		<value condition="String.Contains(Skin.String(DashboardToggle),Netflix)">Netflix</value>
@@ -145,6 +146,8 @@
 		<value condition="String.Contains(Skin.String(DashboardToggle),Horizontal)">Horizontal</value>
 		<value condition="String.Contains(Skin.String(DashboardToggle),Retroarch)">Retroarch</value>
 		<value condition="String.Contains(Skin.String(DashboardToggle),Minimal)">Minimal</value>
+		<!--> WIP <!-->
+		<value condition="String.Contains(Skin.String(DashboardToggle),Smart)">Hybrid</value>
 		<!--> Kiosk Mode <!-->
 		<value condition="String.Contains(Skin.String(DashboardToggle),Demo)">Demo</value>
 	</variable>

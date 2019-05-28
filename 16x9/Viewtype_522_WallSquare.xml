@@ -25,7 +25,7 @@
 					<focusposition>0</focusposition>
 					<movement>-1</movement>
 					<orientation>vertical</orientation>
-					<viewtype>Icon</viewtype>
+					<viewtype label="31522">biglist</viewtype>
 					<scrolltime tween="sine" easing="inout">400</scrolltime>
 					<visible>String.Contains(Container.Content,songs) | String.Contains(Container.Content,albums) | String.Contains(Container.Content,artists) + !Skin.ToggleSetting(disable522)</visible>
 					<itemlayout width="380" height="380">

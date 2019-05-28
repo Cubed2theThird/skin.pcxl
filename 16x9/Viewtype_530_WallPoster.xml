@@ -26,7 +26,7 @@
 				<pagecontrol>60</pagecontrol>
 				<preloaditems>2</preloaditems>
 				<orientation>vertical</orientation>
-				<viewtype>list</viewtype>
+				<viewtype label="31530">biglist</viewtype>
 				<scrolltime tween="sine" easing="inout">360</scrolltime>
 				<visible>[String.Contains(Container.Content,movies) | String.Contains(Container.Content,tvshows) | String.Contains(Container.Content,actors) | String.Contains(Container.Content,seasons) | String.Contains(Container.Content,directors) | String.Contains(Container.FolderPath,plugin://plugin.video.twitch/?mode=games)] + !String.Contains(Container.FolderPath,plugin://plugin.video.netflix) + !Skin.ToggleSetting(disable530)</visible>
 				<itemlayout width="270" height="405">

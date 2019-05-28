@@ -1,6 +1,13 @@
 # skin.pcxl
 
-### **1.5.5.8**
+### **1.5.5.9**
+- 27/5/19
+- UI Fixes
+- New TV Layout [Old TV Layout Renamed Dashboard]
+- Added Customizable Apps Button
+- Updated My Apps
+
+#### 1.5.5.8
 - New List View
 - New Player Controls/Shutdown
 - Update Last Apps
