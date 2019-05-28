@@ -5571,7 +5571,7 @@
 				<control type="list" id="1">
 					<top>50</top>
 					<left>20</left>
-					<width>65%</width>
+					<width>63%</width>
 					<height>50</height>
 					<ondown>9</ondown>
 					<orientation>horizontal</orientation>
@@ -5625,18 +5625,18 @@
 				</control>
 			</control>
 			<control type="grouplist" id="9000">
-				<top>150</top>
+				<top>130</top>
 				<itemgap>0</itemgap>
-				<height>86%</height>
+				<height>88%</height>
 				<usecontrolcoords>true</usecontrolcoords>				
 				<!--> Widgets <!-->
 				<control type="group">
 					<width>160%</width>
-					<height>500</height>
+					<height>550</height>
 					<control type="wraplist" id="9">
-						<left>-410</left>
+						<top>30</top>
+						<left>-411</left>
 						<width>160%</width>
-						<height>500</height>
 						<onup>1</onup>
 						<ondown condition="!String.IsEmpty(Window(Home).Property(favourite.1.Path)) + Skin.HasSetting(enableFavourites)">101</ondown>
 						<ondown>10</ondown>
@@ -5644,7 +5644,7 @@
 						<include>HomeZoomAnimation3</include>
 						<viewtype>list</viewtype>
 						<orientation>horizontal</orientation>
-						<scrolltime tween="sine" easing="inout">240</scrolltime>
+						<scrolltime tween="sine" easing="inout">500</scrolltime>
 						<itemlayout width="920" height="500">
 							<control type="group">
 								<control type="image">
@@ -5804,8 +5804,8 @@
 				<width>533</width>
 				<height>300</height>
 				<aspectratio>stretch</aspectratio>
+				<onclick>Fullscreen</onclick>
 			</control>
 		</control>
 	</include>
-
 </includes>

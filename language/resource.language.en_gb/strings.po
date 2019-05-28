@@ -28,7 +28,7 @@ msgstr ""
 #All labels
 
 msgctxt "#31999"
-msgid "Version 1.5.5.8 Leia Beta"
+msgid "Version 1.5.5.91 Leia Beta"
 
 #Custom_Setup.xml
 msgctxt "#31000"
@@ -409,7 +409,7 @@ msgctxt "#31072"
 msgid "Hidden Options"
 
 msgctxt "#31088"
-msgid "Hide Labels"
+msgid "Hide catagory labels"
 
 #Game Views
 msgctxt "#31073"

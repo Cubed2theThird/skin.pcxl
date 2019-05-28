@@ -4,7 +4,11 @@ Been working on this project for 3 months with no knowledge of how to code Kodi,
 
 [Donate for future projects](https://www.paypal.me/cubed2the3rd)
 
-### **1.5.5.9**
+### **1.5.5.91**
+- 28/5/19
+- UI Fixes
+
+#### 1.5.5.9
 - 27/5/19
 - UI Fixes
 - New TV Layout [Old TV Layout Renamed Dashboard]

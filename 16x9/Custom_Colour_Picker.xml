@@ -479,6 +479,13 @@
 									<onclick>Skin.Setstring(DashboardToggle,Netflix)</onclick>
 									<onclick>SetFocus(1)</onclick>
 								</item>
+								<item id="99">
+									<label>$LOCALIZE[31405]</label>
+									<label2>Smart</label2>
+									<onclick>Skin.Setstring(DashboardToggle,Smart)</onclick>
+									<onclick>SetFocus(1)</onclick>
+									<visible>false</visible>
+								</item>
 								<!--<item id="10">
 									<label>$LOCALIZE[31045]</label>
 									<onclick>Skin.Setstring(DashboardToggle, Demo)</onclick>
@@ -1298,7 +1305,7 @@
 									<include>DialogButton</include>
 									<onclick>Skin.ToggleSetting(ShowLabels)</onclick>
 									<selected>Skin.HasSetting(ShowLabels)</selected>
-									<visible>![Skin.String(DashboardToggle, Retroarch)|Skin.String(DashboardToggle, Game)|Skin.String(DashboardToggle, TV)|Skin.String(DashboardToggle, Minimal)]</visible>
+									<visible>![Skin.String(DashboardToggle, Retroarch)|Skin.String(DashboardToggle, Game)|Skin.String(DashboardToggle, Dashboard)|Skin.String(DashboardToggle, Minimal)]</visible>
 								</control>
 								<!-- Enable Showcase -->
 								<control type="radiobutton" id="311">
