@@ -173,10 +173,10 @@
 						</control>
 					</control>
 				</focusedlayout>
+				<include>Android</include>
 				<content>
 					<include>AllApps</include>
 				</content>
-				<include>Android</include>
 			</control>
 
 			<!--> Video Apps <!-->
